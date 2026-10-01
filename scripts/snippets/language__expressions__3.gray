@@ -1,0 +1,19 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const Person struct {
+    name   string
+    age    i64
+    active bool
+}
+
+do main() {
+    mut a Point = Point{x: 10, y: 20}
+    mut b Person = Person{name: "Alice", age: 30, active: true}
+    mut c Point = Point{}  // Zero-initialized
+    println(a)
+    println(b)
+    println(c)
+}

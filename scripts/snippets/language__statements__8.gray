@@ -1,0 +1,6 @@
+
+do main() {
+for_each i, ch in "hello" {
+    println("${i}: ${ch}")
+}
+}

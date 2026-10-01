@@ -1,0 +1,10 @@
+// q^ dereference has no nil-check — if q were nil, behavior is undefined
+
+do main() {
+const x i64 = 42
+mut p = raw(x)
+p^ = 99           // allowed — raw() bypasses const-source protection
+println(p^)        // 99
+
+mut q ^i64 = raw(x)
+}

@@ -1,0 +1,13 @@
+const Node struct {
+    val i64
+    self_ptr ^i64
+}
+
+do main() {
+
+mut n Node = Node{val: 1}
+n.self_ptr = addr(n.val)
+mut n2 = copy(n)
+n2.val = 999
+println(n2.self_ptr^)  // 1, not 999 - still aliases n.val
+}

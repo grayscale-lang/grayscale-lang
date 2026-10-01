@@ -1,0 +1,6 @@
+import @math
+using math
+
+do main() {
+    println(sqrt(16.0))
+}

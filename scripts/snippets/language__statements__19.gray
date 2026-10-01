@@ -1,0 +1,17 @@
+const Direction enum {
+    NORTH
+    EAST
+    SOUTH
+    WEST
+}
+
+do main() {
+    mut direction Direction = .NORTH
+    #strict
+    when direction {
+        is Direction.NORTH { println("north") }
+        is Direction.EAST { println("east") }
+        is Direction.SOUTH { println("south") }
+        is Direction.WEST { println("west") }
+    }
+}

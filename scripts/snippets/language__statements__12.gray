@@ -1,0 +1,12 @@
+do main() {
+    mut count i64 = 0
+    as_long_as count < 10 {
+        count++
+    }
+
+    // Equivalent, using while (don't mix with as_long_as in one file):
+    // while count < 10 {
+    //     count++
+    // }
+    println(count)
+}

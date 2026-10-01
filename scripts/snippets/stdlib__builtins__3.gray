@@ -1,0 +1,11 @@
+// Embed a file at file scope, baked into the binary at compile time
+// const LICENSE string = embed("../../LICENSE")
+// const DEFAULT_CONFIG string = embed("config/defaults.json")
+
+// do main() {
+//     // Also valid inside a function
+//     const shader string = embed("shaders/vertex.glsl")
+//     println(LICENSE)
+// }
+
+do main() {}

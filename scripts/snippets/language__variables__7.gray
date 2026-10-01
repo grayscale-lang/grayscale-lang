@@ -1,0 +1,17 @@
+import @io
+
+do main() {
+    // Correct: handle the error
+    mut content, err = io.read_file("data.txt")
+    if err != nil {
+        println(err)
+    }
+
+    // Correct: explicitly discard the error when you know it won't fail
+    mut other, _ = io.read_file("data.txt")
+
+    // Wrong: single-var assignment from a fallible function
+    // mut third = io.read_file("data.txt")  // error[E3089]: use destructuring for fallible functions
+    println(content)
+    println(other)
+}

@@ -1,0 +1,7 @@
+const Point struct { x i64; y i64 }
+const Color enum { RED; GREEN; BLUE }
+do add(a i64, b i64) -> i64 { mut sum i64 = a + b; return sum }
+
+do main() {
+
+}

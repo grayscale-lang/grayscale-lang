@@ -1,0 +1,5 @@
+do main() {
+    for_each item in {"a", "b", "c"} {
+        println(item)
+    }
+}

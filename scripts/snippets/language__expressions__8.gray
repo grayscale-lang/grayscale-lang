@@ -1,0 +1,12 @@
+
+do main() {
+mut arr [i64] = {10, 20, 30}
+mut val i64 = arr[1]  // 20
+arr[0] = 100  // Modification
+
+mut str string = "hello"
+mut c char = str[0]  // 'h'
+
+mut m map[string:i64] = {"a": 1}
+mut v i64 = m["a"]  // 1
+}

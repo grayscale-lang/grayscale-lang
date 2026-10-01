@@ -1,0 +1,7 @@
+
+do main() {
+mut small i64 = 42
+mut large i64 = 9223372036854775807   // max i64
+mut count u64 = 18446744073709551615  // max u64
+mut flags u8 = 0xFF
+}

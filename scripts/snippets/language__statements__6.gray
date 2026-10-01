@@ -1,0 +1,7 @@
+
+do main() {
+mut items [string] = {"a", "b", "c"}
+for_each item in items {
+    println(item)
+}
+}

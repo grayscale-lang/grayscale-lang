@@ -1,0 +1,19 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+do make(T <?>) -> ^? {
+    return new(T)
+}
+
+do make_stack(T <?>) -> ? {
+    return T{}
+}
+
+do main() {
+    mut p = make(Point)          // -> ^Point
+    mut s = make_stack(Point)    // -> Point
+    println(p)
+    println(s)
+}

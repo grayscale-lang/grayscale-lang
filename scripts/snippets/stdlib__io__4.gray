@@ -1,0 +1,15 @@
+import @io
+
+// Given project layout:
+//   project/
+//     main.gray
+//     src/cli.gray
+//     data/config.json
+
+// Running from project/:  gray main.gray
+// All of these resolve from project/, regardless of which .gray file calls them:
+do main() {
+    mut a, _ = io.read_file("data/config.json")      // project/data/config.json
+    mut b, _ = io.read_file("./data/config.json")    // same thing
+    mut c, _ = io.read_file("/etc/hosts")            // absolute path, unaffected by cwd
+}

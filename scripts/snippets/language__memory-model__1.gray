@@ -1,0 +1,12 @@
+import @strings
+
+do process(name string) {
+    mut upper = strings.to_upper(name)    // allocated in this scope
+    mut parts = strings.split(upper, ",") // allocated in this scope
+    println(parts[0])
+}
+// function ends -> upper and parts are freed
+
+do main() {
+    process("a,b")
+}

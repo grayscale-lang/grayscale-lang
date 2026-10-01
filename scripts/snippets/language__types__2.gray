@@ -1,0 +1,6 @@
+alias int = i64
+alias uint = u64
+alias float = f64
+alias byte = u8
+
+do main() {}

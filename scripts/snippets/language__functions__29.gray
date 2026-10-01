@@ -1,0 +1,9 @@
+import @json
+
+#json
+const User struct {
+    name string `json:"Name"`
+    age  i64    `json:"Age"`
+}
+
+do main() {}

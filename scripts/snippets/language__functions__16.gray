@@ -1,0 +1,13 @@
+const Foo struct {
+    n i64
+}
+
+do something() -> ^Foo {
+    mut f = new(Foo)
+    return f
+}
+
+do main() {
+    mut f = something()^   // dereference at call site, f is Foo, not ^Foo
+    println(f)
+}

@@ -1,0 +1,9 @@
+do main() {
+    loop {
+        mut line string = input()
+        if line == "quit" {
+            break
+        }
+        println("You said: ${line}")
+    }
+}

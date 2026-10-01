@@ -1,0 +1,10 @@
+do main() {
+    mut x i64 = 0
+    if x < 0 {
+        println("negative")
+    } or x == 0 {
+        println("zero")
+    } otherwise {
+        println("positive")
+    }
+}

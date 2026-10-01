@@ -1,0 +1,6 @@
+
+do main() {
+{1, 2, 3}
+{"a", "b", "c"}
+{}   // Empty array (not to be confused with {:} which is an empty map)
+}

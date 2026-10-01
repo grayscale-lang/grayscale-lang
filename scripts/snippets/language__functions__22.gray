@@ -1,0 +1,9 @@
+do first(arr [?]) -> ? {     // OK: unnamed wildcard return
+    return arr[0]
+}
+
+// do first(arr [?]) -> (result ?) { ... }   // Error: wildcard type '?' cannot be named
+
+do main() {
+    println(first({1, 2, 3}))
+}

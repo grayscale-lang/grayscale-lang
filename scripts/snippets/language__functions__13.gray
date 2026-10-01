@@ -1,0 +1,15 @@
+const Vec struct {
+    x i64
+    y i64
+
+    do scale(self Vec, factor i64) -> Vec {
+        return Vec{x: self.x * factor, y: self.y * factor}
+    }
+}
+
+do main() {
+
+mut v = Vec{x: 2, y: 3}
+mut scaled = v.scale(factor: 5)        // instance dispatch: name non-self params
+mut also = Vec.scale(self: v, factor: 5)  // static dispatch: name all params
+}

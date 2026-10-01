@@ -1,0 +1,10 @@
+const Foobar enum {
+    BAZ = 10    // 10
+    QUX         // 11
+    QUUX = 50   // 50
+    CORGE       // 51
+}
+
+do main() {
+
+}

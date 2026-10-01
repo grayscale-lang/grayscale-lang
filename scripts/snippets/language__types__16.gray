@@ -1,0 +1,4 @@
+
+do main() {
+const fixed [i64, 3] = {10, 20, 30}
+}

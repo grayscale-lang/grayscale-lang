@@ -1,0 +1,20 @@
+const Shape enum {
+    Circle(f64)
+    Rect(f64, f64)
+    Point
+}
+
+do main() {
+    mut shape Shape = Shape.Circle(3.14)
+    when shape {
+        is Shape.Circle(radius) {
+            println("Circle with radius ${radius}")
+        }
+        is Shape.Rect(w, h) {
+            println("Rectangle ${w} x ${h}")
+        }
+        is Shape.Point {
+            println("Just a point")
+        }
+    }
+}

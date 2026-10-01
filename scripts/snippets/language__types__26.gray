@@ -1,0 +1,11 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+do main() {
+    mut origin Point = Point{x: 0, y: 0}
+    mut p Point = Point{}  // Zero-initialized: x=0, y=0
+    println(origin)
+    println(p)
+}

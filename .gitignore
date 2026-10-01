@@ -21,5 +21,8 @@ pnpm-debug.log*
 .DS_Store
 
 # Generated docs content (built from STANDARD.md at build time)
-src/content/docs/
+src/content/docs/overview.md
+src/content/docs/language/
+src/content/docs/stdlib/
+src/content/docs/cli/
 src/data/errors.json

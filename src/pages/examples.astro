@@ -14,10 +14,10 @@ const examples = [
     title: 'Variables and Types',
     description: 'Mutable and constant declarations',
     code: `do main() {
-    mut count int = 0
-    const MAX int = 100
+    mut count i64 = 0
+    const MAX i64 = 100
     mut name string = "Grayscale"
-    mut pi float = 3.14159
+    mut pi f64 = 3.14159
 
     count = count + 1
     println("count = \${count}, MAX = \${MAX}")
@@ -27,9 +27,9 @@ const examples = [
   {
     title: 'Functions and Multiple Returns',
     description: 'Functions can return multiple values',
-    code: `do divide(a float, b float) -> (float, Error) {
+    code: `do divide(a f64, b f64) -> (f64, Error) {
     if b == 0.0 {
-        return 0.0, error("division by zero")
+        return 0.0, error(.Unknown, "division by zero")
     }
     return a / b, nil
 }
@@ -38,7 +38,7 @@ do main() {
     mut result, err = divide(10.0, 3.0)
     if err != nil {
         eprintln("Error: \${err}")
-        return
+        exit(1)
     }
     println("Result: \${result}")
 }`,
@@ -46,11 +46,13 @@ do main() {
   {
     title: 'Structs',
     description: 'Custom data types with functions',
-    code: `const Point struct {
-    x float
-    y float
+    code: `import @math
 
-    do distance(self Point, other Point) -> float {
+const Point struct {
+    x f64
+    y f64
+
+    do distance(self Point, other Point) -> f64 {
         mut dx = self.x - other.x
         mut dy = self.y - other.y
         return math.sqrt(dx * dx + dy * dy)
@@ -58,8 +60,8 @@ do main() {
 }
 
 do main() {
-    mut a = new Point { x: 0.0, y: 0.0 }
-    mut b = new Point { x: 3.0, y: 4.0 }
+    mut a = Point { x: 0.0, y: 0.0 }
+    mut b = Point { x: 3.0, y: 4.0 }
     println("Distance: \${a.distance(b)}")
 }`,
   },
@@ -78,11 +80,12 @@ do describe(s Shape) -> string {
         is Shape.SQUARE { return "four sides" }
         is Shape.TRIANGLE { return "three sides" }
     }
+    return ""
 }
 
 do main() {
     mut s = Shape.CIRCLE
-    println("\${s}: \${describe(s)}")
+    println("\${describe(s)}")
 }`,
   },
   {
@@ -91,15 +94,15 @@ do main() {
     code: `import @arrays
 
 do main() {
-    mut numbers [int] = [3, 1, 4, 1, 5, 9, 2, 6]
+    mut numbers [i64] = {3, 1, 4, 1, 5, 9, 2, 6}
 
-    arrays.sort(numbers)
+    arrays.append(numbers, 7)
 
     for_each n in numbers {
         println(n)
     }
 
-    mut sum int = 0
+    mut sum i64 = 0
     for i in range(0, len(numbers)) {
         sum += numbers[i]
     }
@@ -109,10 +112,8 @@ do main() {
   {
     title: 'Maps',
     description: 'Key-value data structures',
-    code: `import @maps
-
-do main() {
-    mut scores map[string:int] = {
+    code: `do main() {
+    mut scores map[string:i64] = {
         "alice": 95,
         "bob": 87,
         "charlie": 92
@@ -123,8 +124,6 @@ do main() {
     for_each name, score in scores {
         println("\${name}: \${score}")
     }
-
-    println("Has alice? \${maps.contains(scores, "alice")}")
 }`,
   },
   {
@@ -132,8 +131,8 @@ do main() {
     description: 'Embed expressions in strings',
     code: `do main() {
     mut name string = "world"
-    mut x int = 42
-    mut items [string] = ["a", "b", "c"]
+    mut x i64 = 42
+    mut items [string] = {"a", "b", "c"}
 
     println("Hello, \${name}!")
     println("The answer is \${x}")
@@ -146,20 +145,20 @@ do main() {
     description: 'A simple HTTP server with routing',
     code: `import @server
 
-do handle_hello(ctx server.Context) {
-    server.send_text(ctx, 200, "Hello from Grayscale!")
+do home(req HttpRequest) -> HttpResponse {
+    return server.text(200, "Hello from Grayscale!")
 }
 
-do handle_json(ctx server.Context) {
-    server.send_json(ctx, 200, "{\\"status\\": \\"ok\\"}")
+do status(req HttpRequest) -> HttpResponse {
+    return server.json(200, "{\\"status\\": \\"ok\\"}")
 }
 
 do main() {
-    mut s = server.create(8080)
-    server.get(s, "/hello", ()handle_hello)
-    server.get(s, "/api/status", ()handle_json)
+    mut r = server.add_router()
+    server.add_route(r, "GET", "/hello", ()home)
+    server.add_route(r, "GET", "/api/status", ()status)
     println("Listening on :8080")
-    server.listen(s)
+    server.listen(r, 8080)
 }`,
   },
   {
@@ -168,18 +167,16 @@ do main() {
     code: `import @io
 
 do main() {
-    // Write a file
-    mut write_err = io.write_file("hello.txt", "Hello from Grayscale!")
+    _, write_err = io.write_file("hello.txt", "Hello from Grayscale!")
     if write_err != nil {
         eprintln("Write error: \${write_err}")
-        return
+        exit(1)
     }
 
-    // Read it back
     mut content, read_err = io.read_file("hello.txt")
     if read_err != nil {
         eprintln("Read error: \${read_err}")
-        return
+        exit(1)
     }
 
     println(content)

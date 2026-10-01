@@ -1,0 +1,5 @@
+// import "./helpers.gray"      // explicit file import
+// import "./helpers"          // resolves to helpers.gray (file) or helpers/ (directory)
+// import "./models"           // models/ directory, all .gray files merge
+
+do main() {}

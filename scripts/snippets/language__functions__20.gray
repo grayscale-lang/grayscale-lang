@@ -1,0 +1,10 @@
+do get_info() -> (name, city string, age i64) {
+    mut name string = "Alice"
+    mut city string = "NYC"
+    mut age i64 = 30
+    return name, city, age
+}
+
+do main() {
+
+}

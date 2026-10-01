@@ -1,0 +1,6 @@
+import @math
+extern import "stdio.h"
+
+do main() {
+
+}

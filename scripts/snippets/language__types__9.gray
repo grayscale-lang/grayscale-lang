@@ -1,0 +1,12 @@
+
+do main() {
+mut a i128 = i128(42)
+mut b i128 = i128(100)
+mut c i128 = a + b          // i128 addition
+println(c)                   // prints "142"
+println(type_of(c))          // "i128"
+println(size_of(i128))       // 16
+
+mut x i64 = cast(c, i64)           // cast back to i64
+mut s string = string(c)     // convert to string
+}

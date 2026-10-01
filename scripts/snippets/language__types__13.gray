@@ -1,0 +1,8 @@
+
+do main() {
+mut x i64 = 10
+mut p1 = addr(x)
+mut p2 = addr(x)
+p1^ = 99
+println(p2^)    // 99 — p1 and p2 point to the same variable
+}

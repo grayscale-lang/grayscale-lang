@@ -1,0 +1,11 @@
+
+// Long form is also valid:
+
+do main() {
+mut ages [string:i64] = {
+    "alice": 30,
+    "bob": 25
+}
+mut empty [string:i64] = {:}  // Empty map
+mut scores map[string:i64] = {"math": 95}
+}

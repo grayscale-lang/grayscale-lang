@@ -1,0 +1,32 @@
+---
+import { Code } from 'astro-expressive-code/components';
+
+interface Props {
+  code: string;
+  fontSize?: string;
+  bordered?: boolean;
+}
+
+const { code, fontSize = '0.9rem', bordered = true } = Astro.props;
+---
+
+<div class:list={['code-block', { bordered }]} style={`--code-font-size: ${fontSize};`}>
+  <Code code={code} lang="gray" frame="none" />
+</div>
+
+<style>
+  .code-block.bordered {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .code-block :global(.expressive-code) {
+    --ec-codeFontSize: var(--code-font-size);
+  }
+
+  .code-block :global(.expressive-code),
+  .code-block :global(.expressive-code pre) {
+    margin: 0;
+  }
+</style>

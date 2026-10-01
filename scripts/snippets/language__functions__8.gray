@@ -1,0 +1,6 @@
+do bar(a i64, b i64 = 10) {}   // OK: required first, then default
+// do foo(a i64 = 10, b i64) {}   // error: required parameter cannot follow a default parameter
+
+do main() {
+    bar(1)
+}

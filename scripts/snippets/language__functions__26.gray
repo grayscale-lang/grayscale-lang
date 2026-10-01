@@ -1,0 +1,17 @@
+import @json
+
+#doc("A person with a name and age")
+#json
+const Person struct {
+    name string
+    age i64
+}
+
+// Equivalent, using the single-line container form:
+#[doc("A person with a name and age"), json]
+const Employee struct {
+    name string
+    age i64
+}
+
+do main() {}

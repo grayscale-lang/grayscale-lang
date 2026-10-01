@@ -1,0 +1,13 @@
+// Basic operations
+
+do main() {
+mut a i64 = 0b1010
+mut b i64 = 0b1100
+
+println(a bit_and b)          // 8  (0b1000)
+println(a bit_or  b)          // 14 (0b1110)
+println(a bit_xor b)          // 6  (0b0110)
+println(bit_not a)            // -11 (bitwise complement)
+println(1 bit_shift_left  3)  // 8
+println(16 bit_shift_right 1) // 8
+}

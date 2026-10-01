@@ -1,0 +1,12 @@
+import @arrays
+
+do main() {
+    mut numbers [i64] = {1, 2, 3}
+    mut lookup map[string:i64] = {"a": 1}
+    mut x i64 = 5
+
+    if 3 in numbers { println("3 in numbers") }
+    if "key" not_in lookup { println("key not in lookup") }
+    if x in range(0, 10) { println("x in range") }
+    // if 10 !in range(0, 10) { }  // '!in' is shorthand for not_in (don't mix them in one file)
+}

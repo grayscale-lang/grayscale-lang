@@ -1,0 +1,7 @@
+do double(n i64) -> i64 { return n * 2 }
+
+do main() {
+    const f = ()double
+    println(f(5))          // 10, call through variable
+    println(()double(5))   // 10, inline: create reference and call immediately
+}

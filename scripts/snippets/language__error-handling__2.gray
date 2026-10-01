@@ -1,0 +1,17 @@
+import @io
+
+do read_file(path string) -> (string, Error) {
+    if !io.file_exists(path) {
+        return "", error(.NotFound, "file not found")
+    }
+    return "contents", nil
+}
+
+do main() {
+    mut contents, err = read_file("data.txt")
+    if err != nil {
+        println(err)
+    } otherwise {
+        println(contents)
+    }
+}

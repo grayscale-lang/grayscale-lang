@@ -1,0 +1,16 @@
+const Node struct {
+    val  i64
+    next ^Node
+}
+
+do main() {
+    mut a = new(Node)
+    mut b = new(Node)
+    a.val  = 1
+    b.val  = 2
+    a.next = b
+
+    println(a.val)        // 1
+    println(a.next.val)   // 2, implicit dereference
+    println(a.next^.val)  // 2, explicit dereference (also valid)
+}

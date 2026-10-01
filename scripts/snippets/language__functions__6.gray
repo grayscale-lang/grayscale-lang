@@ -1,0 +1,8 @@
+do greet(name string = "World") -> string {
+    return "Hello, ${name}!"
+}
+
+do main() {
+    println(greet())         // "Hello, World!"
+    println(greet("Alice"))  // "Hello, Alice!"
+}

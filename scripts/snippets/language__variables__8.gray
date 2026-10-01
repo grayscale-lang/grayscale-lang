@@ -1,0 +1,18 @@
+import @json
+
+do get_pair() -> (i64, i64) { return 1, 2 }
+do get_triple() -> (i64, i64, i64) { return 1, 2, 3 }
+
+do main() {
+    // Discard the second return value
+    mut value, _ = get_pair()
+
+    // Discard multiple values
+    const _, middle, _ = get_triple()
+
+    // Discard error intentionally
+    mut text string = "1"
+    mut data, _ = json.decode(text)
+    println(value)
+    println(middle)
+}

@@ -1,5 +1,33 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+
+const heroCode = `#flags
+const Permissions enum {
+    READ
+    WRITE
+    EXECUTE
+}
+
+const User struct {
+    name string
+    perms i64
+
+    do can(self User, flag i64) -> bool {
+        return (self.perms bit_and flag) != 0
+    }
+}
+
+do main() {
+    mut admin = User {
+        name: "admin",
+        perms: Permissions.READ bit_or Permissions.WRITE
+    }
+
+    if admin.can(Permissions.WRITE) {
+        println("\${admin.name} has write access")
+    }
+}`;
 ---
 
 <StarlightPage
@@ -10,7 +38,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
     <section class="hero">
       <img src="/logo.png" alt="Grayscale" class="hero-logo" />
       <h1>Grayscale</h1>
-      <p class="tagline">A statically-typed compiled programming language. Inspired by C, Odin, Rust, and Go.</p>
+      <p class="tagline">Simple to write. Safe to run.</p>
       <div class="hero-actions">
         <a href="/overview/" class="button primary">Get Started</a>
         <a href="/downloads/" class="button secondary">Download</a>
@@ -19,34 +47,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
     </section>
 
     <section class="code-example">
-      <div class="code-block">
-        <pre><code>#flags
-const Permissions enum &#123;
-    READ
-    WRITE
-    EXECUTE
-&#125;
-
-const User struct &#123;
-    name string
-    perms int
-
-    do can(self User, flag int) -&gt; bool &#123;
-        return (self.perms bit_and flag) != 0
-    &#125;
-&#125;
-
-do main() &#123;
-    mut admin = User &#123;
-        name: "admin",
-        perms: Permissions.READ bit_or Permissions.WRITE
-    &#125;
-
-    if admin.can(Permissions.WRITE) &#123;
-        println("$&#123;admin.name&#125; has write access")
-    &#125;
-&#125;</code></pre>
-      </div>
+      <CodeBlock code={heroCode} />
     </section>
 
     <section class="features">
@@ -166,21 +167,6 @@ do main() &#123;
 
   .code-example {
     margin: 2rem 0 3rem;
-  }
-
-  .code-block {
-    background: var(--sl-color-gray-6);
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    overflow-x: auto;
-  }
-
-  .code-block pre {
-    margin: 0;
-    font-family: var(--sl-font-mono);
-    font-size: 0.9rem;
-    line-height: 1.6;
   }
 
   .features {

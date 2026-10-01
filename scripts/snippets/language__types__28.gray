@@ -1,0 +1,8 @@
+const Point struct {
+    x, y i64 = 0
+    z i64 = 1
+}
+
+do main() {
+
+}

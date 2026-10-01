@@ -1,0 +1,9 @@
+do main() {
+    const x i64 = 42
+    mut p = addr(x)
+    println(p^)     // 42 — reading is allowed
+    // p^ = 99         // ERROR — writing through a const-sourced pointer
+    mut q = p
+    // q^ = 99         // ERROR — const origin propagates through assignment
+    println(q^)
+}

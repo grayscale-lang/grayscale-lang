@@ -1,0 +1,9 @@
+
+do main() {
+mut x i64 = 42
+mut p ^i64 = addr(x)
+println(p)   // 0x16d1ab9f8, prints the address as hex
+println(p^)  // 42, explicit dereference reads the pointee
+p^ = 100
+println(x)   // 100
+}

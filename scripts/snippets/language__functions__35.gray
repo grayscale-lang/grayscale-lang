@@ -1,0 +1,19 @@
+do add(a i64, b i64) -> i64 {
+    return a + b
+}
+
+#test
+do test_add() {
+    assert(add(2, 3) == 5)
+    assert(add(-1, 1) == 0)
+}
+
+#doc("Verifies the zero case")
+#test
+do test_add_zero() {
+    assert(add(0, 0) == 0)
+}
+
+do main() {
+
+}

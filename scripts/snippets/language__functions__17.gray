@@ -1,0 +1,8 @@
+do divide(a, b i64) -> (i64, i64) {
+    return a / b, a % b
+}
+
+do main() {
+
+mut quotient, remainder = divide(17, 5)
+}

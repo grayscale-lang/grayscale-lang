@@ -1,0 +1,18 @@
+---
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+---
+
+<a href="/overview/" class="docs-link">Docs</a>
+<Default><slot /></Default>
+
+<style>
+  .docs-link {
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .docs-link:hover {
+    color: var(--sl-color-white);
+  }
+</style>

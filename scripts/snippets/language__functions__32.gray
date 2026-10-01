@@ -1,0 +1,12 @@
+const List struct {
+    items [i64]
+
+    #discard
+    do push(self List, value i64) -> i64 {
+        return len(self.items) + 1
+    }
+}
+
+do main() {
+
+}

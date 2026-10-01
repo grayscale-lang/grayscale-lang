@@ -1,0 +1,16 @@
+const Foo struct {
+    n i64
+}
+
+do new_T(t <?>) -> ^? {
+    return new(t)
+}
+
+// do new_T(t <?>) -> Foo {
+//     return new(t)^      // Error E3139 — returns whatever the caller passed
+// }
+
+do main() {
+    mut f = new_T(Foo)
+    println(f)
+}

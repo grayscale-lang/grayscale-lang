@@ -1,0 +1,7 @@
+
+do main() {
+mut i i64 = cast('A', i64)   // 65 - char to i64 (code point)
+mut f f64 = cast(42, f64)    // 42.0 - i64 to f64
+mut s string = string(123)   // "123" - i64 to string
+mut c char = char(65)        // 'A' - i64 to char
+}

@@ -1,0 +1,6 @@
+
+do main() {
+for _ in range(0, 5) {
+    // body runs 5 times; loop counter is discarded
+}
+}

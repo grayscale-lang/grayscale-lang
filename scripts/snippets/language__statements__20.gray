@@ -1,0 +1,14 @@
+do cleanup() { println("cleanup") }
+
+do process_file() {
+    ensure cleanup()
+    // ... do work ...
+    if true {
+        return  // cleanup() will be called
+    }
+    // cleanup() will be called when function ends
+}
+
+do main() {
+    process_file()
+}

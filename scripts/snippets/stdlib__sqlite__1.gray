@@ -1,0 +1,17 @@
+import @sqlite
+
+do main() {
+    mut db, err = sqlite.open("myapp.db")
+    if err != nil { println("open failed: ${err}") }
+
+    mut created, _ = sqlite.exec(db, "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")
+    mut inserted, _ = sqlite.exec(db, "INSERT INTO users (name) VALUES ('Alice')")
+
+    mut rows, query_err = sqlite.query(db, "SELECT * FROM users")
+    if query_err != nil { println("query failed: ${query_err}") }
+    for_each row in rows {
+        println(row["name"])
+    }
+
+    sqlite.close(db)
+}

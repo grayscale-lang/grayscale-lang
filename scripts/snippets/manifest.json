@@ -1,0 +1,784 @@
+{
+  "language/error-handling.md": {
+    "1": {
+      "file": "language__error-handling__1.gray",
+      "original": "error(.NotFound, \"no such file\")        // code and message"
+    },
+    "2": {
+      "file": "language__error-handling__2.gray",
+      "original": "do read_file(path string) -> (string, Error) {"
+    },
+    "3": {
+      "file": "language__error-handling__3.gray",
+      "original": "mut content, err = read_file(\"data.txt\")"
+    },
+    "4": {
+      "file": "language__error-handling__4.gray",
+      "original": "if err.code == .NotFound {"
+    },
+    "5": {
+      "file": "language__error-handling__5.gray",
+      "original": "#error_code"
+    }
+  },
+  "language/expressions.md": {
+    "1": {
+      "file": "language__expressions__1.gray",
+      "original": "{1, 2, 3}"
+    },
+    "2": {
+      "file": "language__expressions__2.gray",
+      "original": "{1, \"two\", 3}   // error: mixed types in array literal"
+    },
+    "3": {
+      "file": "language__expressions__3.gray",
+      "original": "Point{x: 10, y: 20}"
+    },
+    "4": {
+      "file": "language__expressions__4.gray",
+      "original": "if 3 in numbers { ... }"
+    },
+    "5": {
+      "file": "language__expressions__5.gray",
+      "original": "mut x i64 = 5"
+    },
+    "6": {
+      "file": "language__expressions__6.gray",
+      "original": "// Basic operations"
+    },
+    "7": {
+      "file": "language__expressions__7.gray",
+      "original": "const READ  i64 = 0b001"
+    },
+    "8": {
+      "file": "language__expressions__8.gray",
+      "original": "mut arr [i64] = {10, 20, 30}"
+    },
+    "9": {
+      "file": "language__expressions__9.gray",
+      "original": "mut p Point = Point{x: 10, y: 20}"
+    },
+    "10": {
+      "file": "language__expressions__10.gray",
+      "original": "mut sum i64 = add(1, 2)"
+    },
+    "11": {
+      "file": "language__expressions__11.gray",
+      "original": "range(0, 10)       // 0, 1, 2, ..., 9  (increment)"
+    }
+  },
+  "language/functions.md": {
+    "1": {
+      "file": "language__functions__1.gray",
+      "original": "do add(a i64, b i64) -> i64 {"
+    },
+    "2": {
+      "file": "language__functions__2.gray",
+      "original": "fn add(a i64, b i64) -> i64 {"
+    },
+    "3": {
+      "file": "language__functions__3.gray",
+      "original": "do double(x i64) -> i64 {"
+    },
+    "5": {
+      "file": "language__functions__5.gray",
+      "original": "do add(a, b i64) -> i64 {"
+    },
+    "6": {
+      "file": "language__functions__6.gray",
+      "original": "do greet(name string = \"World\") -> string {"
+    },
+    "7": {
+      "file": "language__functions__7.gray",
+      "original": "do connect(host string, port i64 = 8080, verbose bool = false) {"
+    },
+    "8": {
+      "file": "language__functions__8.gray",
+      "original": "do foo(a i64 = 10, b i64) {}   // error: required parameter cannot follow a default parameter"
+    },
+    "9": {
+      "file": "language__functions__9.gray",
+      "original": "do connect(host string, port i64 = 8080, verbose bool = false) {"
+    },
+    "10": {
+      "file": "language__functions__10.gray",
+      "original": "add(1, b: 2)     // OK: positional first, then named"
+    },
+    "11": {
+      "file": "language__functions__11.gray",
+      "original": "do add(a i64, b i64) -> i64 { return a + b }"
+    },
+    "12": {
+      "file": "language__functions__12.gray",
+      "original": "add(1, a: 2)      // error: parameter 'a' is already provided positionally"
+    },
+    "13": {
+      "file": "language__functions__13.gray",
+      "original": "const Vec struct {"
+    },
+    "14": {
+      "file": "language__functions__14.gray",
+      "original": "println(value: \"hello\")           // error: named arguments not supported"
+    },
+    "15": {
+      "file": "language__functions__15.gray",
+      "original": "do square(x i64) -> i64 {"
+    },
+    "16": {
+      "file": "language__functions__16.gray",
+      "original": "do something() -> ^Foo {"
+    },
+    "17": {
+      "file": "language__functions__17.gray",
+      "original": "do divide(a, b i64) -> (i64, i64) {"
+    },
+    "18": {
+      "file": "language__functions__18.gray",
+      "original": "do parse(s string) -> (i64, Error) {"
+    },
+    "19": {
+      "file": "language__functions__19.gray",
+      "original": "do divide(a, b i64) -> (quotient i64, remainder i64) {"
+    },
+    "20": {
+      "file": "language__functions__20.gray",
+      "original": "do get_info() -> (name, city string, age i64) {"
+    },
+    "21": {
+      "file": "language__functions__21.gray",
+      "original": "do square(x i64) -> (result i64) {"
+    },
+    "22": {
+      "file": "language__functions__22.gray",
+      "original": "// Error: wildcard type '?' cannot be named"
+    },
+    "23": {
+      "file": "language__functions__23.gray",
+      "original": "do print_greeting() {"
+    },
+    "24": {
+      "file": "language__functions__24.gray",
+      "original": "// mathlib/mathlib.gray \u2014 module name comes from directory"
+    },
+    "26": {
+      "file": "language__functions__26.gray",
+      "original": "#doc(\"A person with a name and age\")"
+    },
+    "27": {
+      "file": "language__functions__27.gray",
+      "original": "#doc(\"Adds two integers and returns the sum\")"
+    },
+    "29": {
+      "file": "language__functions__29.gray",
+      "original": "#json"
+    },
+    "32": {
+      "file": "language__functions__32.gray",
+      "original": "const List struct {"
+    },
+    "34": {
+      "file": "language__functions__34.gray",
+      "original": "#deprecated(\"Point is old, use Point3D\")"
+    },
+    "35": {
+      "file": "language__functions__35.gray",
+      "original": "do add(a i64, b i64) -> i64 {"
+    },
+    "36": {
+      "file": "language__functions__36.gray",
+      "original": "#doc(\"This is a really long explanation of what this function does\")"
+    },
+    "37": {
+      "file": "language__functions__37.gray",
+      "original": "#[doc(\"This is a really long explanation of what this function does\"), test, discard]"
+    },
+    "38": {
+      "file": "language__functions__38.gray",
+      "original": "do double(n i64) -> i64 { return n * 2 }"
+    },
+    "39": {
+      "file": "language__functions__39.gray",
+      "original": "const f = ()double"
+    },
+    "41": {
+      "file": "language__functions__41.gray",
+      "original": "import @arrays"
+    },
+    "43": {
+      "file": "language__functions__43.gray",
+      "original": "const f = ()double"
+    },
+    "44": {
+      "file": "language__functions__44.gray",
+      "original": "const Point struct {"
+    },
+    "45": {
+      "file": "language__functions__45.gray",
+      "original": "const Calculator struct {"
+    },
+    "46": {
+      "file": "language__functions__46.gray",
+      "original": "const Vec struct {"
+    },
+    "48": {
+      "file": "language__functions__48.gray",
+      "original": "do identity(x ?) -> ? {"
+    },
+    "49": {
+      "file": "language__functions__49.gray",
+      "original": "do pick_first(a ?, b ?) -> ? {"
+    },
+    "50": {
+      "file": "language__functions__50.gray",
+      "original": "do first(arr [?]) -> ? {"
+    },
+    "51": {
+      "file": "language__functions__51.gray",
+      "original": "const Point struct {"
+    },
+    "52": {
+      "file": "language__functions__52.gray",
+      "original": "do make(T <?>) -> ^? {"
+    },
+    "53": {
+      "file": "language__functions__53.gray",
+      "original": "do bad(T <?>, x i64) -> ^? {     // Error E2087"
+    },
+    "54": {
+      "file": "language__functions__54.gray",
+      "original": "const Color enum {"
+    },
+    "55": {
+      "file": "language__functions__55.gray",
+      "original": "do make_stack(T <?>) -> ? {"
+    },
+    "57": {
+      "file": "language__functions__57.gray",
+      "original": "do new_T(t <?>) -> Foo {"
+    },
+    "58": {
+      "file": "language__functions__58.gray",
+      "original": "do new_foo(t <?>) -> Foo { return new(Foo)^ }   // OK \u2014 returns an actual Foo"
+    },
+    "25": {
+      "file": "language__functions__25.gray",
+      "original": "import \"./mathlib\""
+    },
+    "56": {
+      "file": "language__functions__56.gray",
+      "original": "import \"./utils.gray\""
+    }
+  },
+  "language/lexical-structure.md": {
+    "1": {
+      "file": "language__lexical-structure__1.gray",
+      "original": "const Point struct { x i64; y i64 }"
+    },
+    "2": {
+      "file": "language__lexical-structure__2.gray",
+      "original": "// This is a single-line comment"
+    },
+    "3": {
+      "file": "language__lexical-structure__3.gray",
+      "original": "/* This is a"
+    },
+    "4": {
+      "file": "language__lexical-structure__4.gray",
+      "original": "mut x i64 = /* default value */ 10"
+    },
+    "5": {
+      "file": "language__lexical-structure__5.gray",
+      "original": "switch x { case 1 { } default { } }    // ok"
+    },
+    "6": {
+      "file": "language__lexical-structure__6.gray",
+      "original": "mut name string = \"World\""
+    },
+    "7": {
+      "file": "language__lexical-structure__7.gray",
+      "original": "mut path string = `C:\\Users\\test\\file.txt`"
+    },
+    "8": {
+      "file": "language__lexical-structure__8.gray",
+      "original": "'A'   '7'   ' '   '\u00e9'   '\u65e5'   '\\n'   '\\u{1F600}'"
+    }
+  },
+  "language/memory-model.md": {
+    "1": {
+      "file": "language__memory-model__1.gray",
+      "original": "do process(name string) {"
+    },
+    "2": {
+      "file": "language__memory-model__2.gray",
+      "original": "mut results [string] = {}"
+    },
+    "3": {
+      "file": "language__memory-model__3.gray",
+      "original": "mut a [i64] = {1, 2, 3}"
+    },
+    "4": {
+      "file": "language__memory-model__4.gray",
+      "original": "const Box struct {"
+    },
+    "5": {
+      "file": "language__memory-model__5.gray",
+      "original": "mut original = Person{name: \"Alice\", age: 30}"
+    },
+    "6": {
+      "file": "language__memory-model__6.gray",
+      "original": "const Node struct {"
+    },
+    "7": {
+      "file": "language__memory-model__7.gray",
+      "original": "import @mem"
+    }
+  },
+  "language/modules.md": {
+    "1": {
+      "file": "language__modules__1.gray",
+      "original": "import @arrays, @maps, @strings"
+    },
+    "3": {
+      "file": "language__modules__3.gray",
+      "original": "import mymod \"./server\"     // use mymod.handle() instead of server.handle()"
+    },
+    "7": {
+      "file": "language__modules__7.gray",
+      "original": "import and use @arrays"
+    },
+    "8": {
+      "file": "language__modules__8.gray",
+      "original": "import @arrays"
+    },
+    "9": {
+      "file": "language__modules__9.gray",
+      "original": "import and use @arrays, @strings"
+    },
+    "12": {
+      "file": "language__modules__12.gray",
+      "original": "using arrays, strings"
+    },
+    "13": {
+      "file": "language__modules__13.gray",
+      "original": "import @math"
+    },
+    "14": {
+      "file": "language__modules__14.gray",
+      "original": "import @math"
+    },
+    "15": {
+      "file": "language__modules__15.gray",
+      "original": "extern import \"stdio.h\"           // system header \u2192 #include <stdio.h>"
+    },
+    "16": {
+      "file": "language__modules__16.gray",
+      "original": "extern import \"stdio.h\", \"stdlib.h\", \"string.h\""
+    },
+    "17": {
+      "file": "language__modules__17.gray",
+      "original": "import @math"
+    },
+    "2": {
+      "file": "language__modules__2.gray",
+      "original": "import \"./helpers.gray\"      // explicit file import"
+    },
+    "4": {
+      "file": "language__modules__4.gray",
+      "original": "import @math, \"./helpers\", \"./models\""
+    },
+    "5": {
+      "file": "language__modules__5.gray",
+      "original": "import \"./my-utils\"       // Error: 'my-utils' is not a valid identifier"
+    },
+    "6": {
+      "file": "language__modules__6.gray",
+      "original": "// Error: both resolve to module name \"utils\""
+    },
+    "22": {
+      "file": "language__modules__22.gray",
+      "original": "import mymod \"./extern.gray\"    // OK, aliased"
+    }
+  },
+  "language/program-execution.md": {
+    "2": {
+      "file": "language__program-execution__2.gray",
+      "original": "// If a is false, b() is not called"
+    }
+  },
+  "language/statements.md": {
+    "1": {
+      "file": "language__statements__1.gray",
+      "original": "println(\"Hello\")"
+    },
+    "2": {
+      "file": "language__statements__2.gray",
+      "original": "if x < 0 {"
+    },
+    "3": {
+      "file": "language__statements__3.gray",
+      "original": "if x < 0 {"
+    },
+    "4": {
+      "file": "language__statements__4.gray",
+      "original": "for i in range(0, 10) {"
+    },
+    "5": {
+      "file": "language__statements__5.gray",
+      "original": "for _ in range(0, 5) {"
+    },
+    "6": {
+      "file": "language__statements__6.gray",
+      "original": "mut items [string] = {\"a\", \"b\", \"c\"}"
+    },
+    "7": {
+      "file": "language__statements__7.gray",
+      "original": "for_each i, item in items {"
+    },
+    "8": {
+      "file": "language__statements__8.gray",
+      "original": "for_each i, ch in \"hello\" {"
+    },
+    "9": {
+      "file": "language__statements__9.gray",
+      "original": "for_each _, item in items { ... }   // discard index (same as no index)"
+    },
+    "10": {
+      "file": "language__statements__10.gray",
+      "original": "mut ages map[string:i64] = {\"alice\": 30, \"bob\": 25}"
+    },
+    "11": {
+      "file": "language__statements__11.gray",
+      "original": "for_each item in {\"a\", \"b\", \"c\"} {"
+    },
+    "12": {
+      "file": "language__statements__12.gray",
+      "original": "mut count i64 = 0"
+    },
+    "13": {
+      "file": "language__statements__13.gray",
+      "original": "loop {"
+    },
+    "14": {
+      "file": "language__statements__14.gray",
+      "original": "for i in range(0, 100) {"
+    },
+    "15": {
+      "file": "language__statements__15.gray",
+      "original": "for i in range(0, 10) {"
+    },
+    "16": {
+      "file": "language__statements__16.gray",
+      "original": "do add(a i64, b i64) -> i64 {"
+    },
+    "17": {
+      "file": "language__statements__17.gray",
+      "original": "when x {"
+    },
+    "18": {
+      "file": "language__statements__18.gray",
+      "original": "switch x {"
+    },
+    "19": {
+      "file": "language__statements__19.gray",
+      "original": "#strict"
+    },
+    "20": {
+      "file": "language__statements__20.gray",
+      "original": "do process_file() {"
+    },
+    "21": {
+      "file": "language__statements__21.gray",
+      "original": "do load() -> (string, Error) {"
+    }
+  },
+  "language/types.md": {
+    "1": {
+      "file": "language__types__1.gray",
+      "original": "mut small i64 = 42"
+    },
+    "2": {
+      "file": "language__types__2.gray",
+      "original": "alias int = i64"
+    },
+    "3": {
+      "file": "language__types__3.gray",
+      "original": "mut pi f64 = 3.14159"
+    },
+    "4": {
+      "file": "language__types__4.gray",
+      "original": "mut x f64 = 5          // 5.0"
+    },
+    "5": {
+      "file": "language__types__5.gray",
+      "original": "mut greeting string = \"Hello, World!\""
+    },
+    "6": {
+      "file": "language__types__6.gray",
+      "original": "mut s string = \"\u65e5\u672c\u8a9e\""
+    },
+    "7": {
+      "file": "language__types__7.gray",
+      "original": "mut flag bool = true"
+    },
+    "8": {
+      "file": "language__types__8.gray",
+      "original": "mut letter char = 'A'          // U+0041"
+    },
+    "9": {
+      "file": "language__types__9.gray",
+      "original": "mut a i128 = i128(42)"
+    },
+    "10": {
+      "file": "language__types__10.gray",
+      "original": "mut x i64 = 42"
+    },
+    "11": {
+      "file": "language__types__11.gray",
+      "original": "do make_node(parent ^Node) -> ^Node {"
+    },
+    "12": {
+      "file": "language__types__12.gray",
+      "original": "const x i64 = 42"
+    },
+    "13": {
+      "file": "language__types__13.gray",
+      "original": "mut x i64 = 10"
+    },
+    "14": {
+      "file": "language__types__14.gray",
+      "original": "const x i64 = 42"
+    },
+    "15": {
+      "file": "language__types__15.gray",
+      "original": "mut numbers [i64] = {1, 2, 3, 4, 5}"
+    },
+    "16": {
+      "file": "language__types__16.gray",
+      "original": "const fixed [i64, 3] = {10, 20, 30}"
+    },
+    "17": {
+      "file": "language__types__17.gray",
+      "original": "const a [i64, 5] = {1, 2, 3}           // OK (3 of 5 slots used, remaining zero-initialized)"
+    },
+    "18": {
+      "file": "language__types__18.gray",
+      "original": "const SIZE i64 = 4"
+    },
+    "19": {
+      "file": "language__types__19.gray",
+      "original": "mut matrix [[i64]] = {{1, 2}, {3, 4}}"
+    },
+    "20": {
+      "file": "language__types__20.gray",
+      "original": "mut ages [string:i64] = {"
+    },
+    "21": {
+      "file": "language__types__21.gray",
+      "original": "mut arr [i64] = {}       // Empty array"
+    },
+    "22": {
+      "file": "language__types__22.gray",
+      "original": "const Point struct {"
+    },
+    "23": {
+      "file": "language__types__23.gray",
+      "original": "const Buffer struct {"
+    },
+    "24": {
+      "file": "language__types__24.gray",
+      "original": "const Node struct {"
+    },
+    "25": {
+      "file": "language__types__25.gray",
+      "original": "mut a = new(Node)"
+    },
+    "26": {
+      "file": "language__types__26.gray",
+      "original": "mut origin Point = Point{x: 0, y: 0}"
+    },
+    "28": {
+      "file": "language__types__28.gray",
+      "original": "const Point struct {"
+    },
+    "29": {
+      "file": "language__types__29.gray",
+      "original": "mut x_value i64 = origin.x"
+    },
+    "30": {
+      "file": "language__types__30.gray",
+      "original": "const Direction enum {"
+    },
+    "31": {
+      "file": "language__types__31.gray",
+      "original": "const Foobar enum {"
+    },
+    "32": {
+      "file": "language__types__32.gray",
+      "original": "const Color enum { RED GREEN BLUE }"
+    },
+    "33": {
+      "file": "language__types__33.gray",
+      "original": "#flags"
+    },
+    "34": {
+      "file": "language__types__34.gray",
+      "original": "mut dir = Direction.NORTH"
+    },
+    "35": {
+      "file": "language__types__35.gray",
+      "original": "// Variable declaration with type annotation"
+    },
+    "36": {
+      "file": "language__types__36.gray",
+      "original": "const Shape enum {"
+    },
+    "37": {
+      "file": "language__types__37.gray",
+      "original": "mut s Shape = Shape.Circle(3.14)"
+    },
+    "38": {
+      "file": "language__types__38.gray",
+      "original": "mut s Shape = .Circle(3.14)"
+    },
+    "39": {
+      "file": "language__types__39.gray",
+      "original": "when shape {"
+    },
+    "40": {
+      "file": "language__types__40.gray",
+      "original": "when shape {"
+    },
+    "41": {
+      "file": "language__types__41.gray",
+      "original": "do double(n i64) -> i64 { return n * 2 }"
+    },
+    "42": {
+      "file": "language__types__42.gray",
+      "original": "do apply(x i64, f func(i64) -> i64) -> i64 {"
+    },
+    "43": {
+      "file": "language__types__43.gray",
+      "original": "// Inferred from literals"
+    },
+    "44": {
+      "file": "language__types__44.gray",
+      "original": "mut i i64 = cast('A', i64)   // 65 - char to i64 (code point)"
+    },
+    "45": {
+      "file": "language__types__45.gray",
+      "original": "mut small u8 = cast(42, u8)"
+    },
+    "46": {
+      "file": "language__types__46.gray",
+      "original": "mut ints [i64] = {1, 2, 3}"
+    },
+    "47": {
+      "file": "language__types__47.gray",
+      "original": "alias Meters = f64"
+    },
+    "50": {
+      "file": "language__types__50.gray",
+      "original": "private alias InternalID = i64"
+    }
+  },
+  "language/variables.md": {
+    "1": {
+      "file": "language__variables__1.gray",
+      "original": "x i64 = 42              // mutable (default)"
+    },
+    "2": {
+      "file": "language__variables__2.gray",
+      "original": "count i64          // warning[W1004]: 'count' declared with no value \u2014 defaults to 0"
+    },
+    "3": {
+      "file": "language__variables__3.gray",
+      "original": "const PI f64 = 3.14159"
+    },
+    "4": {
+      "file": "language__variables__4.gray",
+      "original": "mut arr [i64] = {1, 2, 3}"
+    },
+    "5": {
+      "file": "language__variables__5.gray",
+      "original": "do get_data() -> [i64] {"
+    },
+    "6": {
+      "file": "language__variables__6.gray",
+      "original": "mut x i64 = 10"
+    },
+    "7": {
+      "file": "language__variables__7.gray",
+      "original": "// Correct: handle the error"
+    },
+    "8": {
+      "file": "language__variables__8.gray",
+      "original": "// Discard the second return value"
+    }
+  },
+  "stdlib/builtins.md": {
+    "1": {
+      "file": "stdlib__builtins__1.gray",
+      "original": "mut arr [i64] = {1, 2, 3}"
+    },
+    "2": {
+      "file": "stdlib__builtins__2.gray",
+      "original": "assert(x > 0, \"x must be positive\")"
+    },
+    "3": {
+      "file": "stdlib__builtins__3.gray",
+      "original": "// Embed a file at file scope, baked into the binary at compile time"
+    }
+  },
+  "stdlib/chars.md": {
+    "1": {
+      "file": "stdlib__chars__1.gray",
+      "original": "import @chars"
+    }
+  },
+  "stdlib/fmt.md": {
+    "1": {
+      "file": "stdlib__fmt__1.gray",
+      "original": "import @fmt"
+    }
+  },
+  "stdlib/io.md": {
+    "1": {
+      "file": "stdlib__io__1.gray",
+      "original": "mut p string = io.path_join({\"/home\", \"user\", \"docs\"})  // \"/home/user/docs\""
+    },
+    "2": {
+      "file": "stdlib__io__2.gray",
+      "original": "// Always use destructuring; single-variable assignment is a compile error"
+    },
+    "3": {
+      "file": "stdlib__io__3.gray",
+      "original": "import @io"
+    },
+    "4": {
+      "file": "stdlib__io__4.gray",
+      "original": "// Given project layout:"
+    }
+  },
+  "stdlib/os.md": {
+    "1": {
+      "file": "stdlib__os__1.gray",
+      "original": "mut code, stdout, stderr, ok = os.exec(\"ls\", {\"-l\", \"/tmp\"})"
+    },
+    "2": {
+      "file": "stdlib__os__2.gray",
+      "original": "import @os"
+    }
+  },
+  "stdlib/sqlite.md": {
+    "1": {
+      "file": "stdlib__sqlite__1.gray",
+      "original": "import @sqlite"
+    }
+  },
+  "stdlib/strings.md": {
+    "1": {
+      "file": "stdlib__strings__1.gray",
+      "original": "import @strings"
+    }
+  }
+}

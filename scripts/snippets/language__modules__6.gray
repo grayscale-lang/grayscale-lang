@@ -1,0 +1,10 @@
+// Error: both resolve to module name "utils"
+// import "./utils", "./lib/utils"
+
+// Fix: alias one
+// import "./utils", lib_utils "./lib/utils"
+
+// Error: both resolve to module name "strings"
+// import @strings, "./strings"
+
+do main() {}

@@ -1,0 +1,14 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+do make_stack(T <?>) -> ? {
+    return T{}          // Error E3127 when T is bound to a non-struct
+}
+
+do main() {
+    mut s = make_stack(Point)   // OK
+    // mut n = make_stack(i64)  // Error E3127 — T is used as a struct literal
+    println(s)
+}

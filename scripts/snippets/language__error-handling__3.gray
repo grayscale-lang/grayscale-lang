@@ -1,0 +1,10 @@
+import @io
+
+do main() {
+    mut content, err = io.read_file("data.txt")
+    if err != nil {
+        println("Error: ${err}")   // interpolates err.msg
+        exit(1)
+    }
+    println(content)
+}

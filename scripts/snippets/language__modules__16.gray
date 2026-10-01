@@ -1,0 +1,5 @@
+extern import "stdio.h", "stdlib.h", "string.h"
+
+do main() {
+
+}

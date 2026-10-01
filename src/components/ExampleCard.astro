@@ -1,4 +1,6 @@
 ---
+import CodeBlock from './CodeBlock.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -15,7 +17,7 @@ const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     <span class="example-desc">{description}</span>
   </summary>
   <div class="example-code">
-    <pre><code>{code}</code></pre>
+    <CodeBlock code={code} fontSize="0.85rem" bordered={false} />
   </div>
 </details>
 
@@ -63,13 +65,5 @@ const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   .example-code {
     border-top: 1px solid var(--sl-color-gray-5);
     padding: 1.25rem;
-  }
-
-  .example-code pre {
-    margin: 0;
-    font-family: var(--sl-font-mono);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    overflow-x: auto;
   }
 </style>

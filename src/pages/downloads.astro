@@ -1,6 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DownloadCard from '../components/DownloadCard.astro';
+import CodeBlock from '../components/CodeBlock.astro';
 ---
 
 <StarlightPage frontmatter={{ title: 'Downloads' }} headings={[]}>
@@ -12,13 +13,13 @@ import DownloadCard from '../components/DownloadCard.astro';
       platform="macOS"
       arch="Apple Silicon (ARM64)"
       asset="grayscale-darwin-arm64.tar.gz"
-      icon="&#63743;"
+      icon="apple"
     />
     <DownloadCard
       platform="macOS"
       arch="Intel (x86-64)"
       asset="grayscale-darwin-amd64.tar.gz"
-      icon="&#63743;"
+      icon="apple"
     />
   </div>
 
@@ -28,20 +29,18 @@ import DownloadCard from '../components/DownloadCard.astro';
       platform="Linux"
       arch="ARM64"
       asset="grayscale-linux-arm64.tar.gz"
-      icon="&#128039;"
+      icon="linux"
     />
     <DownloadCard
       platform="Linux"
       arch="x86-64"
       asset="grayscale-linux-amd64.tar.gz"
-      icon="&#128039;"
+      icon="linux"
     />
   </div>
 
   <h2>Install via Script</h2>
-  <div class="install-script">
-    <pre><code>curl -fsSL https://raw.githubusercontent.com/grayscale-lang/grayscale/main/install.sh | bash</code></pre>
-  </div>
+  <CodeBlock code="curl -fsSL https://raw.githubusercontent.com/grayscale-lang/grayscale/main/install.sh | bash" />
 
   <div class="release-info" id="release-info"></div>
 </StarlightPage>
@@ -70,19 +69,6 @@ import DownloadCard from '../components/DownloadCard.astro';
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
-  }
-
-  .install-script {
-    background: var(--sl-color-gray-6);
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.75rem;
-    padding: 1rem 1.25rem;
-  }
-
-  .install-script pre {
-    margin: 0;
-    font-family: var(--sl-font-mono);
-    font-size: 0.9rem;
   }
 
   .release-meta {

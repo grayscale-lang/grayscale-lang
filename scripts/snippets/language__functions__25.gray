@@ -1,0 +1,8 @@
+// import "./mathlib"
+// mathlib.factorial(5)          // OK - public
+// mathlib.validate(5)        // error: private function
+// mathlib.MAX_ITERATIONS     // error: private constant
+// mathlib.Counter{n: 1}      // error: private struct
+// mathlib.Mode.FAST          // error: private enum
+
+do main() {}

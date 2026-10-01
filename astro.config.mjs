@@ -10,6 +10,9 @@ export default defineConfig({
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/grayscale-lang/grayscale' },
       ],
+      components: {
+        SocialIcons: './src/components/SocialIcons.astro',
+      },
       customCss: ['./src/styles/custom.css'],
       head: [
         {
@@ -41,6 +44,10 @@ export default defineConfig({
           items: [{ label: 'Overview', slug: 'overview' }],
         },
         {
+          label: 'Guide',
+          items: [{ autogenerate: { directory: 'guide' } }],
+        },
+        {
           label: 'Language Reference',
           items: [{ autogenerate: { directory: 'language' } }],
         },
@@ -57,12 +64,16 @@ export default defineConfig({
         themes: ['github-light', 'github-dark'],
         shiki: {
           langs: [
-            JSON.parse(
-              (await import('fs')).readFileSync(
-                new URL('./src/grammars/grayscale.tmLanguage.json', import.meta.url),
-                'utf-8'
-              )
-            ),
+            {
+              ...JSON.parse(
+                (await import('fs')).readFileSync(
+                  new URL('./src/grammars/grayscale.tmLanguage.json', import.meta.url),
+                  'utf-8'
+                )
+              ),
+              name: 'gray',
+              aliases: ['grayscale'],
+            },
           ],
         },
       },

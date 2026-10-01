@@ -1,0 +1,16 @@
+#doc("Adds two integers and returns the sum")
+do add(a i64, b i64) -> i64 {
+    return a + b
+}
+
+#doc("Represents a 2D point")
+const Point struct {
+    x i64
+    y i64
+}
+
+#doc("Maximum number of retries before giving up")
+
+do main() {
+const MAX_RETRIES i64 = 5
+}

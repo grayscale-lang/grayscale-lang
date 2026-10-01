@@ -1,0 +1,6 @@
+do main() {
+    count i64          // warning[W1004]: 'count' declared with no value — defaults to 0
+    total i64 = 0      // no warning; the zero value is explicit
+    println(count)
+    println(total)
+}

@@ -1,0 +1,26 @@
+private const MAX_ITERATIONS i64 = 1000
+
+private const Counter struct {
+    n i64
+}
+
+private const Mode enum {
+    FAST
+    SLOW
+}
+
+private do validate(n i64) -> bool {
+    return n > 0
+}
+
+do factorial(n i64) -> i64 {
+    // Can call private members within the same module
+    if !validate(n) { return 1 }
+    mut result i64 = 1
+    for i in range(1, n + 1) { result = result * i }
+    return result
+}
+
+do main() {
+    println(factorial(5))
+}

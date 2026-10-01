@@ -1,0 +1,8 @@
+do main() {
+    mut x i64 = 1
+    mut items [i64] = {1}
+    mut connected bool = true
+    assert(x > 0, "x must be positive")
+    assert(len(items) > 0, "list cannot be empty")
+    assert(connected)  // message is optional
+}

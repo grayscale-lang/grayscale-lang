@@ -1,9 +1,11 @@
 ---
+import { Icon } from '@astrojs/starlight/components';
+
 interface Props {
   platform: string;
   arch: string;
   asset: string;
-  icon: string;
+  icon: 'apple' | 'linux';
 }
 
 const { platform, arch, asset, icon } = Astro.props;
@@ -12,7 +14,7 @@ const downloadUrl = `${baseUrl}/${asset}`;
 ---
 
 <a href={downloadUrl} class="download-card">
-  <span class="download-icon">{icon}</span>
+  <span class="download-icon"><Icon name={icon} size="1.75rem" /></span>
   <div class="download-info">
     <strong>{platform}</strong>
     <span class="download-arch">{arch}</span>

@@ -1,0 +1,22 @@
+const Vec struct {
+    x i64
+    y i64
+
+    do len_sq(v Vec) -> i64 {
+        return v.x * v.x + v.y * v.y
+    }
+
+    do bump(&v Vec) {
+        v.x = v.x + 1
+        v.y = v.y + 1
+    }
+}
+
+do main() {
+    mut a Vec = Vec{x: 3, y: 4}
+    println(a.len_sq())         // sugar for Vec.len_sq(a)
+    println(Vec.len_sq(a))      // still valid
+
+    a.bump()           // sugar for Vec.bump(a); '&v' makes it a mutable alias
+    println(a)
+}

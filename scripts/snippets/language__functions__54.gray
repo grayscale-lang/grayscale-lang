@@ -1,0 +1,22 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const Color enum {
+    RED
+    GREEN
+    BLUE
+}
+
+do make(T <?>) -> ^? {
+    return new(T)
+}
+
+do main() {
+    mut p = make(Point)       // OK — struct
+    mut c = make(Color)       // OK — enum
+    mut x = make(i64)         // OK — primitive
+    // mut y = make(1 + 2)       // Error E3128 — not a type name
+    // mut z = make(Nonexisto)   // Error E4016 — names no type
+}

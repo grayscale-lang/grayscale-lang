@@ -1,0 +1,22 @@
+const Color enum {
+    RED
+    GREEN
+    BLUE
+}
+
+const Status enum {
+    TODO = "todo"
+    DONE = "done"
+}
+
+#error_code
+const PaymentErrors enum {
+    PAYMENT_DECLINED
+    PAYMENT_CANCELED
+}
+
+do main() {
+    println(Color.RED)              // "0" — plain enums print their integer
+    println(Status.TODO)            // "todo" — string enums print their string
+    println(PaymentErrors.PAYMENT_DECLINED)  // "PAYMENT_DECLINED" — error-code enums print their name
+}

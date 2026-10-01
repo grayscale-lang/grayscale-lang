@@ -1,0 +1,11 @@
+const Person struct {
+    name string
+    age  i64
+}
+
+do main() {
+    mut original = Person{name: "Alice", age: 30}
+    mut duplicate = copy(original)
+    duplicate.age = 31  // original.age is still 30
+    println(original.age)
+}

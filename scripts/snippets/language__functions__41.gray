@@ -1,0 +1,24 @@
+import @arrays
+
+do double(n i64) -> i64 { return n * 2 }
+do triple(n i64) -> i64 { return n * 3 }
+
+// Dynamic array of func refs
+
+// Fixed-size array of func refs
+
+// Map with func values
+
+do main() {
+mut arr [func] = {}
+arrays.append(arr, ()double)
+arr[0](5)   // 10
+const fns [func, 2] = {()double, ()triple}
+fns[0](5)   // 10
+fns[1](5)   // 15
+mut m map[string:func] = {:}
+m["dbl"]  = ()double
+m["trpl"] = ()triple
+m["dbl"](5)   // 10
+m["trpl"](5)  // 15
+}

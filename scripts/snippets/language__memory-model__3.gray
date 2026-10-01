@@ -1,0 +1,7 @@
+
+do main() {
+mut a [i64] = {1, 2, 3}
+mut b [i64] = a
+b[0] = 99
+println(a[0])   // 1 - b is an independent copy, not an alias
+}

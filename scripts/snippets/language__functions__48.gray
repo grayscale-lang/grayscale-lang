@@ -1,0 +1,9 @@
+do identity(x ?) -> ? {
+    return x
+}
+
+do main() {
+
+mut a = identity(42)        // ? binds to i64, returns i64
+mut b = identity("hello")   // ? binds to string, returns string
+}

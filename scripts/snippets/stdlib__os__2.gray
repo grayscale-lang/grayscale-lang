@@ -1,0 +1,10 @@
+import @os
+
+do main() {
+
+when os.current_os() {
+    is .LINUX { println("linux") }
+    is .MAC_OS { println("macos") }
+    default   { println("other") }
+}
+}
