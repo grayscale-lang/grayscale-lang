@@ -1,0 +1,9 @@
+do first(arr [?]) -> ? {
+    return arr[0]
+}
+
+do main() {
+
+mut x = first({1, 2, 3})      // ? binds to i64
+mut y = first({"a", "b"})     // ? binds to string
+}

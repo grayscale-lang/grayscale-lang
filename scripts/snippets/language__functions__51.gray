@@ -1,0 +1,13 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+do make(T <?>) -> ^? {
+    return new(T)
+}
+
+do main() {
+
+mut p = make(Point)    // allocates a new Point, returns ^Point
+}

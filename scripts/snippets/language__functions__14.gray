@@ -1,0 +1,8 @@
+import @strings
+
+do main() {
+    println("hello")
+    println(strings.to_upper("hello"))
+    // println(value: "hello")           // error: named arguments not supported
+    // strings.to_upper(s: "hello")      // error: named arguments not supported
+}

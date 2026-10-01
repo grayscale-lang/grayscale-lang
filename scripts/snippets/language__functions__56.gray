@@ -1,0 +1,12 @@
+// import "./utils.gray"
+
+// const Point struct {
+//     x i64
+//     y i64
+// }
+
+// do main() {
+//     mut p = utils.make(Point)     // same as 'using utils' + make(Point)
+// }
+
+do main() {}

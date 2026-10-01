@@ -1,0 +1,79 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import DownloadCard from '../components/DownloadCard.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+---
+
+<StarlightPage frontmatter={{ title: 'Downloads' }} headings={[]}>
+  <p>Download the latest Grayscale compiler for your platform.</p>
+
+  <h2>macOS</h2>
+  <div class="download-grid">
+    <DownloadCard
+      platform="macOS"
+      arch="Apple Silicon (ARM64)"
+      asset="grayscale-darwin-arm64.tar.gz"
+      icon="apple"
+    />
+    <DownloadCard
+      platform="macOS"
+      arch="Intel (x86-64)"
+      asset="grayscale-darwin-amd64.tar.gz"
+      icon="apple"
+    />
+  </div>
+
+  <h2>Linux</h2>
+  <div class="download-grid">
+    <DownloadCard
+      platform="Linux"
+      arch="ARM64"
+      asset="grayscale-linux-arm64.tar.gz"
+      icon="linux"
+    />
+    <DownloadCard
+      platform="Linux"
+      arch="x86-64"
+      asset="grayscale-linux-amd64.tar.gz"
+      icon="linux"
+    />
+  </div>
+
+  <h2>Install via Script</h2>
+  <CodeBlock code="curl -fsSL https://raw.githubusercontent.com/grayscale-lang/grayscale/main/install.sh | bash" />
+
+  <div class="release-info" id="release-info"></div>
+</StarlightPage>
+
+<script>
+  async function loadRelease() {
+    try {
+      const res = await fetch('https://api.github.com/repos/grayscale-lang/grayscale/releases/latest');
+      if (!res.ok) return;
+      const data = await res.json();
+      const el = document.getElementById('release-info');
+      if (el && data.tag_name) {
+        const date = new Date(data.published_at).toLocaleDateString('en-US', {
+          year: 'numeric', month: 'long', day: 'numeric'
+        });
+        el.innerHTML = `<p class="release-meta">Latest: <strong>${data.tag_name}</strong> &middot; Released ${date}</p>`;
+      }
+    } catch { /* silent */ }
+  }
+  loadRelease();
+</script>
+
+<style>
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .release-meta {
+    margin-top: 2rem;
+    color: var(--sl-color-gray-3);
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,11 @@
+const Foo struct {
+    n i64
+}
+
+do new_foo(t <?>) -> Foo { return new(Foo)^ }   // OK — returns an actual Foo
+do size_T(t <?>) -> i64  { return size_of(t) }  // OK — size_of is always i64
+
+do main() {
+    println(new_foo(Foo))
+    println(size_T(Foo))
+}

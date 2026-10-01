@@ -1,0 +1,14 @@
+const Node struct {
+    val  i64
+    next ^Node
+}
+
+do make_node(parent ^Node) -> ^Node {
+    n = new(Node)
+    return n
+}
+
+do main() {
+    root = make_node(nil)  // OK: nil satisfies the ^Node parameter
+    println(root)
+}

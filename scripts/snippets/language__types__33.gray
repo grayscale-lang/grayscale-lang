@@ -1,0 +1,11 @@
+#flags
+const Permissions enum {
+    READ      // 1
+    WRITE     // 2
+    EXECUTE   // 4
+    DELETE    // 8
+}
+
+do main() {
+
+}

@@ -1,0 +1,10 @@
+do double(n i64) -> i64 { return n * 2 }
+do triple(n i64) -> i64 { return n * 3 }
+
+do main() {
+    const f = ()double
+    const g = ()double
+    const h = ()triple
+    if f == g { println("same") }       // same, both point to double
+    if f != h { println("different") }  // different
+}

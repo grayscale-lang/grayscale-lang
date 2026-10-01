@@ -1,0 +1,21 @@
+const Direction enum {
+    NORTH
+    EAST
+    SOUTH
+    WEST
+}
+
+const Point struct {
+    x i64
+    y i64
+}
+
+do main() {
+    mut p Point = Point{x: 10, y: 20}
+    mut x i64 = p.x  // 10
+    p.y = 30  // Modification
+
+    mut status i64 = Direction.NORTH  // Enum access
+    println(x)
+    println(status)
+}

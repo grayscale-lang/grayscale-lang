@@ -1,0 +1,15 @@
+import @arrays
+
+do get_data() -> [i64] {
+    return {1, 2, 3}
+}
+
+do main() {
+    mut arr = get_data()  // arr is mutable
+    arrays.append(arr, 4)  // OK - can modify directly
+
+    const fixed [i64, 3] = {1, 2, 3}  // fixed is immutable
+    // arrays.append(fixed, 4)   // ERROR - cannot modify const
+    println(arr)
+    println(fixed)
+}

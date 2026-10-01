@@ -1,0 +1,47 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const Person struct {
+    name string
+}
+
+do sum(a i64, b i64) -> i64 {
+    return a + b
+}
+
+do divide(a, b i64) -> (i64, i64) {
+    return a / b, a % b
+}
+
+do main() {
+    // Inferred from literals
+    mut x = 42                    // Inferred: i64
+    mut name = "Alice"            // Inferred: string
+    mut pi = 3.14                 // Inferred: f64
+    mut flag = true               // Inferred: bool
+
+    // Explicit annotations are always accepted
+    mut y i64 = 42                // Explicit: i64
+
+    // Inferred from function return type
+    mut result = sum(1, 2)        // Inferred: i64
+    println(type_of(result))        // Output: i64
+
+    // Inferred from struct literal
+    const p = Point{x: 1, y: 2}    // Inferred: Point
+
+    // Inferred from built-in constructors
+    mut val = new(Person)         // Inferred: ^Person (pointer)
+    mut dup = copy(val^)          // Inferred: Person (copy() needs a value, not a pointer)
+
+    // mut array/map literals of primitives are inferred
+    mut arr = {1, 2, 3}                 // Inferred: [i64]
+    mut letters = {'a', 'b', 'c'}       // Inferred: [char]
+    mut scores = {"alice": 10, "bob": 7} // Inferred: map[string:i64]
+    mut fixed [Point] = {Point{x: 1, y: 2}}  // Explicit: non-primitive elements
+
+    // Multiple return values
+    mut quotient, remainder = divide(10, 3)  // Both inferred: i64
+}

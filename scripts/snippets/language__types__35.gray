@@ -1,0 +1,46 @@
+const Direction enum {
+    NORTH
+    EAST
+    SOUTH
+    WEST
+}
+
+do move(d Direction) -> i64 { return 0 }
+do get_dir() -> Direction { return .NORTH }
+
+// Struct literal fields
+const Config struct {
+    dir Direction
+}
+
+do main() {
+    // Variable declaration with type annotation
+    mut dir Direction = .NORTH
+
+    // Assignment
+    dir = .SOUTH
+
+    // Function arguments
+    mut moved i64 = move(.EAST)
+
+    // When/is branches
+    when dir {
+        is .NORTH { println("north") }
+        is .SOUTH { println("south") }
+        default { println("other") }
+    }
+
+    // Comparisons
+    if dir == .WEST { println("west") }
+
+    // Return statements
+    mut d Direction = get_dir()
+
+    mut c = Config{ dir: .EAST }
+
+    // Array literals
+    mut dirs [Direction] = {.NORTH, .SOUTH}
+    println(c)
+    println(dirs)
+    println(d)
+}

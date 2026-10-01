@@ -1,0 +1,144 @@
+{
+ "cli/commands.md": [
+  [
+   "> 💡 **Tip:** Do not include `()` in the name — the shell interprets bare parentheses as a function definition before `gray` sees them. Use the name alone: `gray man println`, not `gray man println()`.",
+   "Leave the `()` off the name: the shell interprets bare parentheses as a function definition before `gray` sees them. Use the name alone, `gray man println`, not `gray man println()`."
+  ],
+  [
+   "> 💡 **Tip:** For attributes, omit the `#` prefix — the shell treats `#` as a comment. Use `gray man flags`, not `gray man #flags`.",
+   "For attributes, leave off the `#` prefix, because the shell treats `#` as a comment. Use `gray man flags`, not `gray man #flags`."
+  ]
+ ],
+ "language/functions.md": [
+  [
+   "> 💡 **Tip:** `fn` and `do` are identical. Pick whichever reads more naturally to you and stick with it.",
+   "`fn` and `do` are interchangeable; use whichever reads more naturally and stay consistent within a file."
+  ],
+  [
+   "> 💡 **Tip:** If a function returns `^Type`, you can dereference at the call site with `^` to get the value directly without storing the pointer:\n> ```gray\n> const Foo struct {\n>     n i64\n> }\n>\n> do something() -> ^Foo {\n>     mut f = new(Foo)\n>     return f\n> }\n>\n> do main() {\n>     mut f = something()^   // dereference at call site, f is Foo, not ^Foo\n>     println(f)\n> }\n> ```",
+   "A function that returns `^Type` can be dereferenced at the call site with `^`, which gives the value directly without storing the pointer:\n\n```gray\nconst Foo struct {\n    n i64\n}\n\ndo something() -> ^Foo {\n    mut f = new(Foo)\n    return f\n}\n\ndo main() {\n    mut f = something()^   // dereference at call site, f is Foo, not ^Foo\n    println(f)\n}\n```"
+  ],
+  [
+   "> 💡 **Tip:** `()` and `ref()` only work with functions you declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references. Wrap them in your own `do` function if you need to pass them as a callback.",
+   "Func references can only point to functions declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references; wrap them in your own `do` function to pass them as a callback."
+  ]
+ ],
+ "language/lexical-structure.md": [
+  [
+   "> 💡 **Tip:** `use*` is reserved exclusively for the `import and use` statement. It has no other syntactic role.",
+   "`use*` is reserved for the `import and use` statement and has no other syntactic role."
+  ],
+  [
+   "> 💡 **Tip:** The `map` keyword is optional in type position — `[string:i64]` and `map[string:i64]` are identical. The parser normalizes both to the same canonical form.",
+   ""
+  ]
+ ],
+ "language/statements.md": [
+  [
+   "> 💡 **Tip:** `or`/`otherwise` and `elif`/`else` are identical. Pick whichever reads more naturally to you and stick with it.",
+   ""
+  ],
+  [
+   "> 💡 **Tip:** Never rely on map iteration order. It is different every run by design.",
+   ""
+  ],
+  [
+   "> 💡 **Tip:** You can iterate over an inline array literal directly — no variable needed:\n> ```gray\n> do main() {\n>     for_each item in {\"a\", \"b\", \"c\"} {\n>         println(item)\n>     }\n> }\n> ```\n> This works with any element type and supports the index form (`for_each i, item in {...}`) as well.",
+   "A for-each loop can iterate over an inline array literal directly, with no variable needed:\n\n```gray\ndo main() {\n    for_each item in {\"a\", \"b\", \"c\"} {\n        println(item)\n    }\n}\n```\nThis works with any element type and supports the index form (`for_each i, item in {...}`) as well."
+  ],
+  [
+   "> 💡 **Tip:** `while` and `as_long_as` are identical. Pick whichever reads more naturally to you and stick with it.",
+   ""
+  ],
+  [
+   "> 💡 **Tip:** `defer` and `ensure` are identical. Pick whichever reads more naturally to you and stick with it.",
+   ""
+  ]
+ ],
+ "language/types.md": [
+  [
+   "> 💡 **Tip:** You can dereference directly on a call result without storing the pointer first. `new(Foo)^` allocates a `Foo` and immediately gives you the value, handy when a function returns `^Type` and you want the value right at the call site: `return new(Foo)^` or `mut val = make_thing()^`.",
+   "A call that returns a pointer can be dereferenced directly, without storing the pointer first. `new(Foo)^` allocates a `Foo` and immediately gives you the value, and the same applies to any function that returns `^Type`: `return new(Foo)^` or `mut val = make_thing()^`."
+  ],
+  [
+   "> 💡 **Tip:** The dot operator (`.`) automatically dereferences pointers to structs. If `p` is a `^MyStruct`, writing `p.field` is equivalent to `p^.field`. This auto-dereference applies to field access and struct function calls but does **not** apply in other contexts. For example, `println(p)` prints the address, and `return p` returns the pointer itself. Use explicit `p^` when you need the pointee value rather than field access.",
+   "The dot operator (`.`) automatically dereferences pointers to structs. If `p` is a `^MyStruct`, writing `p.field` is equivalent to `p^.field`. This auto-dereference applies to field access and struct function calls but does **not** apply in other contexts: `println(p)` prints the address, and `return p` returns the pointer itself. Use explicit `p^` when you need the pointee value rather than field access."
+  ],
+  [
+   "> 💡 **Tip:** Empty maps use `{:}`, not `{}`. The `{}` literal is an empty array; the colon is the tell!",
+   ""
+  ],
+  [
+   "`[K:V]` and `map[K:V]` are identical:",
+   "`[K:V]` and `map[K:V]` are identical. An empty map is written `{:}`; a bare `{}` is an empty array:"
+  ],
+  [
+   "> 💡 **Tip:** Struct and enum declarations must be at the top level of a file, never inside a function or block. Fields go on separate lines or, on one line, are separated by `;`. This is intentional. Unlike functions and control flow, structs and enums define *types*, not logic. Types belong where they are visible, nameable, and reusable. Burying a type inside a function makes it invisible to the rest of your program and harder to find when reading code.",
+   "Struct and enum declarations must be at the top level of a file, never inside a function or block. Fields go on separate lines or, on one line, are separated by `;`. Unlike functions and control flow, structs and enums define *types*, not logic, and types belong where they are visible, nameable, and reusable. Burying a type inside a function makes it invisible to the rest of your program and harder to find when reading code."
+  ],
+  [
+   "> 💡 **Tip:** Enum variants go on separate lines or, on one line, are separated by `;`, as in `const Color enum { RED; GREEN; BLUE }`.",
+   "Enum variants go on separate lines or, on one line, are separated by `;`, as in `const Color enum { RED; GREEN; BLUE }`."
+  ],
+  [
+   "> 💡 **Tip:** Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`. Use `Direction.NORTH`, `.NORTH`, or another `Direction` variable — never a raw number. However, assigning an enum value to an `i64` variable is allowed — the enum is implicitly widened to its underlying integer value: `mut status i64 = Direction.NORTH` assigns `0`.",
+   "Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`: use `Direction.NORTH`, `.NORTH`, or another `Direction` variable, never a raw number. Assigning an enum value to an `i64` variable is allowed, and the enum is implicitly widened to its underlying integer value: `mut status i64 = Direction.NORTH` assigns `0`."
+  ],
+  [
+   "> 💡 **Tip:** If you genuinely need to compare an enum value against an integer, use `cast()` to bridge the gap: `if cast(Direction.NORTH, i64) == 0 { ... }`. You can also cast the other way: `cast(0, Direction)`.",
+   "To compare an enum value against an integer, use `cast()` to bridge the gap: `if cast(Direction.NORTH, i64) == 0 { ... }`. You can also cast the other way: `cast(0, Direction)`."
+  ],
+  [
+   "> 💡 **Tip:** Array and map literal inference applies only to `mut` declarations whose elements\n> are all primitives (integer and float types, `string`, `bool`, `char`) — for maps, both\n> keys and values must be primitive. Empty literals (`{}`, `{:}`), `const` declarations, and\n> literals containing structs, enums, pointers, or nested containers still require an explicit\n> annotation (e.g. `mut arr [Point] = {Point{x: 1, y: 2}}`).",
+   "Array and map literal inference applies only to `mut` declarations whose elements are all primitives (integer and float types, `string`, `bool`, `char`) — for maps, both keys and values must be primitive. Empty literals (`{}`, `{:}`), `const` declarations, and literals containing structs, enums, pointers, or nested containers still require an explicit annotation (e.g. `mut arr [Point] = {Point{x: 1, y: 2}}`)."
+  ],
+  [
+   "> ⚠️ **File-scope `const` declarations** of primitive types and arrays require explicit type annotations. Type inference for `const` is only supported inside function bodies. For example, `const MAX_SIZE i64 = 100` is required at file scope, while `const x = 42` is valid inside a function.",
+   "**File-scope `const` declarations** of primitive types and arrays require explicit type annotations. Type inference for `const` is only supported inside function bodies. For example, `const MAX_SIZE i64 = 100` is required at file scope, while `const x = 42` is valid inside a function."
+  ],
+  [
+   "> 💡 **Tip:** You don't need to write the type if the compiler can figure it out, but adding it never hurts for readability. At file scope, `const` declarations of primitives and arrays always need the type.",
+   ""
+  ],
+  [
+   "> 💡 **Tip:** `cast` truncates floats to integers, it does not round. `cast(3.9, i64)` gives `3`, not `4`.",
+   "`cast` truncates floats to integers; it does not round. `cast(3.9, i64)` gives `3`, not `4`."
+  ],
+  [
+   "consistent with the earlier tip that a plain enum's underlying value is a real integer under the hood.",
+   "consistent with a plain enum's underlying value being a real integer under the hood."
+  ]
+ ],
+ "language/variables.md": [
+  [
+   "> ⚠️ At file scope, `const` declarations of primitive types (integer and float types, `string`, `bool`, `char`) and arrays require explicit type annotations. Struct literals and enum values can still be inferred. Inside function bodies, type inference works for all `const` declarations.",
+   "At file scope, `const` declarations of primitive types (integer and float types, `string`, `bool`, `char`) and arrays require explicit type annotations. Struct literals and enum values can still be inferred. Inside function bodies, type inference works for all `const` declarations."
+  ],
+  [
+   "> 💡 **Tip:** Use `_` to make it clear you are intentionally ignoring a value. It documents your intent right in the code.",
+   ""
+  ],
+  [
+   "- Works with both `mut` and `const` declarations\n\n",
+   "- Works with both `mut` and `const` declarations\n- Makes it explicit that you are intentionally ignoring a value\n\n"
+  ]
+ ],
+ "stdlib/builtins.md": [
+  [
+   "> 💡 **Tip:** The embedded file is read once during compilation. Changes to the file after compilation have no effect on the binary. The compiler resolves the path relative to the `.gray` source file, not the current working directory when running `grayc`.",
+   "The embedded file is read once during compilation. Changes to the file after compilation have no effect on the binary. The compiler resolves the path relative to the `.gray` source file, not the current working directory when running `grayc`."
+  ]
+ ],
+ "stdlib/fmt.md": [
+  [
+   "> 💡 **Tip:** `eprintln` and `eprint` are builtins, not fmt module functions. Use them without an import.",
+   "`eprintln` and `eprint` are builtins, not fmt module functions; use them without an import."
+  ]
+ ],
+ "stdlib/sqlite.md": [
+  [
+   "> 💡 **Tip:** For any user-supplied value, use `exec_params` / `query_params` with `?` placeholders rather than interpolating into the SQL string — parameter binding prevents SQL injection.",
+   "For any user-supplied value, use `exec_params` or `query_params` with `?` placeholders rather than interpolating into the SQL string; parameter binding prevents SQL injection."
+  ]
+ ]
+}

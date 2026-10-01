@@ -1,0 +1,5 @@
+do main() {
+    // {1, "two", 3}   // error: mixed types in array literal
+    mut numbers [i64] = {1, 2, 3}
+    println(numbers)
+}

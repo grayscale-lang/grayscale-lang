@@ -1,0 +1,12 @@
+const Node struct {
+    val  i64
+    next ^Node   // OK: pointer field
+}
+
+// Value-type self-reference is an error:
+// const Bad struct {
+//     val  i64
+//     next Bad     // error: struct 'Bad' cannot contain itself by value; use a pointer field '^Bad'
+// }
+
+do main() {}

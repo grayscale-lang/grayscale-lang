@@ -1,0 +1,8 @@
+do do_something() { println("done") }
+
+do main() {
+    mut counter i64 = 0
+    println("Hello")
+    counter++
+    do_something()
+}

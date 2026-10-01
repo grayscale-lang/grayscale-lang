@@ -1,0 +1,9 @@
+const Shape enum {
+    Circle(f64)
+    Rect(f64, f64)
+    Point
+}
+
+do main() {
+    mut s Shape = .Circle(3.14)
+}

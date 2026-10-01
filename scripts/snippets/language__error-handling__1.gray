@@ -1,0 +1,8 @@
+do main() {
+    mut a Error = error(.NotFound, "no such file")        // code and message
+    mut b Error = error(.NotFound)                        // message defaults to ""
+    mut c Error = error(.Unknown, "something went wrong") // no more specific code applies
+    println(a)
+    println(b)
+    println(c)
+}

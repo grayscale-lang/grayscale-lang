@@ -1,0 +1,10 @@
+do divide(a, b i64) -> (quotient i64, remainder i64) {
+    mut quotient i64 = a / b
+    mut remainder i64 = a % b
+    return quotient, remainder
+}
+
+do main() {
+
+mut q, r = divide(17, 5)  // q=3, r=2
+}

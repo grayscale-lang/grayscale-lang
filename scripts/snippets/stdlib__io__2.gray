@@ -1,0 +1,19 @@
+import @io
+
+do main() {
+    // Always use destructuring; single-variable assignment is a compile error
+    mut content, err = io.read_file("data.txt")
+    if err != nil {
+        println("read failed: ${err.message}")
+    }
+
+    // Discard the error with _
+    mut other, _ = io.read_file("data.txt")
+
+    mut lines, lines_err = io.read_lines("data.txt")
+    for_each line in lines {
+        println(line)
+    }
+
+    mut sz, size_err = io.file_size("data.txt")
+}

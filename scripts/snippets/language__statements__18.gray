@@ -1,0 +1,8 @@
+do main() {
+    mut x i64 = 2
+    switch x {
+        case 1 { println("one") }
+        case 2, 3 { println("two or three") }
+        default { println("other") }
+    }
+}

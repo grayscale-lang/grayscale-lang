@@ -1,0 +1,192 @@
+{
+  "name": "grayscale",
+  "scopeName": "source.gray",
+  "fileTypes": ["gray"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#raw-strings" },
+    { "include": "#characters" },
+    { "include": "#attributes" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#builtins" },
+    { "include": "#operators" },
+    { "include": "#module-import" },
+    { "include": "#function-def" },
+    { "include": "#function-call" },
+    { "include": "#constants" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.gray",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.gray",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.gray",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gray",
+              "match": "\\\\[nrt\\\\\"0]|\\\\x[0-9a-fA-F]{2}"
+            },
+            {
+              "name": "meta.interpolation.gray",
+              "begin": "\\$\\{",
+              "end": "\\}",
+              "beginCaptures": { "0": { "name": "punctuation.definition.interpolation.begin.gray" } },
+              "endCaptures": { "0": { "name": "punctuation.definition.interpolation.end.gray" } },
+              "patterns": [{ "include": "source.gray" }]
+            }
+          ]
+        }
+      ]
+    },
+    "raw-strings": {
+      "name": "string.quoted.backtick.gray",
+      "begin": "`",
+      "end": "`"
+    },
+    "characters": {
+      "name": "string.quoted.single.gray",
+      "match": "'(?:\\\\[nrt\\\\'0]|\\\\x[0-9a-fA-F]{2}|[^'\\\\])'"
+    },
+    "attributes": {
+      "name": "meta.attribute.gray",
+      "match": "#(doc|flags|strict|deprecated|test|inline|cold|packed|align|opaque|tag)\\b",
+      "captures": {
+        "0": { "name": "entity.other.attribute-name.gray" }
+      }
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.gray",
+          "match": "\\b0x[0-9a-fA-F][0-9a-fA-F_]*\\b"
+        },
+        {
+          "name": "constant.numeric.octal.gray",
+          "match": "\\b0o[0-7][0-7_]*\\b"
+        },
+        {
+          "name": "constant.numeric.binary.gray",
+          "match": "\\b0b[01][01_]*\\b"
+        },
+        {
+          "name": "constant.numeric.float.gray",
+          "match": "\\b[0-9][0-9_]*\\.[0-9][0-9_]*\\b"
+        },
+        {
+          "name": "constant.numeric.integer.gray",
+          "match": "\\b[0-9][0-9_]*\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.gray",
+          "match": "\\b(if|or|otherwise|else|for|for_each|while|as_long_as|loop|when|is|default|break|continue|return|or_return|ensure|in|not_in)\\b"
+        },
+        {
+          "name": "keyword.declaration.gray",
+          "match": "\\b(do|const|mut|struct|enum|import|using|new|private)\\b"
+        },
+        {
+          "name": "keyword.operator.bitwise.gray",
+          "match": "\\b(bit_and|bit_or|bit_xor|bit_not|bit_shift_left|bit_shift_right)\\b"
+        },
+        {
+          "name": "keyword.operator.gray",
+          "match": "\\b(cast|range)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.gray",
+          "match": "\\b(int|uint|float|string|bool|char|byte|Error|func|map|ptr)\\b"
+        },
+        {
+          "name": "support.type.sized.gray",
+          "match": "\\b(i8|i16|i32|i64|i128|i256|u8|u16|u32|u64|u128|u256|f32|f64)\\b"
+        }
+      ]
+    },
+    "builtins": {
+      "name": "support.function.builtin.gray",
+      "match": "\\b(println|print|eprintln|eprint|input|len|append|delete|copy|error|assert|type_of|size_of|make)\\b"
+    },
+    "constants": {
+      "name": "constant.language.gray",
+      "match": "\\b(true|false|nil)\\b"
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.gray",
+          "match": "\\+\\=|\\-\\=|\\*\\=|\\/\\=|%\\=|\\="
+        },
+        {
+          "name": "keyword.operator.comparison.gray",
+          "match": "\\=\\=|!\\=|<\\=|>\\=|<|>"
+        },
+        {
+          "name": "keyword.operator.logical.gray",
+          "match": "&&|\\|\\||!"
+        },
+        {
+          "name": "keyword.operator.arithmetic.gray",
+          "match": "\\+\\+|\\-\\-|\\+|\\-|\\*|\\/|%"
+        },
+        {
+          "name": "keyword.operator.arrow.gray",
+          "match": "->"
+        },
+        {
+          "name": "keyword.operator.pointer.gray",
+          "match": "\\^|&"
+        }
+      ]
+    },
+    "module-import": {
+      "match": "(@)(\\w+)",
+      "captures": {
+        "1": { "name": "punctuation.definition.module.gray" },
+        "2": { "name": "entity.name.namespace.gray" }
+      }
+    },
+    "function-def": {
+      "match": "\\b(do)\\s+([a-zA-Z_]\\w*)\\s*\\(",
+      "captures": {
+        "1": { "name": "keyword.declaration.gray" },
+        "2": { "name": "entity.name.function.gray" }
+      }
+    },
+    "function-call": {
+      "match": "\\b([a-zA-Z_]\\w*)\\s*\\(",
+      "captures": {
+        "1": { "name": "entity.name.function.gray" }
+      }
+    },
+    "identifiers": {
+      "name": "variable.other.gray",
+      "match": "\\b[a-zA-Z_]\\w*\\b"
+    }
+  }
+}

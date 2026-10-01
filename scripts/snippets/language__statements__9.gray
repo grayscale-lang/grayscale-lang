@@ -1,0 +1,5 @@
+do main() {
+    mut items [string] = {"a", "b", "c"}
+    for_each _, item in items { println(item) }   // discard index (same as no index)
+    for_each i, _ in items { println(i) }         // index only, discard value
+}

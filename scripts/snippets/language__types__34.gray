@@ -1,0 +1,16 @@
+const Direction enum {
+    NORTH
+    SOUTH
+}
+
+const Status enum {
+    TODO = "todo"
+    DONE = "done"
+}
+
+do main() {
+    mut dir = Direction.NORTH
+    mut status = Status.TODO
+    println(dir)
+    println(status)
+}

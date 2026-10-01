@@ -1,0 +1,5 @@
+// This is a single-line comment
+
+do main() {
+mut x i64 = 42  // inline comment
+}

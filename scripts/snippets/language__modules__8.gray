@@ -1,0 +1,5 @@
+import @arrays
+
+do main() {
+using arrays
+}

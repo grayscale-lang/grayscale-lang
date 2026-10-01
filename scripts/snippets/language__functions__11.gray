@@ -1,0 +1,6 @@
+do add(a i64, b i64) -> i64 { return a + b }
+
+do main() {
+    println(add(a: 1, b: 2))
+    // add(a: 1, c: 2)  // error: unknown parameter name 'c' in call to 'add'
+}

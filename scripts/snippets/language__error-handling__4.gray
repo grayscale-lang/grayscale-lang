@@ -1,0 +1,17 @@
+import @io
+
+do main() {
+    mut content, err = io.read_file("data.txt")
+    if err != nil {
+        if err.code == .NotFound {
+            content = ""
+        }
+
+        when err.code {
+            is .NotFound         { println("using defaults") }
+            is .PermissionDenied { println("escalate") }
+            default              { println(err.msg) }
+        }
+    }
+    println(content)
+}

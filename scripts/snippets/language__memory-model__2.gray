@@ -1,0 +1,15 @@
+import @strings
+import @arrays
+
+do main() {
+    mut lines [string] = {"a", "b"}
+    mut results [string] = {}
+
+    for_each line in lines {
+        mut upper = strings.to_upper(line)
+        arrays.append(results, upper)         // upper escapes into results
+    }
+    // results lives until its scope ends
+    // each iteration's other temporaries are freed
+    println(results)
+}

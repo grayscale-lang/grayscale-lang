@@ -1,0 +1,18 @@
+import @arrays
+
+do main() {
+    mut arr [i64] = {1, 2, 3}
+
+    // mut ref is mutable - can modify through the reference
+    mut r1 = ref(arr)
+    arrays.append(r1, 4)  // OK - modifies arr
+
+    // const ref is read-only - can read but not modify
+    const r2 = ref(arr)
+    mut val = r2[0]      // OK - can read
+    // arrays.append(r2, 5)  // ERROR - cannot modify through const ref
+
+    // const ref sees changes made to the original
+    arrays.append(arr, 6)
+    println(r2[4])        // Prints 6 - r2 sees the change
+}

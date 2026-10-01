@@ -1,0 +1,14 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const PI f64 = 3.14159
+const MAX_SIZE i64 = 100
+const origin = Point{x: 0, y: 0}
+
+do main() {
+    println(PI)
+    println(MAX_SIZE)
+    println(origin)
+}

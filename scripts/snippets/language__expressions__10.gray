@@ -1,0 +1,10 @@
+do add(a i64, b i64) -> i64 { return a + b }
+do greet(name string) -> string { return "Hello, ${name}" }
+
+do main() {
+    mut sum i64 = add(1, 2)
+    mut greeting string = greet("World")
+    println("Hello!")
+    println(sum)
+    println(greeting)
+}

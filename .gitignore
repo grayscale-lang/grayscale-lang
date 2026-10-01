@@ -1,6 +1,5 @@
 # build output
 dist/
-
 # generated types
 .astro/
 
@@ -13,6 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
 # environment variables
 .env
 .env.production
@@ -20,15 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
-.idea/
-
-# vscode
-.vscode/
-
-# context/docs for AI assistants
-context/
-.claude/
-
-# yarn
-yarn.lock
+# Generated docs content (built from STANDARD.md at build time)
+src/content/docs/overview.md
+src/content/docs/language/
+src/content/docs/stdlib/
+src/content/docs/cli/
+src/data/errors.json

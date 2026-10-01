@@ -1,0 +1,12 @@
+import @io
+
+do main() {
+
+mut mode OpenFlag = io.O_RDWR
+when mode {
+    is .O_RDONLY { }
+    is .O_WRONLY { }
+    is .O_RDWR   { }
+    default      { }
+}
+}

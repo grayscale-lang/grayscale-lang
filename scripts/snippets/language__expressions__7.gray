@@ -1,0 +1,17 @@
+
+do main() {
+const READ  i64 = 0b001
+const WRITE i64 = 0b010
+const EXEC  i64 = 0b100
+
+mut perms i64 = READ bit_or WRITE   // set READ and WRITE flags
+
+if perms bit_and READ == READ {
+    println("readable")
+}
+if perms bit_and EXEC == 0 {
+    println("not executable")
+}
+
+perms = perms bit_xor WRITE         // clear WRITE flag
+}

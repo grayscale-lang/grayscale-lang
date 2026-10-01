@@ -1,0 +1,6 @@
+do add(a i64, b i64) -> i64 { return a + b }
+
+do main() {
+    println(add(1, b: 2))     // OK: positional first, then named
+    // add(a: 1, 2)           // error: positional argument after named argument
+}

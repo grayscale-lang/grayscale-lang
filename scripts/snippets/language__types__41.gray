@@ -1,0 +1,6 @@
+do double(n i64) -> i64 { return n * 2 }
+
+do main() {
+    const f = ()double
+    println(f(5))   // 10
+}

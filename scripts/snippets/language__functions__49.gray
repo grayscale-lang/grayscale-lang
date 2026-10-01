@@ -1,0 +1,8 @@
+do pick_first(a ?, b ?) -> ? {
+    return a
+}
+
+do main() {
+    println(pick_first(1, 2))          // OK, both args are i64, ? binds to i64
+    // pick_first(1, "hello")          // Error: conflicting bindings for ?
+}

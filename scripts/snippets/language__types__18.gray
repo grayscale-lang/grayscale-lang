@@ -1,0 +1,5 @@
+
+do main() {
+const SIZE i64 = 4
+const buf [u8, SIZE] = {0x01, 0x02, 0x03, 0x04}
+}

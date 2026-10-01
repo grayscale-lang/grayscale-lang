@@ -1,0 +1,11 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+alias Meters = f64
+alias Vec2 = Point
+alias Names = [string]
+alias Lookup = map[string:i64]
+
+do main() {}

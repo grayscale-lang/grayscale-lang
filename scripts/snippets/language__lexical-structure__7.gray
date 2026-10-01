@@ -1,0 +1,8 @@
+
+do main() {
+mut path string = `C:\Users\test\file.txt`
+mut pattern string = `\d+\.\d+`
+mut multi string = `line1
+line2
+line3`
+}

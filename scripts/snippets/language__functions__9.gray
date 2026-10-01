@@ -1,0 +1,12 @@
+do connect(host string, port i64 = 8080, verbose bool = false) {
+    if verbose {
+        println("Connecting to ${host}:${port}")
+    }
+}
+
+do main() {
+
+connect(host: "localhost", verbose: true)  // port uses default 8080
+connect(verbose: true, host: "localhost")  // same — order doesn't matter
+connect("localhost", verbose: true)        // positional + named mix
+}

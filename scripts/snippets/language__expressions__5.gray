@@ -1,0 +1,6 @@
+
+do main() {
+mut x i64 = 5
+x++  // x is now 6
+x--  // x is now 5
+}

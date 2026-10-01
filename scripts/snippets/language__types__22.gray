@@ -1,0 +1,14 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const Person struct {
+    name string
+    age i64
+    active bool
+}
+
+do main() {
+
+}

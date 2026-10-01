@@ -1,0 +1,10 @@
+do a() -> bool { return false }
+do b() -> bool { println("b called"); return true }
+
+do main() {
+    // If a is false, b() is not called
+    if a() && b() { println("both") }
+
+    // If a is true, b() is not called
+    if !a() || b() { println("either") }
+}

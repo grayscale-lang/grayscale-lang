@@ -1,0 +1,5 @@
+
+do main() {
+mut pi f64 = 3.14159
+mut ratio f32 = 0.5
+}

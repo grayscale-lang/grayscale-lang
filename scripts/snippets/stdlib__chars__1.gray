@@ -1,0 +1,9 @@
+import @chars
+
+do main() {
+
+println(chars.width('A'))          // 1
+println(chars.width('中'))         // 2 (CJK ideograph)
+println(chars.string_width("café")) // 4
+println(chars.string_width("中文")) // 4 (two wide chars)
+}

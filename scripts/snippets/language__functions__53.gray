@@ -1,0 +1,9 @@
+do good(T <?>) -> ^? {
+    return new(T)
+}
+
+// do bad(T <?>, x i64) -> ^? {     // Error E2087
+//     return new(T)
+// }
+
+do main() {}

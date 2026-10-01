@@ -1,0 +1,7 @@
+
+do main() {
+mut small u8 = cast(42, u8)
+mut truncated i64 = cast(3.7, i64)     // 3
+mut text string = cast(123, string)    // "123"
+mut parsed i64 = cast("42", i64)       // 42
+}

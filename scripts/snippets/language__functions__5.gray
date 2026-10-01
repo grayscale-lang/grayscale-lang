@@ -1,0 +1,13 @@
+do add(a, b i64) -> i64 {
+    return a + b
+}
+
+do swap(&a, &b i64) {
+    mut t i64 = a
+    a = b
+    b = t
+}
+
+do main() {
+
+}

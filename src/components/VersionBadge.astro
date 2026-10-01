@@ -1,0 +1,33 @@
+---
+// Client-side version badge that fetches from GitHub API
+---
+
+<span class="version-badge" id="gh-version-badge"></span>
+
+<script>
+  async function loadVersion() {
+    try {
+      const res = await fetch('https://api.github.com/repos/grayscale-lang/grayscale/releases/latest');
+      if (!res.ok) return;
+      const data = await res.json();
+      const badge = document.getElementById('gh-version-badge');
+      if (badge && data.tag_name) {
+        badge.textContent = data.tag_name;
+        badge.style.display = 'inline-block';
+      }
+    } catch { /* silent */ }
+  }
+  loadVersion();
+</script>
+
+<style>
+  .version-badge {
+    display: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-family: var(--sl-font-mono);
+    border: 1px solid var(--sl-color-gray-4);
+    color: var(--sl-color-gray-2);
+  }
+</style>

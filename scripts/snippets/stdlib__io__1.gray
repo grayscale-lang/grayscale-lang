@@ -1,0 +1,8 @@
+import @io
+
+do main() {
+    mut p string = io.path_join({"/home", "user", "docs"})  // "/home/user/docs"
+    mut q string = io.path_join({"a/b", "/abs"})            // "/abs", absolute replaces
+    println(p)
+    println(q)
+}

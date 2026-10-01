@@ -1,0 +1,12 @@
+do compute() -> (i64, Error) { return 1, nil }
+
+do main() {
+    mut a i64 = 42          // mutable
+    b i64 = 42              // mutable (default, `mut` is optional)
+    name = "hello"          // mutable, type inferred
+    result, err = compute()    // mutable, multi-return inferred
+    println(a)
+    println(b)
+    println(name)
+    println(result)
+}

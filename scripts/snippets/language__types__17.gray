@@ -1,0 +1,5 @@
+do main() {
+    const a [i64, 5] = {1, 2, 3}           // OK (3 of 5 slots used, remaining zero-initialized)
+    // const b [i64, 5] = {1, 2, 3, 4, 5, 6}  // Error: 6 values exceeds size of 5
+    println(a)
+}

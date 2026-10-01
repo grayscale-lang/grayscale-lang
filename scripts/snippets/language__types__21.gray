@@ -1,0 +1,5 @@
+
+do main() {
+mut arr [i64] = {}       // Empty array
+mut m [string:i64] = {:}  // Empty map
+}

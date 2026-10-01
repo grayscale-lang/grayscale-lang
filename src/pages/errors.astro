@@ -1,0 +1,179 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { readFileSync } from 'fs';
+
+let errors = [];
+try {
+  errors = JSON.parse(readFileSync(new URL('../data/errors.json', import.meta.url), 'utf-8'));
+} catch {
+  // errors.json not generated yet
+}
+
+const categories = [...new Set(errors.map((e) => e.category))].sort();
+---
+
+<StarlightPage frontmatter={{ title: 'Error Reference' }} headings={[]}>
+  <p>All {errors.length} diagnostic codes emitted by the Grayscale compiler.</p>
+
+  <div class="error-controls">
+    <input type="text" id="error-search" placeholder="Search by code or message..." class="error-search" />
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All ({errors.length})</button>
+      <button class="filter-tab" data-filter="error">Errors ({errors.filter((e) => e.type === 'error').length})</button>
+      <button class="filter-tab" data-filter="warning">Warnings ({errors.filter((e) => e.type === 'warning').length})</button>
+      <button class="filter-tab" data-filter="panic">Panics ({errors.filter((e) => e.type === 'panic').length})</button>
+    </div>
+  </div>
+
+  <div id="error-list">
+    {categories.map((cat) => {
+      const catErrors = errors.filter((e) => e.category === cat);
+      return (
+        <div class="error-category" data-category={cat}>
+          <h3>{cat}</h3>
+          <div class="error-items">
+            {catErrors.map((e) => (
+              <div class="error-item" data-type={e.type} data-code={e.code} data-message={e.message.toLowerCase()}>
+                <span class={`error-code ${e.type}`}>{e.code}</span>
+                <span class="error-message">{e.message}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <div id="no-results" class="no-results" style="display:none;">No matching errors found.</div>
+</StarlightPage>
+
+<script>
+  const search = document.getElementById('error-search') as HTMLInputElement;
+  const tabs = document.querySelectorAll('.filter-tab');
+  const items = document.querySelectorAll('.error-item');
+  const categories = document.querySelectorAll('.error-category');
+  const noResults = document.getElementById('no-results');
+
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = search?.value.toLowerCase().trim() ?? '';
+    let visible = 0;
+
+    items.forEach((item) => {
+      const el = item as HTMLElement;
+      const type = el.dataset.type ?? '';
+      const code = el.dataset.code?.toLowerCase() ?? '';
+      const message = el.dataset.message ?? '';
+
+      const matchesFilter = activeFilter === 'all' || type === activeFilter;
+      const matchesSearch = !query || code.includes(query) || message.includes(query);
+
+      el.style.display = matchesFilter && matchesSearch ? '' : 'none';
+      if (matchesFilter && matchesSearch) visible++;
+    });
+
+    // Hide empty categories
+    categories.forEach((cat) => {
+      const catEl = cat as HTMLElement;
+      const visibleItems = catEl.querySelectorAll('.error-item:not([style*="display: none"])');
+      catEl.style.display = visibleItems.length > 0 ? '' : 'none';
+    });
+
+    if (noResults) {
+      noResults.style.display = visible === 0 ? '' : 'none';
+    }
+  }
+
+  search?.addEventListener('input', applyFilters);
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeFilter = (tab as HTMLElement).dataset.filter ?? 'all';
+      applyFilters();
+    });
+  });
+</script>
+
+<style>
+  .error-controls {
+    margin-bottom: 1.5rem;
+  }
+
+  .error-search {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
+    margin-bottom: 1rem;
+  }
+
+  .error-search::placeholder {
+    color: var(--sl-color-gray-3);
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--sl-color-gray-2);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+
+  .filter-tab.active {
+    background: var(--sl-color-accent);
+    color: var(--sl-color-gray-6);
+    border-color: var(--sl-color-accent);
+  }
+
+  .error-category h3 {
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin: 1.5rem 0 0.5rem;
+    color: var(--sl-color-gray-2);
+  }
+
+  .error-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  .error-code {
+    font-family: var(--sl-font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .error-code.error { color: #dc2626; }
+  .error-code.warning { color: #d97706; }
+  .error-code.panic { color: #9333ea; }
+
+  .error-message {
+    color: var(--sl-color-gray-1);
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--sl-color-gray-3);
+  }
+</style>

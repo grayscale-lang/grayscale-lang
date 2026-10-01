@@ -1,0 +1,4 @@
+extern import "stdio.h"           // system header → #include <stdio.h>
+// extern import "./mylib.h"      // local header  → #include "./mylib.h"
+
+do main() {}

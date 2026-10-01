@@ -1,0 +1,13 @@
+import @mem
+
+const Node struct {
+    val i64
+}
+
+do main() {
+    mut scratch = mem.arena(4096)
+    mut node = mem.init(scratch, Node)
+    // ... use node ...
+    mem.reset(scratch)
+    mem.destroy(scratch)
+}

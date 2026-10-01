@@ -1,0 +1,8 @@
+
+do main() {
+mut s string = "日本語"
+println(len(s))              // 9 (byte length, not 3 characters)
+println(char_count(s))       // 3 (Unicode character count)
+println(to_char(s, 0))       // 日 (the character at codepoint index 0)
+println(cast(to_char(s, 0), i64))  // 26085 (its Unicode codepoint value)
+}

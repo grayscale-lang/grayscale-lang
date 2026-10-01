@@ -1,0 +1,14 @@
+do parse(s string) -> (i64, Error) {
+    if s == "" {
+        return 0, error(.Unknown, "empty string")
+    }
+    return 42, nil
+}
+
+do main() {
+
+mut value, err = parse("test")
+if err != nil {
+    // Handle error
+}
+}

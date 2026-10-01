@@ -1,0 +1,10 @@
+do square(x i64) -> (result i64) {
+    mut result i64 = x * x
+    return result
+    // mut other i64 = result
+    // return other   // error[E3080]: function must return named variable 'result', not a different expression
+}
+
+do main() {
+    println(square(4))
+}

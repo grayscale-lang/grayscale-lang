@@ -1,0 +1,17 @@
+import @strings
+
+do append_row(&b Builder, row [string]) {
+    strings.builder_append_line(b, strings.join(row, ","))
+}
+
+do rows_to_csv(rows [[string]]) -> string {
+    mut b Builder = strings.builder()
+    for_each row in rows {
+        append_row(b, row)
+    }
+    return strings.build(b)
+}
+
+do main() {
+
+}

@@ -1,0 +1,31 @@
+import @io
+import @json
+
+do two() -> (i64, i64, Error) { return 1, 2, nil }
+do do_work() -> (i64, Error) { return 1, nil }
+
+do load() -> (string, Error) {
+    // Bare or_return: propagates the error with zero values
+    mut content = io.read_file("data.txt") or_return
+    return content, nil
+}
+
+// With custom fallback values:
+do load_with_fallback() -> (string, Error) {
+    mut content = io.read_file("data.txt") or_return "", error(.Unknown, "failed to load")
+    return content, nil
+}
+
+// Destructuring a call that returns more than one non-error value:
+do consume() -> (i64, Error) {
+    mut a, b = two() or_return   // two() -> (i64, i64, Error); a, b bound, error propagated
+    return a + b, nil
+}
+
+// No binding — run the call only for its error:
+do run() -> Error {
+    do_work() or_return         // propagate on error, otherwise discard the values
+    return nil
+}
+
+do main() {}

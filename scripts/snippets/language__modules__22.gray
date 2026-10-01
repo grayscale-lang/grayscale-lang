@@ -1,0 +1,4 @@
+// import mymod "./extern.gray"    // OK, aliased
+// import "./extern.gray"          // Error: 'extern' is reserved
+
+do main() {}

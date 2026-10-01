@@ -1,0 +1,12 @@
+
+// Single variable iterates keys only
+
+do main() {
+mut ages map[string:i64] = {"alice": 30, "bob": 25}
+for_each k, v in ages {
+    println("${k}: ${v}")
+}
+for_each key in ages {
+    println(key)
+}
+}

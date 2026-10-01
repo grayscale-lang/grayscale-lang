@@ -1,142 +1,32 @@
 ---
+import { Code } from 'astro-expressive-code/components';
+
 interface Props {
   code: string;
-  title?: string;
+  fontSize?: string;
+  bordered?: boolean;
 }
 
-const { code, title } = Astro.props;
-
-// Comprehensive EZ syntax highlighter using marker-based approach
-function highlightEZ(code: string): string {
-  // All EZ keywords
-  const keywords = [
-    'temp', 'const', 'do', 'if', 'or', 'otherwise',
-    'for', 'for_each', 'as_long_as', 'loop', 'return',
-    'import', 'using', 'module', 'in', 'break', 'continue',
-    'struct', 'enum', 'priv'
-  ];
-
-  // All types including sized integers
-  const types = [
-    'int', 'float', 'string', 'bool', 'void', 'any', 'char', 'map',
-    'i8', 'u8', 'i16', 'u16', 'i32', 'u32', 'i64', 'u64', 'i128', 'u128', 'i256', 'u256'
-  ];
-
-  // Built-in functions
-  const builtins = ['println', 'print', 'len', 'append', 'range', 'typeof'];
-
-  // Type conversion functions (called like functions)
-  const typeConversions = ['int', 'float', 'string'];
-
-  let result = code;
-  const markers: { marker: string; replacement: string; original: string }[] = [];
-  let markerIndex = 0;
-
-  // Helper to create unique markers
-  const createMarker = (content: string, className: string): string => {
-    const marker = `__EZ_MARKER_${markerIndex++}__`;
-    const escaped = content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    markers.push({ marker, replacement: `<span class="${className}">${escaped}</span>`, original: content });
-    return marker;
-  };
-
-  // Restore any string markers embedded in a comment back to original text
-  const inlineMarkers = (text: string): string => {
-    let restored = text;
-    markers.forEach(({ marker, original }) => {
-      restored = restored.replace(marker, original);
-    });
-    return restored;
-  };
-
-  // Extract strings FIRST to protect URLs like "https://..." from being matched as comments
-  // Extract strings (double quotes)
-  result = result.replace(/("(?:[^"\\]|\\.)*")/g, (match) => createMarker(match, 'ez-string'));
-
-  // Extract single-char strings (single quotes)
-  result = result.replace(/('(?:[^'\\]|\\.)')/g, (match) => createMarker(match, 'ez-string'));
-
-  // Extract multi-line comments (inline any string markers back to original text)
-  result = result.replace(/(\/\*[\s\S]*?\*\/)/g, (match) => createMarker(inlineMarkers(match), 'ez-comment'));
-
-  // Extract single-line comments (after strings, so // in URLs won't match)
-  result = result.replace(/(\/\/.*$)/gm, (match) => createMarker(inlineMarkers(match), 'ez-comment'));
-
-  // Extract import statements with @ - handle alias@module and @module patterns
-  // Pattern: alias@module (e.g., arr@arrays, m@math)
-  result = result.replace(/\b(\w+)(@)(\w+)\b/g, (match, alias, at, moduleName) => {
-    const aliasMarker = createMarker(alias, 'ez-module');
-    const atMarker = createMarker(at, 'ez-operator');
-    const moduleMarker = createMarker(moduleName, 'ez-module');
-    return aliasMarker + atMarker + moduleMarker;
-  });
-
-  // Pattern: @module (e.g., @std, @math, @arrays)
-  result = result.replace(/(@)(\w+)/g, (match, at, moduleName) => {
-    const atMarker = createMarker(at, 'ez-operator');
-    const moduleMarker = createMarker(moduleName, 'ez-module');
-    return atMarker + moduleMarker;
-  });
-
-  // Extract & operator in "import & use"
-  result = result.replace(/\b(import)\s+(&)\s+(use)\b/g, (match, imp, amp, use) => {
-    const impMarker = createMarker(imp, 'ez-keyword');
-    const ampMarker = createMarker(amp, 'ez-operator');
-    const useMarker = createMarker(use, 'ez-keyword');
-    return impMarker + ' ' + ampMarker + ' ' + useMarker;
-  });
-
-  // Now escape remaining HTML
-  result = result
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-
-  // Booleans
-  result = result.replace(/\b(true|false)\b/g, '<span class="ez-boolean">$1</span>');
-
-  // Numbers
-  result = result.replace(/\b(\d+\.?\d*)\b/g, '<span class="ez-number">$1</span>');
-
-  // Keywords
-  keywords.forEach(kw => {
-    const regex = new RegExp(`\\b(${kw})\\b`, 'g');
-    result = result.replace(regex, '<span class="ez-keyword">$1</span>');
-  });
-
-  // Types (but not when used as function calls like int(), float(), string())
-  types.forEach(t => {
-    // Match type when NOT followed by (
-    const regex = new RegExp(`\\b(${t})\\b(?!\\()`, 'g');
-    result = result.replace(regex, '<span class="ez-type">$1</span>');
-  });
-
-  // Type conversion functions when followed by (
-  typeConversions.forEach(fn => {
-    const regex = new RegExp(`\\b(${fn})(?=\\()`, 'g');
-    result = result.replace(regex, '<span class="ez-function">$1</span>');
-  });
-
-  // Builtins/Functions
-  builtins.forEach(fn => {
-    const regex = new RegExp(`\\b(${fn})(?=\\()`, 'g');
-    result = result.replace(regex, '<span class="ez-function">$1</span>');
-  });
-
-  // Restore all markers
-  markers.forEach(({ marker, replacement }) => {
-    result = result.replace(marker, () => replacement);
-  });
-
-  return result;
-}
-
-const highlightedCode = highlightEZ(code);
+const { code, fontSize = '0.9rem', bordered = true } = Astro.props;
 ---
 
-{title && (
-  <div class="px-4 py-2 bg-[#f5f5f5] dark:bg-[#1a1a1a] border border-[#e5e5e5] dark:border-[#333333] border-b-0 rounded-t-lg text-sm font-medium opacity-60">
-    {title}
-  </div>
-)}
-<pre class={title ? '!rounded-t-none !mt-0' : ''}><code set:html={highlightedCode} /></pre>
+<div class:list={['code-block', { bordered }]} style={`--code-font-size: ${fontSize};`}>
+  <Code code={code} lang="gray" frame="none" />
+</div>
+
+<style>
+  .code-block.bordered {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .code-block :global(.expressive-code) {
+    --ec-codeFontSize: var(--code-font-size);
+  }
+
+  .code-block :global(.expressive-code),
+  .code-block :global(.expressive-code pre) {
+    margin: 0;
+  }
+</style>

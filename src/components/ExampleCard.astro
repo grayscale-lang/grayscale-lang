@@ -1,0 +1,69 @@
+---
+import CodeBlock from './CodeBlock.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  code: string;
+}
+
+const { title, description, code } = Astro.props;
+const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+
+<details class="example-card" id={id}>
+  <summary>
+    <strong>{title}</strong>
+    <span class="example-desc">{description}</span>
+  </summary>
+  <div class="example-code">
+    <CodeBlock code={code} fontSize="0.85rem" bordered={false} />
+  </div>
+</details>
+
+<style>
+  .example-card {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .example-card summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .example-card summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .example-card summary::before {
+    content: '+';
+    position: absolute;
+    right: 1.25rem;
+    font-size: 1.2rem;
+    color: var(--sl-color-gray-3);
+  }
+
+  .example-card[open] summary::before {
+    content: '-';
+  }
+
+  .example-card summary {
+    position: relative;
+  }
+
+  .example-desc {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+  }
+
+  .example-code {
+    border-top: 1px solid var(--sl-color-gray-5);
+    padding: 1.25rem;
+  }
+</style>

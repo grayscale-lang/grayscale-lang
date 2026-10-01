@@ -1,0 +1,15 @@
+const Calculator struct {
+    value i64
+
+    private do internal_add(a i64, b i64) -> i64 {
+        return a + b
+    }
+
+    do add(a i64, b i64) -> i64 {
+        return internal_add(a, b)        // bare sibling call
+    }
+}
+
+do main() {
+
+}

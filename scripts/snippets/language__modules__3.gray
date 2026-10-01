@@ -1,0 +1,7 @@
+import @math
+
+do main() {
+    println(math.sqrt(16.0))
+}
+// import mymod "./server"     // local modules can be aliased: mymod.handle() instead of server.handle()
+// import m @math              // Error: '@math' cannot be aliased

@@ -1,0 +1,22 @@
+#deprecated("Point is old, use Point3D")
+const Point struct {
+    x i64
+    y i64
+}
+
+const Container struct {
+    id i64
+
+    #deprecated("use current() instead")
+    do legacy(self Container) -> i64 {
+        return 1
+    }
+
+    do current(self Container) -> i64 {
+        return 2
+    }
+}
+
+do main() {
+
+}

@@ -5,9 +5,8 @@ on:
     branches: [main]
   workflow_dispatch:
   repository_dispatch:
-    types: [upstream-update]
+    types: [sync-docs, upstream-update]
   schedule:
-    # Rebuild daily at 6am UTC to pick up any upstream ERRORS.md changes
     - cron: '0 6 * * *'
 
 permissions:
@@ -29,13 +28,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
+          cache: "npm"
 
       - name: Install dependencies
-        run: yarn install --ignore-engines
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

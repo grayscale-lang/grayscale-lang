@@ -1,0 +1,11 @@
+import @os
+
+do main() {
+    mut code, stdout, stderr, ok = os.exec("ls", {"-l", "/tmp"})
+    if !ok {
+        println("failed to launch")
+    }
+    if ok && code != 0 {
+        println("exited with error: ${stderr}")
+    }
+}

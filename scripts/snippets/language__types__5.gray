@@ -1,0 +1,5 @@
+
+do main() {
+mut greeting string = "Hello, World!"
+mut first_char char = greeting[0]  // 'H'
+}

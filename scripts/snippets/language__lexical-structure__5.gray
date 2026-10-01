@@ -1,0 +1,13 @@
+do main() {
+    mut x i64 = 1
+    mut a bool = true
+    mut b bool = false
+
+    switch x { case 1 { } default { } }    // ok
+    // when x   { is 1 { } default { } }   // ok, but not in the same file as switch
+    // switch x { is 1 { } default { } }   // E2088 — crossed dialects
+
+    if a { } elif b { } else { }           // ok
+    // if a { } or b { } otherwise { }     // ok, but not in the same file as elif/else
+    // if a { } elif b { } otherwise { }   // E2088 — crossed dialects
+}
