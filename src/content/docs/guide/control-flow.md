@@ -6,7 +6,7 @@ sidebar:
 
 ## Conditions
 
-`or` adds another condition and `otherwise` is the fallback. `elif` and `else` are alternative spellings of the same pair, but the two styles cannot be mixed in one file. See [Keyword Aliases](/guide/keyword-aliases/).
+`or` adds another condition and `otherwise` is the fallback. `elif` and `else` are alternative spellings of the same pair, but the two styles cannot be mixed in one file. See [Keyword Aliases](/grayscale-lang/guide/keyword-aliases/).
 
 ```gray
 do sign(x i64) -> string {

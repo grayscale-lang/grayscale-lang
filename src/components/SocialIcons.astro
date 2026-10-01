@@ -2,7 +2,7 @@
 import Default from '@astrojs/starlight/components/SocialIcons.astro';
 ---
 
-<a href="/overview/" class="docs-link">Docs</a>
+<a href={`${import.meta.env.BASE_URL}/overview/`} class="docs-link">Docs</a>
 <Default><slot /></Default>
 
 <style>

@@ -36,12 +36,12 @@ do main() {
 >
   <div class="landing">
     <section class="hero">
-      <img src="/logo.png" alt="Grayscale" class="hero-logo" />
+      <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="Grayscale" class="hero-logo" />
       <h1>Grayscale</h1>
       <p class="tagline">Simple to write. Safe to run.</p>
       <div class="hero-actions">
-        <a href="/overview/" class="button primary">Get Started</a>
-        <a href="/downloads/" class="button secondary">Download</a>
+        <a href={`${import.meta.env.BASE_URL}/overview/`} class="button primary">Get Started</a>
+        <a href={`${import.meta.env.BASE_URL}/downloads/`} class="button secondary">Download</a>
       </div>
       <div class="version-badge" id="version-badge"></div>
     </section>

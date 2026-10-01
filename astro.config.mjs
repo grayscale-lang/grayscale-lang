@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 export default defineConfig({
   site: 'https://grayscale-lang.github.io',
+  base: '/grayscale-lang',
   integrations: [
     starlight({
       title: 'Grayscale',

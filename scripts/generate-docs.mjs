@@ -169,7 +169,7 @@ function indexSections(lines) {
     const top = line.match(/^## (\d+)\.\s+/);
     if (top) {
       const mapping = SECTION_MAP[top[1]];
-      currentPage = mapping ? '/' + (mapping.dir ? `${mapping.dir}/` : '') + `${mapping.slug}/` : null;
+      currentPage = mapping ? '/grayscale-lang/' + (mapping.dir ? `${mapping.dir}/` : '') + `${mapping.slug}/` : null;
       continue;
     }
     const sub = line.match(/^#{3,5} (\d+(?:\.\d+)+)\.?\s+(.+)$/);
