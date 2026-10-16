@@ -34,7 +34,11 @@ do main() {
         exit(1)
     }
     println(found)
-    println(regex.count("a", "banana"))
+    mut total, count_err = regex.count("a", "banana")
+    if count_err != nil {
+        exit(1)
+    }
+    println(total)
 }
 ```
 

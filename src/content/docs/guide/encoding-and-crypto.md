@@ -14,7 +14,11 @@ import @encoding
 do main() {
     mut encoded string = encoding.base64_encode("hello")
     println(encoded)
-    println(encoding.base64_decode(encoded))
+    mut decoded, err = encoding.base64_decode(encoded)
+    if err != nil {
+        exit(1)
+    }
+    println(decoded)
     println(encoding.hex_encode("hi"))
     println(encoding.url_encode("a b&c"))
     println(encoding.html_escape("<b>"))

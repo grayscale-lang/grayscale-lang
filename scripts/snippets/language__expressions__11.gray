@@ -1,7 +1,6 @@
-
 do main() {
-range(0, 10)       // 0, 1, 2, ..., 9  (increment)
-range(0, 10, 2)    // 0, 2, 4, 6, 8    (increment)
-range(10, 0, -1)   // 10, 9, 8, ..., 1 (decrement)
-range(10, 0, -2)   // 10, 8, 6, 4, 2   (decrement)
+    for i in range(0, 10) { println(i) }       // 0, 1, 2, ..., 9  (increment)
+    for i in range(0, 10, 2) { println(i) }    // 0, 2, 4, 6, 8    (increment)
+    for i in range(10, 0, -1) { println(i) }   // 10, 9, 8, ..., 1 (decrement)
+    for i in range(10, 0, -2) { println(i) }   // 10, 8, 6, 4, 2   (decrement)
 }

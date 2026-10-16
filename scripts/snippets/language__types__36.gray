@@ -1,9 +1,11 @@
-const Shape enum {
-    Circle(f64)
-    Rect(f64, f64)
-    Point
+const TokenKind enum { INT; FLOAT; PLUS }
+
+do kind_name(kind TokenKind) -> string {
+    return TokenKind.names()[cast(kind, i64)]
 }
 
 do main() {
-
+    println(TokenKind.names())      // {"INT", "FLOAT", "PLUS"}  ([string])
+    println(len(TokenKind.variants()))   // {TokenKind.INT, TokenKind.FLOAT, TokenKind.PLUS}  ([TokenKind])
+    println(kind_name(TokenKind.PLUS))
 }

@@ -1,0 +1,8 @@
+extern import "stdio.h"
+
+do main() {
+    unsafe {
+        extern.puts("hello from C")
+        extern.printf("value: %d\n", 42)
+    }
+}

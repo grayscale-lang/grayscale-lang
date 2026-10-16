@@ -163,18 +163,31 @@ function slugify(title) {
     .replace(/\s/g, '-');
 }
 
+// GitHub heading anchors ("318-sized-types") -> the same entries as sectionIndex
+const anchorIndex = new Map();
+
 function indexSections(lines) {
   let currentPage = null;
+  let inStdlib = false;
   for (const line of lines) {
     const top = line.match(/^## (\d+)\.\s+/);
     if (top) {
       const mapping = SECTION_MAP[top[1]];
+      inStdlib = top[1] === '9';
       currentPage = mapping ? '/grayscale-lang/' + (mapping.dir ? `${mapping.dir}/` : '') + `${mapping.slug}/` : null;
       continue;
     }
+    // Section 9 is split into one page per module
+    const module = inStdlib && line.match(/^### 9\.(\d+)\s+(.+)$/);
+    if (module) {
+      const slug = module[1] === '1' ? 'builtins' : module[2].match(/`@(\w+)`/)?.[1];
+      currentPage = slug ? `/grayscale-lang/stdlib/${slug}/` : null;
+    }
     const sub = line.match(/^#{3,5} (\d+(?:\.\d+)+)\.?\s+(.+)$/);
     if (sub && currentPage) {
-      sectionIndex.set(sub[1], { page: currentPage, title: sub[2], slug: slugify(sub[2]) });
+      const entry = { page: currentPage, title: sub[2], slug: slugify(sub[2]) };
+      sectionIndex.set(sub[1], entry);
+      anchorIndex.set(slugify(`${sub[1]} ${sub[2]}`), entry);
     }
   }
 }
@@ -186,7 +199,11 @@ function indexSections(lines) {
  */
 function fixInternalLinks(content) {
   // [Section 4.5](#45-return-value-handling) -> Section 4.5
-  content = content.replace(/\[([^\]]+)\]\(#[\w-]+\)/g, '$1');
+  // [Sized Types](#318-sized-types) -> a link to the page and heading that anchor names
+  content = content.replace(/\[([^\]]+)\]\(#([\w-]+)\)/g, (match, text, anchor) => {
+    const target = anchorIndex.get(anchor);
+    return target && !/^(?:Section |§)/.test(text) ? `[${text}](${target.page}#${target.slug})` : text;
+  });
   return content.replace(/(?:Section |§)(\d+(?:\.\d+)+)(\s+[^\n.,;:)]+)?|\(see (\d+\.\d+(?:\.\d+)*)\)/g, (match, num, trailing, bareNum) => {
     const target = sectionIndex.get(num ?? bareNum);
     if (!target) return match;
@@ -279,6 +296,12 @@ function parseStdlibSection(body, pages) {
   // Also grab any intro text before the first subsection
   // (the "27 modules plus built-in functions" paragraph)
 
+  // Builtins come first; every module page follows in alphabetical order.
+  const moduleSlugs = subStarts
+    .filter(({ subNum }) => subNum !== 1)
+    .map(({ title }) => title.match(/`@(\w+)`/)?.[1] ?? title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+    .sort();
+
   for (let s = 0; s < subStarts.length; s++) {
     const { lineIndex, subNum, title } = subStarts[s];
     const nextStart = s + 1 < subStarts.length ? subStarts[s + 1].lineIndex : lines.length;
@@ -308,7 +331,7 @@ function parseStdlibSection(body, pages) {
 
     pages.push({
       path: `stdlib/${slug}.md`,
-      content: makeFrontmatter(label, subNum) + subBody + '\n',
+      content: makeFrontmatter(label, subNum === 1 ? 1 : 2 + moduleSlugs.indexOf(slug)) + subBody + '\n',
     });
   }
 }

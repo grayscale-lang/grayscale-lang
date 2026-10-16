@@ -1,0 +1,12 @@
+extern import "math.h"
+extern import "stdlib.h"
+
+do main() {
+    unsafe {
+        mut x f64 = extern.sqrt(2.0)             // annotated declaration
+        println(x)                                 // prints 1.4142135623730951
+
+        mut home string = from_c_string(extern.getenv("HOME"))   // text: via from_c_string()
+        println(home)
+    }
+}

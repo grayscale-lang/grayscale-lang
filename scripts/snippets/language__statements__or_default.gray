@@ -1,0 +1,17 @@
+import @strconv
+
+do bounds(text string) -> (i64, i64, Error) {
+    if text == "" {
+        return 0, 0, error(.NotFound, "empty bounds")
+    }
+    return 1, 9, nil
+}
+
+do main() {
+    mut text string = "12x"
+    mut port = strconv.to_i64(text) or_default 8080
+    mut low, high = bounds(text) or_default 0, 100
+    println(port)
+    println(low)
+    println(high)
+}

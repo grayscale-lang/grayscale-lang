@@ -4,7 +4,7 @@ sidebar:
   order: 14
 ---
 
-Threading lives in four standard library modules: `threads`, `sync`, `channels` and `atomic`. They need POSIX threads.
+Threading lives in four standard library modules: `threads`, `sync`, `channels` and `atomic`. They need POSIX threads. Calls into `threads` must sit inside an `unsafe` block or an `unsafe` function.
 
 ## Spawning threads
 
@@ -18,8 +18,10 @@ do worker() {
 }
 
 do main() {
-    mut handle = threads.spawn(()worker)
-    threads.join(handle)
+    unsafe {
+        mut handle = threads.spawn(()worker)
+        threads.join(handle)
+    }
 }
 ```
 

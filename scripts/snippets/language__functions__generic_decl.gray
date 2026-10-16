@@ -1,0 +1,36 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+do identity(kind generic, x kind) -> kind {
+    return x
+}
+
+do make(kind generic) -> ^kind {
+    return new(kind)
+}
+
+do first(kind generic, arr [kind]) -> (result kind) {
+    mut result kind = arr[0]
+    return result
+}
+
+do pair(a_kind generic, b_kind generic, a a_kind, b b_kind) -> (a_kind, b_kind) {
+    return a, b
+}
+
+do main() {
+    mut n = identity(i64, 42)        // kind is i64, returns i64
+    mut s = identity(string, "hi")   // kind is string, returns string
+    mut p = make(Point)              // allocates a Point, returns ^Point
+    mut q = make(kind: Point)        // named arguments work as for any parameter
+    println(n)
+    println(s)
+    println(p^)
+    println(q^)
+    println(first(i64, {7, 8}))
+    mut a, b = pair(i64, string, 1, "x")
+    println(a)
+    println(b)
+}

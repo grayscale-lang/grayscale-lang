@@ -5,9 +5,11 @@ const Node struct {
 }
 
 do main() {
-    mut scratch = mem.arena(4096)
-    mut node = mem.init(scratch, Node)
-    // ... use node ...
-    mem.reset(scratch)
-    mem.destroy(scratch)
+    unsafe {
+        mut scratch = mem.arena(4096)
+        mut node = mem.init(scratch, Node)
+        // ... use node ...
+        mem.reset(scratch)
+        mem.destroy(scratch)
+    }
 }

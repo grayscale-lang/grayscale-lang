@@ -1,0 +1,12 @@
+do make(kind generic) -> ^kind {
+    return new(kind)
+}
+
+do wrap(kind generic) -> ^kind {
+    return make(kind)      // make is specialized for whatever wrap was
+}
+
+do main() {
+    mut n = wrap(i64)
+    println(n^)
+}

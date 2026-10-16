@@ -1,0 +1,19 @@
+do pair() -> (i64, i64) {
+    return 1, 2
+}
+
+do main() {
+    x, y, z i64 = 1, 2, 3      // one value per name
+    mut a, b = "hi", 4         // types inferred separately
+    u, v, w i64                // zero-initialized (warns for each name)
+    ok, done, ready = false    // one value for every name
+    lo, hi i64 = pair()        // a call returning two values
+    println(x + y + z)
+    println(a)
+    println(b)
+    println(u + v + w)
+    println(ok)
+    println(done)
+    println(ready)
+    println(lo + hi)
+}

@@ -25,3 +25,27 @@
   --sl-color-gray-5: #333;
   --sl-color-gray-6: #1a1a1a;
 }
+
+/* Keep a signature on one line; only the last (description) column wraps. */
+.sl-markdown-content td:not(:last-child) code {
+  white-space: nowrap;
+}
+
+/* Give the description column room so it is not squeezed to the right. */
+.sl-markdown-content td:last-child {
+  min-width: 20rem;
+}
+
+/* Slimmer "On this page" column; the content pane takes the freed width. */
+@media (min-width: 72rem) {
+  :root {
+    --sl-content-width: 60rem;
+  }
+  .right-sidebar-container {
+    width: 16rem;
+  }
+  [data-has-sidebar][data-has-toc] .main-pane {
+    --sl-content-margin-inline: 0 auto;
+    width: calc(100% - 16rem);
+  }
+}

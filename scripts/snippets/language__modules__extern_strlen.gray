@@ -1,0 +1,9 @@
+extern import "string.h"
+
+do main() {
+    unsafe {
+        mut name ^u8 = to_c_string("grayscale")
+        mut length i64 = extern.strlen(name)
+        println(length)   // 9
+    }
+}

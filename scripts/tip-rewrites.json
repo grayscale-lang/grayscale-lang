@@ -7,6 +7,14 @@
   [
    "> 💡 **Tip:** For attributes, omit the `#` prefix — the shell treats `#` as a comment. Use `gray man flags`, not `gray man #flags`.",
    "For attributes, leave off the `#` prefix, because the shell treats `#` as a comment. Use `gray man flags`, not `gray man #flags`."
+  ],
+  [
+   "see ERRORS.md",
+   "see the [error reference](/grayscale-lang/errors/)"
+  ],
+  [
+   "(see C Compiler)",
+   "(see [C Compiler](#c-compiler))"
   ]
  ],
  "language/functions.md": [
@@ -19,8 +27,8 @@
    "A function that returns `^Type` can be dereferenced at the call site with `^`, which gives the value directly without storing the pointer:\n\n```gray\nconst Foo struct {\n    n i64\n}\n\ndo something() -> ^Foo {\n    mut f = new(Foo)\n    return f\n}\n\ndo main() {\n    mut f = something()^   // dereference at call site, f is Foo, not ^Foo\n    println(f)\n}\n```"
   ],
   [
-   "> 💡 **Tip:** `()` and `ref()` only work with functions you declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references. Wrap them in your own `do` function if you need to pass them as a callback.",
-   "Func references can only point to functions declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references; wrap them in your own `do` function to pass them as a callback."
+   "> 💡 **Tip:** `()` and `ref()` only work with functions you declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references. Wrap them in your own function if you need to pass them as a callback.",
+   "Func references can only point to functions declared with `do`. Built-in functions (`println`, `panic`, `copy`, etc.) and stdlib functions (`arrays.append`, `strings.contains`, etc.) cannot be turned into func references; wrap them in your own function to pass them as a callback."
   ]
  ],
  "language/lexical-structure.md": [
@@ -81,8 +89,8 @@
    "Enum variants go on separate lines or, on one line, are separated by `;`, as in `const Color enum { RED; GREEN; BLUE }`."
   ],
   [
-   "> 💡 **Tip:** Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`. Use `Direction.NORTH`, `.NORTH`, or another `Direction` variable — never a raw number. However, assigning an enum value to an `i64` variable is allowed — the enum is implicitly widened to its underlying integer value: `mut status i64 = Direction.NORTH` assigns `0`.",
-   "Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`: use `Direction.NORTH`, `.NORTH`, or another `Direction` variable, never a raw number. Assigning an enum value to an `i64` variable is allowed, and the enum is implicitly widened to its underlying integer value: `mut status i64 = Direction.NORTH` assigns `0`."
+   "> 💡 **Tip:** Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`. Use `Direction.NORTH`, `.NORTH`, or another `Direction` variable — never a raw number. The same holds in the other direction: an enum value does not convert implicitly to an integer or, for a string-backed enum, to a `string` (assignment, arguments, returns, collection elements, `+=`, and `==` against a `string` are all rejected). Use `cast(Direction.NORTH, i64)` to get the underlying integer value.",
+   "Enums are not integers. Even though integer enums are backed by numeric values under the hood, you cannot compare an enum variable with an integer (`d == 0`), assign an integer to an enum variable (`d = 2`), or perform arithmetic on enum values. Enums can only be compared with values of the same enum type using `==` and `!=`: use `Direction.NORTH`, `.NORTH`, or another `Direction` variable, never a raw number. The same holds in the other direction: an enum value does not convert implicitly to an integer or, for a string-backed enum, to a `string` (assignment, arguments, returns, collection elements, `+=`, and `==` against a `string` are all rejected). Use `cast(Direction.NORTH, i64)` to get the underlying integer value."
   ],
   [
    "> 💡 **Tip:** If you genuinely need to compare an enum value against an integer, use `cast()` to bridge the gap: `if cast(Direction.NORTH, i64) == 0 { ... }`. You can also cast the other way: `cast(0, Direction)`.",
@@ -107,6 +115,14 @@
   [
    "consistent with the earlier tip that a plain enum's underlying value is a real integer under the hood.",
    "consistent with a plain enum's underlying value being a real integer under the hood."
+  ],
+  [
+   "(see below): `mut b u8 = 200`",
+   "(see [Every slot converts a value the same way](#every-slot-converts)): `mut b u8 = 200`"
+  ],
+  [
+   "**Every slot converts a value the same way.**",
+   "<a id=\"every-slot-converts\"></a>**Every slot converts a value the same way.**"
   ]
  ],
  "language/variables.md": [
@@ -139,6 +155,42 @@
   [
    "> 💡 **Tip:** For any user-supplied value, use `exec_params` / `query_params` with `?` placeholders rather than interpolating into the SQL string — parameter binding prevents SQL injection.",
    "For any user-supplied value, use `exec_params` or `query_params` with `?` placeholders rather than interpolating into the SQL string; parameter binding prevents SQL injection."
+  ]
+ ],
+ "language/modules.md": [
+  [
+   "(see **Return types** below):",
+   "(see [Return types](#return-types)):"
+  ],
+  [
+   "**Return types:** a C function's return type",
+   "<a id=\"return-types\"></a>**Return types:** a C function's return type"
+  ],
+  [
+   "See **Safety** below.",
+   "See [Safety](#safety)."
+  ]
+ ],
+ "stdlib/io.md": [
+  [
+   "(fallible; see below)",
+   "(fallible; see [Fallible Functions](#fallible-functions))"
+  ]
+ ],
+ "stdlib/server.md": [
+  [
+   "(see the HttpResponse Type under `@http`)",
+   "(see [HttpResponse Type](/grayscale-lang/stdlib/http/#httpresponse-type) under `@http`)"
+  ]
+ ],
+ "language/memory-model.md": [
+  [
+   "see \"Not checked\" below",
+   "see [Not checked](#not-checked)"
+  ],
+  [
+   "**Not checked (programmer responsibility):**",
+   "<a id=\"not-checked\"></a>**Not checked (programmer responsibility):**"
   ]
  ]
 }

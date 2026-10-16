@@ -19,7 +19,7 @@ const Person struct {
 
 do main() {
     mut person = Person{name: "Ann", age: 41}
-    println(json.stringify(person))
+    println(json.encode(person))
 }
 ```
 
@@ -50,24 +50,28 @@ do main() {
 
 ## Calling C
 
-Import a header with `extern import`, then call any function through the `extern.` prefix.
+Import a header with `extern import`, then call any function through the `extern.` prefix. Every `extern.` call must sit inside an `unsafe` block or an `unsafe` function.
 
 ```gray
 extern import "stdio.h"
 
 do main() {
-    extern.puts("hello from C")
+    unsafe {
+        extern.puts("hello from C")
+    }
 }
 ```
 
-Give a C call's result a type by assigning it to an annotated variable, and use `c_string()` to turn a `char*` result into a `string`. Match C's argument widths with `i32`, `u32` and `f32`.
+Give a C call's result a type by assigning it to an annotated variable, and use `from_c_string()` to turn a `char*` result into a `string`. Match C's argument widths with `i32`, `u32` and `f32`.
 
 ```gray
 extern import "stdlib.h"
 
 do main() {
-    mut home string = c_string(extern.getenv("HOME"))
-    println(len(home) > 0)
+    unsafe {
+        mut home string = from_c_string(extern.getenv("HOME"))
+        println(len(home) > 0)
+    }
 }
 ```
 

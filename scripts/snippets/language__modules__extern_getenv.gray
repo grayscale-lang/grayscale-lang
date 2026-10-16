@@ -1,0 +1,8 @@
+extern import "stdlib.h"
+
+do main() {
+    unsafe {
+        mut home string = from_c_string(extern.getenv("HOME"))
+        println(home)
+    }
+}

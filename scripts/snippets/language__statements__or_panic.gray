@@ -1,0 +1,16 @@
+import @strconv
+
+do lookup(key string) -> (string, Error) {
+    if key == "port" {
+        return "8080", nil
+    }
+    return "", error(.NotFound, "no such key")
+}
+
+do main() {
+    mut text string = "8080"
+    mut port = lookup("port") or_panic
+    mut n = strconv.to_i64(text) or_panic "config must hold a port number"
+    println(port)
+    println(n)
+}

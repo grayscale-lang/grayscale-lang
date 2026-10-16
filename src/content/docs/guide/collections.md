@@ -58,7 +58,7 @@ do main() {
     scores["carol"] = 92
 
     println(scores["alice"])
-    println(maps.has_key(scores, "bob"))
+    println(maps.contains_key(scores, "bob"))
     println(maps.get_or_default(scores, "dave", 0))
 
     maps.remove_key(scores, "bob")
@@ -66,7 +66,7 @@ do main() {
 }
 ```
 
-Start with an empty map using `{:}`. Reading a missing key with `[]` panics, so check with `has_key` or use `get_or_default`.
+Start with an empty map using `{:}`. Reading a missing key with `[]` panics, so check with `contains_key` or use `get_or_default`.
 
 ```gray
 do main() {

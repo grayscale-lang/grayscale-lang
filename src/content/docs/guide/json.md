@@ -19,7 +19,7 @@ const Person struct {
 
 do main() {
     mut person = Person{name: "Alice", age: 30}
-    println(json.stringify(person))
+    println(json.encode(person))
 }
 ```
 

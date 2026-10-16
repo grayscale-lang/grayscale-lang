@@ -70,6 +70,35 @@ do main() {
 }
 ```
 
+## Aborting with `or_panic`
+
+`or_panic` aborts the program when the call fails. It panics with the error's message, or with the string written after it. Unlike `or_return`, it is legal in `main()` and in functions that return no `Error`.
+
+```gray
+import @strconv
+
+do main() {
+    mut port = strconv.to_i64("8080") or_panic
+    mut retries = strconv.to_i64("3") or_panic "retries must be a number"
+    println(port + retries)
+}
+```
+
+## Falling back with `or_default`
+
+`or_default` substitutes fallback values when the call fails. The error is discarded, and the fallbacks are used one per value the call returns, in return order. On success the fallbacks are not evaluated.
+
+```gray
+import @strconv
+
+do main() {
+    mut port = strconv.to_i64("not a number") or_default 8080
+    println(port)
+}
+```
+
+`or_default` needs a binding, so a bare `call() or_default 0` is an error. To inspect the error instead, destructure it: `mut value, err = call()`.
+
 ## Your own error codes
 
 Mark a plain enum with `#error_code` and its variants join `ErrorCode`.

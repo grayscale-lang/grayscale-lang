@@ -1,0 +1,15 @@
+do main() {
+    mut x i64 = 4
+    mut r = range(0, 10)
+
+    for i in r { println(i) }
+    if x in r { println("inside") }
+    if x not_in r { println("outside") }
+    when x {
+        is r { println("matched") }
+        default { println("no match") }
+    }
+
+    r = range(5, 20, 2)
+    println(type_of(r))    // "Range<i64>"
+}

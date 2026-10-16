@@ -1,0 +1,21 @@
+const Point struct {
+    x i64
+    y i64
+}
+
+const Color enum { RED; GREEN; BLUE }
+
+do make(kind generic) -> ^kind {
+    return new(kind)
+}
+
+do main() {
+    mut a = make(Point)       // OK — struct
+    mut b = make(Color)       // OK — enum
+    mut c = make(i64)         // OK — primitive
+    // mut d = make(1 + 2)       // Error — not a type name
+    // mut e = make(Nonexistent) // Error — names no type
+    println(a^)
+    println(b^)
+    println(c^)
+}

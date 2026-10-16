@@ -1,0 +1,16 @@
+import @os
+
+do list_tmp() {
+    mut result, err = os.exec("ls", {"-l", "/tmp"})
+    if err != nil {
+        println("failed to launch: ${err.message}")
+        return
+    }
+    if result.exit_code != 0 {
+        println("exited with error: ${result.stderr}")
+    }
+}
+
+do main() {
+    list_tmp()
+}

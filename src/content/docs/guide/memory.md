@@ -123,13 +123,45 @@ const Node struct {
 }
 
 do main() {
-    mut scratch = mem.arena(4096)
-    mut node = mem.init(scratch, Node)
-    node.val = 42
-    println(node.val)
-    mem.destroy(scratch)
+    unsafe {
+        mut scratch = mem.arena(4096)
+        mut node = mem.init(scratch, Node)
+        node.val = 42
+        println(node.val)
+        mem.destroy(scratch)
+    }
 }
 ```
+
+## The unsafe marker
+
+The explicit opt-outs are marked in the source. `raw()`, every function of the `mem` and `threads` modules, and every `extern.` call is a compile error unless it sits inside an `unsafe { ... }` block or an unsafe function.
+
+```gray
+import @mem
+
+do read_fresh() -> i64 {
+    unsafe {
+        mut arena = mem.arena(4096)
+        mut slot = mem.init(arena, i64)
+        slot^ = 42
+        mut result i64 = slot^
+        mem.destroy(arena)
+        return result
+    }
+}
+
+private unsafe do bump(counter ^i64) {
+    mut shared = raw(counter^)
+    shared^ += 1
+}
+
+do main() {
+    println(read_fresh())
+}
+```
+
+An `unsafe` block is an ordinary scope, and `unsafe do` marks a whole function body. With `private`, the order is `private unsafe do`. A function that opens its own `unsafe` block does not force its callers to.
 
 ## Arena limit
 

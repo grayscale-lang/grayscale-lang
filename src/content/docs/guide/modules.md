@@ -99,7 +99,7 @@ do factorial(n i64) -> i64 {
 }
 ```
 
-Code in `main.gray` can call `mathlib.factorial` but not `mathlib.valid` or `mathlib.LIMIT`. Struct functions can be `private` as well; see the Structs page.
+Code in `main.gray` can call `mathlib.factorial` but not `mathlib.valid` or `mathlib.LIMIT`. Struct functions can be `private` as well; see the [Structs](/grayscale-lang/guide/structs/) page.
 
 ## Bringing names into scope with `using`
 

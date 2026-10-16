@@ -64,18 +64,18 @@ do main() {
 }
 ```
 
-`os.exec` runs a program and returns its exit code, output, error output, and whether it launched.
+`os.exec` runs a program and returns an `ExecResult` with its `exit_code`, `stdout`, and `stderr`. The error is non-nil only when the program could not be launched; a non-zero exit code is not an error.
 
 ```gray
 import @os
 
 do main() {
-    mut code, output, errors, launched = os.exec("echo", {"hello"})
-    if !launched {
+    mut result, err = os.exec("echo", {"hello"})
+    if err != nil {
         println("could not launch")
         exit(1)
     }
-    println("${code}: ${output}")
-    println(len(errors))
+    println("${result.exit_code}: ${result.stdout}")
+    println(len(result.stderr))
 }
 ```
