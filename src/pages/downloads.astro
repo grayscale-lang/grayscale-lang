@@ -4,7 +4,7 @@ import DownloadCard from '../components/DownloadCard.astro';
 import CodeBlock from '../components/CodeBlock.astro';
 ---
 
-<StarlightPage frontmatter={{ title: 'Downloads' }} headings={[]}>
+<StarlightPage frontmatter={{ title: 'Downloads', next: { link: '/grayscale-lang/overview/', label: 'Overview' } }} headings={[]}>
   <p>Download the latest Grayscale compiler for your platform.</p>
 
   <h2>macOS</h2>
@@ -12,14 +12,15 @@ import CodeBlock from '../components/CodeBlock.astro';
     <DownloadCard
       platform="macOS"
       arch="Apple Silicon (ARM64)"
-      asset="grayscale-darwin-arm64.tar.gz"
+      asset="gray-darwin-arm64.tar.gz"
       icon="apple"
     />
     <DownloadCard
       platform="macOS"
       arch="Intel (x86-64)"
-      asset="grayscale-darwin-amd64.tar.gz"
+      asset="gray-darwin-amd64.tar.gz"
       icon="apple"
+      disabled
     />
   </div>
 
@@ -28,14 +29,24 @@ import CodeBlock from '../components/CodeBlock.astro';
     <DownloadCard
       platform="Linux"
       arch="ARM64"
-      asset="grayscale-linux-arm64.tar.gz"
+      asset="gray-linux-arm64.tar.gz"
       icon="linux"
     />
     <DownloadCard
       platform="Linux"
       arch="x86-64"
-      asset="grayscale-linux-amd64.tar.gz"
+      asset="gray-linux-amd64.tar.gz"
       icon="linux"
+    />
+  </div>
+
+  <h2>Windows</h2>
+  <div class="download-grid">
+    <DownloadCard
+      platform="Windows"
+      arch="x86-64"
+      asset="gray-windows-amd64.zip"
+      icon="windows"
     />
   </div>
 

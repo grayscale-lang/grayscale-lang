@@ -5,19 +5,32 @@ interface Props {
   platform: string;
   arch: string;
   asset: string;
-  icon: 'apple' | 'linux';
+  icon: 'apple' | 'linux' | 'windows';
+  disabled?: boolean;
 }
 
-const { platform, arch, asset, icon } = Astro.props;
+const { platform, arch, asset, icon, disabled = false } = Astro.props;
 const baseUrl = 'https://github.com/grayscale-lang/grayscale/releases/latest/download';
 const downloadUrl = `${baseUrl}/${asset}`;
 ---
 
-<a href={downloadUrl} class="download-card">
-  <span class="download-icon"><Icon name={icon} size="1.75rem" /></span>
+<a
+  href={disabled ? undefined : downloadUrl}
+  class:list={['download-card', { disabled }]}
+  aria-disabled={disabled ? 'true' : undefined}
+>
+  <span class="download-icon">
+    {icon === 'windows' ? (
+      <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 5.5 10.5 4.5v6.8H3zM11.5 4.4 21 3v8.3h-9.5zM3 12.3h7.5v6.8L3 18.1zM11.5 12.3H21V21l-9.5-1.3z" />
+      </svg>
+    ) : (
+      <Icon name={icon} size="1.75rem" />
+    )}
+  </span>
   <div class="download-info">
     <strong>{platform}</strong>
-    <span class="download-arch">{arch}</span>
+    <span class="download-arch">{disabled ? `${arch} · Unavailable` : arch}</span>
   </div>
   <span class="download-arrow">&darr;</span>
 </a>
@@ -37,6 +50,15 @@ const downloadUrl = `${baseUrl}/${asset}`;
 
   .download-card:hover {
     border-color: var(--sl-color-accent);
+  }
+
+  .download-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .download-card.disabled:hover {
+    border-color: var(--sl-color-gray-5);
   }
 
   .download-icon {
