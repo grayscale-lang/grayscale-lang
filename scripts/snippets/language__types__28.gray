@@ -4,5 +4,6 @@ const Point struct {
 }
 
 do main() {
-
+    mut point Point = Point{}
+    println("${point.x}, ${point.y}, ${point.z}")
 }

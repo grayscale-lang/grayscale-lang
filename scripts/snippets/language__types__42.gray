@@ -2,6 +2,10 @@ do apply(x i64, f func(i64) -> i64) -> i64 {
     return f(x)
 }
 
-do main() {
+do double(n i64) -> i64 {
+    return n * 2
+}
 
+do main() {
+    println("${apply(5, ()double)}")
 }

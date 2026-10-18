@@ -6,5 +6,5 @@ const PaymentErrors enum {
 }
 
 do main() {
-
+    println("${PaymentErrors.PAYMENT_DECLINED}")
 }

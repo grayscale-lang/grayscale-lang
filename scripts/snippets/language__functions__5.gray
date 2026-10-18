@@ -9,5 +9,8 @@ do swap(&a, &b i64) {
 }
 
 do main() {
-
+    mut x i64 = 1
+    mut y i64 = 2
+    swap(x, y)
+    println("${add(x, y)}: x=${x}, y=${y}")
 }

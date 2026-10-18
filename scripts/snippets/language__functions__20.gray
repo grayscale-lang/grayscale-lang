@@ -6,5 +6,6 @@ do get_info() -> (name, city string, age i64) {
 }
 
 do main() {
-
+    mut name, city, age = get_info()
+    println("${name} lives in ${city} and is ${age}")
 }

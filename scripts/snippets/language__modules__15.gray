@@ -1,4 +1,8 @@
 extern import "stdio.h"           // system header → #include <stdio.h>
 // extern import "./mylib.h"      // local header  → #include "./mylib.h"
 
-do main() {}
+do main() {
+    unsafe {
+        extern.puts("hello from C")
+    }
+}

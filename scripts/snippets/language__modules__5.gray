@@ -1,4 +1,6 @@
 // import "./my-utils"       // Error: 'my-utils' is not a valid identifier
 // import u "./my-utils"     // OK
 
-do main() {}
+do main() {
+    println("hello")
+}

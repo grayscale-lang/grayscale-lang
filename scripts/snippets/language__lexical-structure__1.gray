@@ -3,5 +3,6 @@ const Color enum { RED; GREEN; BLUE }
 do add(a i64, b i64) -> i64 { mut sum i64 = a + b; return sum }
 
 do main() {
-
+    mut point Point = Point{x: 1, y: 2}
+    println("${add(point.x, point.y)} ${Color.GREEN}")
 }

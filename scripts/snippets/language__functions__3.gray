@@ -3,5 +3,5 @@ do double(x i64) -> i64 {
 }
 
 do main() {
-
+    println("${double(21)}")
 }

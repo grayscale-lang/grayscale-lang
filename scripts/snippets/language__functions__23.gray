@@ -3,5 +3,5 @@ do print_greeting() {
 }
 
 do main() {
-
+    print_greeting()
 }

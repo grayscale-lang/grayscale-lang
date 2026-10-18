@@ -8,4 +8,6 @@
 //     println(LICENSE)
 // }
 
-do main() {}
+do main() {
+    println("hello")
+}

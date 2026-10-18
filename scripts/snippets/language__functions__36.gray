@@ -2,4 +2,6 @@
 #discard
 do something() -> i64 { return 1 }
 
-do main() {}
+do main() {
+    println("${something()}")
+}

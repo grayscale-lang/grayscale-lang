@@ -6,5 +6,6 @@ const Direction enum {
 }
 
 do main() {
-
+    mut heading Direction = Direction.SOUTH
+    println("${heading}")
 }

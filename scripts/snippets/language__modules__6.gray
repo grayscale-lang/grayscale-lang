@@ -7,4 +7,6 @@
 // Error: both resolve to module name "strings"
 // import @strings, "./strings"
 
-do main() {}
+do main() {
+    println("hello")
+}

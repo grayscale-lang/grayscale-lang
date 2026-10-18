@@ -3,5 +3,6 @@ const Buffer struct {
 }
 
 do main() {
-
+    mut buffer Buffer = Buffer{}
+    println("${len(buffer.data)}")
 }

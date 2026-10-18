@@ -14,4 +14,9 @@ const Employee struct {
     age i64
 }
 
-do main() {}
+do main() {
+    mut person Person = Person{name: "Alice", age: 30}
+    mut employee Employee = Employee{name: "Bob", age: 25}
+    println(json.encode(person))
+    println(json.encode(employee))
+}

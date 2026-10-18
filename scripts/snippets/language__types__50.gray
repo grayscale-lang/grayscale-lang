@@ -1,3 +1,6 @@
 private alias InternalID = i64
 
-do main() {}
+do main() {
+    mut id InternalID = 7
+    println("${id}")
+}

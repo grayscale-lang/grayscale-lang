@@ -13,5 +13,5 @@ do rows_to_csv(rows [[string]]) -> string {
 }
 
 do main() {
-
+    println(rows_to_csv({{"name", "age"}, {"Alice", "30"}}))
 }

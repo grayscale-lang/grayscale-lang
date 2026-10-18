@@ -8,5 +8,7 @@ const List struct {
 }
 
 do main() {
-
+    mut list List = List{items: {1, 2, 3}}
+    list.push(4)
+    println("${len(list.items)}")
 }

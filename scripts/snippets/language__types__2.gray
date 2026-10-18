@@ -3,4 +3,9 @@ alias uint = u64
 alias float = f64
 alias byte = u8
 
-do main() {}
+do main() {
+    mut count int = 5
+    mut ratio float = 0.5
+    mut letter byte = 65
+    println("${count} ${ratio} ${letter}")
+}

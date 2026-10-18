@@ -1,5 +1,5 @@
 import and use @arrays, @strings
 
 do main() {
-
+    println("${to_upper("hello")} ${get_first({1, 2, 3})}")
 }

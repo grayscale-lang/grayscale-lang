@@ -1,5 +1,4 @@
 import @io
-import @json
 
 do two() -> (i64, i64, Error) { return 1, 2, nil }
 do do_work() -> (i64, Error) { return 1, nil }
@@ -28,4 +27,15 @@ do run() -> Error {
     return nil
 }
 
-do main() {}
+do main() {
+    mut content, err = load()
+    if err != nil {
+        println("could not load: ${err.message}")
+    } otherwise {
+        println(content)
+    }
+    mut fallback, fallback_err = load_with_fallback()
+    mut total, total_err = consume()
+    mut run_err = run()
+    println("${fallback} ${fallback_err != nil} ${total} ${total_err != nil} ${run_err != nil}")
+}

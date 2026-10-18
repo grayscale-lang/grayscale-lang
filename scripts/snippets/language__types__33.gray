@@ -7,5 +7,5 @@ const Permissions enum {
 }
 
 do main() {
-
+    println("${cast(Permissions.READ, i64)} ${cast(Permissions.DELETE, i64)}")
 }

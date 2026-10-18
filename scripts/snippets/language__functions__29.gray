@@ -6,4 +6,7 @@ const User struct {
     age  i64    `json:"Age"`
 }
 
-do main() {}
+do main() {
+    mut user User = User{name: "Alice", age: 30}
+    println(json.encode(user))
+}

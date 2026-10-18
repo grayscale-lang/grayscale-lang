@@ -1,5 +1,5 @@
 import and use @arrays
 
 do main() {
-
+    println("${reverse({1, 2, 3})}")
 }

@@ -9,4 +9,8 @@ const Node struct {
 //     next Bad     // error: struct 'Bad' cannot contain itself by value; use a pointer field '^Bad'
 // }
 
-do main() {}
+do main() {
+    mut tail Node = Node{val: 2, next: nil}
+    mut head Node = Node{val: 1, next: addr(tail)}
+    println("${head.val} -> ${head.next^.val}")
+}

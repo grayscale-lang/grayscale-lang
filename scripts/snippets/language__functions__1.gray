@@ -11,5 +11,8 @@ do process() {
 }
 
 do main() {
-
+    println("${add(2, 3)}")
+    println(greet())
+    println(greet("Grayscale"))
+    process()
 }

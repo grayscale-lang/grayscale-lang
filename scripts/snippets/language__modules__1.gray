@@ -1,5 +1,6 @@
 import @arrays, @maps, @strings
 
 do main() {
-
+    mut ages [string:i64] = {"alice": 30}
+    println("${arrays.reverse({1, 2, 3})} ${maps.is_empty(ages)} ${strings.to_upper("hello")}")
 }

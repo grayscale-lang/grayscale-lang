@@ -15,5 +15,5 @@ do test_add_zero() {
 }
 
 do main() {
-
+    println("${add(2, 3)}")
 }

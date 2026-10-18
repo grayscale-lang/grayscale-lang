@@ -2,5 +2,8 @@ import @math
 extern import "stdio.h"
 
 do main() {
-
+    println("${math.sqrt(144.0)}")
+    unsafe {
+        extern.puts("hello from C")
+    }
 }

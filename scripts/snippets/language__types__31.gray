@@ -6,5 +6,5 @@ const Foobar enum {
 }
 
 do main() {
-
+    println("${cast(Foobar.QUX, i64)} ${cast(Foobar.CORGE, i64)}")
 }

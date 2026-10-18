@@ -9,4 +9,6 @@
 //     mut p = utils.make(Point)     // same as 'using utils' + make(Point)
 // }
 
-do main() {}
+do main() {
+    println("hello")
+}

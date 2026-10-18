@@ -5,4 +5,6 @@
 // mathlib.Counter{n: 1}      // error: private struct
 // mathlib.Mode.FAST          // error: private enum
 
-do main() {}
+do main() {
+    println("hello")
+}

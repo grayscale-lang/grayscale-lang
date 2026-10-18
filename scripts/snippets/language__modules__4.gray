@@ -1,3 +1,5 @@
 // import @math, "./helpers", "./models"
 
-do main() {}
+do main() {
+    println("hello")
+}

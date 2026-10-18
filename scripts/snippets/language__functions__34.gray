@@ -18,5 +18,6 @@ const Container struct {
 }
 
 do main() {
-
+    mut container Container = Container{id: 1}
+    println("${container.current()}")
 }

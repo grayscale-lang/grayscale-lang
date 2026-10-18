@@ -11,5 +11,6 @@ const Calculator struct {
 }
 
 do main() {
-
+    mut calculator Calculator = Calculator{value: 0}
+    println("${calculator.add(2, 3)}")
 }
