@@ -1,5 +1,8 @@
 ---
 title: "Your First Program"
+prev:
+  link: /grayscale-lang/overview/
+  label: Overview
 sidebar:
   order: 0
 ---

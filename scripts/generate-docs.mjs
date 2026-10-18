@@ -131,8 +131,12 @@ function writePage(relPath, content) {
   console.log(`  Generated: src/content/docs/${relPath}`);
 }
 
-function makeFrontmatter(title, order) {
-  return `---\ntitle: "${title}"\nsidebar:\n  order: ${order}\n---\n\n`;
+// The Developers page sits after Overview in the sidebar but is for people
+// building from source, so Overview's "Next" skips it.
+const NEXT_AFTER_OVERVIEW = 'next:\n  link: /grayscale-lang/guide/first-program/\n  label: Your First Program\n';
+
+function makeFrontmatter(title, order, extra = '') {
+  return `---\ntitle: "${title}"\nsidebar:\n  order: ${order}\n${extra}---\n\n`;
 }
 
 /**
@@ -273,7 +277,7 @@ function parseStandard(raw) {
 
       pages.push({
         path: relPath,
-        content: makeFrontmatter(mapping.label, mapping.order) + body + '\n',
+        content: makeFrontmatter(mapping.label, mapping.order, num === '1' ? NEXT_AFTER_OVERVIEW : '') + body + '\n',
       });
     }
   }

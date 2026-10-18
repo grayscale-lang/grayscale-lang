@@ -42,7 +42,11 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Getting Started',
-          items: [{ label: 'Overview', slug: 'overview' }],
+          items: [
+            { label: 'Downloads', link: '/downloads/' },
+            { label: 'Overview', slug: 'overview' },
+            { label: 'Developers', slug: 'developers' },
+          ],
         },
         {
           label: 'Guide',
