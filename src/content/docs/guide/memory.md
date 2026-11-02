@@ -158,6 +158,11 @@ private unsafe do bump(counter ^i64) {
 
 do main() {
     println(read_fresh())
+    mut count i64 = 1
+    unsafe {
+        bump(addr(count))
+    }
+    println(count)
 }
 ```
 

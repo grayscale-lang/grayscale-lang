@@ -34,6 +34,7 @@ Check a path before using it.
 
 ```gray
 import @io
+import @path
 
 do main() {
     if io.file_exists("notes.txt") {
@@ -42,7 +43,7 @@ do main() {
             println(size)
         }
     }
-    println(io.path_join({"/home", "user", "docs"}))
+    println(path.join_parts({"/home", "user", "docs"}))
 }
 ```
 

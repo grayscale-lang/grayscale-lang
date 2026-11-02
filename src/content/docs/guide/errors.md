@@ -55,8 +55,8 @@ do main() {
 ```gray
 import @io
 
-do first_line(path string) -> (string, Error) {
-    mut content = io.read_file(path) or_return
+do first_line(file_path string) -> (string, Error) {
+    mut content = io.read_file(file_path) or_return
     return content, nil
 }
 

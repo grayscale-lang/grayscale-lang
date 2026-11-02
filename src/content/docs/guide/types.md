@@ -11,7 +11,7 @@ sidebar:
 | `i8`, `i16`, `i32`, `i64` | Signed integers |
 | `u8`, `u16`, `u32`, `u64` | Unsigned integers |
 | `f32`, `f64` | Floating point |
-| `string`, `bool`, `char` | `char` is a Unicode code point |
+| `string`, `bool`, `char` | `string` is UTF-8 text. `char` is a single Unicode code point (U+0000 to U+10FFFF, excluding surrogates) |
 
 ```gray
 do main() {

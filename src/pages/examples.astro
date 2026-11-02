@@ -75,6 +75,7 @@ do main() {
 }
 
 do describe(s Shape) -> string {
+    #strict
     when s {
         is Shape.CIRCLE { return "round" }
         is Shape.SQUARE { return "four sides" }

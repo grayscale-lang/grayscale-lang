@@ -11,9 +11,9 @@ const Permissions enum {
 
 const User struct {
     name string
-    perms i64
+    perms Permissions
 
-    do can(self User, flag i64) -> bool {
+    do can(self User, flag Permissions) -> bool {
         return (self.perms bit_and flag) != 0
     }
 }

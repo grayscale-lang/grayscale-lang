@@ -6,7 +6,20 @@ sidebar:
 
 ## Characters
 
-A `char` is a Unicode code point. The `chars` module classifies and converts them.
+A `char` is a single Unicode code point, stored as a 32-bit integer. Write one with a character literal such as `'A'`, an escape such as `'\u{E9}'`, or `char(n)` from an integer. `cast(c, i64)` gives the number back. Values compare and order by code point. A code point outside U+0000 to U+10FFFF, or a surrogate (U+D800 to U+DFFF), is a compile error for a constant and a panic at runtime.
+
+```gray
+do main() {
+    mut letter char = 'A'
+    mut accent char = '\u{E9}'
+    mut kanji char = char(26085)
+    println("${letter} ${accent} ${kanji}")
+    println(cast(kanji, i64))
+    println('a' < 'b')
+}
+```
+
+The `chars` module classifies and converts them. Every predicate and case conversion is ASCII-only: `chars.is_alpha('é')` is `false` and `chars.to_upper('é')` returns `'é'`.
 
 ```gray
 import @chars
@@ -19,7 +32,7 @@ do main() {
 }
 ```
 
-`len()` on a string counts bytes. Use `char_count()` for characters and `to_char()` to read one by character position.
+`len()` on a string counts bytes. Use `char_count()` for characters and `to_char()` to read one by character position. `s[i]` returns the raw byte at byte position `i`, not a character.
 
 ```gray
 do main() {

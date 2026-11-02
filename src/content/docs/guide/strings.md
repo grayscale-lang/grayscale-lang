@@ -31,6 +31,29 @@ do main() {
 }
 ```
 
+## Bytes and characters
+
+A `string` holds UTF-8 text. `len()` counts bytes, `char_count()` counts characters, and `to_char(s, i)` reads the character at character position `i`. Iterating a string with `for_each` yields one character at a time.
+
+```gray
+do main() {
+    mut word string = "日本語"
+    println(len(word))
+    println(char_count(word))
+    println(to_char(word, 0))
+    println(cast(to_char(word, 0), i64))
+    for_each c in word {
+        println(cast(c, i64))
+    }
+}
+```
+
+Indexing with `s[i]` is different: it returns the raw byte at byte position `i`, typed as a `char` between 0 and 255. For ASCII text that is the character itself. For other text it is one piece of a multi-byte character. `strings.char_at` and `strings.index_of` also work with byte positions.
+
+The case functions in `strings` and `chars` change ASCII letters only. `strings.to_upper("héllo")` gives `"HéLLO"`.
+
+Source files and string literals must be valid UTF-8. A string literal that contains an invalid byte is a compile error.
+
 ## Formatting with fmt
 
 `fmt.printf` takes a format string and an array of arguments. `sprintf` returns the string instead of printing it.
