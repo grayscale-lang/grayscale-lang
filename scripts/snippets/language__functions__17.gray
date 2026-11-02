@@ -5,4 +5,6 @@ do divide(a, b i64) -> (i64, i64) {
 do main() {
 
 mut quotient, remainder = divide(17, 5)
+    println(quotient)
+    println(remainder)
 }

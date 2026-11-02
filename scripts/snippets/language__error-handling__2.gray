@@ -1,7 +1,7 @@
 import @io
 
-do read_file(path string) -> (string, Error) {
-    if !io.file_exists(path) {
+do read_file(file_path string) -> (string, Error) {
+    if !io.file_exists(file_path) {
         return "", error(.NotFound, "file not found")
     }
     return "contents", nil

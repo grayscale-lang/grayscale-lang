@@ -3,12 +3,12 @@ const Point struct {
     y i64
 }
 
-do make_stack(kind generic) -> kind {
-    return kind{}          // Error when kind is bound to a non-struct
+do make_stack(T generic) -> T {
+    return T{}          // Error when T is bound to a non-struct
 }
 
 do main() {
     mut s = make_stack(Point)  // OK
-    // mut n = make_stack(i64)    // Error — kind is used as a struct literal
+    // mut n = make_stack(i64)    // Error — T is used as a struct literal
     println(s)
 }

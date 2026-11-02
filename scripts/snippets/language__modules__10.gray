@@ -1,0 +1,11 @@
+import @strings
+using strings
+
+do main() {
+    println(to_upper("hello"))  // OK, strings is in file scope
+    println(shout("hi"))
+}
+
+do shout(s string) -> string {
+    return to_upper(s)          // OK, same file scope
+}

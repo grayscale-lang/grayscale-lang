@@ -2,4 +2,6 @@
 do main() {
 mut flag bool = true
 mut result bool = 10 > 5  // true
+    println(flag)
+    println(result)
 }

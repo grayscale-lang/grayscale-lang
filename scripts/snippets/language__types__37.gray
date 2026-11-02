@@ -4,8 +4,20 @@ const Shape enum {
     Point
 }
 
+do describe(shape Shape) {
+    #strict
+    when shape {
+        is .Circle(radius) { println(radius) }
+        is .Rect(width, height) { println(width * height) }
+        is .Point { println("point") }
+    }
+}
+
 do main() {
     mut s Shape = Shape.Circle(3.14)
     mut r Shape = Shape.Rect(10.0, 20.0)
     mut p Shape = Shape.Point
+    describe(s)
+    describe(r)
+    describe(p)
 }

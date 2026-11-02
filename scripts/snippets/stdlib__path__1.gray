@@ -1,0 +1,11 @@
+import @path
+
+do main() {
+    println(path.join_parts({"src", "stdlib", "../runtime", "io.c"}))   // src/runtime/io.c
+    mut dir, file = path.split_dir_file("src/main.gray")                // "src/", "main.gray"
+    mut rel, err = path.relative_path("/a/b", "/a/c/d")                 // "../c/d"
+    println(dir)
+    println(file)
+    println(rel)
+    println(err)
+}

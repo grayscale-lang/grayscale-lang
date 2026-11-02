@@ -12,4 +12,6 @@ do main() {
 mut v = Vec{x: 2, y: 3}
 mut scaled = v.scale(factor: 5)        // instance dispatch: name non-self params
 mut also = Vec.scale(self: v, factor: 5)  // static dispatch: name all params
+    println(scaled)
+    println(also)
 }

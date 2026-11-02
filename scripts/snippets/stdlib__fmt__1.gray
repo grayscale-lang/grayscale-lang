@@ -9,4 +9,5 @@ fmt.printf("%08.2f\n", {3.14159})            // "00003.14"
 mut s string = fmt.sprintf("x = %d", {x})   // "x = 7"
 mut parts [i64] = {2026, 9, 28}
 fmt.printfln("%d-%02d-%02d", parts)           // "2026-09-28"
+    println(s)
 }

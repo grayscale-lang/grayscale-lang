@@ -1,0 +1,11 @@
+import @strings
+
+do main() {
+    using strings
+    println(to_upper("hello"))  // OK, strings is in scope here
+    println(shout("hi"))
+}
+
+do shout(s string) -> string {
+    return strings.to_upper(s)  // must qualify; using is not in scope here
+}

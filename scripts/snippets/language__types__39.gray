@@ -6,6 +6,7 @@ const Shape enum {
 
 do main() {
     mut shape Shape = Shape.Circle(3.14)
+    #strict
     when shape {
         is Shape.Circle(radius) {
             println("Circle with radius ${radius}")

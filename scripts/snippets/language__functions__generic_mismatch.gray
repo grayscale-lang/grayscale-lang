@@ -1,13 +1,13 @@
-do identity(kind generic, x kind) -> kind {
+do identity(T generic, x T) -> T {
     return x
 }
 
-do first(kind generic, arr [kind]) -> kind {
+do first(T generic, arr [T]) -> T {
     return arr[0]
 }
 
 do main() {
-    // mut x = identity(i64, "hello")   // Error — kind is i64, argument 2 is string
+    // mut x = identity(i64, "hello")   // Error — T is i64, argument 2 is string
     // mut y = first(i64, 5)            // Error — argument 2 is not an [i64]
     mut x = identity(i64, 5)
     mut y = first(i64, {5})

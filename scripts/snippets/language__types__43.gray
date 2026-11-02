@@ -44,4 +44,17 @@ do main() {
 
     // Multiple return values
     mut quotient, remainder = divide(10, 3)  // Both inferred: i64
+    println(x)
+    println(name)
+    println(pi)
+    println(flag)
+    println(y)
+    println(p)
+    println(dup)
+    println(arr)
+    println(letters)
+    println(scores)
+    println(fixed)
+    println(quotient)
+    println(remainder)
 }

@@ -8,7 +8,8 @@ do main() {
     unsafe {
         mut scratch = mem.arena(4096)
         mut node = mem.init(scratch, Node)
-        // ... use node ...
+        node.val = 1
+        println(node.val)
         mem.reset(scratch)
         mem.destroy(scratch)
     }

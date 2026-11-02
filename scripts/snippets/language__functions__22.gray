@@ -1,0 +1,8 @@
+do first(T generic, arr [T]) -> (result T) {
+    mut result T = arr[0]
+    return result
+}
+
+do main() {
+    println(first(i64, {4, 5, 6}))
+}

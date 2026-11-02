@@ -11,10 +11,6 @@
   [
    "see ERRORS.md",
    "see the [error reference](/grayscale-lang/errors/)"
-  ],
-  [
-   "(see C Compiler)",
-   "(see [C Compiler](#c-compiler))"
   ]
  ],
  "language/functions.md": [
@@ -173,8 +169,16 @@
  ],
  "stdlib/io.md": [
   [
-   "(fallible; see below)",
-   "(fallible; see [Fallible Functions](#fallible-functions))"
+   "Get file size in bytes (fallible; see below)",
+   "Get file size in bytes (fallible; see [Fallible Functions](#fallible-functions))"
+  ],
+  [
+   "Set permission bits; on Windows only the read-only bit (fallible; see below)",
+   "Set permission bits; on Windows only the read-only bit (fallible; see [Fallible Functions](#fallible-functions))"
+  ],
+  [
+   "Get file metadata without following a final symlink (fallible; see below)",
+   "Get file metadata without following a final symlink (fallible; see [Fallible Functions](#fallible-functions))"
   ]
  ],
  "stdlib/server.md": [

@@ -15,4 +15,5 @@ do main() {
     // const ref sees changes made to the original
     arrays.append(arr, 6)
     println(r2[4])        // Prints 6 - r2 sees the change
+    println(val)
 }

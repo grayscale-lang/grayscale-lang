@@ -1,5 +1,3 @@
-import @arrays
-
 do main() {
     mut numbers [i64] = {1, 2, 3}
     mut lookup map[string:i64] = {"a": 1}

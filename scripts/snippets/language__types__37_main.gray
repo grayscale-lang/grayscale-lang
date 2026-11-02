@@ -1,0 +1,15 @@
+const Level enum { LOW = 10; MID = 5; HIGH = 1 }
+
+do level_name(level Level) -> string {
+    mut found string = ""
+    for index in range(0, len(Level.variants())) {
+        if Level.variants()[index] == level {
+            found = Level.names()[index]
+        }
+    }
+    return found
+}
+
+do main() {
+    println(level_name(Level.MID))
+}

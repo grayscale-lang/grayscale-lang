@@ -43,4 +43,5 @@ do main() {
     println(c)
     println(dirs)
     println(d)
+    println(moved)
 }

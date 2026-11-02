@@ -6,4 +6,10 @@ const Shape enum {
 
 do main() {
     mut s Shape = .Circle(3.14)
+    #strict
+    when s {
+        is .Circle(radius) { println(radius) }
+        is .Rect(width, height) { println(width * height) }
+        is .Point { println("point") }
+    }
 }

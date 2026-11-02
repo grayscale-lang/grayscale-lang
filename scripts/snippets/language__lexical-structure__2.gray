@@ -2,4 +2,5 @@
 
 do main() {
 mut x i64 = 42  // inline comment
+    println(x)
 }

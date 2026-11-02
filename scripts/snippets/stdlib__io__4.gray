@@ -12,4 +12,7 @@ do main() {
     mut a, _ = io.read_file("data/config.json")      // project/data/config.json
     mut b, _ = io.read_file("./data/config.json")    // same thing
     mut c, _ = io.read_file("/etc/hosts")            // absolute path, unaffected by cwd
+    println(a)
+    println(b)
+    println(c)
 }

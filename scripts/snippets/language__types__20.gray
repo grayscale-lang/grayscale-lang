@@ -8,4 +8,7 @@ mut ages [string:i64] = {
 }
 mut empty [string:i64] = {:}  // Empty map
 mut scores map[string:i64] = {"math": 95}
+    println(ages)
+    println(empty)
+    println(scores)
 }

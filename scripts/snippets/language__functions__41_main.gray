@@ -1,0 +1,31 @@
+// Single param
+do apply(x i64, f func(i64) -> i64) -> i64 {
+    return f(x)
+}
+
+// Multiple params
+do combine(a i64, b string, f func(i64, string) -> bool) -> bool {
+    return f(a, b)
+}
+
+// No params
+do run(f func() -> i64) -> i64 {
+    return f()
+}
+
+// No return value
+do each(arr [i64], f func(i64)) {
+    for_each v in arr { f(v) }
+}
+
+do double(n i64) -> i64 { return n * 2 }
+do long_enough(n i64, text string) -> bool { return len(text) > n }
+do seven() -> i64 { return 7 }
+do show(n i64) { println(n) }
+
+do main() {
+    println(apply(5, ()double))
+    println(combine(3, "hello", ()long_enough))
+    println(run(()seven))
+    each({1, 2}, ()show)
+}

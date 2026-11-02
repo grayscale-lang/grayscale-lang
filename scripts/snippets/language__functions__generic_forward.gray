@@ -1,9 +1,9 @@
-do make(kind generic) -> ^kind {
-    return new(kind)
+do make(T generic) -> ^T {
+    return new(T)
 }
 
-do wrap(kind generic) -> ^kind {
-    return make(kind)      // make is specialized for whatever wrap was
+do wrap(T generic) -> ^T {
+    return make(T)      // make is specialized for whatever wrap was
 }
 
 do main() {

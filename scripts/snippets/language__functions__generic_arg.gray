@@ -5,8 +5,8 @@ const Point struct {
 
 const Color enum { RED; GREEN; BLUE }
 
-do make(kind generic) -> ^kind {
-    return new(kind)
+do make(T generic) -> ^T {
+    return new(T)
 }
 
 do main() {

@@ -10,7 +10,10 @@ const Point struct {
 }
 
 #doc("Maximum number of retries before giving up")
+const MAX_RETRIES i64 = 5
 
 do main() {
-const MAX_RETRIES i64 = 5
+    println(add(MAX_RETRIES, 1))
+    mut p = Point{x: 1, y: 2}
+    println(p.x + p.y)
 }

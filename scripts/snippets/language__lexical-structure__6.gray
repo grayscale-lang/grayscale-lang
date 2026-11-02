@@ -2,4 +2,5 @@
 do main() {
 mut name string = "World"
 mut greeting string = "Hello, ${name}!"  // "Hello, World!"
+    println(greeting)
 }

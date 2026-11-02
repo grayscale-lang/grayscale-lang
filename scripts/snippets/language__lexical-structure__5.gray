@@ -3,11 +3,11 @@ do main() {
     mut a bool = true
     mut b bool = false
 
-    switch x { case 1 { } default { } }    // ok
+    switch x { case 1 { println("one") } default { println("other") } }    // ok
     // when x   { is 1 { } default { } }   // ok, but not in the same file as switch
     // switch x { is 1 { } default { } }   // E2088 — crossed dialects
 
-    if a { } elif b { } else { }           // ok
+    if a { println("a") } elif b { println("b") } else { println("neither") }           // ok
     // if a { } or b { } otherwise { }     // ok, but not in the same file as elif/else
     // if a { } elif b { } otherwise { }   // E2088 — crossed dialects
 }

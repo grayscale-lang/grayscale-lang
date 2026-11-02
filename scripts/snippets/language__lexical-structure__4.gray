@@ -1,4 +1,5 @@
 
 do main() {
 mut x i64 = /* default value */ 10
+    println(x)
 }

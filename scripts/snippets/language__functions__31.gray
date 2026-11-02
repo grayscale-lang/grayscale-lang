@@ -1,0 +1,11 @@
+#discard
+do tryInsert(value i64) -> bool {
+    // ... returns true on success, but caller may not care
+    return true
+}
+
+do main() {
+    tryInsert(42)               // OK
+    mut ok bool = tryInsert(7)  // also OK — capturing is still allowed
+    println(ok)
+}

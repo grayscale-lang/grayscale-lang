@@ -11,4 +11,5 @@ mut value, err = parse("test")
 if err != nil {
     // Handle error
 }
+    println(value)
 }

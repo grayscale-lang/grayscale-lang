@@ -6,6 +6,7 @@ const Shape enum {
 
 do main() {
     mut shape Shape = Shape.Rect(1.0, 2.0)
+    #strict
     when shape {
         is .Circle(r) { println("radius: ${r}") }
         is .Rect(w, h) { println("${w}x${h}") }

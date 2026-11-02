@@ -5,4 +5,5 @@ do main() {
     println("Hello")
     counter++
     do_something()
+    println(counter)
 }

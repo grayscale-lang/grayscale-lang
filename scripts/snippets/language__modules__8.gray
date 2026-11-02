@@ -1,5 +1,9 @@
 import @arrays
 
-do main() {
 using arrays
+
+do main() {
+    mut numbers [i64] = {1, 2}
+    append(numbers, 3)
+    println(numbers)
 }

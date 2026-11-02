@@ -1,0 +1,19 @@
+const Point struct {
+    x i64
+    y i64
+}
+alias Vec2 = Point
+
+const Color enum {
+    RED
+    GREEN
+    BLUE
+}
+alias Hue = Color
+
+do main() {
+    mut p Vec2 = Point{x: 1, y: 2}
+    mut c Hue = Hue.RED
+    println(p.x)
+    println(c)
+}

@@ -1,13 +1,12 @@
 do double(n i64) -> i64 { return n * 2 }
 
 // ()func_name: implicit syntax (type is inferred)
-
 // ref(func_name): explicit syntax (identical result)
-
 // Optional explicit type annotation
 
 do main() {
-const f = ()double
-const g = ref(double)
-const h func(i64) -> i64 = ()double
+    const f = ()double
+    const g = ref(double)
+    const h func(i64) -> i64 = ()double
+    println(f(1) + g(2) + h(3))
 }

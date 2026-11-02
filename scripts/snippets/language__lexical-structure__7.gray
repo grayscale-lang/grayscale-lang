@@ -1,8 +1,11 @@
 
 do main() {
-mut path string = `C:\Users\test\file.txt`
+mut windows_path string = `C:\Users\test\file.txt`
 mut pattern string = `\d+\.\d+`
 mut multi string = `line1
 line2
 line3`
+    println(windows_path)
+    println(pattern)
+    println(multi)
 }

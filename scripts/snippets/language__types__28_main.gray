@@ -1,0 +1,12 @@
+const Config struct {
+    host string = "localhost"
+    port i64 = 8080
+    verbose bool = false
+}
+
+do main() {
+    mut c = new(Config)       // c.host = "localhost", c.port = 8080, c.verbose = false
+    mut c2 = Config{port: 3000}  // c2.host = "localhost", c2.port = 3000, c2.verbose = false
+    println(c^.port)
+    println(c2.port)
+}

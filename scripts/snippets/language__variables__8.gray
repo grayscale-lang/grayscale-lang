@@ -15,4 +15,5 @@ do main() {
     mut data, _ = json.decode(text)
     println(value)
     println(middle)
+    println(data)
 }

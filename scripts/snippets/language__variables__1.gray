@@ -9,4 +9,5 @@ do main() {
     println(b)
     println(name)
     println(result)
+    println(err)
 }

@@ -1,0 +1,12 @@
+distinct alias UserId = i64
+distinct alias OrderId = i64
+
+do delete_user(id UserId) { }
+
+do main() {
+    mut user UserId = 5
+    mut order OrderId = 7
+    delete_user(user)                  // ok
+    // delete_user(order)              // error: expected UserId, got OrderId
+    delete_user(cast(order, UserId))   // explicit conversion, ok
+}
