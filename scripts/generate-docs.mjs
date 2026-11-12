@@ -15,6 +15,7 @@ const ROOT = join(__dirname, '..');
 
 const STANDARD_URL = 'https://raw.githubusercontent.com/grayscale-lang/grayscale/main/STANDARD.md';
 const ERRORS_URL = 'https://raw.githubusercontent.com/grayscale-lang/grayscale/main/ERRORS.md';
+const CHANGELOG_URL = 'https://raw.githubusercontent.com/grayscale-lang/grayscale/main/CHANGELOG.md';
 
 // Local fallback paths (for development when working alongside the Grayscale repo)
 const LOCAL_STANDARD = join(ROOT, '..', 'Grayscale', 'STANDARD.md');
@@ -397,6 +398,20 @@ async function main() {
   const errorsPath = join(DATA_DIR, 'errors.json');
   writeFileSync(errorsPath, JSON.stringify(errors, null, 2));
   console.log(`  ${errors.length} error codes written to src/data/errors.json`);
+
+  // Copy the changelog from the language repo's main branch. The copy is committed;
+  // a failed fetch keeps the committed copy.
+  console.log('\nCopying CHANGELOG.md from main:');
+  const changelogPath = join(DATA_DIR, 'CHANGELOG.md');
+  try {
+    const res = await fetch(CHANGELOG_URL);
+    if (!res.ok) throw new Error(`${res.status}`);
+    writeFileSync(changelogPath, await res.text());
+    console.log('  Written to src/data/CHANGELOG.md');
+  } catch (err) {
+    if (!existsSync(changelogPath)) throw new Error(`Failed to fetch ${CHANGELOG_URL}: ${err.message}`);
+    console.log(`  Fetch failed (${err.message}); keeping the committed copy`);
+  }
 
   console.log('\nDone!');
 }

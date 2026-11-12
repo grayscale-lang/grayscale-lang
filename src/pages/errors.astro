@@ -12,7 +12,7 @@ try {
 const categories = [...new Set(errors.map((e) => e.category))].sort();
 ---
 
-<StarlightPage frontmatter={{ title: 'Error Reference' }} headings={[]}>
+<StarlightPage frontmatter={{ title: 'Error Reference', tableOfContents: false }} headings={[]}>
   <p>All {errors.length} diagnostic codes emitted by the Grayscale compiler.</p>
 
   <div class="error-controls">

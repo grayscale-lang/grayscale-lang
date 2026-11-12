@@ -1,0 +1,77 @@
+---
+import Default from '@astrojs/starlight/components/TableOfContents.astro';
+
+const { toc } = Astro.locals.starlightRoute;
+const isChangelog = Astro.url.pathname.replace(/\/$/, '').endsWith('/changelog');
+// Starlight always lists the page's own title ("Overview") first; without a real heading beneath it
+// the list has nothing to jump to.
+const hasHeadings = toc?.items.some((item) => item.slug !== '_top') ?? false;
+---
+
+{
+  isChangelog && toc ? (
+    <nav class="changelog-toc" aria-labelledby="starlight__on-this-page">
+      <h2 id="starlight__on-this-page">{Astro.locals.t('tableOfContents.onThisPage')}</h2>
+      {toc.items.filter((group) => group.children.length > 0).map((group, index) => (
+        <details open={index === 0}>
+          <summary>{group.text}</summary>
+          <ul>
+            {group.children.map((item) => (
+              <li><a href={`#${item.slug}`} data-entry={item.slug}>{item.text}</a></li>
+            ))}
+          </ul>
+        </details>
+      ))}
+    </nav>
+  ) : (
+    hasHeadings && <Default />
+  )
+}
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('.changelog-toc a');
+  if (links.length > 0) {
+    const observer = new IntersectionObserver(
+      (observed) => {
+        for (const item of observed) {
+          if (!item.isIntersecting) continue;
+          const id = (item.target as HTMLElement).id;
+          links.forEach((link) => link.classList.toggle('active', link.dataset.entry === id));
+          const group = document.querySelector(`.changelog-toc a[data-entry="${id}"]`)?.closest('details');
+          if (group) group.open = true;
+        }
+      },
+      { rootMargin: '-100px 0px -70% 0px' },
+    );
+    document.querySelectorAll('.changelog-entry').forEach((entry) => observer.observe(entry));
+  }
+</script>
+
+<style>
+  .changelog-toc summary {
+    cursor: pointer;
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    color: var(--sl-color-white);
+    padding: 0.25rem 0;
+  }
+
+  .changelog-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.5rem 0.75rem;
+  }
+
+  .changelog-toc a {
+    display: block;
+    font-size: var(--sl-text-xs);
+    text-decoration: none;
+    color: var(--sl-color-gray-3);
+    padding: 0.1rem 0;
+  }
+
+  .changelog-toc a:hover,
+  .changelog-toc a.active {
+    color: var(--sl-color-white);
+  }
+</style>

@@ -13,6 +13,8 @@ export default defineConfig({
       ],
       components: {
         SocialIcons: './src/components/SocialIcons.astro',
+        TableOfContents: './src/components/TableOfContents.astro',
+        MobileTableOfContents: './src/components/MobileTableOfContents.astro',
       },
       customCss: ['./src/styles/custom.css'],
       head: [
@@ -46,6 +48,7 @@ export default defineConfig({
             { label: 'Downloads', link: '/downloads/' },
             { label: 'Overview', slug: 'overview' },
             { label: 'Developers', slug: 'developers' },
+            { label: 'Changelog', link: '/changelog/' },
           ],
         },
         {

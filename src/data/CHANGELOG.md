@@ -1,0 +1,3969 @@
+# Changelog
+
+## [0.14.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.14.0...grayscale-v0.14.1) (2026-11-02)
+
+
+### Features
+
+* **lexer:** accept \u{...} in string literals ([#3323](https://github.com/grayscale-lang/grayscale/issues/3323)) ([e1f2176](https://github.com/grayscale-lang/grayscale/commit/e1f2176140247e383c084347fcb68f96a6a2173f))
+
+
+### Bug Fixes
+
+* **build:** add the path module to the compile-from-source stdlib list so TinyCC links it ([#3308](https://github.com/grayscale-lang/grayscale/issues/3308)) ([0666bdf](https://github.com/grayscale-lang/grayscale/commit/0666bdffc5bb7c35442ed8cf1e03757511d31b1e))
+* **build:** keep make's directory messages out of the embed tag in nested builds ([#3307](https://github.com/grayscale-lang/grayscale/issues/3307)) ([0e3ce1e](https://github.com/grayscale-lang/grayscale/commit/0e3ce1e8d0915de60a12a261fd35cf56bb2df976))
+* **codegen:** bind an indexed literal or call-result field to a temporary ([#3316](https://github.com/grayscale-lang/grayscale/issues/3316)) ([1b64b9b](https://github.com/grayscale-lang/grayscale/commit/1b64b9b069dc6311526489c08e269ea34e298077))
+* **codegen:** keep bytes after an embedded NUL in fmt %s ([#3335](https://github.com/grayscale-lang/grayscale/issues/3335)) ([069ef9e](https://github.com/grayscale-lang/grayscale/commit/069ef9ef79103c12bb6555deeb643221ec26e6ce))
+* **codegen:** keep the element size of an array literal whose entry deep-copies a struct array ([#3361](https://github.com/grayscale-lang/grayscale/issues/3361)) ([5250292](https://github.com/grayscale-lang/grayscale/commit/525029223ed40b1818db316861876ba3de475f4c))
+* **codegen:** name a module's enum as written in the cast panic ([#3321](https://github.com/grayscale-lang/grayscale/issues/3321)) ([2c138ef](https://github.com/grayscale-lang/grayscale/commit/2c138efb6a50492307bae482476c04f9674f5657))
+* **codegen:** panic on arrays.sort_by during for_each over the same array ([#3360](https://github.com/grayscale-lang/grayscale/issues/3360)) ([b39e84e](https://github.com/grayscale-lang/grayscale/commit/b39e84e53cdacd389c90f115df55dcb7b14c6d0a))
+* **codegen:** print a module struct's nested fields and its declared name ([#3365](https://github.com/grayscale-lang/grayscale/issues/3365)) ([51fb4d0](https://github.com/grayscale-lang/grayscale/commit/51fb4d092dd48ca27bd252b2fb9f3080a5119a0e))
+* **csv:** split parse_delimited on the whole delimiter codepoint ([#3324](https://github.com/grayscale-lang/grayscale/issues/3324)) ([c9f1d01](https://github.com/grayscale-lang/grayscale/commit/c9f1d0176d4f3abfa113aa2077bed8c665a245db))
+* **diagnostics:** align the underline under the token after multibyte text ([#3337](https://github.com/grayscale-lang/grayscale/issues/3337)) ([3bf982f](https://github.com/grayscale-lang/grayscale/commit/3bf982ff1e021e0d678797b3204ffa06a6f6ddd0))
+* **imports:** resolve a file imported directly and through its directory ([#3312](https://github.com/grayscale-lang/grayscale/issues/3312)) ([cf70965](https://github.com/grayscale-lang/grayscale/commit/cf70965295de6068d61d1a4450423b9ec8d108a7))
+* **imports:** scope the name an import binds to the file that writes it ([#3310](https://github.com/grayscale-lang/grayscale/issues/3310)) ([6baa7c6](https://github.com/grayscale-lang/grayscale/commit/6baa7c60d374f44027dd3c59abc3ca73b2f23e4f))
+* **io:** match one codepoint for ? and brackets in io.glob ([#3334](https://github.com/grayscale-lang/grayscale/issues/3334)) ([428bd52](https://github.com/grayscale-lang/grayscale/commit/428bd525e286505eef82634f80f18033a0a850e4))
+* **json:** handle invalid UTF-8 in encode, decode and is_valid ([#3338](https://github.com/grayscale-lang/grayscale/issues/3338)) ([526db55](https://github.com/grayscale-lang/grayscale/commit/526db5528a645399a712e2ae571a3208df704fa2))
+* **lexer:** reject invalid UTF-8 bytes in string literals ([#3331](https://github.com/grayscale-lang/grayscale/issues/3331)) ([d1e9617](https://github.com/grayscale-lang/grayscale/commit/d1e9617ab15b656f1e57b7d29d3832b754b4e0fc))
+* **lexer:** skip a leading UTF-8 byte order mark ([#3336](https://github.com/grayscale-lang/grayscale/issues/3336)) ([2312650](https://github.com/grayscale-lang/grayscale/commit/23126508abec830f3374a53c084ed1ee7fb4c841))
+* **parser:** reject a typed func signature as a map value ([#3342](https://github.com/grayscale-lang/grayscale/issues/3342)) ([5993e34](https://github.com/grayscale-lang/grayscale/commit/5993e34abe4b16eacf9ff98f0dd0bca0e2a03b18))
+* **parser:** report an or_return/or_default/or_panic declaration at the variable's position ([#3341](https://github.com/grayscale-lang/grayscale/issues/3341)) ([ddea490](https://github.com/grayscale-lang/grayscale/commit/ddea490db6a936bfddf525fa044013db8ceb86e5))
+* **parser:** skip char literals when finding the end of an interpolation ([#3315](https://github.com/grayscale-lang/grayscale/issues/3315)) ([8024107](https://github.com/grayscale-lang/grayscale/commit/802410728cd688215f2a0b079ffc331403348b95))
+* **regex:** make POSIX character classes match ASCII only ([#3329](https://github.com/grayscale-lang/grayscale/issues/3329)) ([208a67a](https://github.com/grayscale-lang/grayscale/commit/208a67a2d5234da47161f23c1ef00bac714c0cb8))
+* **regex:** match one codepoint for . and bracket expressions on every platform ([#3328](https://github.com/grayscale-lang/grayscale/issues/3328)) ([a5f7dda](https://github.com/grayscale-lang/grayscale/commit/a5f7ddac2ca0cf62570df1e6978df57afa5dfd9e))
+* **regex:** treat an invalid UTF-8 byte as one U+FFFD character ([#3333](https://github.com/grayscale-lang/grayscale/issues/3333)) ([e00918c](https://github.com/grayscale-lang/grayscale/commit/e00918c4b6cba07679ee7c77a38c7340d958c790))
+* **scripts:** rename the reserved name 'path' in the stray binary check and sized type test generator ([#3306](https://github.com/grayscale-lang/grayscale/issues/3306)) ([6e8e3a9](https://github.com/grayscale-lang/grayscale/commit/6e8e3a9012f557e3f0e020499b62e614b33b24d6))
+* **stdlib:** compare strings.contains_any by codepoint ([#3325](https://github.com/grayscale-lang/grayscale/issues/3325)) ([1497c68](https://github.com/grayscale-lang/grayscale/commit/1497c681c6fe2a647b11f60ef30b9a7dbd09dd16))
+* **stdlib:** decode UTF-8 strictly through one shared decoder ([#3326](https://github.com/grayscale-lang/grayscale/issues/3326)) ([9d988f8](https://github.com/grayscale-lang/grayscale/commit/9d988f8106bac932b6b053c2234dd1fdab95ebaa))
+* **stdlib:** return the raw byte from strings.char_at for bytes of 128 or more ([#3313](https://github.com/grayscale-lang/grayscale/issues/3313)) ([3fd753d](https://github.com/grayscale-lang/grayscale/commit/3fd753d7b02eb1470466d8c2318f081e6c068f7f))
+* **stdlib:** snap strings edit indexes back to a character boundary ([#3332](https://github.com/grayscale-lang/grayscale/issues/3332)) ([91e6795](https://github.com/grayscale-lang/grayscale/commit/91e6795151e26ec50a41a1c766fdeab38d959055))
+* **typechecker:** a scalar read through a pointer parameter carries no origin ([#3340](https://github.com/grayscale-lang/grayscale/issues/3340)) ([f1787d0](https://github.com/grayscale-lang/grayscale/commit/f1787d075e06227e24ad970b7d8e0c4282ed31d0))
+* **typechecker:** accept a helper linking two locals of one scope ([#3319](https://github.com/grayscale-lang/grayscale/issues/3319)) ([f809288](https://github.com/grayscale-lang/grayscale/commit/f80928863708068a1654d2b7446fb0bf9c4b3644))
+* **typechecker:** accept an implicit tagged-enum constructor as a call argument ([#3314](https://github.com/grayscale-lang/grayscale/issues/3314)) ([aca028a](https://github.com/grayscale-lang/grayscale/commit/aca028afd8e871aad9b14bd434d2bf20310ad507))
+* **typechecker:** allow a private struct function called through self in an imported struct ([#3345](https://github.com/grayscale-lang/grayscale/issues/3345)) ([a5e4aaa](https://github.com/grayscale-lang/grayscale/commit/a5e4aaa4a8d22af9a3467d2f0011f314eb5bf6d8))
+* **typechecker:** apply default parameters to a module-qualified struct function call ([#3347](https://github.com/grayscale-lang/grayscale/issues/3347)) ([33d1eb8](https://github.com/grayscale-lang/grayscale/commit/33d1eb8f798ac05b7b12d5f25c25f2ea72c262cf))
+* **typechecker:** check a function reference passed to a struct function's func parameter ([#3350](https://github.com/grayscale-lang/grayscale/issues/3350)) ([197d24d](https://github.com/grayscale-lang/grayscale/commit/197d24d98e6b884f70b50abbac15d31c7ec294fb))
+* **typechecker:** check the element type of stdlib array parameters ([#3367](https://github.com/grayscale-lang/grayscale/issues/3367)) ([10266e8](https://github.com/grayscale-lang/grayscale/commit/10266e8f41f0bc35731a5b924ac0646bb77af845))
+* **typechecker:** check the return value of a module-qualified struct function call ([#3348](https://github.com/grayscale-lang/grayscale/issues/3348)) ([8b7f165](https://github.com/grayscale-lang/grayscale/commit/8b7f1653e0b42cd7c74a2b5672f058427be0a50b))
+* **typechecker:** detect writes through a pointer parameter made by stdlib array and map mutators, ++/--, and ref() ([#3370](https://github.com/grayscale-lang/grayscale/issues/3370)) ([9bc210c](https://github.com/grayscale-lang/grayscale/commit/9bc210c6ea1db654fc984a1252f3a0c725894dd4))
+* **typechecker:** enforce const through ref(): mut ref to a const field or element, and writes through a const ref ([#3369](https://github.com/grayscale-lang/grayscale/issues/3369)) ([b21f743](https://github.com/grayscale-lang/grayscale/commit/b21f743d7f075c1c8af74541a76ab08c568fce3a))
+* **typechecker:** enforce E3153 on the type argument of new() and size_of() ([#3363](https://github.com/grayscale-lang/grayscale/issues/3363)) ([2f514f9](https://github.com/grayscale-lang/grayscale/commit/2f514f928c2dd6f7c597887a2d7b9deceae50b35))
+* **typechecker:** escape-check addr(local) stored through a pointer parameter with the dot operator ([#3318](https://github.com/grayscale-lang/grayscale/issues/3318)) ([baa4cd1](https://github.com/grayscale-lang/grayscale/commit/baa4cd19700fa76ed7f738da973a0da27f7da7fd))
+* **typechecker:** reject a void call as a value argument to string() and generic arrays/maps functions ([#3359](https://github.com/grayscale-lang/grayscale/issues/3359)) ([9df6fe2](https://github.com/grayscale-lang/grayscale/commit/9df6fe2a4adf0d988f8f07c28b5bbe00e8c095b9))
+* **typechecker:** reject assignment and increment through a call result or literal ([#3317](https://github.com/grayscale-lang/grayscale/issues/3317)) ([21cac7b](https://github.com/grayscale-lang/grayscale/commit/21cac7b30e25101e292398ab46f07a3f7e1e5d8a))
+* **typechecker:** reject copy() on a handle type instead of aliasing it ([#3362](https://github.com/grayscale-lang/grayscale/issues/3362)) ([d72f7a1](https://github.com/grayscale-lang/grayscale/commit/d72f7a1d32b73f0682337703fc312beb963918a2))
+* **typechecker:** reject duplicate globals and global/function/type name clashes across files of a module ([#3311](https://github.com/grayscale-lang/grayscale/issues/3311)) ([f31420e](https://github.com/grayscale-lang/grayscale/commit/f31420e802890ba2c6733d05821ca49bbc9808ba))
+* **typechecker:** reject field access on an enum value and through a pointer to a non-struct ([#3366](https://github.com/grayscale-lang/grayscale/issues/3366)) ([446b1d6](https://github.com/grayscale-lang/grayscale/commit/446b1d6a1fbf2d83b9ea42341371a1138ff25dfb))
+* **typechecker:** reject index writes, array/map functions and addr on a module variable from outside ([#3354](https://github.com/grayscale-lang/grayscale/issues/3354)) ([2376f55](https://github.com/grayscale-lang/grayscale/commit/2376f55d084e16d2072484cc63e2f3ed7c0bbc41))
+* **typechecker:** reject surrogates in char(n) and cast(n, char) ([#3327](https://github.com/grayscale-lang/grayscale/issues/3327)) ([139bbe8](https://github.com/grayscale-lang/grayscale/commit/139bbe861088b2d6fc3c013ce1aaa89bdf6c84c6))
+* **typechecker:** reject type, struct literal and enum member uses of a module the file does not import ([#3309](https://github.com/grayscale-lang/grayscale/issues/3309)) ([7c00847](https://github.com/grayscale-lang/grayscale/commit/7c008472b3ae343162196dfa160a11c5505c86ab))
+* **typechecker:** reject void as the type in new(), size_of() and alias ([#3364](https://github.com/grayscale-lang/grayscale/issues/3364)) ([82be77e](https://github.com/grayscale-lang/grayscale/commit/82be77e39610370d9f0087e93d66ad4c435e8df3))
+* **typechecker:** report a parameter named main once instead of also as shadowing a function ([5b15a9b](https://github.com/grayscale-lang/grayscale/commit/5b15a9be9e18f39f7cfbf6f7e3069ffcb9229a60))
+* **typechecker:** report a parameter, loop variable or struct named like an imported module ([#3352](https://github.com/grayscale-lang/grayscale/issues/3352)) ([268738f](https://github.com/grayscale-lang/grayscale/commit/268738f610ee91d1d941b2c85e792989fdff8c3d))
+* **typechecker:** report a parameter, loop variable or when binding named like a function ([#3349](https://github.com/grayscale-lang/grayscale/issues/3349)) ([e34ec6c](https://github.com/grayscale-lang/grayscale/commit/e34ec6c8f6c6cda90cc3985b0a89f53cf6c101f3))
+* **typechecker:** report an unhandled fallible call in a multi-value declaration ([#3343](https://github.com/grayscale-lang/grayscale/issues/3343)) ([4f088e9](https://github.com/grayscale-lang/grayscale/commit/4f088e95133584370f85bb3a9fce6db8ec137a2d))
+* **typechecker:** report assigning one struct or enum type to another once ([#3320](https://github.com/grayscale-lang/grayscale/issues/3320)) ([2c89f57](https://github.com/grayscale-lang/grayscale/commit/2c89f57728a187c18b88912f44c2e89f032bb672))
+* **typechecker:** report only E4026 for a type or const named main ([#3339](https://github.com/grayscale-lang/grayscale/issues/3339)) ([8c022cd](https://github.com/grayscale-lang/grayscale/commit/8c022cdac3b177fa936b275afb82e39c4e600838))
+* **typechecker:** report shadowing of a parameter, loop variable or when binding ([#3344](https://github.com/grayscale-lang/grayscale/issues/3344)) ([ab46d0d](https://github.com/grayscale-lang/grayscale/commit/ab46d0de42385b3e2775518f564aa81b4ce474c3))
+* **typechecker:** resolve a module-qualified call to a generic struct function ([#3346](https://github.com/grayscale-lang/grayscale/issues/3346)) ([34be85d](https://github.com/grayscale-lang/grayscale/commit/34be85d44763d2753533a7a1a069a1a5112f2686))
+* **typechecker:** warn on a when over module-qualified enum variants with no default ([#3353](https://github.com/grayscale-lang/grayscale/issues/3353)) ([432f094](https://github.com/grayscale-lang/grayscale/commit/432f094949378a695a2f274074b56443d096a884))
+
+
+### Miscellaneous
+
+* **release:** release as 0.14.1 ([3d54efd](https://github.com/grayscale-lang/grayscale/commit/3d54efd071cc6c6098893a0bf7992a5ead8cd966))
+
+## [0.14.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.13.0...grayscale-v0.14.0) (2026-10-30)
+
+
+### Features
+
+* **cli:** embed the 14 project template files in the CLI ([#3263](https://github.com/grayscale-lang/grayscale/issues/3263)) ([cbe054c](https://github.com/grayscale-lang/grayscale/commit/cbe054c97d2094371aeb8e3c704f8d5c811e13ca))
+* **cli:** extract the embedded compiler and runtime in Grayscale ([#3268](https://github.com/grayscale-lang/grayscale/issues/3268)) ([5699d7a](https://github.com/grayscale-lang/grayscale/commit/5699d7aefe653de1e79e5697b4ad49abb3e37622))
+* **cli:** rerun gray watch when a file is added or removed ([#3266](https://github.com/grayscale-lang/grayscale/issues/3266)) ([7bf1b46](https://github.com/grayscale-lang/grayscale/commit/7bf1b460f74936b6a8e3eed13f0283d15caaebc1))
+* **cli:** scan source lines for test markers in the CLI ([#3264](https://github.com/grayscale-lang/grayscale/issues/3264)) ([29d5de0](https://github.com/grayscale-lang/grayscale/commit/29d5de0b5dd3dc8ef093ccd4427f256989b9b047))
+* **cli:** set the CLI version at build time with -define ([#3269](https://github.com/grayscale-lang/grayscale/issues/3269)) ([52e3702](https://github.com/grayscale-lang/grayscale/commit/52e370236f4a0f3108ce391be57d03742fe41b38))
+* **cli:** write gray test in Grayscale ([#3264](https://github.com/grayscale-lang/grayscale/issues/3264)) ([804e0d7](https://github.com/grayscale-lang/grayscale/commit/804e0d778dabb98d880aea7b1961d18f720f328f))
+* **cli:** write hand-rolled argument parsing for the CLI in Grayscale ([#3261](https://github.com/grayscale-lang/grayscale/issues/3261)) ([0f6ce2f](https://github.com/grayscale-lang/grayscale/commit/0f6ce2f49488e53a41e4a86885afab782a837a5e))
+* **encoding:** quote shell_escape arguments for cmd.exe on Windows ([#3265](https://github.com/grayscale-lang/grayscale/issues/3265)) ([dbc89f7](https://github.com/grayscale-lang/grayscale/commit/dbc89f725bb821e88fc5cd887002660ee3ae233d))
+* **io:** add io.chmod ([#3258](https://github.com/grayscale-lang/grayscale/issues/3258)) ([682c56c](https://github.com/grayscale-lang/grayscale/commit/682c56cf1d14ac3ca9144222d504ba8784fd17d9))
+* **io:** add io.stat returning FileInfo metadata ([#3257](https://github.com/grayscale-lang/grayscale/issues/3257)) ([169e8f1](https://github.com/grayscale-lang/grayscale/commit/169e8f120e2b4c83608f0b9047be91a8e94bc8d4))
+* **os:** add executable_path ([#3255](https://github.com/grayscale-lang/grayscale/issues/3255)) ([3ecff8f](https://github.com/grayscale-lang/grayscale/commit/3ecff8f2b6d5123a743439b3af18c07641759e22))
+* **os:** add find_executable ([#3256](https://github.com/grayscale-lang/grayscale/issues/3256)) ([fcf9b98](https://github.com/grayscale-lang/grayscale/commit/fcf9b98866c132f3150a44f5356e3841c7521d5d))
+* **os:** add signal field to ExecResult ([#3254](https://github.com/grayscale-lang/grayscale/issues/3254)) ([69bd998](https://github.com/grayscale-lang/grayscale/commit/69bd998520a8a49733950132df1bb7a5286920d2))
+* **path:** add path module for separator-aware path manipulation ([#3253](https://github.com/grayscale-lang/grayscale/issues/3253)) ([b616d93](https://github.com/grayscale-lang/grayscale/commit/b616d93d3764b17107e090c869c5904f97ecd94f))
+
+
+### Bug Fixes
+
+* **benchmarks:** rename the built-in-named path parameter in the fixture generator ([b8c1d27](https://github.com/grayscale-lang/grayscale/commit/b8c1d27c27f65655439a49b35625e77e3c4978e1))
+* **codegen:** break the deep-copy cycle for a tagged enum that contains itself through an array or map ([#3301](https://github.com/grayscale-lang/grayscale/issues/3301)) ([45305d3](https://github.com/grayscale-lang/grayscale/commit/45305d3e97b08b233710112e0a48cdff214df729))
+* **codegen:** copy by-value arguments out of the iteration arena for caller-arena calls ([#3278](https://github.com/grayscale-lang/grayscale/issues/3278)) ([1bd65a5](https://github.com/grayscale-lang/grayscale/commit/1bd65a55f0303a8a1144bb012a89e131ce9c07c1))
+* **codegen:** keep the backslash in a string literal escaped backslash before a dollar sign ([#3284](https://github.com/grayscale-lang/grayscale/issues/3284)) ([934b5bd](https://github.com/grayscale-lang/grayscale/commit/934b5bdb5c583c98b464242d1675ea8a42eeaa25))
+* **codegen:** record each stdlib module once so imports past 64 keep their headers ([#3283](https://github.com/grayscale-lang/grayscale/issues/3283)) ([67ca86b](https://github.com/grayscale-lang/grayscale/commit/67ca86b08a3febfd287ed2ff06279e44299dc277))
+* **codegen:** sanitize C keyword struct field names in struct copy and print ([#3280](https://github.com/grayscale-lang/grayscale/issues/3280)) ([fc2c479](https://github.com/grayscale-lang/grayscale/commit/fc2c4793d37b815be3f67d06a307c18f0cd0692a))
+* **codegen:** store into a file-scope map in the heap arena inside nested blocks ([#3297](https://github.com/grayscale-lang/grayscale/issues/3297)) ([882643f](https://github.com/grayscale-lang/grayscale/commit/882643fd2c4f7b284794c0bcb45c7dd2365deb62))
+* **lexer:** reject a NUL byte in source instead of ending the file ([#3296](https://github.com/grayscale-lang/grayscale/issues/3296)) ([7c5eccb](https://github.com/grayscale-lang/grayscale/commit/7c5eccb27c14403b2d8dac1ad134dc46a9ff1bc5))
+* **parser:** let -define override #define constants declared in imported modules ([#3285](https://github.com/grayscale-lang/grayscale/issues/3285)) ([63b8b5c](https://github.com/grayscale-lang/grayscale/commit/63b8b5cd44d398008e26645c68e7f276fe769ed3))
+* **path:** copy the split_dir_file directory part into the arena so it is null-terminated ([#3282](https://github.com/grayscale-lang/grayscale/issues/3282)) ([a844cb6](https://github.com/grayscale-lang/grayscale/commit/a844cb641f1ba67f42b4c733d15d6fc14705524a))
+* **tests:** drop the binary name assertion from os_executable_path ([af6fc9a](https://github.com/grayscale-lang/grayscale/commit/af6fc9a00af2d4320a293eba7919687926efa51e))
+* **tests:** rename the path parameters and loop variables in the integration test runner ([#3286](https://github.com/grayscale-lang/grayscale/issues/3286)) ([b28779e](https://github.com/grayscale-lang/grayscale/commit/b28779e5b8ac4039bfcbe0bd0d3690c858758c66))
+* **tests:** rename the reserved path identifier in tests ([572c7e6](https://github.com/grayscale-lang/grayscale/commit/572c7e663837c6e8476c79be9be8d521c76ada0d))
+* **typechecker:** call a func-typed struct field through an index, member, deref, or map receiver ([#3300](https://github.com/grayscale-lang/grayscale/issues/3300)) ([30c59cc](https://github.com/grayscale-lang/grayscale/commit/30c59ccedbe443a0ef309a8ca61b148c8520b8e9))
+* **typechecker:** check the integer arguments of threads.spawn_arg, channels.open, and the atomic functions ([#3302](https://github.com/grayscale-lang/grayscale/issues/3302)) ([eaa03e3](https://github.com/grayscale-lang/grayscale/commit/eaa03e3b41906ef0a6b8689f435162cf1235d8d4))
+* **typechecker:** stop registering unprefixed aliases for module-prefixed functions ([#3277](https://github.com/grayscale-lang/grayscale/issues/3277)) ([10ba4ab](https://github.com/grayscale-lang/grayscale/commit/10ba4ab9aa20cf0f27366e08d70b008c6c93af76))
+
+## [0.13.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.12.3...grayscale-v0.13.0) (2026-10-25)
+
+
+### Features
+
+* **attributes:** add #define and the -define: flag for build-time constant overrides ([#3210](https://github.com/grayscale-lang/grayscale/issues/3210)) ([d5fff9b](https://github.com/grayscale-lang/grayscale/commit/d5fff9bd67789cd5cc7720bfca1039e427583e6e))
+* **loops:** add labeled break and continue for nested loops ([#3246](https://github.com/grayscale-lang/grayscale/issues/3246)) ([96772b2](https://github.com/grayscale-lang/grayscale/commit/96772b2748bd80d7b7b5a0f76bbc1348ab1d6f09))
+* **runtime:** add function_name and caller_name ([#3135](https://github.com/grayscale-lang/grayscale/issues/3135)) ([96a98c2](https://github.com/grayscale-lang/grayscale/commit/96a98c23f04ef08a7520ae63203e54c418d02dcd))
+* **stdlib:** add wrap_add, wrap_sub, wrap_mult and wrap_div builtins behind unsafe ([#3245](https://github.com/grayscale-lang/grayscale/issues/3245)) ([7484b1a](https://github.com/grayscale-lang/grayscale/commit/7484b1adf3866880e7e0bd6655ed12599d91e704))
+* **types:** add distinct alias for nominal primitive types ([#3211](https://github.com/grayscale-lang/grayscale/issues/3211)) ([d46eb47](https://github.com/grayscale-lang/grayscale/commit/d46eb472d27c458ead858d68b20036fafe1d5c04))
+
+
+### Bug Fixes
+
+* **cli:** tell PowerShell users to dot-source the installed completion script ([a9749d4](https://github.com/grayscale-lang/grayscale/commit/a9749d4617ef0b501cd4c7c18b6764bbc822f049))
+* **cli:** tell PowerShell users to dot-source the installed completion script ([3aa2348](https://github.com/grayscale-lang/grayscale/commit/3aa2348f901e1043b9ff8530f90e8f221afb2884))
+* **codegen:** accept a C value of 2^63 or more as a u64 ([#3227](https://github.com/grayscale-lang/grayscale/issues/3227)) ([60a8043](https://github.com/grayscale-lang/grayscale/commit/60a804349c1a58c605aea79e438b464dc58dc9fc))
+* **codegen:** check an arena is live before recording its reset count ([5c3b521](https://github.com/grayscale-lang/grayscale/commit/5c3b521cd5ff0903a6db380c45271fabd49c3626))
+* **codegen:** check overflow and division by zero in compound assignment and negation on a generic-typed value ([#3239](https://github.com/grayscale-lang/grayscale/issues/3239)) ([5c3d559](https://github.com/grayscale-lang/grayscale/commit/5c3d55906b40e6ee76a8dec1a4d4fb86d60d3079))
+* **codegen:** emit a parameter default in the declaring module's scope ([204a99d](https://github.com/grayscale-lang/grayscale/commit/204a99d7214208808a882ca114bd40f1cb243ea0))
+* **codegen:** range-check an extern u64 above INT64_MAX stored into a narrow signed type ([e936be2](https://github.com/grayscale-lang/grayscale/commit/e936be254af1069bf3602173123ad21388103ac3))
+* **codegen:** resolve generic parameter types when a call omits a defaulted argument ([#3237](https://github.com/grayscale-lang/grayscale/issues/3237)) ([621f248](https://github.com/grayscale-lang/grayscale/commit/621f2481b00e55e0b29772c9a8dd700d5f8aa4d4))
+* **codegen:** type a wrap builtin call by its first operand inside a generic body ([bcd645a](https://github.com/grayscale-lang/grayscale/commit/bcd645a773fe2c1ac68b610d3c6338672a4a6c67))
+* **compiler:** repair generic dispatch segfault, call-result handle temporaries, and global arena liveness guard ([1e935b9](https://github.com/grayscale-lang/grayscale/commit/1e935b921e22f7a482c488319502b63e85b21274))
+* **diagnostics:** escape a lone C1 control byte in quoted source ([9333da9](https://github.com/grayscale-lang/grayscale/commit/9333da9f457f4611da5f03edb9ed578c8c37aeeb))
+* **io:** sort io.walk entries and skip symlinked directories ([#3260](https://github.com/grayscale-lang/grayscale/issues/3260)) ([852c053](https://github.com/grayscale-lang/grayscale/commit/852c053dbe9f4b432837627bddc9365e2883cc64))
+* **parser:** limit the length of an or-branch chain with E2001 ([a3ac88d](https://github.com/grayscale-lang/grayscale/commit/a3ac88d1b8cba8de687f3212c6dedd7e7636d3bb))
+* **parser:** reject a non-label token after break or continue on the same line ([bfd2ab5](https://github.com/grayscale-lang/grayscale/commit/bfd2ab590b459520ab42c0f7cfbf63ad5c4dbaff))
+* **parser:** report E6014 for any token after import that is not a module or path ([#3214](https://github.com/grayscale-lang/grayscale/issues/3214)) ([6a16c9a](https://github.com/grayscale-lang/grayscale/commit/6a16c9a8537029310bf81d25d67de5742732e785))
+* **runtime:** panic when a formatted result exceeds the maximum string length ([#3236](https://github.com/grayscale-lang/grayscale/issues/3236)) ([88ba7ec](https://github.com/grayscale-lang/grayscale/commit/88ba7ecbbb52a0ed0829b7531ec598fb2b013383))
+* **runtime:** panic with P0117 on a dereference after mem.reset ([#3216](https://github.com/grayscale-lang/grayscale/issues/3216)) ([8d1b56f](https://github.com/grayscale-lang/grayscale/commit/8d1b56f843e6094c87b6e26f633631b28baf4cc2))
+* **runtime:** stop a panic inside a global arena swap from destroying the arena twice ([47d34c6](https://github.com/grayscale-lang/grayscale/commit/47d34c6007e882e3b6b09f3e23efdcd383224c3e))
+* **scripts:** ignore the compiled check_stray_binaries and skip it in its own scan ([b30a887](https://github.com/grayscale-lang/grayscale/commit/b30a887e7ece28c3ea687e052492dfa8e946fd12))
+* **scripts:** skip class files and symlinks in check_stray_binaries ([f381f4f](https://github.com/grayscale-lang/grayscale/commit/f381f4f757c53d4def56abae64a7cd995f9d27c2))
+* **server:** send response bodies larger than 64 KB in full ([#3233](https://github.com/grayscale-lang/grayscale/issues/3233)) ([b789d56](https://github.com/grayscale-lang/grayscale/commit/b789d56b745666e187ed6ae90d61dd22322da050))
+* **stdlib:** answer 400 or 413 instead of running the handler on an incomplete request ([8391f59](https://github.com/grayscale-lang/grayscale/commit/8391f59b4d723b8eab24c598306d577931a7df95))
+* **stdlib:** include the atomic header in sync so TinyCC builds the mutex checks ([ddff0c3](https://github.com/grayscale-lang/grayscale/commit/ddff0c3e94e419daea24bd93f464de539b153ed9))
+* **stdlib:** panic on a closed-channel send and a channel capacity below 1 ([2dfbfb2](https://github.com/grayscale-lang/grayscale/commit/2dfbfb2bbd1b9d59d9d301586eefeef8ad7b996b))
+* **stdlib:** panic when a binary decode function gets an array of the wrong length ([#3243](https://github.com/grayscale-lang/grayscale/issues/3243)) ([4e0d50f](https://github.com/grayscale-lang/grayscale/commit/4e0d50feea80eac7184d6e59e936e8fff3b2db94))
+* **stdlib:** reject a copy of a destroyed mutex or joined thread handle ([925f83e](https://github.com/grayscale-lang/grayscale/commit/925f83e28c66ccf6d9a0926da5176421658c3116))
+* **tests:** drop channel unit tests that expect the old capacity and closed-send behavior ([897fd22](https://github.com/grayscale-lang/grayscale/commit/897fd229a3c58fd393d202c9b3296ea25534939e))
+* **tests:** let ASan return NULL for the xalloc failure tests ([1d236c9](https://github.com/grayscale-lang/grayscale/commit/1d236c9099a3fd6f048716193d1c243071e38b68))
+* **tests:** make the sprintf length overflow test exceed INT_MAX on glibc ([5a3ca52](https://github.com/grayscale-lang/grayscale/commit/5a3ca52a50708518fa6ff7541ea3e5e4edce55fc))
+* **tests:** receive the whole reply in the split segment server test ([6ebace0](https://github.com/grayscale-lang/grayscale/commit/6ebace038021e8b22a32357271a8e67f4144bafa))
+* **tests:** replace usleep with nanosleep in the stdlib unit tests ([0a16b7a](https://github.com/grayscale-lang/grayscale/commit/0a16b7a9eca6389a2a854d150e53e778de6328d1))
+* **tests:** stop passing a value to size_of in type_builtins_evaluate_argument ([c4913f6](https://github.com/grayscale-lang/grayscale/commit/c4913f64a448894e8f97801a115d4a365074934b))
+* **tests:** use sleep_ms instead of usleep in the C created thread test ([fd62ada](https://github.com/grayscale-lang/grayscale/commit/fd62adaa145bb63626a146afbfa6d017b7d80ffe))
+* **typechecker:** a number read through a pointer parameter is not its address to C ([#3224](https://github.com/grayscale-lang/grayscale/issues/3224)) ([8ae06ed](https://github.com/grayscale-lang/grayscale/commit/8ae06ed6b81d97d84c920681aaeaeb1a9f034035))
+* **typechecker:** accept ^void as a local variable type ([#3225](https://github.com/grayscale-lang/grayscale/issues/3225)) ([76f72bb](https://github.com/grayscale-lang/grayscale/commit/76f72bbee9fa88ff703dc0a1d00d2f0a5bb47ca2))
+* **typechecker:** accept a distinct element for array and map functions of the same distinct type ([50e2b0b](https://github.com/grayscale-lang/grayscale/commit/50e2b0b2e2afd687eb586565b985288348ad24cf))
+* **typechecker:** accept an imported enum named like a type in the importing file ([#3241](https://github.com/grayscale-lang/grayscale/issues/3241)) ([0748579](https://github.com/grayscale-lang/grayscale/commit/074857970382d7bab0d26c0603969d38e24cc602))
+* **typechecker:** accept distinct numbers for min, max, clamp, abs, neg and sign ([ed55bd8](https://github.com/grayscale-lang/grayscale/commit/ed55bd8c052fa7c3117e94167bc666335e8bb133))
+* **typechecker:** bind a caller's type argument to the caller's type in an imported generic ([#3238](https://github.com/grayscale-lang/grayscale/issues/3238)) ([db61a24](https://github.com/grayscale-lang/grayscale/commit/db61a2444e4159f494ca4f181aba78472d3f0acb))
+* **typechecker:** check an enum variant's explicit value as a compile-time expression ([eaa9289](https://github.com/grayscale-lang/grayscale/commit/eaa9289fa79b9b67bf4b017e47a9e1621e8d34ba))
+* **typechecker:** check binary f32 encoder arguments as f32 ([#3242](https://github.com/grayscale-lang/grayscale/issues/3242)) ([bba303f](https://github.com/grayscale-lang/grayscale/commit/bba303f63e6425c9020b61742e2a8be6923884e5))
+* **typechecker:** classify the typedef a pointer parameter points at on the GCC path ([40f6f46](https://github.com/grayscale-lang/grayscale/commit/40f6f46df02182ccf2b40a906bcca729e0561b90))
+* **typechecker:** count a stdlib pointer writer call as a write through the parameter ([62e9960](https://github.com/grayscale-lang/grayscale/commit/62e99600fd020494c15075c377f35646f84cb0ec))
+* **typechecker:** detect self-containment through a fixed-size array in E3061 ([1f1b1ce](https://github.com/grayscale-lang/grayscale/commit/1f1b1ce3dbc5feb0caf633cd77b35610c57d6b43))
+* **typechecker:** dispatch a struct function call on a generic-typed receiver per instantiation ([#3240](https://github.com/grayscale-lang/grayscale/issues/3240)) ([eb8663f](https://github.com/grayscale-lang/grayscale/commit/eb8663f28625614c9b25088b9a6376a6096c0ce5))
+* **typechecker:** evaluate runtime name defaults in the callee and reject distinct values for primitive builtin and stdlib parameters ([d5e50c1](https://github.com/grayscale-lang/grayscale/commit/d5e50c1c069603e6568769841a66fc92ecd1d78e))
+* **typechecker:** key a reassigned arena field path apart from the arena it named before ([c068ba3](https://github.com/grayscale-lang/grayscale/commit/c068ba3d1b4ea2c7b61bf934d33fad48999a96fd))
+* **typechecker:** limit the misspelled-statement error to bare declarations ([a66d86c](https://github.com/grayscale-lang/grayscale/commit/a66d86c4457e7d1b7cd01a8a135ca779ee580dda))
+* **typechecker:** reject a payload variant named without its payload with E3113 ([a678e79](https://github.com/grayscale-lang/grayscale/commit/a678e79c60537af9e8562d93c64de5382c789fd8))
+* **typechecker:** reject a string passed to extern setbuffer with E3216 ([5c1b806](https://github.com/grayscale-lang/grayscale/commit/5c1b806538ac156fefd587417569a6b50bbd32b0))
+* **typechecker:** reject a tagged enum that contains itself by value ([#3232](https://github.com/grayscale-lang/grayscale/issues/3232)) ([725c3a7](https://github.com/grayscale-lang/grayscale/commit/725c3a7dec9fe6f96e1746ea288685c279b43a2d))
+* **typechecker:** reject a value argument to size_of with E5069 ([2373152](https://github.com/grayscale-lang/grayscale/commit/23731529a7acf119138b3b55fe153cb419a13520))
+* **typechecker:** reject a void call as an array literal element ([#3212](https://github.com/grayscale-lang/grayscale/issues/3212)) ([8e844ef](https://github.com/grayscale-lang/grayscale/commit/8e844efbbdbbaa56acde313e52ccb0a8fa56d664))
+* **typechecker:** reject a void when subject with E3187 ([d584942](https://github.com/grayscale-lang/grayscale/commit/d58494285df65a3a4ee48c533abe09339ac1b348))
+* **typechecker:** reject member access and struct function calls on a void call with E3187 ([589970d](https://github.com/grayscale-lang/grayscale/commit/589970d34946037b43085b9a6c38d4a1187da561))
+* **typechecker:** reject or_panic, or_default and or_return on a non-fallible stdlib or builtin call ([#3244](https://github.com/grayscale-lang/grayscale/issues/3244)) ([1b23479](https://github.com/grayscale-lang/grayscale/commit/1b23479b17a8beabc22d128b06c446240d0d17aa))
+* **typechecker:** reject stdlib module names as for and for_each loop variables ([#3215](https://github.com/grayscale-lang/grayscale/issues/3215)) ([8b2a2df](https://github.com/grayscale-lang/grayscale/commit/8b2a2df9b60194da6ba191f5810ead0ad04a445d))
+* **typechecker:** reject void as a function parameter type ([#3213](https://github.com/grayscale-lang/grayscale/issues/3213)) ([0931db2](https://github.com/grayscale-lang/grayscale/commit/0931db249ce2025efcd17baecf46130976cbae00))
+* **typechecker:** report E4002 for a bare fallible stdlib name used as a value ([841e782](https://github.com/grayscale-lang/grayscale/commit/841e78224322f03824a0822614eb536f071e71ea))
+* **typechecker:** report misspelled statement keyword before an identifier ([#3209](https://github.com/grayscale-lang/grayscale/issues/3209)) ([d7e7b8d](https://github.com/grayscale-lang/grayscale/commit/d7e7b8d126779661861e4d763c6b14b359b8d6f0))
+* **typechecker:** resolve a function pointer typedef when checking an extern callback ([b066d52](https://github.com/grayscale-lang/grayscale/commit/b066d52bb3d63c2c445cf100f2a803aebd84ea73))
+* **typechecker:** resolve names inside an imported module against the module before the importer's file scope ([e4ed121](https://github.com/grayscale-lang/grayscale/commit/e4ed12195bedb6ba228e65efcb19bf4bc58e5458))
+* **typechecker:** suggest the statement word for every misspelled statement shape ([89522a5](https://github.com/grayscale-lang/grayscale/commit/89522a5aac784eef721aa134592e3ee498e0dd5f))
+* **typechecker:** warn when a for loop variable shadows an outer variable ([#3218](https://github.com/grayscale-lang/grayscale/issues/3218)) ([bb10de2](https://github.com/grayscale-lang/grayscale/commit/bb10de2ae1a550f4cde77f16430c68f4921b0d68))
+* **typechecker:** warn when a when binding or function parameter shadows an outer variable ([861a20c](https://github.com/grayscale-lang/grayscale/commit/861a20cee09484d1de630b0697c72912a481bff2))
+* **util:** return NULL instead of overreading when read_file_to_string cannot seek ([40f03d7](https://github.com/grayscale-lang/grayscale/commit/40f03d7f18f5eed68ffe446ac476ef777abe2ee2))
+
+
+### Performance Improvements
+
+* **codegen:** free the dotted struct function names with their namespaced names ([e2b9cdb](https://github.com/grayscale-lang/grayscale/commit/e2b9cdb04824e7b47fc87cda0954f9c27f4ff931))
+
+## [0.12.3](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.12.2...grayscale-v0.12.3) (2026-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** check bare func elements against the typed func slot they flow into ([#3192](https://github.com/grayscale-lang/grayscale/issues/3192)) ([2977014](https://github.com/grayscale-lang/grayscale/commit/297701491a281de537937c7c8af4dc14488cb075))
+* **codegen:** copy composite values stored by index to the outer arena ([#3191](https://github.com/grayscale-lang/grayscale/issues/3191)) ([1ddb33e](https://github.com/grayscale-lang/grayscale/commit/1ddb33e5a1a449eb10a380f433495b23049d4d5a))
+* **codegen:** copy composite variables embedded in array, map and struct literals ([#3193](https://github.com/grayscale-lang/grayscale/issues/3193)) ([d75b6e1](https://github.com/grayscale-lang/grayscale/commit/d75b6e128b3890732944edcabb0724e94e341bab))
+* **codegen:** end stepped range loop instead of panicking past the last element ([#3182](https://github.com/grayscale-lang/grayscale/issues/3182)) ([fb23554](https://github.com/grayscale-lang/grayscale/commit/fb235548529c806903e4b6364fc533d4a70ebc30))
+* **codegen:** guard indexed and map-lookup arrays during for_each ([#3183](https://github.com/grayscale-lang/grayscale/issues/3183)) ([d2d1b52](https://github.com/grayscale-lang/grayscale/commit/d2d1b52429f22bc262b948e77947a5dc19ff1eb4))
+* **codegen:** guard plain field assignment on array elements during for_each ([#3184](https://github.com/grayscale-lang/grayscale/issues/3184)) ([86ac56a](https://github.com/grayscale-lang/grayscale/commit/86ac56a060084a92b02c93801a102c3cef44743e))
+* **codegen:** resolve #json struct field types in the struct's own module ([#3202](https://github.com/grayscale-lang/grayscale/issues/3202)) ([758895f](https://github.com/grayscale-lang/grayscale/commit/758895ffe8d21832ab30b8494dbf491a043f4df6))
+* **codegen:** resolve zero-value struct field types in the struct's own module ([#3204](https://github.com/grayscale-lang/grayscale/issues/3204)) ([abd4cfd](https://github.com/grayscale-lang/grayscale/commit/abd4cfd670490ce09abf5328c98021d28ec9e670))
+* **codegen:** size an empty tagged enum array literal by its element type ([#3205](https://github.com/grayscale-lang/grayscale/issues/3205)) ([a46abc5](https://github.com/grayscale-lang/grayscale/commit/a46abc5135bf2fd84c101daa8920672a3aa0b08a))
+* **parser:** parse for_each over an index expression on a member chain ([#3203](https://github.com/grayscale-lang/grayscale/issues/3203)) ([2e6c902](https://github.com/grayscale-lang/grayscale/commit/2e6c902a8cd05c65e7c9a31efed94e378332b0d3))
+* **runtime:** keep the recursion depth counter per thread ([#3201](https://github.com/grayscale-lang/grayscale/issues/3201)) ([341772e](https://github.com/grayscale-lang/grayscale/commit/341772ed10caf46a929d02d047c50ecc3da8e7a6))
+* **runtime:** reject trailing junk and parse whole input in string casts ([#3190](https://github.com/grayscale-lang/grayscale/issues/3190)) ([f112e43](https://github.com/grayscale-lang/grayscale/commit/f112e437a942388d073375949f8c4d9ff0fee0c6))
+* **server:** read the full request body before running the handler ([#3206](https://github.com/grayscale-lang/grayscale/issues/3206)) ([a27fbb7](https://github.com/grayscale-lang/grayscale/commit/a27fbb7710de730850587fd740a47c885a228fa1))
+* **stdlib:** parse the whole string in strconv to_i64, to_u64 and to_f64 ([#3188](https://github.com/grayscale-lang/grayscale/issues/3188)) ([b8940c7](https://github.com/grayscale-lang/grayscale/commit/b8940c7a1242e0b7f468bae775ccc76990ad8634))
+* **stdlib:** size f64_to_fixed output from the formatted length ([#3189](https://github.com/grayscale-lang/grayscale/issues/3189)) ([53fa0e9](https://github.com/grayscale-lang/grayscale/commit/53fa0e9fe766a4cf9955e43152344a1884e3832f))
+* **typechecker:** compare every enum variant's value for duplicates ([#3186](https://github.com/grayscale-lang/grayscale/issues/3186)) ([4c4d4cc](https://github.com/grayscale-lang/grayscale/commit/4c4d4cc5c6d4f0e7ce33c2f4ddae5eec2fcedf80))
+* **typechecker:** reject enum values outside the i64 range ([#3187](https://github.com/grayscale-lang/grayscale/issues/3187)) ([c1c5547](https://github.com/grayscale-lang/grayscale/commit/c1c55470dc7ec2ee9c98de36760f5082f54331cb))
+* **typechecker:** reject when cases made unreachable by an earlier range ([#3194](https://github.com/grayscale-lang/grayscale/issues/3194)) ([899beb5](https://github.com/grayscale-lang/grayscale/commit/899beb557bf00785721c194a58cd748d6fd3f08b))
+* **typechecker:** require bool operands for && and || ([#3181](https://github.com/grayscale-lang/grayscale/issues/3181)) ([f6d1696](https://github.com/grayscale-lang/grayscale/commit/f6d1696805fecaeb579e52d4ed67a26ba411176b))
+* **typechecker:** run range() over u64 bounds in u64 ([#3185](https://github.com/grayscale-lang/grayscale/issues/3185)) ([10428d7](https://github.com/grayscale-lang/grayscale/commit/10428d7b02204e28b8235f60b5dc68cebe64ac4a))
+
+## [0.12.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.12.1...grayscale-v0.12.2) (2026-10-19)
+
+
+### Bug Fixes
+
+* **atomic:** panic when the spinlock allocation fails ([#3165](https://github.com/grayscale-lang/grayscale/issues/3165)) ([0f9b9de](https://github.com/grayscale-lang/grayscale/commit/0f9b9de88c93ef55d2fe52b29c3ebafbd4c79b35))
+* **channels:** enforce --arena-limit in channels.open ([#3152](https://github.com/grayscale-lang/grayscale/issues/3152)) ([4012399](https://github.com/grayscale-lang/grayscale/commit/4012399002deb05a7a61751295b2135b15c4fb9a))
+* **channels:** panic when channels.open cannot allocate ([#3164](https://github.com/grayscale-lang/grayscale/issues/3164)) ([d9b1e6e](https://github.com/grayscale-lang/grayscale/commit/d9b1e6ee1ef7117175aa627052c442da65d4b1ef))
+* **channels:** panic when channels.open capacity overflows the buffer size ([#3163](https://github.com/grayscale-lang/grayscale/issues/3163)) ([b9b19d2](https://github.com/grayscale-lang/grayscale/commit/b9b19d29370536f71f7de97292b8b0e23570ea76))
+* **cli:** gray update verifies the archive's SHA-256 before installing ([#3172](https://github.com/grayscale-lang/grayscale/issues/3172)) ([b2208af](https://github.com/grayscale-lang/grayscale/commit/b2208afa1e27075c848c389158e7b7c0c2d503d8))
+* **codegen:** append, prepend and insert_at on a new() object's array field allocate in the heap arena ([#3149](https://github.com/grayscale-lang/grayscale/issues/3149)) ([4de14a2](https://github.com/grayscale-lang/grayscale/commit/4de14a22c5462e214a49a30a660a81eeb107f150))
+* **codegen:** copy values stored through a pointer into the heap arena ([#3153](https://github.com/grayscale-lang/grayscale/issues/3153)) ([1ffab22](https://github.com/grayscale-lang/grayscale/commit/1ffab22ecd3c8be3c8e1c162bc1abc4e96a108c8))
+* **codegen:** deep-copy tagged enum payloads when the value leaves its scope ([#3155](https://github.com/grayscale-lang/grayscale/issues/3155)) ([3f364e6](https://github.com/grayscale-lang/grayscale/commit/3f364e6b6333962e5ae61f090a1f027f568b31a0))
+* **codegen:** skip the heap copy when storing back an elided array field copy ([33557b3](https://github.com/grayscale-lang/grayscale/commit/33557b32b9d7dc6a1da0312a13fed7aff198330e))
+* **grayc:** keep the runtime archive cache in a private per-user directory ([#3171](https://github.com/grayscale-lang/grayscale/issues/3171)) ([e72826d](https://github.com/grayscale-lang/grayscale/commit/e72826d5f0691ae7437f951ad69562d932da0df0))
+* **io:** copy_file gives the copy the source file's permission bits ([#3174](https://github.com/grayscale-lang/grayscale/issues/3174)) ([ef65e53](https://github.com/grayscale-lang/grayscale/commit/ef65e532c6884d7f8a72b8a43af6dc68cf625aa0))
+* **io:** remove_dir_all unlinks a symlink root instead of deleting its target's contents ([#3170](https://github.com/grayscale-lang/grayscale/issues/3170)) ([fe7fe71](https://github.com/grayscale-lang/grayscale/commit/fe7fe719c4f184ba6d89943cbd2be520cbe42541))
+* **io:** remove_dir_all unlinks symlinks instead of following them ([#3161](https://github.com/grayscale-lang/grayscale/issues/3161)) ([d2e76e7](https://github.com/grayscale-lang/grayscale/commit/d2e76e794cc7af506f361bdd26ee95e8d19c63ab))
+* **os:** exec closes inherited file descriptors in the child ([#3175](https://github.com/grayscale-lang/grayscale/issues/3175)) ([8ccd393](https://github.com/grayscale-lang/grayscale/commit/8ccd39367437e2f96c1b34f33d134610a16954f9))
+* **runtime:** apply --arena-limit to thread and server connection arenas ([#3151](https://github.com/grayscale-lang/grayscale/issues/3151)) ([45cdeb6](https://github.com/grayscale-lang/grayscale/commit/45cdeb661c028401a9bcd126ed37ed0956e7c02f))
+* **runtime:** enforce --arena-limit in function, block and loop arenas ([#3150](https://github.com/grayscale-lang/grayscale/issues/3150)) ([d2587bf](https://github.com/grayscale-lang/grayscale/commit/d2587bfbfdd97f1ba3806e50220fa1f543cd4b52))
+* **server:** reject a request whose method or path contains a NUL byte ([#3173](https://github.com/grayscale-lang/grayscale/issues/3173)) ([f69d6c0](https://github.com/grayscale-lang/grayscale/commit/f69d6c0543e2df8dd4be3f995c4cec901f5fe5b2))
+* **typechecker:** record pointer origin for a variable declared without mut ([#3176](https://github.com/grayscale-lang/grayscale/issues/3176)) ([20ed9ac](https://github.com/grayscale-lang/grayscale/commit/20ed9acbc5e461857463b787e10c3f5371209257))
+* **typechecker:** reject a generic parameter name used as a value ([#3154](https://github.com/grayscale-lang/grayscale/issues/3154)) ([751bd02](https://github.com/grayscale-lang/grayscale/commit/751bd0250facb772233874afc6cd094af48509e0))
+* **typechecker:** size the function-reference signature buffer to its text ([#3162](https://github.com/grayscale-lang/grayscale/issues/3162)) ([ebf1ad8](https://github.com/grayscale-lang/grayscale/commit/ebf1ad8cbfd1a329c50fa9cbf3a05d9d676fe409))
+
+
+### Performance Improvements
+
+* **grayc:** build the gcc runtime archive at -O3 ([#3159](https://github.com/grayscale-lang/grayscale/issues/3159)) ([a493e83](https://github.com/grayscale-lang/grayscale/commit/a493e8351370aead23ba5a112205363c64a5fbe8))
+* **grayc:** cache a runtime archive for tcc builds ([#3156](https://github.com/grayscale-lang/grayscale/issues/3156)) ([42800ce](https://github.com/grayscale-lang/grayscale/commit/42800cef837c5692051980d66a04cb899a8a4e84))
+* **runtime:** use a sign test for tcc overflow-checked add and sub ([#3157](https://github.com/grayscale-lang/grayscale/issues/3157)) ([5d4241e](https://github.com/grayscale-lang/grayscale/commit/5d4241e6f40f719168c5505339e49699c0e3fb86))
+
+## [0.12.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.12.0...grayscale-v0.12.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* **codegen:** allocate map-field inserts on a new() object in the heap arena ([#3134](https://github.com/grayscale-lang/grayscale/issues/3134)) ([add8f22](https://github.com/grayscale-lang/grayscale/commit/add8f22ea72fd9828b83f6948d4a4577e7b44587))
+* **codegen:** emit compound assignment on a wide integer local typed by a type parameter ([fad6db1](https://github.com/grayscale-lang/grayscale/commit/fad6db1621d14cc9ef0003941a0e7d8033c13e0e))
+* **codegen:** emit wide-integer literal locals in a generic function bound to u128 or u256 ([#3140](https://github.com/grayscale-lang/grayscale/issues/3140)) ([085b3b4](https://github.com/grayscale-lang/grayscale/commit/085b3b477e0c3be46cfd96f10f34b614a7d84486))
+* **codegen:** shift a generic unsigned operand at its bound type ([#3145](https://github.com/grayscale-lang/grayscale/issues/3145)) ([0c1a3cd](https://github.com/grayscale-lang/grayscale/commit/0c1a3cdea347b038dc1e47acfa7b542988e7554d))
+* **codegen:** skip the narrowing cast for a generic local whose value is typed by its type parameter ([#3143](https://github.com/grayscale-lang/grayscale/issues/3143)) ([9918bfd](https://github.com/grayscale-lang/grayscale/commit/9918bfd81f2f88826e2af0934313640643259fec))
+* **codegen:** type expressions on a literal-initialized generic local by its wide binding ([#3144](https://github.com/grayscale-lang/grayscale/issues/3144)) ([1583f8e](https://github.com/grayscale-lang/grayscale/commit/1583f8e3b4992694bae5c9ed0be23172738725d8))
+* **imports:** keep an imported module's variable declarations in source order ([#3136](https://github.com/grayscale-lang/grayscale/issues/3136)) ([2474eb8](https://github.com/grayscale-lang/grayscale/commit/2474eb87ec5503a5d7285a59ccfb34889beecbb1))
+* **typechecker:** declare a local initialized with cast to a type parameter ([#3142](https://github.com/grayscale-lang/grayscale/issues/3142)) ([f01a441](https://github.com/grayscale-lang/grayscale/commit/f01a441d2acd62f43ccc66e94371ef951d8b30c6))
+* **typechecker:** dispatch instance struct function calls on a struct literal receiver ([#3137](https://github.com/grayscale-lang/grayscale/issues/3137)) ([3a04630](https://github.com/grayscale-lang/grayscale/commit/3a04630e24ba6c8fc950a30811f82d13da7d3dfe))
+* **typechecker:** keep the flattened-key shadow check for a function of the local's own module ([#3146](https://github.com/grayscale-lang/grayscale/issues/3146)) ([641ee03](https://github.com/grayscale-lang/grayscale/commit/641ee036ec3a30a08fddf4f7859ac5f765b4699e))
+* **typechecker:** resolve the function a local shadows from the declaring file's scope ([#3146](https://github.com/grayscale-lang/grayscale/issues/3146)) ([dc188e5](https://github.com/grayscale-lang/grayscale/commit/dc188e5daf63616139a7ed2407d3ce4d60a3a21b))
+* **typechecker:** type the tuple result of a module-qualified generic call by its type argument ([#3141](https://github.com/grayscale-lang/grayscale/issues/3141)) ([2ab934c](https://github.com/grayscale-lang/grayscale/commit/2ab934c6a23817515ee92a61cf922c2cfd5c899c))
+
+## [0.12.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.5...grayscale-v0.12.0) (2026-10-16)
+
+
+### Features
+
+* **arrays:** add arrays.sort_by ([#3046](https://github.com/grayscale-lang/grayscale/issues/3046)) ([2ca93a1](https://github.com/grayscale-lang/grayscale/commit/2ca93a17cdbd6dd33d63074d52d6b7e67eda442d))
+* **benchmarks:** record the C compiler in benchmark output ([#3014](https://github.com/grayscale-lang/grayscale/issues/3014)) ([45aeceb](https://github.com/grayscale-lang/grayscale/commit/45aecebf1fe958878cbf966eedb2d25e520827b5))
+* **build:** add per-target help to make (make help TARGET=&lt;name&gt;) ([#3117](https://github.com/grayscale-lang/grayscale/issues/3117)) ([fb1f267](https://github.com/grayscale-lang/grayscale/commit/fb1f267eb87df9b7859cfd36086e1bea3d69c0df))
+* **cli:** install shell completion scripts during make install, gray update, and gray install ([#3076](https://github.com/grayscale-lang/grayscale/issues/3076)) ([6465a95](https://github.com/grayscale-lang/grayscale/commit/6465a95776a8019204b1ab8f3a0db22a447fb856))
+* **cli:** shell tab-completion for the gray CLI ([#2117](https://github.com/grayscale-lang/grayscale/issues/2117)) ([d55cc40](https://github.com/grayscale-lang/grayscale/commit/d55cc40c926073c48663457b3150a4d557ce737b))
+* **net:** add net.receive_line ([#3051](https://github.com/grayscale-lang/grayscale/issues/3051)) ([ffdb62a](https://github.com/grayscale-lang/grayscale/commit/ffdb62a10ae72fd559a5a8e80ba72c2f34319bef))
+* **parser:** add or_default for fallible calls ([#2949](https://github.com/grayscale-lang/grayscale/issues/2949)) ([92544fd](https://github.com/grayscale-lang/grayscale/commit/92544fd2c4818e3edb44c69cf1c7638f7d618904))
+* **parser:** add or_panic for fallible functions ([#2453](https://github.com/grayscale-lang/grayscale/issues/2453)) ([fab8cf0](https://github.com/grayscale-lang/grayscale/commit/fab8cf03a0ecbe5e96c8da501fbf3ac5f3403fe0))
+* **parser:** declare multiple variables or constants on one line ([#2923](https://github.com/grayscale-lang/grayscale/issues/2923)) ([fba6b4e](https://github.com/grayscale-lang/grayscale/commit/fba6b4e2bc9664e86477ee67369e640f8b147712))
+* **stdlib:** add add_minutes, add_months, start_of_month, and end_of_month to the time module ([#3069](https://github.com/grayscale-lang/grayscale/issues/3069)) ([290f280](https://github.com/grayscale-lang/grayscale/commit/290f280e211d8885131aa83d6463c741709c4285))
+* **stdlib:** add counts, rand_bytes, roll_dice, mirror, is_vowel, and is_consonant ([#3070](https://github.com/grayscale-lang/grayscale/issues/3070)) ([f75d829](https://github.com/grayscale-lang/grayscale/commit/f75d8297a4065d8777badc22016a23b3bd3f7de7))
+* **stdlib:** add cpu_usage, memory_usage, disk_usage, and load_average to the os module ([#3071](https://github.com/grayscale-lang/grayscale/issues/3071)) ([df3a171](https://github.com/grayscale-lang/grayscale/commit/df3a1710318fffd8e02cc2b172f8a74e1a733584))
+* **stdlib:** add get_or_insert, sorted_keys, get_and_remove, and find_key to the maps module ([#3065](https://github.com/grayscale-lang/grayscale/issues/3065)) ([006416f](https://github.com/grayscale-lang/grayscale/commit/006416f0877fb7ce20fde37a1b0448e2521736fa))
+* **time:** add time.from_parts ([#3047](https://github.com/grayscale-lang/grayscale/issues/3047)) ([db7a901](https://github.com/grayscale-lang/grayscale/commit/db7a9016782db38a07f2898a44197f3395cae27c))
+* **typechecker:** generate names() and variants() for plain enums ([#2326](https://github.com/grayscale-lang/grayscale/issues/2326)) ([3436f2a](https://github.com/grayscale-lang/grayscale/commit/3436f2ab9a1952067218f77b308da4e2ec46ed61))
+* **typechecker:** require unsafe for raw, mem, threads, and extern calls ([#2660](https://github.com/grayscale-lang/grayscale/issues/2660)) ([e5d7371](https://github.com/grayscale-lang/grayscale/commit/e5d73716a024a222ea2790b6209815e20a7fd8a7))
+
+
+### Bug Fixes
+
+* **build:** document CC and GRAY_CC in make help and build the benchmark stopwatch with the selected compiler ([#3113](https://github.com/grayscale-lang/grayscale/issues/3113)) ([81dd1bb](https://github.com/grayscale-lang/grayscale/commit/81dd1bb7f041bc743a9218f4fd4d7436d80f1a2e))
+* **build:** quote $(MAKE) in the embed tag call and fail when no embedded sources are found ([4345532](https://github.com/grayscale-lang/grayscale/commit/4345532006276cddf48a0559a309862fbfd8e3eb))
+* **build:** reject multiple make targets in one invocation ([#3112](https://github.com/grayscale-lang/grayscale/issues/3112)) ([28b1afd](https://github.com/grayscale-lang/grayscale/commit/28b1afde7bfa33b778206ea182168cb5356c07f6))
+* **cli:** accept --no-color, --arena-limit, and --cc on gray check and gray watch ([#3090](https://github.com/grayscale-lang/grayscale/issues/3090)) ([ab23cf7](https://github.com/grayscale-lang/grayscale/commit/ab23cf781f1f64ed7cea68488df32d5560ef4878))
+* **cli:** check a directory as one merged module and drop the main requirement ([#3100](https://github.com/grayscale-lang/grayscale/issues/3100)) ([1f4413b](https://github.com/grayscale-lang/grayscale/commit/1f4413b0f8f77d1a3935ebb1a87e5994c2548d17))
+* **cli:** describe --cc accepting commands, precedence, and examples in gray --help ([#3114](https://github.com/grayscale-lang/grayscale/issues/3114)) ([9b2e586](https://github.com/grayscale-lang/grayscale/commit/9b2e586d2125e0b863ce507479b7fb5a610244b2))
+* **cli:** expand ~ when completing source paths at the root command ([#3079](https://github.com/grayscale-lang/grayscale/issues/3079)) ([90dd8fa](https://github.com/grayscale-lang/grayscale/commit/90dd8fa8f30049b3bfd570d8e0c99dab6966c0d4))
+* **cli:** join a multi-line function signature in gray doc ([#3084](https://github.com/grayscale-lang/grayscale/issues/3084)) ([58ead7a](https://github.com/grayscale-lang/grayscale/commit/58ead7ad2b001a9bc6629e260ad647dc6059c973))
+* **cli:** keep a multi-line variable initializer in the gray doc signature ([#3085](https://github.com/grayscale-lang/grayscale/issues/3085)) ([da1ea71](https://github.com/grayscale-lang/grayscale/commit/da1ea71c0b246fe43b2ead4812e0bcc890a053b3))
+* **cli:** leave multi-line raw string contents untouched in gray fmt ([#3082](https://github.com/grayscale-lang/grayscale/issues/3082)) ([8980663](https://github.com/grayscale-lang/grayscale/commit/8980663d222374bc830fd4bddf81406b2bcdf178))
+* **cli:** name the command and show usage when required arguments are missing ([#3075](https://github.com/grayscale-lang/grayscale/issues/3075)) ([9b81974](https://github.com/grayscale-lang/grayscale/commit/9b819744f32030f825439be40be22d18100390a5))
+* **cli:** name the default cross build output after the target so it keeps the native binary ([#3102](https://github.com/grayscale-lang/grayscale/issues/3102)) ([17c68e6](https://github.com/grayscale-lang/grayscale/commit/17c68e678f1d8c458ab8fab5af847e270511fa4b))
+* **cli:** offer symlinked directories in root tab completion ([#3080](https://github.com/grayscale-lang/grayscale/issues/3080)) ([e174650](https://github.com/grayscale-lang/grayscale/commit/e174650faef78240977a8e2413a231ef31fedd43))
+* **cli:** pass arguments after the file to the program in gray &lt;file&gt; ([#3092](https://github.com/grayscale-lang/grayscale/issues/3092)) ([086d897](https://github.com/grayscale-lang/grayscale/commit/086d89742ff2d6ed09383ba7388e91e8288c7e51))
+* **cli:** read escaped quotes in a gray doc description ([#3086](https://github.com/grayscale-lang/grayscale/issues/3086)) ([e3338db](https://github.com/grayscale-lang/grayscale/commit/e3338db257ce2b0939adc3dc88a12d7cd010400c))
+* **cli:** redact only a path that is under the home directory in gray report ([#3108](https://github.com/grayscale-lang/grayscale/issues/3108)) ([0c2d20e](https://github.com/grayscale-lang/grayscale/commit/0c2d20ea54640f5dc1d5356c3e63fbe7e72e0178))
+* **cli:** refuse to format a file with lexer or parser errors ([#3095](https://github.com/grayscale-lang/grayscale/issues/3095)) ([c591922](https://github.com/grayscale-lang/grayscale/commit/c591922c327fea77e4bfc7006dfd7976855738ae))
+* **cli:** reject a -q value that is not a warning code instead of reading it as the input file ([#3105](https://github.com/grayscale-lang/grayscale/issues/3105)) ([eaa6057](https://github.com/grayscale-lang/grayscale/commit/eaa60579f3f00f22e1c1298462e9cd63348aab5c))
+* **cli:** reject an --arena-limit value that overflows instead of wrapping ([#3104](https://github.com/grayscale-lang/grayscale/issues/3104)) ([a597233](https://github.com/grayscale-lang/grayscale/commit/a59723392221b431f41dbb08587e8e0f053ee786))
+* **cli:** reject dot segments in the gray update trusted URL check ([#3093](https://github.com/grayscale-lang/grayscale/issues/3093)) ([fb7b335](https://github.com/grayscale-lang/grayscale/commit/fb7b3353df5ba1b6f11fd048a18baae4dbca24c2))
+* **cli:** reject surplus arguments to version, report, cross targets, man, and update ([#3094](https://github.com/grayscale-lang/grayscale/issues/3094)) ([c18acbd](https://github.com/grayscale-lang/grayscale/commit/c18acbd75a5d89fa47c3b0fcb130d1ffd9661448))
+* **cli:** resolve the C compiler in gray report in the order grayc uses ([#3109](https://github.com/grayscale-lang/grayscale/issues/3109)) ([ea6add0](https://github.com/grayscale-lang/grayscale/commit/ea6add0b8986b1698b572cff86d05ee02dbb222e))
+* **cli:** skip #doc text inside raw strings and block comments in gray doc ([#3083](https://github.com/grayscale-lang/grayscale/issues/3083)) ([48a9b22](https://github.com/grayscale-lang/grayscale/commit/48a9b22c80ddfbe0ea8f820c083c67ae505c1c77))
+* **cli:** stop offering flag-like names in gray man completion ([#3078](https://github.com/grayscale-lang/grayscale/issues/3078)) ([d088c79](https://github.com/grayscale-lang/grayscale/commit/d088c79ea847a16806ecae8d277ce5b739272ed9))
+* **cli:** strip trailing whitespace and collapse blank lines in CRLF files ([#3097](https://github.com/grayscale-lang/grayscale/issues/3097)) ([b58e537](https://github.com/grayscale-lang/grayscale/commit/b58e5374d0ea9bc413aefa8bc2eaf06673be67f2))
+* **cli:** watch every file a watched file imports, transitively ([#3089](https://github.com/grayscale-lang/grayscale/issues/3089)) ([9120a7e](https://github.com/grayscale-lang/grayscale/commit/9120a7efbb15aeb18c5142d452a72b271772213e))
+* **codegen:** copy a string assigned to a global through a variable into the heap arena ([#3128](https://github.com/grayscale-lang/grayscale/issues/3128)) ([632cd4b](https://github.com/grayscale-lang/grayscale/commit/632cd4b0077cfd565fb51e2b4213b7b4665e6cfd))
+* **codegen:** copy composite defaults in maps.get_or_insert on store and on return ([1cdbe88](https://github.com/grayscale-lang/grayscale/commit/1cdbe88d981aa56051e93c3318b160579557c5de))
+* **codegen:** default a #json enum field the JSON omits to the enum's default variant ([522e43c](https://github.com/grayscale-lang/grayscale/commit/522e43c5db4b7c85dfec13b6605861762658ab94))
+* **codegen:** emit an empty map for {} in a map-typed struct literal field ([0c09a37](https://github.com/grayscale-lang/grayscale/commit/0c09a372e87287ded9d75a08feb9bc0747d5f067))
+* **codegen:** escape source filenames written into generated C ([#3098](https://github.com/grayscale-lang/grayscale/issues/3098)) ([a0c7fe4](https://github.com/grayscale-lang/grayscale/commit/a0c7fe47cb3cc9f67233e70fca7192745776383a))
+* **codegen:** evaluate the map argument once in maps.get_or_insert and maps.get_and_remove ([fafe025](https://github.com/grayscale-lang/grayscale/commit/fafe025904e33672d667f69aa26acf2b998b51ae))
+* **codegen:** give array literals an explicit element count so TinyCC snapshots compile them ([#3131](https://github.com/grayscale-lang/grayscale/issues/3131)) ([725f16a](https://github.com/grayscale-lang/grayscale/commit/725f16a5f2473f2450577e65a1d0f91375b9d200))
+* **codegen:** write a bare f32 or f64 argument to json.encode with enough digits to round-trip ([e804ddd](https://github.com/grayscale-lang/grayscale/commit/e804dddcc80a32c6b940e90729e20395b7289ee6))
+* **codegen:** write arrays.sort_by results through the live array buffer and drop the unchecked malloc ([#3046](https://github.com/grayscale-lang/grayscale/issues/3046)) ([45b8ade](https://github.com/grayscale-lang/grayscale/commit/45b8ade318a6673d79fb6413ef7c90647989bb4d))
+* **diagnostics:** cut a long source line to a window around the error column ([#3103](https://github.com/grayscale-lang/grayscale/issues/3103)) ([b20433f](https://github.com/grayscale-lang/grayscale/commit/b20433f19711e02cce8c834ba9de38b379746b6c))
+* **driver:** archive the cross runtime with zig ar so windows-amd64 links ([#3101](https://github.com/grayscale-lang/grayscale/issues/3101)) ([e79711e](https://github.com/grayscale-lang/grayscale/commit/e79711e14c00582fdedb3129c2793bd043c84f0d))
+* **driver:** declare glibc's default feature set so extern interop sees realpath ([#3123](https://github.com/grayscale-lang/grayscale/issues/3123)) ([c60a049](https://github.com/grayscale-lang/grayscale/commit/c60a049f954570b277466215b52813b760dba9fc))
+* **driver:** hash the embedded runtime at run time when no build tag is injected ([25467d5](https://github.com/grayscale-lang/grayscale/commit/25467d58479889e4397c9e9c4fed282b72e7d1b2))
+* **driver:** name the extracted runtime directory by every embedded input ([#3073](https://github.com/grayscale-lang/grayscale/issues/3073)) ([38b7b60](https://github.com/grayscale-lang/grayscale/commit/38b7b604a1164e799d9c5ec6ab93a3a1d96f6f0d))
+* **driver:** pass -Wl,-w only on Apple so GNU ld older than 2.40 links ([#3127](https://github.com/grayscale-lang/grayscale/issues/3127)) ([bac4eeb](https://github.com/grayscale-lang/grayscale/commit/bac4eeb1fa01b40d7f401877b897ae13f4f05623))
+* **driver:** refuse a build output path that is the input file ([#3087](https://github.com/grayscale-lang/grayscale/issues/3087)) ([a79bb60](https://github.com/grayscale-lang/grayscale/commit/a79bb60a8691c50191ca8503bbf073c506fe0bc0))
+* **driver:** reject a -q warning code that is not in the registry ([#3106](https://github.com/grayscale-lang/grayscale/issues/3106)) ([bfc7a91](https://github.com/grayscale-lang/grayscale/commit/bfc7a9160603b145e4fd5e28217853973d1a409b))
+* **driver:** report an unusable build output path instead of toolchain errors ([#3088](https://github.com/grayscale-lang/grayscale/issues/3088)) ([cf1e5fa](https://github.com/grayscale-lang/grayscale/commit/cf1e5faf56eb254b5c2688e9b4688d24fefaf9cf))
+* **driver:** use _XOPEN_SOURCE instead of _DEFAULT_SOURCE so string.h does not pull in strings.h ([20e24ae](https://github.com/grayscale-lang/grayscale/commit/20e24ae6f117bf0b6fdc50b84b2746ea7f81bb19))
+* **parser:** evaluate multi-name declaration initializers before binding any name ([6a03a6d](https://github.com/grayscale-lang/grayscale/commit/6a03a6de5e8d7bec13e8e2eb36d00306de273d73))
+* **parser:** reject long pointer type prefixes and binary operator chains instead of overflowing the stack ([#3099](https://github.com/grayscale-lang/grayscale/issues/3099)) ([e5d963a](https://github.com/grayscale-lang/grayscale/commit/e5d963a54f2556108522d0617bc98c2d40b5d380))
+* **runtime:** provide the atomic operations for TinyCC snapshots without stdatomic.h ([#3121](https://github.com/grayscale-lang/grayscale/issues/3121)) ([db7a2a1](https://github.com/grayscale-lang/grayscale/commit/db7a2a116004e5b93bac4dcc73460277b62c2a43))
+* **scripts:** emit blank example lines in gray man instead of a stray comment marker ([#3111](https://github.com/grayscale-lang/grayscale/issues/3111)) ([c15d3c9](https://github.com/grayscale-lang/grayscale/commit/c15d3c972f4b5c8478af22de6f6811661fa1eaf2))
+* **stdlib:** declare getloadavg when the os module is built for Linux ([f72e994](https://github.com/grayscale-lang/grayscale/commit/f72e9947fcf07a0f8bb0c76e1cbea83c08afbdb2))
+* **stdlib:** draw whole characters in random.rand_string and never return a surrogate from rand_char ([7948330](https://github.com/grayscale-lang/grayscale/commit/7948330b4ad5e698088a8f6fb1d2d32ef6dfbd3c))
+* **stdlib:** drop glibc's regexec array size for TinyCC so regex.h parses ([#3126](https://github.com/grayscale-lang/grayscale/issues/3126)) ([ac92a68](https://github.com/grayscale-lang/grayscale/commit/ac92a683c7992e6a0acb82aca5c0d59bec428853))
+* **stdlib:** give server connection and spawned threads their own heap arena for new() ([#3107](https://github.com/grayscale-lang/grayscale/issues/3107)) ([0484ff5](https://github.com/grayscale-lang/grayscale/commit/0484ff517b6a4bb57d5a1d764ccecc623bdd5f2e))
+* **stdlib:** keep a spawned thread's used heap arena alive until the program exits ([#3122](https://github.com/grayscale-lang/grayscale/issues/3122)) ([dff31cc](https://github.com/grayscale-lang/grayscale/commit/dff31cca39076646ac84f597efd16c11923228cb))
+* **stdlib:** panic when json.parse reads a mistyped array element or a non-array array field ([67de8f2](https://github.com/grayscale-lang/grayscale/commit/67de8f23bcadbb5f03d6ae5460b939513ad5dcf9))
+* **stdlib:** panic when the random.roll_dice total overflows i64 ([a66edeb](https://github.com/grayscale-lang/grayscale/commit/a66edebced20f767b5e841978945362923641b07))
+* **stdlib:** parse http URL authority by query and fragment and reject over-long parts as invalid input ([7280f35](https://github.com/grayscale-lang/grayscale/commit/7280f35ccaa5f2d846b0e3ad4ffc7f5352211ced))
+* **stdlib:** read io lines without getline on Windows ([28cb20e](https://github.com/grayscale-lang/grayscale/commit/28cb20e85abb96e89d6ef25fb58369f31cb9a481))
+* **stdlib:** reject an http header value containing NUL as invalid input ([30bfdd0](https://github.com/grayscale-lang/grayscale/commit/30bfdd020bef005f3a93ef33de3ef885c09c3cb4))
+* **stdlib:** reject an http URL containing a space or control byte as invalid input ([e6e5256](https://github.com/grayscale-lang/grayscale/commit/e6e5256198ec59cf6aebb02b2f1a2ceb265a1e34))
+* **stdlib:** reject an http URL with a port outside 1-65535 or with userinfo as invalid input ([397f886](https://github.com/grayscale-lang/grayscale/commit/397f886841783d1ed6fdf37f8f9003f4384ae459))
+* **stdlib:** reject http request headers with CR, LF, or a non-token name ([a479f64](https://github.com/grayscale-lang/grayscale/commit/a479f64f4945fa1f0f2a99a3cff7b11552b7c558))
+* **stdlib:** report random.roll_dice total overflow at the call site with its own panic code ([7f07788](https://github.com/grayscale-lang/grayscale/commit/7f07788a10d1a594265c326da8ee72e473229fe6))
+* **stdlib:** report time arithmetic overflow at the call site with its own panic code ([4fa85e6](https://github.com/grayscale-lang/grayscale/commit/4fa85e61b9d339434e010dd41106d4d10e995467))
+* **stdlib:** step past shadowing headers through arpa so TinyCC reaches system headers on Debian layouts ([#3129](https://github.com/grayscale-lang/grayscale/issues/3129)) ([5f1db13](https://github.com/grayscale-lang/grayscale/commit/5f1db13f518c16e6e7223a4c06e2755709db55b9))
+* **stdlib:** step past shadowing strings.h when glibc string.h reaches it mid-runtime.h under TinyCC ([#3130](https://github.com/grayscale-lang/grayscale/issues/3130)) ([1794e0a](https://github.com/grayscale-lang/grayscale/commit/1794e0a4b36426010ae96e92d7caaf413b3a4179))
+* **stdlib:** store enum keys of arrays.counts at map-key width ([ab146d2](https://github.com/grayscale-lang/grayscale/commit/ab146d2332cf6925a9d40b1629897bf7622a0bd3))
+* **stdlib:** use the portable overflow helpers so programs build with tcc ([#3118](https://github.com/grayscale-lang/grayscale/issues/3118)) ([d0c1adb](https://github.com/grayscale-lang/grayscale/commit/d0c1adbc4ef8b7af98a1b8f1ba230b9dbab01fae))
+* **stdlib:** write f32 and f64 values in json.encode with enough digits to round-trip ([5b3c369](https://github.com/grayscale-lang/grayscale/commit/5b3c36955882c7510938b96e9802252d20435fa1))
+* **tests:** mark unsafe calls in tests and reword E5065 as 'unsafe function' ([b91372d](https://github.com/grayscale-lang/grayscale/commit/b91372d186d79f3024757a3b4ae7a19f179c2619))
+* **tests:** redirect stdin by descriptor so test_stdlib builds on mingw ([#3124](https://github.com/grayscale-lang/grayscale/issues/3124)) ([173f59b](https://github.com/grayscale-lang/grayscale/commit/173f59b6093173a6bbec004bcec40b414ed7017f))
+* **typechecker:** accept a #json struct declared in an imported module in json.encode and json.parse ([6a353ae](https://github.com/grayscale-lang/grayscale/commit/6a353ae527fb839d5a7160df711dd87f8beb37eb))
+* **typechecker:** accept a func-typed value as an arrays callback argument ([c4e58ac](https://github.com/grayscale-lang/grayscale/commit/c4e58ac01cfdb7c3090444707b0de214c9e417eb))
+* **typechecker:** check a module-qualified arrays callback's signature ([97d7c74](https://github.com/grayscale-lang/grayscale/commit/97d7c745892019b7fb5f7ef3e80cf067e8e7009e))
+* **typechecker:** check maps.sorted_keys key type at each generic instantiation ([6215f24](https://github.com/grayscale-lang/grayscale/commit/6215f248986c549b56194e08fdc99e0fcab22469))
+* **typechecker:** clear a label's reference flags when a member access is rewritten into one ([#3125](https://github.com/grayscale-lang/grayscale/issues/3125)) ([717fa33](https://github.com/grayscale-lang/grayscale/commit/717fa33657f66247fa2cfea510dec45e54ee736c))
+* **typechecker:** do not treat a loop that contains a break as returning on every path ([fe54b5e](https://github.com/grayscale-lang/grayscale/commit/fe54b5e015752b9a682c04f53c5e34b8c13f4c9e))
+* **typechecker:** emit registry messages for E7015 and the non-call or_* operand (E3211) ([2673ae2](https://github.com/grayscale-lang/grayscale/commit/2673ae21b26904d4505c77f4938dd397abcd7794))
+* **typechecker:** hide a multi-name declaration's earlier names from its file-scope initializers ([3abad46](https://github.com/grayscale-lang/grayscale/commit/3abad460fcf244854dfab46294b50b5e478830e8))
+* **typechecker:** print the declared name of an imported type in E3043 ([0050c56](https://github.com/grayscale-lang/grayscale/commit/0050c564d528dd5c79a41e853653366cf5a82103))
+* **typechecker:** reject {} for a map-typed struct literal field ([bbc842a](https://github.com/grayscale-lang/grayscale/commit/bbc842a4d3645efd4703b010c8b450279fd240a4))
+* **typechecker:** reject {} where a map is expected in a return, assignment, argument, stdlib default or map element ([aabdb78](https://github.com/grayscale-lang/grayscale/commit/aabdb7852d14d89e883f1de4ca5f5439c6d0666a))
+* **typechecker:** reject a discarded arrays.find, maps.find_key or maps.get_and_remove result ([a4ec1eb](https://github.com/grayscale-lang/grayscale/commit/a4ec1eba4717b6194b7dd159e903b77c070dfcc0))
+* **typechecker:** reject a field or element of a temporary passed to a mutable parameter ([1d24d24](https://github.com/grayscale-lang/grayscale/commit/1d24d24fc6cc1001cb336b5c7cdfca7081a7dcdf))
+* **typechecker:** reject a literal or call result passed to a stdlib mutable parameter ([af9618a](https://github.com/grayscale-lang/grayscale/commit/af9618a90549bb2eae2b43d3a58b1db59fe0cd85))
+* **typechecker:** reject defer inside an unsafe block ([8edce5b](https://github.com/grayscale-lang/grayscale/commit/8edce5bdc96b7d666b42224cb5a5b3d097b018fd))
+* **typechecker:** reject json.parse as the initializer of an untyped declaration ([c3794a7](https://github.com/grayscale-lang/grayscale/commit/c3794a77ee0b51f44d3b41d5e3010fb81c83fe2c))
+* **typechecker:** reject json.parse outside a declaration or return value ([557f5a7](https://github.com/grayscale-lang/grayscale/commit/557f5a769f3e394ce7c2e6631b02d1db9488d6f1))
+* **typechecker:** reject len() on a user struct named Builder or Channel when its module is not imported ([b8a5082](https://github.com/grayscale-lang/grayscale/commit/b8a5082d3a346bce6d0a387fe4194abb02a720af))
+* **typechecker:** reject or_panic, or_default and or_return on a non-call operand ([7062d2a](https://github.com/grayscale-lang/grayscale/commit/7062d2a29ea732ece400b4464cc3e57c6951cfe4))
+* **typechecker:** reject SourceLocation struct literals ([#3074](https://github.com/grayscale-lang/grayscale/issues/3074)) ([9f4c32f](https://github.com/grayscale-lang/grayscale/commit/9f4c32f52c35b9f5f39ae4882a497410edd4b059))
+* **typechecker:** suggest or_default instead of or_panic when a multi-value fallible call is unhandled ([799eb65](https://github.com/grayscale-lang/grayscale/commit/799eb654877b65bda27ea61c98e32412dd1a2321))
+* **typechecker:** type Enum.names() and Enum.variants() when the enum is declared in an imported module ([5d2e032](https://github.com/grayscale-lang/grayscale/commit/5d2e03264913dbb0384c4a356934ece20d302031))
+* **typechecker:** warn on unused variables in nested blocks and position each multi-name declaration at its name ([f8cf661](https://github.com/grayscale-lang/grayscale/commit/f8cf66139a9d0662d26cdf373a5ed10bd91daadc))
+* **typechecker:** warn W1001 on a variable that is only written, never read ([aea1044](https://github.com/grayscale-lang/grayscale/commit/aea1044d6ce5f9d8aa0befe43185aee48b54d0fa))
+* **typechecker:** word E7015 so a user struct named like a stdlib type is not read as listed ([a89754b](https://github.com/grayscale-lang/grayscale/commit/a89754b19277cfbfa1983fdd9a9ff529a27fc68a))
+
+## [0.11.5](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.4...grayscale-v0.11.5) (2026-10-12)
+
+
+### Bug Fixes
+
+* **codegen:** copy a local array or map into the heap when assigned to a new() struct field ([#3017](https://github.com/grayscale-lang/grayscale/issues/3017)) ([d7867a1](https://github.com/grayscale-lang/grayscale/commit/d7867a1d6743f9b88a57d21735c7a57a04e544c7))
+* **codegen:** initialize a shadowing variable from the outer variable it reads ([#3018](https://github.com/grayscale-lang/grayscale/issues/3018)) ([4dee938](https://github.com/grayscale-lang/grayscale/commit/4dee938fcfd8b34c97c4fdabb806bf8433c35aab))
+* **codegen:** keep the for_each element type across emitting a deep collection chain ([#3028](https://github.com/grayscale-lang/grayscale/issues/3028)) ([0dd2d79](https://github.com/grayscale-lang/grayscale/commit/0dd2d795674db2ec306b701792eeb95a45bedad8))
+* **csv:** reject malformed quoting in parse and read_file ([#2988](https://github.com/grayscale-lang/grayscale/issues/2988)) ([26452ad](https://github.com/grayscale-lang/grayscale/commit/26452adad0503eae0746f0b69bcfdb58e451ffdd))
+* **http:** canonicalize response header names ([#3057](https://github.com/grayscale-lang/grayscale/issues/3057)) ([7ee2f99](https://github.com/grayscale-lang/grayscale/commit/7ee2f999139849daae0daad38bccca0b2ef971fc))
+* **http:** decode chunked response bodies and keep the last header ([#3053](https://github.com/grayscale-lang/grayscale/issues/3053)) ([adb45e7](https://github.com/grayscale-lang/grayscale/commit/adb45e7c5ce4e1318329bad6586fe0042fc55dad))
+* **http:** include a non-default port in the Host header ([#3054](https://github.com/grayscale-lang/grayscale/issues/3054)) ([dde6647](https://github.com/grayscale-lang/grayscale/commit/dde66477538bddeed560fbf84af8662ef1875112))
+* **http:** return a specific error code and fixed message for each request failure ([#3055](https://github.com/grayscale-lang/grayscale/issues/3055)) ([a118f37](https://github.com/grayscale-lang/grayscale/commit/a118f3711f02516cd5c2a02230e9e6e3eaaab456))
+* **http:** return OutOfRange for a response over the 1 MB limit ([#3056](https://github.com/grayscale-lang/grayscale/issues/3056)) ([1428f3f](https://github.com/grayscale-lang/grayscale/commit/1428f3f9a5170aaae430e8e78ad2336a2c5f739b))
+* **http:** send one Content-Type and drop caller-set Host, Content-Length and Connection ([#3052](https://github.com/grayscale-lang/grayscale/issues/3052)) ([eb51e23](https://github.com/grayscale-lang/grayscale/commit/eb51e23821e8c72a83ac760349261409c71f1c74))
+* **json:** panic when json.parse input is not a valid JSON document ([#2967](https://github.com/grayscale-lang/grayscale/issues/2967)) ([04cfa05](https://github.com/grayscale-lang/grayscale/commit/04cfa0541d754bc3cc0ff2d4e4a380ccfa35c108))
+* **net:** classify net.receive failures as Closed, Timeout or the system error ([#3049](https://github.com/grayscale-lang/grayscale/issues/3049)) ([0e11b71](https://github.com/grayscale-lang/grayscale/commit/0e11b7107cef97df7173c61cd2c4d36d1926a503))
+* **net:** write the whole string in send and report a failed write ([#3050](https://github.com/grayscale-lang/grayscale/issues/3050)) ([77cbd9f](https://github.com/grayscale-lang/grayscale/commit/77cbd9f2aa912002773bc79ac2587ae9f9f22dcb))
+* **stdlib:** step past the stdlib header directory under Clang when the runtime is built from source ([#3022](https://github.com/grayscale-lang/grayscale/issues/3022)) ([66c2153](https://github.com/grayscale-lang/grayscale/commit/66c21538302896e433cd3d6439c2547b4577d44a))
+* **typechecker:** check func-typed generic parameter arguments against the bound type ([#3026](https://github.com/grayscale-lang/grayscale/issues/3026)) ([25568d5](https://github.com/grayscale-lang/grayscale/commit/25568d535c60dbdfe1fe13aee1f2ca583ff8e5f7))
+* **typechecker:** detect duplicate map keys and when cases written as constants ([#3031](https://github.com/grayscale-lang/grayscale/issues/3031)) ([2f54c0f](https://github.com/grayscale-lang/grayscale/commit/2f54c0f020cbd64923a23168e998240290b422ae))
+* **typechecker:** reject a local redeclaring a generic parameter's name in the same scope ([#3030](https://github.com/grayscale-lang/grayscale/issues/3030)) ([f7a6d1f](https://github.com/grayscale-lang/grayscale/commit/f7a6d1f643f0795c537525166a22a8e4707463b4))
+* **typechecker:** reject a private type used as a generic type argument ([#3027](https://github.com/grayscale-lang/grayscale/issues/3027)) ([f746580](https://github.com/grayscale-lang/grayscale/commit/f74658045c5dd1080f2779babd4cbcbf911bb536))
+* **typechecker:** warn on a deprecated type in container, pointer, new, size_of, generic and alias positions ([#3029](https://github.com/grayscale-lang/grayscale/issues/3029)) ([cde660f](https://github.com/grayscale-lang/grayscale/commit/cde660f136fee6848de4e9a971a0931944eacc8d))
+
+
+### Performance Improvements
+
+* **driver:** default to -O3 when the C compiler is GCC ([#3020](https://github.com/grayscale-lang/grayscale/issues/3020)) ([9e42a4f](https://github.com/grayscale-lang/grayscale/commit/9e42a4f55b4e104b4fa36915eb67ba838ecf6e51))
+* **driver:** reuse a cached runtime archive for a --cc compiler ([#3021](https://github.com/grayscale-lang/grayscale/issues/3021)) ([8812855](https://github.com/grayscale-lang/grayscale/commit/881285541c21519f25479787f7d68cca07e29337))
+* **json:** copy unescaped runs with memcpy in json_append_escaped ([#3024](https://github.com/grayscale-lang/grayscale/issues/3024)) ([726f3bf](https://github.com/grayscale-lang/grayscale/commit/726f3bf8c0e2e43889ddfefbd6c0dbd8e9ae23aa))
+* **runtime:** count arena allocations with a flag on the arena ([#3025](https://github.com/grayscale-lang/grayscale/issues/3025)) ([06088f4](https://github.com/grayscale-lang/grayscale/commit/06088f4fc8f35cb5351a91977260d02425d0e710))
+* **runtime:** cut per-thread state lookups under TCC ([#3019](https://github.com/grayscale-lang/grayscale/issues/3019)) ([901ec8a](https://github.com/grayscale-lang/grayscale/commit/901ec8a0a099f1ad34ab05bb52fa942c12d6ab6d))
+* **strings:** find candidates with memchr in search, split and replace ([#3023](https://github.com/grayscale-lang/grayscale/issues/3023)) ([85fd2eb](https://github.com/grayscale-lang/grayscale/commit/85fd2eb2a60585a602dd7cc9e51efb26d2d16ecf))
+
+## [0.11.4](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.3...grayscale-v0.11.4) (2026-10-08)
+
+
+### Bug Fixes
+
+* **arrays:** order a NaN after every other value in float sort, min and max ([#2977](https://github.com/grayscale-lang/grayscale/issues/2977)) ([2f8d8d8](https://github.com/grayscale-lang/grayscale/commit/2f8d8d83a81d87e9277ada44c183cc92985aa55d))
+* **build:** remove GCC 11 compiler and linker warnings on macOS ([#3013](https://github.com/grayscale-lang/grayscale/issues/3013)) ([81fa229](https://github.com/grayscale-lang/grayscale/commit/81fa229cd0695b9df2c84e18c57940e8d04dc6d2))
+* **cli:** cast enum values explicitly in the verify test ([8bc4325](https://github.com/grayscale-lang/grayscale/commit/8bc432558b00f5af6c84ce90ecd107198da19e16))
+* **codegen:** convert wide-integer constructors the way cast does ([#2994](https://github.com/grayscale-lang/grayscale/issues/2994)) ([4d82f34](https://github.com/grayscale-lang/grayscale/commit/4d82f34834d4ab792ea338c8691e14eec1945154))
+* **codegen:** copy composite payloads when constructing a tagged enum variant ([#2991](https://github.com/grayscale-lang/grayscale/issues/2991)) ([6f6b52c](https://github.com/grayscale-lang/grayscale/commit/6f6b52c2bf7921656273254136530d53ed6a358a))
+* **codegen:** copy nested storage out of arrays and maps results and generic returns ([#2958](https://github.com/grayscale-lang/grayscale/issues/2958)) ([5671579](https://github.com/grayscale-lang/grayscale/commit/5671579db5da30b5de3dc027a7842fa8c5ced409))
+* **codegen:** evaluate the argument of type_of, fields and size_of ([#2992](https://github.com/grayscale-lang/grayscale/issues/2992)) ([4c6b578](https://github.com/grayscale-lang/grayscale/commit/4c6b578de8c9fdcb345bc4ded90bfb0f1def949c))
+* **codegen:** iterate for_each over a string by codepoint ([#3004](https://github.com/grayscale-lang/grayscale/issues/3004)) ([d021de3](https://github.com/grayscale-lang/grayscale/commit/d021de32431562c197ca6e0de81761112e6bc14c))
+* **codegen:** panic when a string cast to a string-backed enum matches no variant ([#3006](https://github.com/grayscale-lang/grayscale/issues/3006)) ([f87492c](https://github.com/grayscale-lang/grayscale/commit/f87492c47fd5594f73f204a6a5639fe7fe448e78))
+* **codegen:** panic when assigning the array or map being iterated in for_each ([#2978](https://github.com/grayscale-lang/grayscale/issues/2978)) ([aae3e2d](https://github.com/grayscale-lang/grayscale/commit/aae3e2d70e2fb2242d044c5080c3942618078584))
+* **codegen:** pick the membership direction of a wide inline range from its step at runtime ([#2996](https://github.com/grayscale-lang/grayscale/issues/2996)) ([c9dece3](https://github.com/grayscale-lang/grayscale/commit/c9dece37bb434dea1241b8952a42dfccee0f0f79))
+* **codegen:** print a bare nil as nil in println, print and string interpolation ([#2985](https://github.com/grayscale-lang/grayscale/issues/2985)) ([e1ae989](https://github.com/grayscale-lang/grayscale/commit/e1ae989185e5cb129d97553f45d36d43d6e5433e))
+* **codegen:** restore the maps clear and is_empty branches removed in 60cfefc ([d364798](https://github.com/grayscale-lang/grayscale/commit/d3647984243eb8b23be780d3b737cd396d35287f))
+* **codegen:** skip the for_each mutation check when storing a & parameter element temporary back ([#2945](https://github.com/grayscale-lang/grayscale/issues/2945)) ([1870525](https://github.com/grayscale-lang/grayscale/commit/187052537147e590445722d7caff242f8cc8983d))
+* **codegen:** store a string-backed enum in map slots as a string ([#3005](https://github.com/grayscale-lang/grayscale/issues/3005)) ([20d0cae](https://github.com/grayscale-lang/grayscale/commit/20d0cae304112f645aeda4d99fcb4f7d6bf0cc91))
+* **codegen:** test membership in an inline range with a negative step ([#2996](https://github.com/grayscale-lang/grayscale/issues/2996)) ([1cf4616](https://github.com/grayscale-lang/grayscale/commit/1cf46160cd1653ca2b651b6a46032964a9f953bb))
+* **codegen:** type a field read through a generic-typed value by its declared type ([#2957](https://github.com/grayscale-lang/grayscale/issues/2957)) ([c761bed](https://github.com/grayscale-lang/grayscale/commit/c761bedf77cb8c64ae7c16f0e88969562d252d1a))
+* **codegen:** undefine C library macros that share a name with an emitted identifier ([#2961](https://github.com/grayscale-lang/grayscale/issues/2961)) ([103ed06](https://github.com/grayscale-lang/grayscale/commit/103ed06f0c0e2f29068a9040cf2e9be97b5fb874))
+* **csv:** drop a leading UTF-8 byte-order mark when parsing ([#2987](https://github.com/grayscale-lang/grayscale/issues/2987)) ([f31f3d2](https://github.com/grayscale-lang/grayscale/commit/f31f3d235a1b422434bf2fc256bf1741daf77bcb))
+* **csv:** quote a lone empty field so encode then parse keeps the row ([#2986](https://github.com/grayscale-lang/grayscale/issues/2986)) ([02d2825](https://github.com/grayscale-lang/grayscale/commit/02d282566931546f00e37eacacde10dd7f6fdd92))
+* **driver:** build and link the runtime with GCC on macOS ([bbf9e14](https://github.com/grayscale-lang/grayscale/commit/bbf9e14bb2f89498ad37532b151c7c784b0f5338))
+* **driver:** make the generated C and signature checks work under tcc ([#3010](https://github.com/grayscale-lang/grayscale/issues/3010)) ([e9f04f8](https://github.com/grayscale-lang/grayscale/commit/e9f04f8494deb55b35cfbc4ba40e4600e1fc61ef))
+* **encoding:** panic on malformed hex in from_hex like hex_decode ([#2966](https://github.com/grayscale-lang/grayscale/issues/2966)) ([92310b8](https://github.com/grayscale-lang/grayscale/commit/92310b897f75a776d4d8e9ab6d870f24262bd16e))
+* **fmt:** count characters, not bytes, in padding and the %s width and precision ([#2962](https://github.com/grayscale-lang/grayscale/issues/2962)) ([c783b22](https://github.com/grayscale-lang/grayscale/commit/c783b22df4cc26fac08a551ce97bc239baba3996))
+* **input:** keep NUL bytes, drop CRLF terminator, add io.stdin_at_eof ([#2993](https://github.com/grayscale-lang/grayscale/issues/2993)) ([4102856](https://github.com/grayscale-lang/grayscale/commit/410285647dbff125e6ca354a10f3a5c0ca9d4f52))
+* **io:** reject io.copy_file onto the same file instead of truncating it ([#2973](https://github.com/grayscale-lang/grayscale/issues/2973)) ([33e4339](https://github.com/grayscale-lang/grayscale/commit/33e433977e6cf971e313c8fbeeae49884b92a513))
+* **io:** return an error when io.make_dir_all's path is an existing regular file ([#2974](https://github.com/grayscale-lang/grayscale/issues/2974)) ([0448f1d](https://github.com/grayscale-lang/grayscale/commit/0448f1da1882179013f3e339549c87b9fa176c7d))
+* **json:** panic when json.parse reads a number or null into a bool field ([#2968](https://github.com/grayscale-lang/grayscale/issues/2968)) ([a3b9a27](https://github.com/grayscale-lang/grayscale/commit/a3b9a27c45cfc8f4a12cf66db9d1e0a590d7451a))
+* **json:** panic when serializing a non-finite floating-point value ([#2969](https://github.com/grayscale-lang/grayscale/issues/2969)) ([025f9ab](https://github.com/grayscale-lang/grayscale/commit/025f9abaf89393562ad6d84c9a8abbae1515a601))
+* **os:** panic on an embedded NUL byte in os.exec's command or arguments ([#2970](https://github.com/grayscale-lang/grayscale/issues/2970)) ([81666fa](https://github.com/grayscale-lang/grayscale/commit/81666fa5edb00a6184260139827a9208194c2402))
+* **parser:** reject a default value on a mutable (&) parameter ([#3002](https://github.com/grayscale-lang/grayscale/issues/3002)) ([d898aa8](https://github.com/grayscale-lang/grayscale/commit/d898aa8b0454ef82c70a8c26d7c620d67595e5c8))
+* **platform:** declare realpath on Linux under Clang ([e936be2](https://github.com/grayscale-lang/grayscale/commit/e936be2fadf8ace48b7058996c701725242ca932))
+* **platform:** route the crash signal name through a platform helper ([#2881](https://github.com/grayscale-lang/grayscale/issues/2881)) ([ac3cd1b](https://github.com/grayscale-lang/grayscale/commit/ac3cd1b2fdd537854e960d8ee64c51614158450a))
+* **regex:** match whole UTF-8 characters instead of bytes ([#2989](https://github.com/grayscale-lang/grayscale/issues/2989)) ([600adab](https://github.com/grayscale-lang/grayscale/commit/600adabc43363b868ab16cd430a5df9242bbd3de))
+* **regex:** support capture groups in the Windows regex shim ([#2880](https://github.com/grayscale-lang/grayscale/issues/2880)) ([ad02d80](https://github.com/grayscale-lang/grayscale/commit/ad02d8037045673143289bb4dfd45d173ad27514))
+* **runtime:** allow updating an existing key's value during map for_each ([#2979](https://github.com/grayscale-lang/grayscale/issues/2979)) ([ce85547](https://github.com/grayscale-lang/grayscale/commit/ce85547d05650c9b6aa6eeb3375e213a3a59e11a))
+* **sqlite:** keep the full text value when a query result contains an embedded NUL byte ([#2972](https://github.com/grayscale-lang/grayscale/issues/2972)) ([e22d97b](https://github.com/grayscale-lang/grayscale/commit/e22d97b44f852fb126de48592c78a7fb50b5de1e))
+* **stdlib:** panic on an embedded NUL byte in csv, sqlite, time and regex string arguments ([#2971](https://github.com/grayscale-lang/grayscale/issues/2971)) ([8ca2dbe](https://github.com/grayscale-lang/grayscale/commit/8ca2dbecf22448722c806f96b836c153a87a5300))
+* **stdlib:** reject an embedded NUL byte in strconv number parsers and os env functions ([#2954](https://github.com/grayscale-lang/grayscale/issues/2954)) ([ecb7d0d](https://github.com/grayscale-lang/grayscale/commit/ecb7d0deeed8936273de609e72197df4eea00e2b))
+* **stdlib:** reject hexadecimal float input in strconv.to_f64 ([#2955](https://github.com/grayscale-lang/grayscale/issues/2955)) ([f293a2e](https://github.com/grayscale-lang/grayscale/commit/f293a2e4fac9357917892d6a3bc683e421243dae))
+* **stdlib:** restrict the sys-relative libc header lookup under GCC to macOS ([354e1b2](https://github.com/grayscale-lang/grayscale/commit/354e1b21753a72c1760265de11f4ebae51bbc6f1))
+* **stdlib:** use gray overflow wrappers in time duration parsing ([6e49916](https://github.com/grayscale-lang/grayscale/commit/6e4991614ff34c38025b9b0941dab29e44ac7050))
+* **strconv:** reject a 0x prefix in base 16 and a nan(...) payload ([#2975](https://github.com/grayscale-lang/grayscale/issues/2975)) ([5787dda](https://github.com/grayscale-lang/grayscale/commit/5787dda3ba3b60b00b28f9bf8a3becd9011e88de))
+* **strings:** reverse by character so a multi-byte character stays valid UTF-8 ([#2976](https://github.com/grayscale-lang/grayscale/issues/2976)) ([e1054e6](https://github.com/grayscale-lang/grayscale/commit/e1054e67c1136a06cbc065dbe77625ba40b5a35d))
+* **time:** panic or error on i64 overflow in add_days, add_hours, start_of_day, end_of_day and parse_duration ([#2990](https://github.com/grayscale-lang/grayscale/issues/2990)) ([ec8febf](https://github.com/grayscale-lang/grayscale/commit/ec8febfcf18c6767b691fd1499789c6ded1f6350))
+* **time:** panic when a timestamp is outside the range gmtime supports ([#2965](https://github.com/grayscale-lang/grayscale/issues/2965)) ([2d473c9](https://github.com/grayscale-lang/grayscale/commit/2d473c916d3a4cd5b630b9ce97f1a7e438cd7ab7))
+* **typechecker:** accept a mutable-receiver call through a const pointer to a mutable variable ([#2998](https://github.com/grayscale-lang/grayscale/issues/2998)) ([45b03e4](https://github.com/grayscale-lang/grayscale/commit/45b03e406cedbab3f9b73cc7f9ef0cb1638f07ae))
+* **typechecker:** call a no-self struct function through an expression receiver and evaluate the receiver ([#3001](https://github.com/grayscale-lang/grayscale/issues/3001)) ([fab2451](https://github.com/grayscale-lang/grayscale/commit/fab2451cd798a2578eb946d735f2256a8a8faa53))
+* **typechecker:** reject a bool as an integer in call arguments and comparisons ([#2983](https://github.com/grayscale-lang/grayscale/issues/2983)) ([fb7aa73](https://github.com/grayscale-lang/grayscale/commit/fb7aa734a6ddfc795a5095101721f9acab0e6d11))
+* **typechecker:** reject a bool source in wide-integer constructors ([66d8de6](https://github.com/grayscale-lang/grayscale/commit/66d8de60ba5619192b17b91e258c4e22d8e74806))
+* **typechecker:** reject a local declared with a parameter's name at function-body level ([#2960](https://github.com/grayscale-lang/grayscale/issues/2960)) ([d0c15fd](https://github.com/grayscale-lang/grayscale/commit/d0c15fd43ea6df1c7ad0b2d15523c1a5b2682c02))
+* **typechecker:** reject a mutable-receiver call through a pointer to a const variable ([#2997](https://github.com/grayscale-lang/grayscale/issues/2997)) ([c2e7709](https://github.com/grayscale-lang/grayscale/commit/c2e7709d77c392dbe5da63828eff65704b68de92))
+* **typechecker:** reject a nil source in bool() and wide-integer constructors ([26e1546](https://github.com/grayscale-lang/grayscale/commit/26e154644ec1ef0a8e075d381dd55cace4c4950e))
+* **typechecker:** reject a non-bool condition in if, or and as_long_as ([#2984](https://github.com/grayscale-lang/grayscale/issues/2984)) ([6dbd088](https://github.com/grayscale-lang/grayscale/commit/6dbd0880dd6764ecac12ec0938e2dcd53a4ca556))
+* **typechecker:** reject a nonexistent struct function reached through an imported module ([#3000](https://github.com/grayscale-lang/grayscale/issues/3000)) ([78a0147](https://github.com/grayscale-lang/grayscale/commit/78a0147ae971d621656b94cbe3c0e01e8c9b247f))
+* **typechecker:** reject a single return value discarded by defer and ensure ([#2953](https://github.com/grayscale-lang/grayscale/issues/2953)) ([2abd6f7](https://github.com/grayscale-lang/grayscale/commit/2abd6f7e78fc2d48af8892de13d6f339c53413b9))
+* **typechecker:** reject a struct function or module function used as a value ([#2999](https://github.com/grayscale-lang/grayscale/issues/2999)) ([0940ca3](https://github.com/grayscale-lang/grayscale/commit/0940ca3cd0b209b7922edcb40ff8ad02f4b2e248))
+* **typechecker:** reject an integer in a struct-typed struct field initializer ([#2980](https://github.com/grayscale-lang/grayscale/issues/2980)) ([4610cb3](https://github.com/grayscale-lang/grayscale/commit/4610cb31c614e275dd2e1827c3269c076e3508a0))
+* **typechecker:** reject an integer where a struct is expected in call arguments, generic arguments and assignment ([#2981](https://github.com/grayscale-lang/grayscale/issues/2981)) ([3e0c229](https://github.com/grayscale-lang/grayscale/commit/3e0c22972a1dac73cf0315908c6492bf332dc0ba))
+* **typechecker:** reject calls through a bare func array element, map value, or loop variable ([#2963](https://github.com/grayscale-lang/grayscale/issues/2963)) ([0efaf9a](https://github.com/grayscale-lang/grayscale/commit/0efaf9ac7aa306b7e2433a1e64677ee226b57ca1))
+* **typechecker:** reject implicit conversion of an enum value to an integer or string ([#3007](https://github.com/grayscale-lang/grayscale/issues/3007)) ([056a4aa](https://github.com/grayscale-lang/grayscale/commit/056a4aac3e1450b1473bb1c4887b6f88f0f06e40))
+* **typechecker:** reject mutating arrays and maps functions on a container reached through a const field or index ([#2956](https://github.com/grayscale-lang/grayscale/issues/2956)) ([023bf52](https://github.com/grayscale-lang/grayscale/commit/023bf523b8be18c76feca3799ada3624cfc83340))
+* **typechecker:** reject tagged enum, string and nil sources in cast, string(), bool() and wide-integer constructors ([#2995](https://github.com/grayscale-lang/grayscale/issues/2995)) ([9a09567](https://github.com/grayscale-lang/grayscale/commit/9a09567771d57185928cc8f076175ab40cc2088a))
+* **typechecker:** report an import after a declaration with its own error code ([#2959](https://github.com/grayscale-lang/grayscale/issues/2959)) ([7b2faa0](https://github.com/grayscale-lang/grayscale/commit/7b2faa08170ed0962a0c86ab4195ff127622dbbc))
+* **typechecker:** type or reject an arrays call whose result derives from an empty literal ([#2964](https://github.com/grayscale-lang/grayscale/issues/2964)) ([a4295b2](https://github.com/grayscale-lang/grayscale/commit/a4295b260f606ec13eda69195929ffb25b94621c))
+* **typechecker:** type-check assignments through a map element or an element's field ([#2982](https://github.com/grayscale-lang/grayscale/issues/2982)) ([f4269f8](https://github.com/grayscale-lang/grayscale/commit/f4269f8565934fd62bb60d40c3db56e1a9a6269f))
+
+## [0.11.3](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.2...grayscale-v0.11.3) (2026-10-05)
+
+
+### Bug Fixes
+
+* **codegen:** evaluate named arguments and struct literal fields in the order written ([#2934](https://github.com/grayscale-lang/grayscale/issues/2934)) ([3d79b02](https://github.com/grayscale-lang/grayscale/commit/3d79b022d4b59d937c1a3500372dad6defbea3cd))
+* **codegen:** evaluate range() and arrays.insert_at() arguments left to right ([#2939](https://github.com/grayscale-lang/grayscale/issues/2939)) ([55ff2d3](https://github.com/grayscale-lang/grayscale/commit/55ff2d32f60cec6f8d803e9e40e615251800aff9))
+* **codegen:** evaluate the index before the right-hand side in array element assignment ([#2935](https://github.com/grayscale-lang/grayscale/issues/2935)) ([0ad964b](https://github.com/grayscale-lang/grayscale/commit/0ad964be8e1c6dc6727c3465355e585449e139ff))
+* **codegen:** map each function's signature to its .gray line so coverage is keyed to .gray files ([#2671](https://github.com/grayscale-lang/grayscale/issues/2671)) ([c8a8a28](https://github.com/grayscale-lang/grayscale/commit/c8a8a281e7bcb1483ffb045187504cb851066a21))
+* **codegen:** maps.get_or_default() evaluates its default argument on every call ([#2940](https://github.com/grayscale-lang/grayscale/issues/2940)) ([0ae185e](https://github.com/grayscale-lang/grayscale/commit/0ae185ec9832e2952745d13a0c9ee18e6447aeaa))
+* **codegen:** print an Error field of a struct as its message instead of the internal pointer ([#2942](https://github.com/grayscale-lang/grayscale/issues/2942)) ([04b47f2](https://github.com/grayscale-lang/grayscale/commit/04b47f2b5f720a6a036b764ba1b65beb0e3c3677))
+* **codegen:** store a container element back after a & parameter call so a growing callee's write reaches it ([#2945](https://github.com/grayscale-lang/grayscale/issues/2945)) ([0b543bb](https://github.com/grayscale-lang/grayscale/commit/0b543bb34235a95e7c0cae2d5863ee4597a5aabe))
+* **typechecker:** accept an f32 literal that rounds to the largest finite f32 ([#2947](https://github.com/grayscale-lang/grayscale/issues/2947)) ([cd35e7e](https://github.com/grayscale-lang/grayscale/commit/cd35e7ec91a5deb11737b2e0ffe8702b25dcce46))
+* **typechecker:** ensure with a multi-value call reports E5011 instead of E3040 advice that cannot apply ([#2932](https://github.com/grayscale-lang/grayscale/issues/2932)) ([0530ba3](https://github.com/grayscale-lang/grayscale/commit/0530ba30e67541d3550193f31234d7ae2063fbcb))
+* **typechecker:** reject Error values in array and map literals without a declared type ([#2943](https://github.com/grayscale-lang/grayscale/issues/2943)) ([4ad5f03](https://github.com/grayscale-lang/grayscale/commit/4ad5f03d3256eb9428ed23290a1ca61e2a622079))
+* **typechecker:** reject fallible and multi-value calls as operands of unary operators, range(), cast(), and member access ([#2931](https://github.com/grayscale-lang/grayscale/issues/2931)) ([5ec77b5](https://github.com/grayscale-lang/grayscale/commit/5ec77b5396ae602f10f7699478a3052580bae09f))
+* **typechecker:** reject print and println of a composite containing a tagged enum ([#2938](https://github.com/grayscale-lang/grayscale/issues/2938)) ([d33dd07](https://github.com/grayscale-lang/grayscale/commit/d33dd07734b626f07af9be06a38839815e89f786))
+* **typechecker:** report one error for a multi-value call returned from a multi-value function ([#2933](https://github.com/grayscale-lang/grayscale/issues/2933)) ([57d265e](https://github.com/grayscale-lang/grayscale/commit/57d265ea9b78a779f356d6a8e45713ffd58f3206))
+
+
+### Performance Improvements
+
+* **codegen:** skip per-call arenas for self-recursive and call-composed allocation-free functions ([#2710](https://github.com/grayscale-lang/grayscale/issues/2710)) ([153f0c9](https://github.com/grayscale-lang/grayscale/commit/153f0c98cbf1172f0633b931747b3018a4f0d78a))
+
+## [0.11.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.1...grayscale-v0.11.2) (2026-10-04)
+
+
+### Bug Fixes
+
+* **codegen:** copying an array field into a mut local and writing it back exhausts the arena ([#2928](https://github.com/grayscale-lang/grayscale/issues/2928)) ([934544c](https://github.com/grayscale-lang/grayscale/commit/934544c5d79911cc6f4dbee0b41bcea7afc327eb))
+* **codegen:** literal built from a const value or by-value parameter aliases it ([#2912](https://github.com/grayscale-lang/grayscale/issues/2912)) ([88f4fb9](https://github.com/grayscale-lang/grayscale/commit/88f4fb9b90eb0a8f8952f6f9e83578c5fb3cc13f))
+* **codegen:** tagged enum payload bindings from an imported module get an unqualified type ([#2930](https://github.com/grayscale-lang/grayscale/issues/2930)) ([aca3745](https://github.com/grayscale-lang/grayscale/commit/aca3745e2fcd33c084f3a20f0d84a8cba5e658da))
+* **codegen:** to_c_string returns a program-lifetime copy instead of a pointer into a reclaimable arena ([#2721](https://github.com/grayscale-lang/grayscale/issues/2721)) ([d498875](https://github.com/grayscale-lang/grayscale/commit/d4988754f817d9e9a559d1cb24ff29b1368e1692))
+* **csv:** parse drops the trailing empty field of a row ([#2792](https://github.com/grayscale-lang/grayscale/issues/2792)) ([8e3b9b1](https://github.com/grayscale-lang/grayscale/commit/8e3b9b1097374b7138cc3d1dc46a47ed18843766))
+* **io:** write functions report success when the data never reached the file ([#2831](https://github.com/grayscale-lang/grayscale/issues/2831)) ([61592a8](https://github.com/grayscale-lang/grayscale/commit/61592a894755428aad664e8bd4c02d78e905a865))
+* **parser:** return swallows the statement on the next line as its return value ([#2926](https://github.com/grayscale-lang/grayscale/issues/2926)) ([41b00c9](https://github.com/grayscale-lang/grayscale/commit/41b00c9f716813df7ff16efbec3b71bc1e66420d))
+* **typechecker:** #json struct fields accept nested #json structs and arrays ([#2759](https://github.com/grayscale-lang/grayscale/issues/2759)) ([7a86492](https://github.com/grayscale-lang/grayscale/commit/7a86492fc11a173ad2f83e2eb67516fadddc14d5))
+* **typechecker:** for_each with both positions discarded warns its collection is unused ([#2927](https://github.com/grayscale-lang/grayscale/issues/2927)) ([e6f590c](https://github.com/grayscale-lang/grayscale/commit/e6f590c8c389a1505dd8d671cb766a4f27173477))
+* **typechecker:** mixed number types in a stdlib call report E5057 once ([7b26ff8](https://github.com/grayscale-lang/grayscale/commit/7b26ff831cd07e7486a04b91068d7f5ad69e0a11))
+* **typechecker:** move diagnostic messages into error_codes.h ([#2890](https://github.com/grayscale-lang/grayscale/issues/2890)) ([26f2184](https://github.com/grayscale-lang/grayscale/commit/26f21844c1825e73a67da3b862a840347f10125e))
+* **typechecker:** tagged enum variant with a pointer payload cannot be constructed from another module ([#2929](https://github.com/grayscale-lang/grayscale/issues/2929)) ([49e1034](https://github.com/grayscale-lang/grayscale/commit/49e1034f2156da93bfbfee8f2de7c871fd565d2a))
+
+## [0.11.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.11.0...grayscale-v0.11.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* **codegen:** accept a map literal or call result in http functions and json.pretty_print ([#2904](https://github.com/grayscale-lang/grayscale/issues/2904)) ([78d48a6](https://github.com/grayscale-lang/grayscale/commit/78d48a6f7750a0c7946a13f45b2cb639b0789eba))
+* **codegen:** cast a wide integer to f32 or f64 without the i64 range check ([#2903](https://github.com/grayscale-lang/grayscale/issues/2903)) ([7585d49](https://github.com/grayscale-lang/grayscale/commit/7585d492ee954955c87263c1507a68c7c7f47413))
+* **codegen:** cast between every pair of wide integer types and range-check the value ([#2919](https://github.com/grayscale-lang/grayscale/issues/2919)) ([8726d24](https://github.com/grayscale-lang/grayscale/commit/8726d24b02b3dde51ffbc97455dc3863e252663a))
+* **codegen:** convert each element when an array is cast out of a wide integer element type ([14628bf](https://github.com/grayscale-lang/grayscale/commit/14628bf7d5fdc23303a4df01a6fdfd71b56589e3))
+* **codegen:** convert each element when an array is cast to a wide integer element type ([#2920](https://github.com/grayscale-lang/grayscale/issues/2920)) ([069f247](https://github.com/grayscale-lang/grayscale/commit/069f247ea7aa8a02250e422f20162e58fe91a2ad))
+* **codegen:** format a negative i8, i16 or i32 at its own width for %x, %X and %o ([#2908](https://github.com/grayscale-lang/grayscale/issues/2908)) ([f1c01e8](https://github.com/grayscale-lang/grayscale/commit/f1c01e89aec48b0bff2f3b8847b4c9161c269c91))
+* **codegen:** panic when a negative signed scalar is cast to u128 or u256 ([#2918](https://github.com/grayscale-lang/grayscale/issues/2918)) ([ee0d386](https://github.com/grayscale-lang/grayscale/commit/ee0d3868a4f394bc5939b368790a5d5cb1b99a4c))
+* **codegen:** range-check a float cast to a wide integer ([#2902](https://github.com/grayscale-lang/grayscale/issues/2902)) ([96d0d1c](https://github.com/grayscale-lang/grayscale/commit/96d0d1c6b4d14d5870073fea1e52c9dea3a1d502))
+* **json:** panic when json.parse gets a value of the wrong JSON type for a field ([#2911](https://github.com/grayscale-lang/grayscale/issues/2911)) ([df03ce3](https://github.com/grayscale-lang/grayscale/commit/df03ce3a133942837712744fe171f665842a6001))
+* **json:** panic when json.parse reads a number outside the range of an f32 field ([#2910](https://github.com/grayscale-lang/grayscale/issues/2910)) ([55cfc96](https://github.com/grayscale-lang/grayscale/commit/55cfc96ef9c2d103605a6866f0f0e181af157d27))
+* **json:** panic when json.parse reads a number outside the range of an i128, u128, i256 or u256 field ([#2909](https://github.com/grayscale-lang/grayscale/issues/2909)) ([b47c2c3](https://github.com/grayscale-lang/grayscale/commit/b47c2c379c193741f957df1700168fa2f3f6e2cd))
+* **parser:** accept a bare return followed by a semicolon ([#2899](https://github.com/grayscale-lang/grayscale/issues/2899)) ([e75087a](https://github.com/grayscale-lang/grayscale/commit/e75087abddfa9794458afe90dd1d536234e7e7bf))
+* **parser:** accept a leading ';' after '{' in struct and enum bodies ([#2907](https://github.com/grayscale-lang/grayscale/issues/2907)) ([e91c387](https://github.com/grayscale-lang/grayscale/commit/e91c3871486c7f38140d9f918e458061a11fcde4))
+* **random:** panic when rand_i64, rand_f64 or rand_char get an empty range ([#2906](https://github.com/grayscale-lang/grayscale/issues/2906)) ([1c286a7](https://github.com/grayscale-lang/grayscale/commit/1c286a783f21f1f4dcc26bffa16ae73f36437c01))
+* **random:** panic with a dedicated code when choice gets an empty array ([#2905](https://github.com/grayscale-lang/grayscale/issues/2905)) ([9ae2e02](https://github.com/grayscale-lang/grayscale/commit/9ae2e02836d5cfca37e36177656a19e1ace620cc))
+* **runtime:** panic instead of clamping when a string cast to i64 or u64 is out of range ([0020699](https://github.com/grayscale-lang/grayscale/commit/00206992b848dd6068c53569345288a271e3e72e))
+* **typechecker:** allow cast from string to i128, u128, i256 and u256 ([#2921](https://github.com/grayscale-lang/grayscale/issues/2921)) ([32675f2](https://github.com/grayscale-lang/grayscale/commit/32675f210a849cae0863fb1f1db9722015cfa377))
+* **typechecker:** check the function signature passed to threads spawn and spawn_arg ([#2889](https://github.com/grayscale-lang/grayscale/issues/2889)) ([2587ebc](https://github.com/grayscale-lang/grayscale/commit/2587ebc9bfce341e60048d53b198b66ecd595ff2))
+* **typechecker:** check the handle, pointer and number arguments of the sync, threads, atomic, mem, sqlite and server functions ([#2916](https://github.com/grayscale-lang/grayscale/issues/2916)) ([181c7f4](https://github.com/grayscale-lang/grayscale/commit/181c7f440bb79cc1827015af792043316bc9ea12))
+* **typechecker:** check the key, value and map arguments of the maps functions ([#2915](https://github.com/grayscale-lang/grayscale/issues/2915)) ([85ead06](https://github.com/grayscale-lang/grayscale/commit/85ead06243ab3180a97bccd43fd252f7265791bd))
+* **typechecker:** convert a wide integer stored into a floating-point slot ([#2901](https://github.com/grayscale-lang/grayscale/issues/2901)) ([51a0b44](https://github.com/grayscale-lang/grayscale/commit/51a0b4462a19fc97f79550564d11d755d316b1bf))
+* **typechecker:** report a pointer-depth return mismatch once ([#2896](https://github.com/grayscale-lang/grayscale/issues/2896)) ([734bf67](https://github.com/grayscale-lang/grayscale/commit/734bf67ce32dc5c7672000d8307d107b48ec7513))
+* **typechecker:** report E4016 for an undefined tagged enum payload type ([#2853](https://github.com/grayscale-lang/grayscale/issues/2853)) ([2e0f0d7](https://github.com/grayscale-lang/grayscale/commit/2e0f0d7d0e187f9ff53b56260cbf8f4168ec9ee3))
+* **typechecker:** report E4031 for a variable, constant, struct or enum name that two using modules both declare ([#2798](https://github.com/grayscale-lang/grayscale/issues/2798)) ([9c796c4](https://github.com/grayscale-lang/grayscale/commit/9c796c4e5d5209f948f1ac97feacdd4e17cf429f))
+* **typechecker:** require [u8] for the binary decode functions ([#2913](https://github.com/grayscale-lang/grayscale/issues/2913)) ([ac738ad](https://github.com/grayscale-lang/grayscale/commit/ac738adcc44f6480f87e7741dcbf7f52313ac9ad))
+* **typechecker:** type a literal as the wide integer binary encode functions take ([#2914](https://github.com/grayscale-lang/grayscale/issues/2914)) ([68a6a8b](https://github.com/grayscale-lang/grayscale/commit/68a6a8ba4952374f281ec3169c7742bbd87585a1))
+
+## [0.11.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.10.0...grayscale-v0.11.0) (2026-09-28)
+
+
+### Features
+
+* **grayc:** support TinyCC as a C backend ([#2826](https://github.com/grayscale-lang/grayscale/issues/2826)) ([54b6498](https://github.com/grayscale-lang/grayscale/commit/54b6498ace968dec68828988c193c15c2befd554))
+* **parser:** allow ';' as an optional statement and member separator ([#2590](https://github.com/grayscale-lang/grayscale/issues/2590)) ([a882151](https://github.com/grayscale-lang/grayscale/commit/a882151b910e10fd747b102d327d7246b0591328))
+
+
+### Bug Fixes
+
+* **arrays:** order u64 arrays as unsigned and return the element type from get_sum, get_min and get_max ([#2783](https://github.com/grayscale-lang/grayscale/issues/2783)) ([869bc73](https://github.com/grayscale-lang/grayscale/commit/869bc73de372749363fc2bd1cacb70211f76991f))
+* **arrays:** sort and is_sorted arrays of i8, i16, i32, u16, u32 and f32 at their real width ([#2781](https://github.com/grayscale-lang/grayscale/issues/2781)) ([a74484e](https://github.com/grayscale-lang/grayscale/commit/a74484e9dc2140e009b6877c37ae203ae74c8d63))
+* **binary:** take and return the named type in the 8- to 64-bit encode and decode functions ([#2867](https://github.com/grayscale-lang/grayscale/issues/2867)) ([fafac6b](https://github.com/grayscale-lang/grayscale/commit/fafac6b278e9aef895302809195f741df2a91bb2))
+* **codegen:** check that char(n) and casts to char receive a valid codepoint ([#2857](https://github.com/grayscale-lang/grayscale/issues/2857)) ([7d99777](https://github.com/grayscale-lang/grayscale/commit/7d997771cc9cfcd9aa070b4bf0afcfef0621ae77))
+* **codegen:** compare unsigned and signed integers by value ([#2858](https://github.com/grayscale-lang/grayscale/issues/2858)) ([d267dfc](https://github.com/grayscale-lang/grayscale/commit/d267dfc6d32e9adb417d23ff8b8c5e20bafae9a0))
+* **codegen:** default an enum with an explicit first value to its first variant ([#2844](https://github.com/grayscale-lang/grayscale/issues/2844)) ([06e9fed](https://github.com/grayscale-lang/grayscale/commit/06e9fed1b1b0de5c734688ad5491d8c7541bdcd7))
+* **codegen:** emit a module-level mut's constant initializer without a runtime range check ([#2872](https://github.com/grayscale-lang/grayscale/issues/2872)) ([f08a941](https://github.com/grayscale-lang/grayscale/commit/f08a9416cdfa03605c4f3dcdffb6ea48982aa213))
+* **codegen:** give a fixed-size array field N slots in new() ([#2893](https://github.com/grayscale-lang/grayscale/issues/2893)) ([bc5a770](https://github.com/grayscale-lang/grayscale/commit/bc5a770f3222c8d20ae18244af4d6c7dcc06ffde))
+* **codegen:** overflow- and zero-check compound assignment to integer map values ([#2871](https://github.com/grayscale-lang/grayscale/issues/2871)) ([282b5ec](https://github.com/grayscale-lang/grayscale/commit/282b5ecd37fdd41ecbe55b6dabe7b30ce27a0dbe))
+* **codegen:** overflow-check unary negation of i128 and i256 values ([311fc26](https://github.com/grayscale-lang/grayscale/commit/311fc26addba4dcdd669cf3a0120eaec4ce15fc2))
+* **codegen:** print float, f32, and f64 through one width-aware formatter ([890d3f5](https://github.com/grayscale-lang/grayscale/commit/890d3f5b7056fd036dd04976b539d0e85f4f9c54))
+* **codegen:** range-check narrowing casts from u64 and float sources before converting through int64 ([#2856](https://github.com/grayscale-lang/grayscale/issues/2856)) ([dade0c5](https://github.com/grayscale-lang/grayscale/commit/dade0c524d66d8407d4ca25da7ba35a2321a7937))
+* **codegen:** read and write [f32] elements as float in random.choice and arrays.fill ([#2849](https://github.com/grayscale-lang/grayscale/issues/2849)) ([5c08674](https://github.com/grayscale-lang/grayscale/commit/5c08674a2aa52ff84b525514a9963d06f3c0f7ac))
+* **codegen:** resolve the sqlite Database type to GraySqlite * ([#2885](https://github.com/grayscale-lang/grayscale/issues/2885)) ([56580dc](https://github.com/grayscale-lang/grayscale/commit/56580dc58b5c95cef05ebe2d8d61e11a3d37c0f5))
+* **codegen:** shift sized integers at the operand's width and bound the shift amount by it ([#2855](https://github.com/grayscale-lang/grayscale/issues/2855)) ([957a572](https://github.com/grayscale-lang/grayscale/commit/957a572f77bda78126b4810dcdb2e55e1760fd1a))
+* **codegen:** sort arrays of bool at their 1-byte width in sort_asc and sort_desc ([#2873](https://github.com/grayscale-lang/grayscale/issues/2873)) ([985e7f4](https://github.com/grayscale-lang/grayscale/commit/985e7f4cc3530aa55618c2d391dd5846592beec3))
+* **codegen:** stage [f32] values as float in arrays.insert_at and arrays.prepend ([#2834](https://github.com/grayscale-lang/grayscale/issues/2834)) ([1af5d92](https://github.com/grayscale-lang/grayscale/commit/1af5d92171fe98dc0e8811eaf5f8e87cdc8e5fc9))
+* **codegen:** store fixed-size [f32, N] arrays as packed float ([f7249ce](https://github.com/grayscale-lang/grayscale/commit/f7249ce25d97b9314b946ee79e8380f01fcaa7c5))
+* **codegen:** support bitwise operators on i128, u128, i256 and u256 values ([#2875](https://github.com/grayscale-lang/grayscale/issues/2875)) ([ec9aa87](https://github.com/grayscale-lang/grayscale/commit/ec9aa87a6ce0f5f16ec688d51a0320d16f755e18))
+* **codegen:** zero-fill a fixed-size struct field given fewer elements than its length ([1293138](https://github.com/grayscale-lang/grayscale/commit/1293138d81700b0235109bdee3a0eb364adfc458))
+* **codegen:** zero-filled [T, N] slots hold the element type's zero value ([#2842](https://github.com/grayscale-lang/grayscale/issues/2842)) ([4da468e](https://github.com/grayscale-lang/grayscale/commit/4da468e7861caec78186bc41b205b3bb2dacea7f))
+* **math:** panic on overflow in factorial, lcm, gcd, abs and neg ([#2785](https://github.com/grayscale-lang/grayscale/issues/2785)) ([3532e4c](https://github.com/grayscale-lang/grayscale/commit/3532e4cc2ef2c2e4985f0ee3f186d2c68031923c))
+* **math:** return the argument type from min, max and clamp ([#2866](https://github.com/grayscale-lang/grayscale/issues/2866)) ([a106897](https://github.com/grayscale-lang/grayscale/commit/a106897ea88d9fa79912ae545f82d57247db978c))
+* **math:** support i128, i256 and u128 arguments in abs and neg ([#2874](https://github.com/grayscale-lang/grayscale/issues/2874)) ([e279e66](https://github.com/grayscale-lang/grayscale/commit/e279e661e8d48959ef6b830c5032cb05267b6a34))
+* **parser:** accept a lowercase type alias as the first type in a multi-value return ([#2850](https://github.com/grayscale-lang/grayscale/issues/2850)) ([6821456](https://github.com/grayscale-lang/grayscale/commit/6821456b45fa9a53d9549580342bf540d24edcc0))
+* **parser:** parse a fixed-size array of any element type ([#2841](https://github.com/grayscale-lang/grayscale/issues/2841)) ([cc44edc](https://github.com/grayscale-lang/grayscale/commit/cc44edc8a3bdb3e1f3843a3d8cf5102ffe241ea9))
+* **parser:** stop an E3134 alias error from skipping the next declaration ([#2897](https://github.com/grayscale-lang/grayscale/issues/2897)) ([8d1aba8](https://github.com/grayscale-lang/grayscale/commit/8d1aba8ba6a42106be6c53ecbe68518d6f50fc0c))
+* **stdlib:** make http and server share one HttpResponse type ([#2886](https://github.com/grayscale-lang/grayscale/issues/2886)) ([3c0331e](https://github.com/grayscale-lang/grayscale/commit/3c0331ea11affd03dddc621804b0abdad0ee176d))
+* **tests:** update codegen e2e tests to the one-signature error and threads.spawn ([bc52de3](https://github.com/grayscale-lang/grayscale/commit/bc52de36763828413289febf5e171deae5dfc092))
+* **typechecker:** accept an array or map literal reassigned to a variable with sized elements ([47bae94](https://github.com/grayscale-lang/grayscale/commit/47bae94fc5361ab53112157d9af96715b58e3143))
+* **typechecker:** check the length of a non-literal value stored into a fixed-size struct field at runtime ([#2830](https://github.com/grayscale-lang/grayscale/issues/2830)) ([64db2d2](https://github.com/grayscale-lang/grayscale/commit/64db2d21b191a27fe4c03ef2565e0301a5ce9a11))
+* **typechecker:** enforce signedness for 128- and 256-bit integers in fmt %d and %u directives ([6d582ff](https://github.com/grayscale-lang/grayscale/commit/6d582fffeee7c2ca691fdad10a65a5f3281c2d08))
+* **typechecker:** give a narrow operand combined with a wide integer the wide type ([73c6160](https://github.com/grayscale-lang/grayscale/commit/73c6160a7287ed1a084958190a9d1cb4d42abb4e))
+* **typechecker:** print the whole fixed-size array type in E3054 ([#2894](https://github.com/grayscale-lang/grayscale/issues/2894)) ([0ebcb1a](https://github.com/grayscale-lang/grayscale/commit/0ebcb1a15ebfddcb95042353340d2fe10515e6c6))
+* **typechecker:** reject a one-argument random.rand_f64 or random.rand_char call with E5008 ([#2882](https://github.com/grayscale-lang/grayscale/issues/2882)) ([0285832](https://github.com/grayscale-lang/grayscale/commit/028583254d749ccad4c360c7839c6827de26da07))
+* **typechecker:** reject an alias whose target is not a type ([#2891](https://github.com/grayscale-lang/grayscale/issues/2891)) ([3255738](https://github.com/grayscale-lang/grayscale/commit/3255738323d209eae294482abac6922dec7fc348))
+* **typechecker:** reject returning a wide integer as a narrower or differently signed integer ([ea44ea3](https://github.com/grayscale-lang/grayscale/commit/ea44ea3926d4455459a098b3ff1bb01b506a7243))
+* **typechecker:** report an f64 strings.repeat count or strings.slice bound once ([#2878](https://github.com/grayscale-lang/grayscale/issues/2878)) ([2dec0a7](https://github.com/grayscale-lang/grayscale/commit/2dec0a76f3214d7e02594c85957b438282951b6e))
+* **typechecker:** report an undefined parameter or return type inside a func(...) type with E4016 ([#2854](https://github.com/grayscale-lang/grayscale/issues/2854)) ([68f5f66](https://github.com/grayscale-lang/grayscale/commit/68f5f6621e8bce23432bd79cafef491642ea60e5))
+* **typechecker:** require a ^i64 pointer argument for the 64-bit atomic functions ([#2868](https://github.com/grayscale-lang/grayscale/issues/2868)) ([82d6311](https://github.com/grayscale-lang/grayscale/commit/82d6311467e5c1cc7bdec31f891f8c31c081e1f9))
+
+
+### Performance Improvements
+
+* **typechecker:** index file-scope const integers in a hash table instead of scanning them linearly ([5836cd1](https://github.com/grayscale-lang/grayscale/commit/5836cd1ca5bf35d5c6dbcba5546858892c2a6440))
+
+## [0.10.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.9.1...grayscale-v0.10.0) (2026-09-22)
+
+
+### Features
+
+* **range:** support i128, u128, i256 and u256 bounds ([#2819](https://github.com/grayscale-lang/grayscale/issues/2819)) ([098acc6](https://github.com/grayscale-lang/grayscale/commit/098acc66b9bac4802a0afc8299f6f0db1bfba906))
+
+
+### Bug Fixes
+
+* **build:** link fmt.c into sanitizer test builds ([#2803](https://github.com/grayscale-lang/grayscale/issues/2803)) ([d76a07b](https://github.com/grayscale-lang/grayscale/commit/d76a07b0709aaf7fdafccde7c68a0f50674619d4))
+* **codegen:** copy a composite stored into or read out of a container element ([#2799](https://github.com/grayscale-lang/grayscale/issues/2799)) ([a3a7956](https://github.com/grayscale-lang/grayscale/commit/a3a7956c610b2d87d794bf8b02f1e449e9e9fc54))
+* **codegen:** evaluate the range end and step once before the loop ([#2816](https://github.com/grayscale-lang/grayscale/issues/2816)) ([9631122](https://github.com/grayscale-lang/grayscale/commit/963112218cf4b226a5e0e348e96db29e7feee4d4))
+* **codegen:** interpolate nested arrays, maps, and structs with the formatter println uses ([#2793](https://github.com/grayscale-lang/grayscale/issues/2793)) ([fe98fb9](https://github.com/grayscale-lang/grayscale/commit/fe98fb977e1269153c64ec1688230ea23b6d97ed))
+* **codegen:** let a local binding hide a same-named member brought in by using ([#2797](https://github.com/grayscale-lang/grayscale/issues/2797)) ([20d0f38](https://github.com/grayscale-lang/grayscale/commit/20d0f384fd5c4144e904af52a356b43dae21d2b4))
+* **codegen:** stop in/not_in and when-is range() leaking C errors on bigint bounds ([#2819](https://github.com/grayscale-lang/grayscale/issues/2819)) ([0fbac8b](https://github.com/grayscale-lang/grayscale/commit/0fbac8be4743b0f17b5e8cebea75e4df7057a1ac))
+* **extern:** probe extern signatures and match C errors under gcc as well as clang ([#2805](https://github.com/grayscale-lang/grayscale/issues/2805)) ([c8d5374](https://github.com/grayscale-lang/grayscale/commit/c8d53746ca7e8343fdd7c83b51495a9783555aea))
+* **stdlib:** omit zero components from time.format_duration ([#2800](https://github.com/grayscale-lang/grayscale/issues/2800)) ([c72e74e](https://github.com/grayscale-lang/grayscale/commit/c72e74e8390dd41b708f85ee7bb5312958d3d99f))
+* **typechecker:** don't implicitly-declare an assignment target that names a global declared later ([#2820](https://github.com/grayscale-lang/grayscale/issues/2820)) ([968fc46](https://github.com/grayscale-lang/grayscale/commit/968fc46b1e963ee186d86d3f92189f64d36e73a1))
+* **typechecker:** enforce const and read-only module variables on writes through a module-qualified path ([#2773](https://github.com/grayscale-lang/grayscale/issues/2773)) ([3403e43](https://github.com/grayscale-lang/grayscale/commit/3403e43fb7f6d93c1803802617fd7f03712343cb))
+* **typechecker:** reject a module-qualified type name passed to fields() ([b34211c](https://github.com/grayscale-lang/grayscale/commit/b34211c5eb4f86528893f83a406b2de2892f4b7a))
+* **typechecker:** reject a negative literal assigned to u128 or u256 ([#2819](https://github.com/grayscale-lang/grayscale/issues/2819)) ([34fe751](https://github.com/grayscale-lang/grayscale/commit/34fe751ee5dbb1778c624afc5313b1f65a6d5d93))
+* **typechecker:** reject private struct, enum and alias names written in expressions ([#2787](https://github.com/grayscale-lang/grayscale/issues/2787)) ([ba21450](https://github.com/grayscale-lang/grayscale/commit/ba214503b232eb3769fa72afdc60303d7e324f04))
+* **typechecker:** report a mismatched call argument once instead of twice ([#2771](https://github.com/grayscale-lang/grayscale/issues/2771)) ([9abf4d6](https://github.com/grayscale-lang/grayscale/commit/9abf4d6beb5ed548fbc0389dccaca20403f1d786))
+* **typechecker:** report the initializer's error, not an undefined variable, for a bare declaration with a void or unknown initializer ([#2772](https://github.com/grayscale-lang/grayscale/issues/2772)) ([e8504f5](https://github.com/grayscale-lang/grayscale/commit/e8504f54db9887049587d572886233d192be4d30))
+* **typechecker:** report unused private functions and skip public functions of imported modules in W1003 ([#2796](https://github.com/grayscale-lang/grayscale/issues/2796)) ([bc66149](https://github.com/grayscale-lang/grayscale/commit/bc66149d1789514fa67c5c3db8837e5dfe5ea649))
+* **typechecker:** scope module imports to the file that declares them ([#2769](https://github.com/grayscale-lang/grayscale/issues/2769)) ([901c2f4](https://github.com/grayscale-lang/grayscale/commit/901c2f4e585a6dd1326e4ee47a3781e3dde1f445))
+* **typechecker:** stop E6008 from rejecting writes into a module container's existing elements ([#2821](https://github.com/grayscale-lang/grayscale/issues/2821)) ([887f5f4](https://github.com/grayscale-lang/grayscale/commit/887f5f4e81b75359ee2cfb5c37e8c2a82ac4ef33))
+
+
+### Performance Improvements
+
+* **codegen:** emit no arenas or scope marks for allocation-free loops and ifs ([#2813](https://github.com/grayscale-lang/grayscale/issues/2813)) ([3453dfc](https://github.com/grayscale-lang/grayscale/commit/3453dfc52db72a8e8a16473c55c5f830e1d152ef))
+* **codegen:** skip the scope mark for functions that never allocate ([ba6150f](https://github.com/grayscale-lang/grayscale/commit/ba6150feb2a21833670ab33f4cd9379ad95d07c9))
+* **crypto:** use ARMv8 SHA2 instructions for SHA-256 compression ([#2818](https://github.com/grayscale-lang/grayscale/issues/2818)) ([019cf66](https://github.com/grayscale-lang/grayscale/commit/019cf667cc5bb9e53558be8f304c17a3c52e0b3e))
+* **runtime:** inline gray_scope_save and gray_scope_restore ([#2814](https://github.com/grayscale-lang/grayscale/issues/2814)) ([6618d18](https://github.com/grayscale-lang/grayscale/commit/6618d185f57521b2fbd1240deefab3842e4879b8))
+* **runtime:** inline the array index bounds check with an out-of-line panic path ([#2815](https://github.com/grayscale-lang/grayscale/issues/2815)) ([34b925d](https://github.com/grayscale-lang/grayscale/commit/34b925da4948236a3f670decf3cf51639f6185db))
+* **runtime:** un-inline gray_scope_save and gray_scope_restore ([f48028e](https://github.com/grayscale-lang/grayscale/commit/f48028e002bb7771d910d5841696aa68f9c73364))
+
+## [0.9.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.9.0...grayscale-v0.9.1) (2026-09-21)
+
+
+### Bug Fixes
+
+* **arrays:** stop narrowing the chunk size of arrays.split_every to 32 bits ([736d2f9](https://github.com/grayscale-lang/grayscale/commit/736d2f9f06a8e57ee85b2f291c0ee31bb148e648))
+* **codegen:** accept any array expression as the second argument of arrays.is_equal ([#2777](https://github.com/grayscale-lang/grayscale/issues/2777)) ([2184861](https://github.com/grayscale-lang/grayscale/commit/2184861f316bbc1bb40ac758416237a24d684e8e))
+* **codegen:** allocate stores into module-level containers outside the function scope arena ([#2774](https://github.com/grayscale-lang/grayscale/issues/2774)) ([f4421af](https://github.com/grayscale-lang/grayscale/commit/f4421afe03992b1fafcf31da75c23a21a6e31458))
+* **codegen:** allocate stores through a module-qualified variable outside the function scope arena ([fd101ac](https://github.com/grayscale-lang/grayscale/commit/fd101aca533b7139a91e64c8e19e148dd93b641e))
+* **codegen:** emit an array element reached through a pointer as an lvalue ([#2770](https://github.com/grayscale-lang/grayscale/issues/2770)) ([8adcd8c](https://github.com/grayscale-lang/grayscale/commit/8adcd8ce073cab633b7bbc3f1641f369d8063dba))
+* **random:** stop narrowing the count of random.sample to 32 bits before the bounds check ([9726d5f](https://github.com/grayscale-lang/grayscale/commit/9726d5f65bc73f4a4708072950087f8703529478))
+* **runtime:** give array capacity overflow its own panic code instead of reusing P0035 ([cf9b560](https://github.com/grayscale-lang/grayscale/commit/cf9b56004c4be101aefdf79cb76a8eadaa57c3e9))
+* **runtime:** read sized numeric array and map elements at their stored width in string interpolation ([#2782](https://github.com/grayscale-lang/grayscale/issues/2782)) ([3bfb3be](https://github.com/grayscale-lang/grayscale/commit/3bfb3bed502672cc54b83a3f4d81de17bcc6c4ff))
+* **runtime:** stop narrowing int indexes and counts to 32 bits before the bounds check ([#2784](https://github.com/grayscale-lang/grayscale/issues/2784)) ([15b6e8b](https://github.com/grayscale-lang/grayscale/commit/15b6e8b8f229c553e03cef99d86b45ac12145c10))
+* **stdlib:** check buffer-size arithmetic in strings.repeat and fmt.pad_left/pad_right/center ([#2780](https://github.com/grayscale-lang/grayscale/issues/2780)) ([312e16b](https://github.com/grayscale-lang/grayscale/commit/312e16b65396beb3105a4423826082b30eb51f30))
+* **stdlib:** decode string escapes and keep nested values intact in json.decode and json.parse ([#2791](https://github.com/grayscale-lang/grayscale/issues/2791)) ([b1792d6](https://github.com/grayscale-lang/grayscale/commit/b1792d6f4aff32a78b996278e7e0f5648ca54690))
+* **stdlib:** size arrays.flatten elements from the inner arrays instead of assuming 8 bytes ([#2779](https://github.com/grayscale-lang/grayscale/issues/2779)) ([4c98c83](https://github.com/grayscale-lang/grayscale/commit/4c98c83a34117799dc512f1c8722a16a9cb7309e))
+* **strconv:** stop narrowing the base of to_int and to_uint to 32 bits before the range check ([1b2d188](https://github.com/grayscale-lang/grayscale/commit/1b2d188b0220dc65991bc180e45953890892fc6a))
+* **typechecker:** accept a nested array literal for [[T]] and map[K:[T]] when T is a sized numeric type ([#2786](https://github.com/grayscale-lang/grayscale/issues/2786)) ([7c1d751](https://github.com/grayscale-lang/grayscale/commit/7c1d751a14023f813298274d3ac2f0958f6298ab))
+* **typechecker:** check extern call argument kinds against the C parameter types ([#2794](https://github.com/grayscale-lang/grayscale/issues/2794)) ([089f8fb](https://github.com/grayscale-lang/grayscale/commit/089f8fb064d393cb9e8eeedb0b0c8aee272a6339))
+* **typechecker:** check extern struct returns and c_string() arguments against the C return type ([#2795](https://github.com/grayscale-lang/grayscale/issues/2795)) ([3284983](https://github.com/grayscale-lang/grayscale/commit/3284983226d5cfab2b8bba43ceeaba2c4d3bb471))
+* **typechecker:** keep const protection on a pointer through enum payloads, tuple destructures, returned aggregates and pointer-to-pointer ([#2776](https://github.com/grayscale-lang/grayscale/issues/2776)) ([6331565](https://github.com/grayscale-lang/grayscale/commit/6331565ddf70b5d54f590381e803ea0d52c4c71a))
+* **typechecker:** reject an extern C value assigned to a map element or nested field ([#2775](https://github.com/grayscale-lang/grayscale/issues/2775)) ([bd69adb](https://github.com/grayscale-lang/grayscale/commit/bd69adb2977adb48cb02f2f89cd5841b51509f88))
+* **typechecker:** resolve a func reference to a struct function through a module ([#2788](https://github.com/grayscale-lang/grayscale/issues/2788)) ([ce09da2](https://github.com/grayscale-lang/grayscale/commit/ce09da2d239b5bfdea9bb2c795c631f96fe2d75d))
+* **typechecker:** type arrays.split_every and arrays.pair as [[T]] for the input element type ([#2778](https://github.com/grayscale-lang/grayscale/issues/2778)) ([5618a6e](https://github.com/grayscale-lang/grayscale/commit/5618a6ec9b98d4bb5e354c18189568ca69d5e03d))
+
+## [0.9.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.8.4...grayscale-v0.9.0) (2026-09-19)
+
+
+### Features
+
+* **arrays:** add binary_search, rotate, min_index, max_index ([#2436](https://github.com/grayscale-lang/grayscale/issues/2436)) ([474d171](https://github.com/grayscale-lang/grayscale/commit/474d171d6624e7930b81fd880e043d6c7c407a66))
+* **chars:** add width, string_width for Unicode display width ([#2638](https://github.com/grayscale-lang/grayscale/issues/2638)) ([7b9d786](https://github.com/grayscale-lang/grayscale/commit/7b9d786c71d3412ee072e186bf181175edba8f56))
+* **json:** struct field tags for #json serialization ([#2722](https://github.com/grayscale-lang/grayscale/issues/2722)) ([ad75a7c](https://github.com/grayscale-lang/grayscale/commit/ad75a7ce7e04650bde1d04ab74ffe46a05ff9f5e))
+* **json:** support enum fields in #json structs, serialized by backing type ([#2564](https://github.com/grayscale-lang/grayscale/issues/2564)) ([e63f1eb](https://github.com/grayscale-lang/grayscale/commit/e63f1eba1001070509d06776329eb90a26000741))
+* **os:** add home_dir, lookup_env, environ ([#2438](https://github.com/grayscale-lang/grayscale/issues/2438)) ([5870485](https://github.com/grayscale-lang/grayscale/commit/58704853c0f7b6a80c32d8896a79e4bc990be9f0))
+* **structs:** fixed-size array struct fields ([#2609](https://github.com/grayscale-lang/grayscale/issues/2609)) ([e84dea5](https://github.com/grayscale-lang/grayscale/commit/e84dea5d22855e675ca71a87ee0efaaee10b933a))
+
+
+### Bug Fixes
+
+* **arrays:** correct byte/char stride in min_index/max_index/binary_search ([#2436](https://github.com/grayscale-lang/grayscale/issues/2436)) ([daee179](https://github.com/grayscale-lang/grayscale/commit/daee1791dc84983c8632ff11dbe54a7bdc456df3))
+* **arrays:** correct byte/char stride in sort_asc/sort_desc ([07ac8c1](https://github.com/grayscale-lang/grayscale/commit/07ac8c1933aa2a08a902b65bb94ac9ddb6a6f499))
+* **cli:** keep #doc when another attribute sits between it and the declaration ([#2762](https://github.com/grayscale-lang/grayscale/issues/2762)) ([ae395f5](https://github.com/grayscale-lang/grayscale/commit/ae395f5f00630fb16c20e7781de1dc6a63b82def))
+* **cli:** keep raw C compiler warnings off stderr for a build that succeeds ([#2757](https://github.com/grayscale-lang/grayscale/issues/2757)) ([f0918df](https://github.com/grayscale-lang/grayscale/commit/f0918df9b82d4c68d013149306624aa5a02f25cc))
+* **cli:** make gray check reach extern.func()/extern.CONST validation ([7316919](https://github.com/grayscale-lang/grayscale/commit/73169197d7ae95f39247927561092e8b3f0df264))
+* **cli:** make gray cross build produce a binary for the linux and mac targets ([#2763](https://github.com/grayscale-lang/grayscale/issues/2763)) ([ef0fdab](https://github.com/grayscale-lang/grayscale/commit/ef0fdab998a89d939b0207fe484ec66473983a13))
+* **cli:** match the compiler's macro-redefinition warning by text both gcc and clang emit ([36e0824](https://github.com/grayscale-lang/grayscale/commit/36e08241f8a6a10ed03ad630772c289acb4e6c5a))
+* **cli:** report a native crash and keep the program's real exit status ([#2758](https://github.com/grayscale-lang/grayscale/issues/2758)) ([f9fb2dc](https://github.com/grayscale-lang/grayscale/commit/f9fb2dca21147becacca5ab3a736b5a2a75f4e87))
+* **cli:** report two imported C headers that declare a symbol differently ([#2756](https://github.com/grayscale-lang/grayscale/issues/2756)) ([a876c65](https://github.com/grayscale-lang/grayscale/commit/a876c656936aa76e354dd817a9bd52edd3d48a8a))
+* **cli:** wire formatGraySource into gray fmt ([#2690](https://github.com/grayscale-lang/grayscale/issues/2690)) ([c1c3a7a](https://github.com/grayscale-lang/grayscale/commit/c1c3a7a1f27a0116028b44a031b988eeeb624b63))
+* **codegen:** compile an opaque runtime handle global declared with no initializer ([#2760](https://github.com/grayscale-lang/grayscale/issues/2760)) ([0e5966a](https://github.com/grayscale-lang/grayscale/commit/0e5966a496ce4ca46acf9864d69d5480d318c7c2))
+* **codegen:** defer value-less file-scope struct globals with array/map fields ([eb072e9](https://github.com/grayscale-lang/grayscale/commit/eb072e9dfad31fe2e9fc2817a599982a461febbe))
+* **codegen:** disambiguate same-named local C headers from different directories ([#2729](https://github.com/grayscale-lang/grayscale/issues/2729)) ([563fdd9](https://github.com/grayscale-lang/grayscale/commit/563fdd95b31b865be0efd8e3076c627e79826737))
+* **codegen:** generate a dedicated json.stringify path for arrays of #json structs ([67ed49c](https://github.com/grayscale-lang/grayscale/commit/67ed49c8e9cc03b02578078327ed93d0a4ce5aee))
+* **codegen:** keep file-scope struct globals' deferred-init placeholder a C constant ([c381e06](https://github.com/grayscale-lang/grayscale/commit/c381e06302879ed1f4b6af7fe1e24254933e6a62))
+* **codegen:** only range-check uint/u64 narrowing for extern-sourced values ([701a98c](https://github.com/grayscale-lang/grayscale/commit/701a98c62800819b953277b6c3d952a02f05d94b))
+* **codegen:** parse a wide-integer parameter default through the bigint path ([b640d67](https://github.com/grayscale-lang/grayscale/commit/b640d67b2ae40cc5b3c3db31cbda21feccb67544))
+* **codegen:** parse a wide-integer struct field default through the bigint path ([#2750](https://github.com/grayscale-lang/grayscale/issues/2750)) ([1b8091d](https://github.com/grayscale-lang/grayscale/commit/1b8091d0428f36071710899e219f046f13d9b285))
+* **codegen:** range-check an extern C-interop result narrowed to uint/u64 by declaration or cast ([a811fec](https://github.com/grayscale-lang/grayscale/commit/a811fec2bea3e2ab5209585ad6c0e05a3b6ef47c))
+* **codegen:** range-check uint/u64 narrowing for extern C-interop values ([#2726](https://github.com/grayscale-lang/grayscale/issues/2726)) ([969dc24](https://github.com/grayscale-lang/grayscale/commit/969dc242d9f3fda5cb1ffbc68f1113a8e431347f))
+* **codegen:** read is_sorted's narrower-than-int64 elements at their real width ([8515371](https://github.com/grayscale-lang/grayscale/commit/8515371807e86d789ad1593a1add3d3aa1b310b8))
+* **codegen:** recursively default fixed-array fields when a struct is zero-constructed ([1aa330f](https://github.com/grayscale-lang/grayscale/commit/1aa330f8831ed726187c261d492ff0482960bd28))
+* **codegen:** ring-buffer the module-qualified C type name in gray_type_to_c_codegen ([fe9cbdc](https://github.com/grayscale-lang/grayscale/commit/fe9cbdc791bcd646ebedbb4a1b8f7d2b9397c215))
+* **codegen:** ring-buffer the user-struct C type name in gray_type_to_c_codegen ([#2736](https://github.com/grayscale-lang/grayscale/issues/2736)) ([d001707](https://github.com/grayscale-lang/grayscale/commit/d001707a9f00257469e0e8eaf9f47af69cb066ae))
+* **codegen:** sort enum-element arrays at their real width in arrays.sort_asc/sort_desc ([765f06f](https://github.com/grayscale-lang/grayscale/commit/765f06fbfa76867146d2c64dd1e138ad43e1e258))
+* **imports:** resolve local extern import headers against the importing file's directory ([#2729](https://github.com/grayscale-lang/grayscale/issues/2729)) ([1b60e1b](https://github.com/grayscale-lang/grayscale/commit/1b60e1bb83e4acad72548b5b6b13b5865aa2f22b))
+* **imports:** warn instead of erroring on a directory-then-file redundant import ([#2743](https://github.com/grayscale-lang/grayscale/issues/2743)) ([a25d537](https://github.com/grayscale-lang/grayscale/commit/a25d5373a56a0fc856236e358a272a7f76793890))
+* **json:** scope #json field tag consistency (E3171) per struct ([#2722](https://github.com/grayscale-lang/grayscale/issues/2722)) ([89257a5](https://github.com/grayscale-lang/grayscale/commit/89257a54f48eb74725ba43d4b026b2a04c017e76))
+* **lexer:** don't lex !in as the not_in operator when 'in' starts a longer identifier ([#2631](https://github.com/grayscale-lang/grayscale/issues/2631)) ([73f2170](https://github.com/grayscale-lang/grayscale/commit/73f217079bcd02cb9e7edf2960d8d455bd87d796))
+* **main:** diagnose a misspelled extern.func()/extern.CONST name ([#2730](https://github.com/grayscale-lang/grayscale/issues/2730)) ([2e0e805](https://github.com/grayscale-lang/grayscale/commit/2e0e8054497dc1e5f84b9bc144d9ecbdf4600b95))
+* **main:** parse E5050 param count for C functions returning a function pointer ([#2728](https://github.com/grayscale-lang/grayscale/issues/2728)) ([ccdeaef](https://github.com/grayscale-lang/grayscale/commit/ccdeaef18f8b429e3a528895116d8dd46b8175d5))
+* **main:** stop E6015 help text from claiming a per-target import guard exists ([#2734](https://github.com/grayscale-lang/grayscale/issues/2734)) ([da14687](https://github.com/grayscale-lang/grayscale/commit/da1468704c8d8026d98a23efd2ce0013610f04b9))
+* **parser:** parse a hex/octal/binary literal wider than 64 bits into a wide integer ([#2764](https://github.com/grayscale-lang/grayscale/issues/2764)) ([76292c7](https://github.com/grayscale-lang/grayscale/commit/76292c7c906eabdc29f37aa5a15d04f06c013194))
+* **runtime:** make a bare panic() inside a #test fail only that test ([#2761](https://github.com/grayscale-lang/grayscale/issues/2761)) ([e39b5de](https://github.com/grayscale-lang/grayscale/commit/e39b5de447aa0e6fbbe43ba3bf610dca7b611d59))
+* **stdlib:** add unsigned paths to math.abs/min/max/clamp ([#2737](https://github.com/grayscale-lang/grayscale/issues/2737)) ([7ee9991](https://github.com/grayscale-lang/grayscale/commit/7ee9991747c23949b837c7b67b99273793c30332))
+* **stdlib:** decode/encode UTF-8 codepoints in strings.to_chars/from_chars ([#2747](https://github.com/grayscale-lang/grayscale/issues/2747)) ([39e7b13](https://github.com/grayscale-lang/grayscale/commit/39e7b135293016b4b92148077abadd7959e91d36))
+* **stdlib:** make time module's calendar/formatting functions UTC, not local time ([#2753](https://github.com/grayscale-lang/grayscale/issues/2753)) ([f824482](https://github.com/grayscale-lang/grayscale/commit/f824482d43158ea29a8013e49e62d378dcdfc44c))
+* **stdlib:** UTF-8-encode the pad character in fmt.pad_left/pad_right/center ([#2748](https://github.com/grayscale-lang/grayscale/issues/2748)) ([825b166](https://github.com/grayscale-lang/grayscale/commit/825b166f9268c21b8b342f58aee1ea4c402ae6fc))
+* **typechecker:** accept pointer parameters and returns in a C callback ([#2742](https://github.com/grayscale-lang/grayscale/issues/2742)) ([e02b327](https://github.com/grayscale-lang/grayscale/commit/e02b327b5a070a1c816240fbf8920b6085d257c1))
+* **typechecker:** apply E5051 fixed-array guard through pointer auto-deref ([#2609](https://github.com/grayscale-lang/grayscale/issues/2609)) ([6c8f33d](https://github.com/grayscale-lang/grayscale/commit/6c8f33ddb50a54ecb77b7e0dc651ead02a11822f))
+* **typechecker:** auto-address the receiver when a pointer-receiver struct function is called through an instance ([#2744](https://github.com/grayscale-lang/grayscale/issues/2744)) ([a417a50](https://github.com/grayscale-lang/grayscale/commit/a417a50324982d8766509669b328c63580a9b907))
+* **typechecker:** catch E5051 through a fixed struct field passed by mutable reference param ([84e7e18](https://github.com/grayscale-lang/grayscale/commit/84e7e180a38a14c9a14d99734e73e2ff058e924a))
+* **typechecker:** check fixed-size struct field length on reassignment, not just construction ([c13b979](https://github.com/grayscale-lang/grayscale/commit/c13b979c75bc4bc7195350711c0cc113a98a17a1))
+* **typechecker:** coerce arrays.reduce's literal initial value to the accumulator type ([#2741](https://github.com/grayscale-lang/grayscale/issues/2741)) ([834888a](https://github.com/grayscale-lang/grayscale/commit/834888a6b521b699771e9ba5cf117a52f996ca58))
+* **typechecker:** exempt int-backed enum arrays from the arrays sum/min/max numeric check ([53f0c33](https://github.com/grayscale-lang/grayscale/commit/53f0c3357fa0a5df0424d16637184d9568b6f94e))
+* **typechecker:** keep a const-sourced pointer read-only through function returns, struct fields, array elements and map values ([#2766](https://github.com/grayscale-lang/grayscale/issues/2766)) ([ad410ae](https://github.com/grayscale-lang/grayscale/commit/ad410ae370daa37af1254fdc90bdb0545fccdf3f))
+* **typechecker:** let #strict when over a bool subject be satisfied by handling true and false ([#2751](https://github.com/grayscale-lang/grayscale/issues/2751)) ([2944960](https://github.com/grayscale-lang/grayscale/commit/294496064a05723c5d745ec25302866368d396bc))
+* **typechecker:** propagate E3154 stack-address-to-C guard through pointer-parameter functions ([#2732](https://github.com/grayscale-lang/grayscale/issues/2732)) ([c12a3a6](https://github.com/grayscale-lang/grayscale/commit/c12a3a6bf319c0ff976c8b08ec1aa6ca62efc2a0))
+* **typechecker:** reject a #flags enum variant whose value is not a single bit ([#2765](https://github.com/grayscale-lang/grayscale/issues/2765)) ([9231c27](https://github.com/grayscale-lang/grayscale/commit/9231c274b47535ffb9a3e0f2b71bb20dcbf8e711))
+* **typechecker:** reject a literal zero/negative fixed-size array size ([fe1d587](https://github.com/grayscale-lang/grayscale/commit/fe1d587439fc155eadc28db517f182801dbe3190))
+* **typechecker:** reject a multi-value or fallible call as a defer/ensure statement ([#2745](https://github.com/grayscale-lang/grayscale/issues/2745)) ([d3db697](https://github.com/grayscale-lang/grayscale/commit/d3db6973115ceaf5dc9e9cc1ebb38ef7c8a5ba67))
+* **typechecker:** reject a pointer to a const-declared variable passed to a function that writes through it ([1a85922](https://github.com/grayscale-lang/grayscale/commit/1a85922325da70f41e0a76ed47704737e6463b5f))
+* **typechecker:** reject a private func/const/mut used by bare name from a sibling file of its directory module ([#2739](https://github.com/grayscale-lang/grayscale/issues/2739)) ([2a401e6](https://github.com/grayscale-lang/grayscale/commit/2a401e66777019b96eb3bc8defca8dcc22ff5c3d))
+* **typechecker:** reject arrays.fill on a fixed struct field when count doesn't match its size ([e62c48b](https://github.com/grayscale-lang/grayscale/commit/e62c48b2619893be152cfe6f8fc3a4e95c745adb))
+* **typechecker:** reject bare function references to generic functions ([#2735](https://github.com/grayscale-lang/grayscale/issues/2735)) ([3456f9f](https://github.com/grayscale-lang/grayscale/commit/3456f9f61e1d76f7d1f232a311d8e7370ce90a72))
+* **typechecker:** reject fallible/multi-return calls in parameter defaults ([#2746](https://github.com/grayscale-lang/grayscale/issues/2746)) ([e549305](https://github.com/grayscale-lang/grayscale/commit/e5493051c491ffa57c82271cfcb56057a8999be0))
+* **typechecker:** reject string/array/map/struct C-callback params ([#2727](https://github.com/grayscale-lang/grayscale/issues/2727)) ([faad15a](https://github.com/grayscale-lang/grayscale/commit/faad15a93a2e4d8092a01aa53675ab423dc63105))
+* **typechecker:** reject struct-element arrays in arrays functions requiring a comparable type ([c2c018e](https://github.com/grayscale-lang/grayscale/commit/c2c018e141db4ac9b5f8f956d14337e716a89841))
+* **typechecker:** report a generic function body's diagnostics once, not again per instantiation ([#2749](https://github.com/grayscale-lang/grayscale/issues/2749)) ([e51103c](https://github.com/grayscale-lang/grayscale/commit/e51103cbb40f100167129d584c726234edbca438))
+* **typechecker:** require the #json attribute at json.parse/stringify call sites ([3a9b350](https://github.com/grayscale-lang/grayscale/commit/3a9b35014960b2bbf19cf414c34902cf7b999445))
+* **typechecker:** resolve E3158 C-callback check through variable indirection ([#2731](https://github.com/grayscale-lang/grayscale/issues/2731)) ([3837f80](https://github.com/grayscale-lang/grayscale/commit/3837f80856c1f144880cc9006b6c09bb0eaafeaa))
+* **typechecker:** stop #strict on err.code from flooding 19 redundant E3056 errors ([#2752](https://github.com/grayscale-lang/grayscale/issues/2752)) ([e454f1e](https://github.com/grayscale-lang/grayscale/commit/e454f1e8f05cc7a90919c50d9af02e92a63927fc))
+* **typechecker:** stop E3163 from naming the same variable in both message slots ([#2755](https://github.com/grayscale-lang/grayscale/issues/2755)) ([2a9976e](https://github.com/grayscale-lang/grayscale/commit/2a9976e1045b265d5b1211eb1dc5c89034ffc254))
+* **typechecker:** stop rejecting a pointer passed through a callback-taking function whose callback is known and safe ([#2754](https://github.com/grayscale-lang/grayscale/issues/2754)) ([da75341](https://github.com/grayscale-lang/grayscale/commit/da7534185b33a44f563521af7d9b300dfe2770aa))
+* **typechecker:** type-check struct field default values ([#2740](https://github.com/grayscale-lang/grayscale/issues/2740)) ([e879416](https://github.com/grayscale-lang/grayscale/commit/e87941684b1d0c13a87214748d0e421a20f5d9f3))
+* **typechecker:** validate an extern C call's declared or cast type against the real C return type ([#2738](https://github.com/grayscale-lang/grayscale/issues/2738)) ([02dfa59](https://github.com/grayscale-lang/grayscale/commit/02dfa5999e9f615b79bfb78c33125f77c0f406f0))
+* **typechecker:** validate arrays.rotate's shift-count argument type ([44aef60](https://github.com/grayscale-lang/grayscale/commit/44aef6087766866ade2c0229e3d59db1100de2a4))
+* **typechecker:** validate C-callback return type for E3158 ([#2733](https://github.com/grayscale-lang/grayscale/issues/2733)) ([6c13f02](https://github.com/grayscale-lang/grayscale/commit/6c13f0216ab0918a598f7812da6509aeee883580))
+
+## [0.8.4](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.8.3...grayscale-v0.8.4) (2026-09-14)
+
+
+### Bug Fixes
+
+* **cli:** detect doc() attribute inside grouped #[...] lists ([#2720](https://github.com/grayscale-lang/grayscale/issues/2720)) ([662bf31](https://github.com/grayscale-lang/grayscale/commit/662bf312cc5ef14b2dab2b9a6ea70832d23b0c9f))
+* **fmt:** preserve multi-line call/index argument indentation ([#2723](https://github.com/grayscale-lang/grayscale/issues/2723)) ([d51c113](https://github.com/grayscale-lang/grayscale/commit/d51c113182d6f285ef133a9233c26a2f6ae3ba21))
+* **fmt:** preserve multi-line collection-literal and boolean-chain continuations ([#2723](https://github.com/grayscale-lang/grayscale/issues/2723)) ([755c696](https://github.com/grayscale-lang/grayscale/commit/755c696eca7a2934ee13b914ef6158dc667ee3c7))
+* **fmt:** stop corrupting block and line comments ([#2603](https://github.com/grayscale-lang/grayscale/issues/2603)) ([2288201](https://github.com/grayscale-lang/grayscale/commit/2288201a1a3b1fb7e9db4824c5c8c2301a263202))
+* **interop:** validate extern.* call arg counts against the real header ([#2719](https://github.com/grayscale-lang/grayscale/issues/2719)) ([1ea11af](https://github.com/grayscale-lang/grayscale/commit/1ea11af55076b25ff7de964e4848d5febe459081))
+* **net:** null-terminate net.recv's receive buffer ([#2718](https://github.com/grayscale-lang/grayscale/issues/2718)) ([f622c91](https://github.com/grayscale-lang/grayscale/commit/f622c9132c757519d851a8b1dd60d565ff85bc32))
+
+## [0.8.3](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.8.2...grayscale-v0.8.3) (2026-09-09)
+
+
+### Bug Fixes
+
+* **cc:** suppress incompatible-pointer-types and pointer-sign for C interop ([ee7dd25](https://github.com/grayscale-lang/grayscale/commit/ee7dd25a7dc401e77b29664dabb9f42e37ede9f4))
+* **codegen:** coerce a literal needle/fill value for wide-int arrays ([c44e750](https://github.com/grayscale-lang/grayscale/commit/c44e750c662f60633eb9c9453703fb74ba3a9fca))
+* **codegen:** compare wide-int elements in arrays.contains/index_of/count ([302c3ff](https://github.com/grayscale-lang/grayscale/commit/302c3ffa6896a8670caf70bdce9216d86ca310bb))
+* handle wide-integer elements in arrays sort/query functions ([c24df4d](https://github.com/grayscale-lang/grayscale/commit/c24df4d778501689e1e254f08e663366fbb1dbe7))
+* **main:** pass -iquote for local extern C header directories ([2ee6b14](https://github.com/grayscale-lang/grayscale/commit/2ee6b1472f31e5e67a304db15c09e75e86723fac))
+* **parser:** stop struct field-name error recovery from consuming the next field's type ([80562e3](https://github.com/grayscale-lang/grayscale/commit/80562e3ed31f4b1093d13b65226cf73ad9dfe4ec))
+* **typechecker:** accept a mutable pointer dereference as a & argument ([3359ee0](https://github.com/grayscale-lang/grayscale/commit/3359ee0405704c09848df650c2cca96a2ca3a843))
+* **typechecker:** dispatch struct functions on index and nested-field receivers ([#2626](https://github.com/grayscale-lang/grayscale/issues/2626)) ([4e828f9](https://github.com/grayscale-lang/grayscale/commit/4e828f9db6429f8670a7c1e107ce02519be05e82))
+* **typechecker:** fold const bindings in the E3002 zero-divisor check ([31fc172](https://github.com/grayscale-lang/grayscale/commit/31fc1728df1f4ca3236bea572fbe6da7f46207f6))
+* **typechecker:** preserve wildcard through array/map literal inference ([a9605e5](https://github.com/grayscale-lang/grayscale/commit/a9605e54492421b642cf3fa4edab8806026fae94))
+* **typechecker:** range-check integer literal call arguments (E3036) ([bbfdc6f](https://github.com/grayscale-lang/grayscale/commit/bbfdc6f4f55a50945c295585eb6949e1b20856be))
+* **typechecker:** reject a const field or element passed to a mutable param ([d17fd07](https://github.com/grayscale-lang/grayscale/commit/d17fd0773ec9f821d47b61b59555313bb2e6adbf))
+* **typechecker:** reject a const-pointee field/element passed to a & param ([4a2492a](https://github.com/grayscale-lang/grayscale/commit/4a2492a357c1f6336cb397655082a8269d26ced8))
+* **typechecker:** reject pointer-param Grayscale functions passed as C callbacks ([1edfa9a](https://github.com/grayscale-lang/grayscale/commit/1edfa9a650a42e5d57b178cc815caa00fc5a38d8))
+
+
+### Performance Improvements
+
+* **cli:** bake the embedded-runtime hash at build time, skip the re-walk ([f67f719](https://github.com/grayscale-lang/grayscale/commit/f67f7190d8ef34625789f630fdc3552864d46b5c))
+* **codegen:** lower string interpolation to a single N-ary join ([e465404](https://github.com/grayscale-lang/grayscale/commit/e4654047385fccb0eee4dc4b648b3d5f03bee165))
+* **codegen:** shrink checked-arithmetic and panic-location emission ([c665516](https://github.com/grayscale-lang/grayscale/commit/c6655161fb1488aea6744c58d59d7a75f8885669))
+* **codegen:** skip arena management for non-allocating loop bodies ([e5e2f65](https://github.com/grayscale-lang/grayscale/commit/e5e2f6596648eef560078a5fab0b140996a4892d))
+* **codegen:** skip the per-call function arena for non-allocating scalar functions ([41719eb](https://github.com/grayscale-lang/grayscale/commit/41719eb726c4563c6c16f52259926c3cebc7e1fe))
+* **codegen:** watermark enclosing arena for if blocks inside loops ([59b5609](https://github.com/grayscale-lang/grayscale/commit/59b56097d104b9dff188930ca346dfc35d8e3899))
+* **compiler:** resolve the C compiler by PATH lookup, not a --version spawn ([3efc88d](https://github.com/grayscale-lang/grayscale/commit/3efc88d003f90165d850a34cce192c3b85f8a04c))
+* **driver:** dead-strip unused runtime and stdlib from generated programs ([dca6b78](https://github.com/grayscale-lang/grayscale/commit/dca6b784bd42107f12755b92ab9d39584e8fcc76))
+* **runtime:** format into a stack buffer in gray_string_format ([66b73ec](https://github.com/grayscale-lang/grayscale/commit/66b73ecbf1b75a0f9b847780d94c4d034adbb677))
+* **runtime:** mask instead of modulo in the map probe loop ([7059e4e](https://github.com/grayscale-lang/grayscale/commit/7059e4eb706c75478d9334b0d0d3311157626515))
+* **stdlib:** branchless ASCII case and classification in strings ([6276ec7](https://github.com/grayscale-lang/grayscale/commit/6276ec7555c01ef98413c05db6de18edd89f4020))
+* **stdlib:** fill exact-size result arrays with memcpy, not a push per element ([be839e9](https://github.com/grayscale-lang/grayscale/commit/be839e984c2446ff0a3395ad9b14b6264c50648d))
+* **stdlib:** type-specialized introsort for arrays.sort_* ([ff072bd](https://github.com/grayscale-lang/grayscale/commit/ff072bd8e42f92cd153ce2e9969a9d2b1fb6f4a4))
+* **typechecker:** finalize the identifier hashes before masking ([170deea](https://github.com/grayscale-lang/grayscale/commit/170deea98b88b078d7d8edd3c69c6827830e21c8))
+* **typechecker:** grow the type pool instead of aborting at 4096 ([3eb1879](https://github.com/grayscale-lang/grayscale/commit/3eb187970840827428a463c7f5fa92b6304bc061))
+* **typechecker:** index module-level vars and struct decls for the &mut checks ([1079cb5](https://github.com/grayscale-lang/grayscale/commit/1079cb565f1844563ae08a33b3beb8f6e54e16ed))
+
+## [0.8.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.8.1...grayscale-v0.8.2) (2026-09-08)
+
+
+### Bug Fixes
+
+* **cli:** measure cc phase with a wall clock in --time ([ccf4c42](https://github.com/grayscale-lang/grayscale/commit/ccf4c42518659757dbcb8ade042804c9c8dff485))
+* **codegen:** emit typedefs for all struct decls, not just the first 256 ([#2712](https://github.com/grayscale-lang/grayscale/issues/2712)) ([17a4968](https://github.com/grayscale-lang/grayscale/commit/17a4968c705376f95eebbb13400e26702f31f29b))
+
+
+### Performance Improvements
+
+* **codegen:** reset loop scratch arena per iteration instead of realloc ([#2711](https://github.com/grayscale-lang/grayscale/issues/2711)) ([9b92d95](https://github.com/grayscale-lang/grayscale/commit/9b92d9549f4f068ae5701f2590a9b89f4ec5f1fb))
+* **runtime:** allocate gray_array_new backing store uninitialized ([54e0bd7](https://github.com/grayscale-lang/grayscale/commit/54e0bd785731edfaaaffdb1ab0f92aa2ba829b32))
+* **typechecker:** cache mangled declaration names on the entry ([#2703](https://github.com/grayscale-lang/grayscale/issues/2703)) ([bbf1b27](https://github.com/grayscale-lang/grayscale/commit/bbf1b2710ea488e3418f234d5d6be1c9721e6cc2))
+* **typechecker:** cache the resolved module for the file under check ([#2705](https://github.com/grayscale-lang/grayscale/issues/2705)) ([656d965](https://github.com/grayscale-lang/grayscale/commit/656d965c0a2517ce81abb57f13547def2da6ee67))
+* **typechecker:** first-character gate on integer type-name predicates ([#2707](https://github.com/grayscale-lang/grayscale/issues/2707)) ([57a0100](https://github.com/grayscale-lang/grayscale/commit/57a010064ffec219146187692b105b7048c48285))
+* **typechecker:** index struct decls by name ([#2706](https://github.com/grayscale-lang/grayscale/issues/2706)) ([f42d424](https://github.com/grayscale-lang/grayscale/commit/f42d424397891a495c8b315982b6bfafc4068e50))
+* **typechecker:** memoize typechecker_type_from_name ([#2704](https://github.com/grayscale-lang/grayscale/issues/2704)) ([5428822](https://github.com/grayscale-lang/grayscale/commit/5428822f6ea79fec54bcee186a522b5b067bfe4d))
+
+## [0.8.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.8.0...grayscale-v0.8.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* **typechecker:** correct garbled E3027 parameter name in bare-call diagnostic ([#2700](https://github.com/grayscale-lang/grayscale/issues/2700)) ([8cf8293](https://github.com/grayscale-lang/grayscale/commit/8cf82934b3f7993ba4378dcfcb02b1f67aa6937e))
+* **typechecker:** enforce E3027 for module-qualified calls ([#2699](https://github.com/grayscale-lang/grayscale/issues/2699)) ([2af6fa6](https://github.com/grayscale-lang/grayscale/commit/2af6fa6e2b9d46abbbc7ed4e57a2ac278534c4f0))
+
+## [0.8.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.7.0...grayscale-v0.8.0) (2026-09-07)
+
+
+### Features
+
+* **stdlib:** add capture-group extraction to regex module ([35593ac](https://github.com/grayscale-lang/grayscale/commit/35593ac9ef0b941714d94da40a6f3b532187f494))
+* **stdlib:** add classification and escape functions to chars module ([d0e043a](https://github.com/grayscale-lang/grayscale/commit/d0e043a6e36d40c8e3604746ee6784db3305862b))
+* **stdlib:** add count and escape to regex module ([9f71fa0](https://github.com/grayscale-lang/grayscale/commit/9f71fa0fac046388a4318e32fadd6760f1fbb1da))
+* **stdlib:** add generate_v5 to uuid module ([b44d03f](https://github.com/grayscale-lang/grayscale/commit/b44d03f73f231dbe61930edace7dacfa3c554b59))
+* **stdlib:** add to_bytes and from_bytes to uuid module ([782fa5a](https://github.com/grayscale-lang/grayscale/commit/782fa5a2760c8f6f9c15fdc91a21754bc561122f))
+* **stdlib:** add version and timestamp inspectors to uuid module ([2b766fa](https://github.com/grayscale-lang/grayscale/commit/2b766fac215f749266457fc70e851e920659dd68))
+* **stdlib:** add web-escaping functions to encoding module ([7267dd5](https://github.com/grayscale-lang/grayscale/commit/7267dd576077baca004620057ca55e8d55b4b923))
+* **stdlib:** expand os, time, random, arrays, crypto, csv, fmt stdlib modules ([120db38](https://github.com/grayscale-lang/grayscale/commit/120db38aa5526b4108642210f28d75ffaa18b67f))
+* **stdlib:** json.encode accepts every primitive type ([edb594f](https://github.com/grayscale-lang/grayscale/commit/edb594f64d57d1ca8eac9f9237193f22d92a0f6f))
+
+
+### Bug Fixes
+
+* **arrays:** read the real element type in contains/index_of/count/remove/get_sum/get_min/get_max ([ec8975b](https://github.com/grayscale-lang/grayscale/commit/ec8975b53cfc89d184df3abb01aa576fc8ef104d))
+* **codegen:** escape the string in scalar json.encode ([9bcd965](https://github.com/grayscale-lang/grayscale/commit/9bcd965f88dc4602a1b5a848b36b62fa4049e6cb))
+* **codegen:** evaluate return values before deferred calls ([1a800e0](https://github.com/grayscale-lang/grayscale/commit/1a800e00e7181c6d0d34fda70b8cad9bd3f8030e))
+* **codegen:** evaluate return values before deferred calls ([b8c0d33](https://github.com/grayscale-lang/grayscale/commit/b8c0d330e0709eaf43ad4ca5dc2c9466ec010e08))
+* **codegen:** materialize each subscript's base in a chain on an rvalue ([045c8f1](https://github.com/grayscale-lang/grayscale/commit/045c8f1abd97a6f7ec09e4923ff6522586e12306))
+* **codegen:** parenthesize scalar when/is pattern expressions ([c0bc132](https://github.com/grayscale-lang/grayscale/commit/c0bc13268278190d343301afc5e7fc6635a1278f))
+* **codegen:** widen for_each-over-string bytes unsigned ([d3b6abe](https://github.com/grayscale-lang/grayscale/commit/d3b6abe51ea4feb09357b75444115e52fb7aa80f))
+* **compiler:** compile generated programs with the runtime's POSIX feature macro ([#2678](https://github.com/grayscale-lang/grayscale/issues/2678)) ([f78cbf4](https://github.com/grayscale-lang/grayscale/commit/f78cbf4dd12e31e1168cba76a67b342d83689d30))
+* **lexer:** allow char-literal escapes inside string interpolation ([a9a1a61](https://github.com/grayscale-lang/grayscale/commit/a9a1a614356fda516976261de6768ee143dede32))
+* memory leaks in typechecker ([c744f77](https://github.com/grayscale-lang/grayscale/commit/c744f7705be8fc197079fb8987157711ee48ae9b))
+* **parser:** apply the last attribute in a full #[...] list ([85067cf](https://github.com/grayscale-lang/grayscale/commit/85067cf233d5fd0302ced752cbcbfcdf890dee30))
+* **runtime:** honor REG_NOTBOL in the Windows regex shim ([9e3b9e9](https://github.com/grayscale-lang/grayscale/commit/9e3b9e93995aba3ec9619c6e7971112ffe0fc7ca))
+* **runtime:** tear down the runtime via atexit so extern.atexit callbacks run ([#2675](https://github.com/grayscale-lang/grayscale/issues/2675)) ([dd1d1e3](https://github.com/grayscale-lang/grayscale/commit/dd1d1e3180ae0c8fa436b7ecb8d02aafbe819c69))
+* **stdlib:** apply RFC 4180 field quoting in csv.encode ([718723b](https://github.com/grayscale-lang/grayscale/commit/718723bad946d4581bd6df8543df918e0832ebf1))
+* **stdlib:** keep regex anchors bound to the string ends during multi-match scans ([52bc841](https://github.com/grayscale-lang/grayscale/commit/52bc841dee7ca4e8ccfdd66a4cb5d57b9c0c63be))
+* **stdlib:** regex.split no longer splits on zero-width matches or drops characters ([b742c2b](https://github.com/grayscale-lang/grayscale/commit/b742c2bb8fe5f2c2d101757e76497ac523fb051f))
+* **stdlib:** reject regex patterns using \d \w \s \b as invalid ([d5280cd](https://github.com/grayscale-lang/grayscale/commit/d5280cd827c7696d885997ca604b44b32506eac1))
+* **stdlib:** render a nil UUID canonically in to_string and generate_compact ([8e93a30](https://github.com/grayscale-lang/grayscale/commit/8e93a309b0bd44849a4599e124b6427bb593c53c))
+* **stdlib:** serialize regex operations across threads ([54e65f1](https://github.com/grayscale-lang/grayscale/commit/54e65f10005a7275f565855c87c92e753292f198))
+* **stdlib:** size regex text buffers to the input instead of a fixed 8 KB ([9ed531a](https://github.com/grayscale-lang/grayscale/commit/9ed531a96f251267a3f55ebb0f6b48e3fabfb465))
+* **stdlib:** stop clamping regex capture groups to 64 ([9b8ec80](https://github.com/grayscale-lang/grayscale/commit/9b8ec804c55d16bdec3ee6d6d8ed6396a7908660))
+* **typechecker:** check arena lifetime at pointer escape positions ([#2696](https://github.com/grayscale-lang/grayscale/issues/2696)) ([1c80c6e](https://github.com/grayscale-lang/grayscale/commit/1c80c6e4928146a1ac12e447c1b8437404e325bd))
+* **typechecker:** flag addr(local) laundered through a func-typed parameter ([#2692](https://github.com/grayscale-lang/grayscale/issues/2692)) ([caa6f0b](https://github.com/grayscale-lang/grayscale/commit/caa6f0bafa6bed2f2d27e5fc9c73a40428baf1d6))
+* **typechecker:** guard signedness and narrowing on member assignment targets ([#2641](https://github.com/grayscale-lang/grayscale/issues/2641)) ([7707ed1](https://github.com/grayscale-lang/grayscale/commit/7707ed148cd13f373ac136557867263a11222e46))
+* **typechecker:** keep stdlib functions out of the user FuncSig table ([7457d47](https://github.com/grayscale-lang/grayscale/commit/7457d471c9ff776e42c30eaaac67549383518164))
+* **typechecker:** keep the pointer origin across a for_each loop variable ([#2695](https://github.com/grayscale-lang/grayscale/issues/2695)) ([fdc6baa](https://github.com/grayscale-lang/grayscale/commit/fdc6baa0179a6569e4512a37b669dd8c962341c0))
+* **typechecker:** keep the pointer origin across a when payload binding ([#2694](https://github.com/grayscale-lang/grayscale/issues/2694)) ([29318b7](https://github.com/grayscale-lang/grayscale/commit/29318b73444973bad356a328633ae3ff422d298a))
+* **typechecker:** only reject an opaque-type struct literal when the module is imported ([2496289](https://github.com/grayscale-lang/grayscale/commit/2496289b3a53501306763d9ac023b8d548968bb3))
+* **typechecker:** reject a struct literal of a stdlib opaque type ([495f99e](https://github.com/grayscale-lang/grayscale/commit/495f99e10bc4fc730da6b1618110087937038932))
+* **typechecker:** reject an unqualified call two used modules both provide (E4031) ([ef77a55](https://github.com/grayscale-lang/grayscale/commit/ef77a55b4c0bc4c1c341eeae64956ca63f978e5b))
+* **typechecker:** resolve arena-handle aliases in the lifetime checker ([#2693](https://github.com/grayscale-lang/grayscale/issues/2693)) ([6078fc4](https://github.com/grayscale-lang/grayscale/commit/6078fc41714e4170b7d230fdbf74447dc3565fd9))
+* **typechecker:** trace pointer escape through opaque func-value calls ([#2661](https://github.com/grayscale-lang/grayscale/issues/2661)) ([556a955](https://github.com/grayscale-lang/grayscale/commit/556a955dbd8c5d37636b99b003c7e510ea30f259))
+* **typechecker:** type-check UUID and [byte] stdlib arguments ([ed233cf](https://github.com/grayscale-lang/grayscale/commit/ed233cf8d92aec7405a79af10f7c8fb45d675637))
+* **typechecker:** validate json.encode / csv.encode argument types ([1b4087b](https://github.com/grayscale-lang/grayscale/commit/1b4087bbb8c0cecabb1dffcbb007f0c1020769f3))
+
+## [0.7.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.6.0...grayscale-v0.7.0) (2026-09-05)
+
+
+### Features
+
+* **stdlib:** add strings.Builder for amortized string assembly ([#2637](https://github.com/grayscale-lang/grayscale/issues/2637)) ([e7500f8](https://github.com/grayscale-lang/grayscale/commit/e7500f8afb090730668fca43e835d79b217265d1))
+* **typechecker:** propagate a struct-field arena destroy across a call, and a mem-alloc buried in a returned literal ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([3c84f3f](https://github.com/grayscale-lang/grayscale/commit/3c84f3fba0827d96a5a9350f42959113010a58dc))
+* **typechecker:** trace [@mem](https://github.com/mem) arena destroy/reset across a function call ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([1b71c2a](https://github.com/grayscale-lang/grayscale/commit/1b71c2adebcb073b3a1af419c5ce319fb0d1eb0d))
+* **typechecker:** track a [@mem](https://github.com/mem) pointer buried in a struct/array/map field ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([25cb03f](https://github.com/grayscale-lang/grayscale/commit/25cb03fb6ce856772827371b74c7c1d10c4e255f))
+* **typechecker:** track a [@mem](https://github.com/mem) pointer buried in a tagged-enum payload ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([fa0baf5](https://github.com/grayscale-lang/grayscale/commit/fa0baf5f1a3a035325a57ef88dad2d5c0306c0ab))
+* **typechecker:** track a [@mem](https://github.com/mem) pointer read back out of a multi-return temp ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([4324597](https://github.com/grayscale-lang/grayscale/commit/4324597c62f4dce8941b53d98008dc1b88f22085))
+* **typechecker:** track a mem-allocated pointer returned across a call, and an arena reached via a struct field ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([4874b9c](https://github.com/grayscale-lang/grayscale/commit/4874b9cc49330c32b542523f637aade7091c17e9))
+
+
+### Bug Fixes
+
+* **codegen:** [f32]/[f64] arrays accept float literals and use packed float storage ([#2645](https://github.com/grayscale-lang/grayscale/issues/2645)) ([2dcb701](https://github.com/grayscale-lang/grayscale/commit/2dcb70105ad4556ab7a1424db0be70805088ac26))
+* **codegen:** arrays.append of an inline imported tagged-enum value emits valid C ([#2618](https://github.com/grayscale-lang/grayscale/issues/2618)) ([4fc102a](https://github.com/grayscale-lang/grayscale/commit/4fc102a583d37c8901688c0af726bcf8828a10e3))
+* **codegen:** bind wide-integer for_each loop variables as the bigint type ([a95eadb](https://github.com/grayscale-lang/grayscale/commit/a95eadb95b7292013ac68b3daeedbf141abe7a45))
+* **codegen:** cast multi-return func-typed callback calls to a matching anonymous struct ([4effc92](https://github.com/grayscale-lang/grayscale/commit/4effc9235254f82c1de785d3181ab2df46590b3e))
+* **codegen:** defer/ensure only runs for returns that reach it ([#2619](https://github.com/grayscale-lang/grayscale/issues/2619)) ([88d99f7](https://github.com/grayscale-lang/grayscale/commit/88d99f71a16ea28a4870216aed2ddf97049f2688))
+* **codegen:** derive the for_each map key binding's C type from the key type ([#2624](https://github.com/grayscale-lang/grayscale/issues/2624)) ([4e47e8f](https://github.com/grayscale-lang/grayscale/commit/4e47e8ff4e8cc51b2deb92174270c46c94d40f5e))
+* **codegen:** emit a literal string extern argument as a C string literal ([#2682](https://github.com/grayscale-lang/grayscale/issues/2682)) ([6492774](https://github.com/grayscale-lang/grayscale/commit/64927748906ac5e8dfe46a82aa29024afe3721a9))
+* **codegen:** emit tagged-enum union types in dependency order with structs and parenthesize payload literals ([#2654](https://github.com/grayscale-lang/grayscale/issues/2654)) ([6e8435e](https://github.com/grayscale-lang/grayscale/commit/6e8435ee4489cf8bf5505e2a5f4d7714227b5e77))
+* **codegen:** file-scope empty array literal uses the declared element size ([#2620](https://github.com/grayscale-lang/grayscale/issues/2620)) ([14e3e49](https://github.com/grayscale-lang/grayscale/commit/14e3e49acf491e1ce9a9ceba55a88a645fa05f16))
+* **codegen:** guard field reads on a nil Error ([239f5e5](https://github.com/grayscale-lang/grayscale/commit/239f5e5568e0f54ee26c03e2b7e5d5cbff023aba))
+* **codegen:** lower ErrorCode.&lt;Variant&gt; qualified selector to GrayErrorCode_&lt;V&gt; ([482c746](https://github.com/grayscale-lang/grayscale/commit/482c7465a0aef0fd549f927391ca9ae3d03a429a))
+* **codegen:** make a map index an lvalue so field/nested writes through it work ([#2622](https://github.com/grayscale-lang/grayscale/issues/2622)) ([33d8a10](https://github.com/grayscale-lang/grayscale/commit/33d8a108293d9a0d753f21816d3600de9a7cc6b5))
+* **codegen:** nil-check indirect func-field calls and fix pointer-deref field call cast ([#2652](https://github.com/grayscale-lang/grayscale/issues/2652)) ([c63ccf1](https://github.com/grayscale-lang/grayscale/commit/c63ccf1261b9ba38fa3651dd84c4403e4bfd6af8))
+* **codegen:** non-empty integer/byte array literals use the annotated element width ([#2644](https://github.com/grayscale-lang/grayscale/issues/2644)) ([715ac71](https://github.com/grayscale-lang/grayscale/commit/715ac71be1a6f5f33854e5b6a17b90ae39e8b3e2))
+* **codegen:** parenthesize struct-literal compound literals to survive macro argument splitting ([#2632](https://github.com/grayscale-lang/grayscale/issues/2632)) ([7f9bd66](https://github.com/grayscale-lang/grayscale/commit/7f9bd6611b18da52360059c7677cc3082a10a260))
+* **codegen:** prefix entry-module file-scope globals to avoid libc name collisions ([#2643](https://github.com/grayscale-lang/grayscale/issues/2643)) ([9831f5d](https://github.com/grayscale-lang/grayscale/commit/9831f5d89a6048814b309f5d28987c96319967dc))
+* **codegen:** render #error_code enum values by variant name ([2affdfd](https://github.com/grayscale-lang/grayscale/commit/2affdfd5dbf0af381d255b443821cbf694540662))
+* **codegen:** report source location for panics from stdlib and builtin C code ([#2659](https://github.com/grayscale-lang/grayscale/issues/2659)) ([2a30dd9](https://github.com/grayscale-lang/grayscale/commit/2a30dd9bbefcd835e1b6afd7d2d0bb9f564967ca))
+* **codegen:** size map key/value slots to the annotated width for sized-int and f32 types ([#2646](https://github.com/grayscale-lang/grayscale/issues/2646)) ([94b88b7](https://github.com/grayscale-lang/grayscale/commit/94b88b79d6ceb71195f232439f8428ba3e08e108))
+* **codegen:** stop emitting C const for scalar const-declared variables ([628ff34](https://github.com/grayscale-lang/grayscale/commit/628ff343ec433303fd98c1fe0129469818d5d87c))
+* **codegen:** stop treating a user-module import as a stdlib import for caller-arena wrapping ([#2630](https://github.com/grayscale-lang/grayscale/issues/2630)) ([eb8d21d](https://github.com/grayscale-lang/grayscale/commit/eb8d21dd8d7d85ccc9002112f9b1ee8c54bc7916))
+* **imports:** preflight extern import C headers with a Grayscale diagnostic ([#2677](https://github.com/grayscale-lang/grayscale/issues/2677)) ([c5dc32a](https://github.com/grayscale-lang/grayscale/commit/c5dc32a891b1ca16155efcd57242540f3e667fc9))
+* **mem:** catch a [@mem](https://github.com/mem) pointer dereferenced after an untraceable arena destroy ([2001467](https://github.com/grayscale-lang/grayscale/commit/200146751a3b5e06ca599c4fe8de770daa251feb))
+* **module-system:** resolve struct names inside func(...) type signatures ([#2623](https://github.com/grayscale-lang/grayscale/issues/2623)) ([8157d14](https://github.com/grayscale-lang/grayscale/commit/8157d147b346ba9619daf88a26e2966396cf1aa9))
+* **parser:** derive reserved-word check from lexer keyword table ([#2674](https://github.com/grayscale-lang/grayscale/issues/2674)) ([0117821](https://github.com/grayscale-lang/grayscale/commit/011782124810fb282fc0dd79f451b144e3113cea))
+* **parser:** empty index expression 'arr[]' emits one diagnostic ([#2615](https://github.com/grayscale-lang/grayscale/issues/2615)) ([c6dc106](https://github.com/grayscale-lang/grayscale/commit/c6dc106816dd47c086647d5c98b03457db4e6638))
+* **parser:** reject trailing tokens after the expression in ${...} ([#2628](https://github.com/grayscale-lang/grayscale/issues/2628)) ([199a726](https://github.com/grayscale-lang/grayscale/commit/199a72620f97b05b01ec4473e5c1adf68cd9cd7f))
+* **stdlib:** flush stdout for subprocesses, prompts, and add flush() builtin ([#2639](https://github.com/grayscale-lang/grayscale/issues/2639)) ([2e562c9](https://github.com/grayscale-lang/grayscale/commit/2e562c98e900a0881338961e871a1b479fce4b4e))
+* **stdlib:** forward stdlib headers that shadow a system header ([#2676](https://github.com/grayscale-lang/grayscale/issues/2676)) ([7109760](https://github.com/grayscale-lang/grayscale/commit/71097607c8a8f0fbd1f85774b3b3277387db6507))
+* **stdlib:** stop regex.find_all reading past its truncated text buffer ([#2608](https://github.com/grayscale-lang/grayscale/issues/2608)) ([29e4b5b](https://github.com/grayscale-lang/grayscale/commit/29e4b5b04418c43835415b36556c0513cb7450c5))
+* **typechecker:** accept literals up to UINT64_MAX for uint and u64 targets ([616e279](https://github.com/grayscale-lang/grayscale/commit/616e279ba32059086fecec8c713cdaf49a816fb8))
+* **typechecker:** allow a concrete #error_code enum as a normal when subject ([5edc3d5](https://github.com/grayscale-lang/grayscale/commit/5edc3d58325b25ae31c4f5b0ff97967971168593))
+* **typechecker:** arity-check or_return bindings against the call's non-error slots ([#2621](https://github.com/grayscale-lang/grayscale/issues/2621)) ([e1e5642](https://github.com/grayscale-lang/grayscale/commit/e1e5642660b0afecf698fde63e8e3ac431b43c77))
+* **typechecker:** compute escape summary for wildcard-return functions ([5108bde](https://github.com/grayscale-lang/grayscale/commit/5108bdedd3b0f9215dada1f25a5e230eacdab354))
+* **typechecker:** distinct diagnostic for #strict on 'when err.code' ([9a3b431](https://github.com/grayscale-lang/grayscale/commit/9a3b43143e260e91f73930f32f3d06f4dc041095))
+* **typechecker:** enforce the signed-to-unsigned guard in every value position ([#2625](https://github.com/grayscale-lang/grayscale/issues/2625)) ([9bf8bbf](https://github.com/grayscale-lang/grayscale/commit/9bf8bbfcc876101a52afd3f0944bbb64875d3c7a))
+* **typechecker:** flag duplicate when/is branches on enum subjects ([#2629](https://github.com/grayscale-lang/grayscale/issues/2629)) ([d2dcaf4](https://github.com/grayscale-lang/grayscale/commit/d2dcaf4d6c5a49fd07bafbb9c5ae0b03d062c69d))
+* **typechecker:** guard assignment RHS and struct-literal fields against multi-value calls ([e2a6966](https://github.com/grayscale-lang/grayscale/commit/e2a69663b7ea64c1480a8754fe2b3e972e669334))
+* **typechecker:** guard for_each collection and index positions against multi-value calls ([361888c](https://github.com/grayscale-lang/grayscale/commit/361888c84a414b477642aeee1e798ef962a943bf))
+* **typechecker:** guard while condition and map-literal keys against multi-value calls ([#2617](https://github.com/grayscale-lang/grayscale/issues/2617)) ([d894eaf](https://github.com/grayscale-lang/grayscale/commit/d894eafc92794fe0b498d4c41e0178a02cc861b5))
+* **typechecker:** imported #error_code enum joins the ErrorCode value space ([322337e](https://github.com/grayscale-lang/grayscale/commit/322337ed3c4ec846f4b59cd4aede142c6ef449be))
+* **typechecker:** keep distinct #error_code enums from unifying with each other ([3851558](https://github.com/grayscale-lang/grayscale/commit/3851558b38f907f866f003d416940caa90c30851))
+* **typechecker:** loop premark misses a helper-mediated arena destroy ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([78983ce](https://github.com/grayscale-lang/grayscale/commit/78983ce7cd0fd8e6aedb6228c360c69d8fffd515))
+* **typechecker:** range-check arrays.append/prepend/insert_at element values against the element type ([#2647](https://github.com/grayscale-lang/grayscale/issues/2647)) ([541eff1](https://github.com/grayscale-lang/grayscale/commit/541eff1473524814f671981964a29d5aefcaf24e))
+* **typechecker:** range-check integer literals in struct fields, map values, default params, return, and index assignments ([#2640](https://github.com/grayscale-lang/grayscale/issues/2640)) ([430dbd9](https://github.com/grayscale-lang/grayscale/commit/430dbd98efd158fc6066593c2cb1af8ff47c94a0))
+* **typechecker:** reject #error_code enum that is also #flags ([56cb2d3](https://github.com/grayscale-lang/grayscale/commit/56cb2d30d4aea429bee74ddd5bf9057495bd6db9))
+* **typechecker:** reject a C interop constant as an error() code ([99f5b56](https://github.com/grayscale-lang/grayscale/commit/99f5b561779db32068b7ba1b6d97522e4b5658b0))
+* **typechecker:** reject a local's address escaping through pointer parameters and returned heap-object fields ([#2650](https://github.com/grayscale-lang/grayscale/issues/2650)) ([bb94b8c](https://github.com/grayscale-lang/grayscale/commit/bb94b8c08fa4e69cf031a882c8c5c4ad68f392c0))
+* **typechecker:** reject addr()/raw()/ref() of a string index expression ([#2651](https://github.com/grayscale-lang/grayscale/issues/2651)) ([e1b5f08](https://github.com/grayscale-lang/grayscale/commit/e1b5f0833e79aa34a56db3f245f9e170ac2b74c2))
+* **typechecker:** reject addr()/ref()/raw() of a stack variable passed to a C call ([#2657](https://github.com/grayscale-lang/grayscale/issues/2657)) ([ecfda90](https://github.com/grayscale-lang/grayscale/commit/ecfda90ef7512d3d2aac75768d7eeb783a1c4561))
+* **typechecker:** reject enum/int mismatches in when/is patterns ([1306369](https://github.com/grayscale-lang/grayscale/commit/130636976fb10390b7096a89f7754410e7fad6ae))
+* **typechecker:** reject Error as an array element or map key/value ([6192220](https://github.com/grayscale-lang/grayscale/commit/619222035739ef4438f39f58889e93f7adb9d54d))
+* **typechecker:** render pointer/array/map types correctly in func-ref signatures ([4a3a13b](https://github.com/grayscale-lang/grayscale/commit/4a3a13b8b3a94ffb283750855549d72277c2d2c6))
+* **typechecker:** require an explicit cast for unsigned-to-signed in every position ([#2625](https://github.com/grayscale-lang/grayscale/issues/2625)) ([d1b6a2d](https://github.com/grayscale-lang/grayscale/commit/d1b6a2d971c77ff1e041ef5ac26b05de35302f11))
+* **typechecker:** resolve aliases before the E3153 container check ([e94034c](https://github.com/grayscale-lang/grayscale/commit/e94034cd1214ac91c549517568bf7e9df713429c))
+* **typechecker:** resolve Error fields in any member-expr position ([ac55be8](https://github.com/grayscale-lang/grayscale/commit/ac55be888e19c1e783e87296c4dd17db427c2996))
+* **typechecker:** resolve func-ref calls in escape checks; fix scope bug from unresolvable-call fallback ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([39a8cc4](https://github.com/grayscale-lang/grayscale/commit/39a8cc4c7721c8163475d8f895a8b515244dde58))
+* **typechecker:** run the param-escape check after instance-dispatch rewrite ([f06b8a8](https://github.com/grayscale-lang/grayscale/commit/f06b8a8b5b26e88ce8e51e00336ce04bdaa3bc50))
+* **typechecker:** run the signedness-crossing check on call-initialized mut declarations ([#2649](https://github.com/grayscale-lang/grayscale/issues/2649)) ([f531c00](https://github.com/grayscale-lang/grayscale/commit/f531c00e5f5847c55611ab99cf126bc4563468c7))
+* **typechecker:** see through a func-ref call declared inside a helper's own body ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([030e7bf](https://github.com/grayscale-lang/grayscale/commit/030e7bfe80f7d821fe945a7793333065a9e86b9b))
+* **typechecker:** stop loop premark from double-flagging its own destroy as E3166 ([#2655](https://github.com/grayscale-lang/grayscale/issues/2655)) ([f8c887c](https://github.com/grayscale-lang/grayscale/commit/f8c887cd1b48f0c0ac813015a247265c7137880a))
+* **typechecker:** track ensure mem.destroy(a) in the within-function arena tracker ([3957c56](https://github.com/grayscale-lang/grayscale/commit/3957c5682f3631eb1f1f76d95f79cb03d8b5b6bb))
+* **typechecker:** track pointer origin through any unresolvable call, not per-shape ([795ce32](https://github.com/grayscale-lang/grayscale/commit/795ce32e55edc6beea695a330ea597fc505b6268))
+* **typechecker:** track pointer origin through copy() and bare aggregate reads ([0b420f5](https://github.com/grayscale-lang/grayscale/commit/0b420f574ed8db6dafd243629768c42392cc7fde))
+* **typechecker:** track pointer origin through multi-return destructuring ([de1a860](https://github.com/grayscale-lang/grayscale/commit/de1a8605f1f5ac050093a06c2616f7b040957a6d))
+* **typechecker:** track pointer origin through tagged-enum variant construction ([b737891](https://github.com/grayscale-lang/grayscale/commit/b737891fcdd39cfa2dc54b18c5dda2daddb8ed64))
+* **typechecker:** type-check non-primary return slots ([68c85a6](https://github.com/grayscale-lang/grayscale/commit/68c85a6aee275d52cfcb127f9e25069a90f6761b))
+* **types:** diagnose a local shadowing a C function called via extern. ([#2683](https://github.com/grayscale-lang/grayscale/issues/2683)) ([3694c73](https://github.com/grayscale-lang/grayscale/commit/3694c73592ccdfee79dcfa089b5b72bc5676e75b))
+* **types:** give extern. C call results a checked type instead of TYPE_UNKNOWN ([ca8c7d6](https://github.com/grayscale-lang/grayscale/commit/ca8c7d6effc64f2c16e01d1cdc30365973f43db5))
+* **types:** propagate multi-return arity for a func-typed callback destructure ([ecf9276](https://github.com/grayscale-lang/grayscale/commit/ecf92760dc8e28d36f965432d3b4e4fac850adcd))
+* **types:** reject a C interop value bound to a wildcard ? parameter ([#2679](https://github.com/grayscale-lang/grayscale/issues/2679)) ([4ecc142](https://github.com/grayscale-lang/grayscale/commit/4ecc1427aa4e15c557894ac9938acc914fb6e5f9))
+* **types:** reject named arguments in extern C interop calls ([#2681](https://github.com/grayscale-lang/grayscale/issues/2681)) ([9c9b7de](https://github.com/grayscale-lang/grayscale/commit/9c9b7de1d49923cd94c7e9f1981476d88a83d3f9))
+* **types:** run signedness guard for instance-dispatch call arguments ([#2642](https://github.com/grayscale-lang/grayscale/issues/2642)) ([90eb7c0](https://github.com/grayscale-lang/grayscale/commit/90eb7c0b88a01d7332d6738867b0328c4d8c6fd6))
+* **types:** type extern C constant access as a C interop value ([#2673](https://github.com/grayscale-lang/grayscale/issues/2673)) ([f3e06ac](https://github.com/grayscale-lang/grayscale/commit/f3e06ac74b6f17a647ca10a35e99cdf67cc395ac))
+
+## [0.6.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.5...grayscale-v0.6.0) (2026-09-01)
+
+
+### Features
+
+* **cli:** add #test attribute and gray test command ([#2092](https://github.com/grayscale-lang/grayscale/issues/2092)) ([b582cec](https://github.com/grayscale-lang/grayscale/commit/b582cec1d2fcf3784ccc1384f7ebd1a91a025a11))
+* **fmt:** support i128/u128/i256/u256 in format directives ([#2586](https://github.com/grayscale-lang/grayscale/issues/2586)) ([79767a3](https://github.com/grayscale-lang/grayscale/commit/79767a321b76fd66c972689c81074f8992f1e07a))
+* **parser:** single-line attribute lists via #[...] container syntax ([#2599](https://github.com/grayscale-lang/grayscale/issues/2599)) ([88c6ffe](https://github.com/grayscale-lang/grayscale/commit/88c6ffe7719bc2dbd0bc31715b9660a797b51764))
+* **stdlib:** add char-editing functions to strings module ([#2560](https://github.com/grayscale-lang/grayscale/issues/2560)) ([3051efa](https://github.com/grayscale-lang/grayscale/commit/3051efae14baeaa792595ac90bb3cc830ed6335f))
+* **stdlib:** add chars module with to_upper/to_lower ([#2559](https://github.com/grayscale-lang/grayscale/issues/2559)) ([1a49060](https://github.com/grayscale-lang/grayscale/commit/1a490602866032f8be4d77709c775722415f2a62))
+* **stdlib:** add strconv format_int, format_uint, quote, unquote ([#2434](https://github.com/grayscale-lang/grayscale/issues/2434)) ([edcdbaf](https://github.com/grayscale-lang/grayscale/commit/edcdbaf1bce69734be719b06fa285ea02b9c19d5))
+* **typechecker:** infer type for mut array/map literals of primitives ([#2374](https://github.com/grayscale-lang/grayscale/issues/2374)) ([f6c6024](https://github.com/grayscale-lang/grayscale/commit/f6c60244c7a706ddad917bfa9cbf750b6e30f725))
+* **typechecker:** support + and += for string concatenation ([#2383](https://github.com/grayscale-lang/grayscale/issues/2383)) ([14524b8](https://github.com/grayscale-lang/grayscale/commit/14524b8f40a06a792b38c523d570e3a7e6a89414))
+
+
+### Bug Fixes
+
+* **build:** link builtins.o into the stdlib unit test binary ([70e2bec](https://github.com/grayscale-lang/grayscale/commit/70e2beccb1b97a348c70d3d6de220c1d8ee10023))
+* **cli:** discover #[test] list-form functions in gray test prescan ([c0223bf](https://github.com/grayscale-lang/grayscale/commit/c0223bfad963566e0ab9ce3b7f8d076809c0cc06))
+* **cli:** don't treat #test inside a string as a test function ([77740ee](https://github.com/grayscale-lang/grayscale/commit/77740ee0adb90e318707d03ac746adab8999c5be))
+* **cli:** drain test binary stdout with a growable reader ([3e95638](https://github.com/grayscale-lang/grayscale/commit/3e95638fe7763a0e6116664d372c38bba4a10f2c))
+* **cli:** emit stdlib man examples in generator TSV ([13baf0f](https://github.com/grayscale-lang/grayscale/commit/13baf0fc84e986cceb031dff12531b5e94360f42))
+* **cli:** find the test protocol nonce anywhere in a line ([c0da050](https://github.com/grayscale-lang/grayscale/commit/c0da05031d9066357e41a652e2d4731520c81c01))
+* **cli:** gray check success message green and ending in '!' ([#2594](https://github.com/grayscale-lang/grayscale/issues/2594)) ([fd2674d](https://github.com/grayscale-lang/grayscale/commit/fd2674d3301b7905115ad9b9e9a96d3ba1c640ed))
+* **cli:** nonce-guard gray test result protocol against stdout forgery ([f28dc6a](https://github.com/grayscale-lang/grayscale/commit/f28dc6ae647d760ee70522cc1e1bf126cebd23e8))
+* **codegen:** allocate string array element += result in the outer loop arena ([e0c8ad5](https://github.com/grayscale-lang/grayscale/commit/e0c8ad595b44d04930522b34428655c310e2676a))
+* **codegen:** deep-copy plain string array element assignment to the outer loop arena ([6c041f4](https://github.com/grayscale-lang/grayscale/commit/6c041f4711e52090f55059ea29cbf20fd0e3e7b7))
+* **codegen:** escape string struct-field assignment to the outer loop arena ([450c7f1](https://github.com/grayscale-lang/grayscale/commit/450c7f1118449f9e0ee3a2770e43418412ea728e))
+* **codegen:** filter incompatible flags off bigint fmt directives ([34a93a4](https://github.com/grayscale-lang/grayscale/commit/34a93a424a9f9902d5f2cc20700cf27c38949130))
+* **codegen:** module-qualified enum in a multi-return tuple uses its real C type ([#2573](https://github.com/grayscale-lang/grayscale/issues/2573)) ([8a59a2c](https://github.com/grayscale-lang/grayscale/commit/8a59a2cbcf6751b08191768e7768170217b30347))
+* **codegen:** module-qualified stdlib calls no longer resolve to same-named struct functions ([#2561](https://github.com/grayscale-lang/grayscale/issues/2561)) ([5ea3b8e](https://github.com/grayscale-lang/grayscale/commit/5ea3b8eeda0386ea629d405ee4b65b3f446d479a))
+* **codegen:** println of a SourceLocation walks its fields ([#2585](https://github.com/grayscale-lang/grayscale/issues/2585)) ([3963971](https://github.com/grayscale-lang/grayscale/commit/3963971a4a7dc857c5406a8e1436761d36326b91))
+* **codegen:** store wide integers in map key/value slots as their real C type ([af05adc](https://github.com/grayscale-lang/grayscale/commit/af05adc53512a10ccb05d16b2eb41e5f94575340))
+* **codegen:** strip imported files' #test functions from a test build ([d721b80](https://github.com/grayscale-lang/grayscale/commit/d721b8023e231e0b737fd0f238a99a1b1187ce62))
+* **codegen:** treat 'in', '&&', '||' as bool-valued for wide-int operands ([2ccee07](https://github.com/grayscale-lang/grayscale/commit/2ccee07d1e920dfebd65d371a764cb7f47ae48f8))
+* **lexer:** 'module' is no longer a reserved keyword ([#2595](https://github.com/grayscale-lang/grayscale/issues/2595)) ([13361d2](https://github.com/grayscale-lang/grayscale/commit/13361d25da18949f71bd5c0bff87421c6806db17))
+* **lexer:** decode non-ASCII and escaped codepoints in char literals ([6261b77](https://github.com/grayscale-lang/grayscale/commit/6261b77e3bed203c26baf2df691125a515cd226a))
+* **parser:** #strict and #flags error on wrong target ([#2566](https://github.com/grayscale-lang/grayscale/issues/2566)) ([eb98f54](https://github.com/grayscale-lang/grayscale/commit/eb98f54e5164a2694f552a6e069ffe995e8670d9))
+* **parser:** count duplicate entries in #[...] toward list length ([8805f07](https://github.com/grayscale-lang/grayscale/commit/8805f07d845ef4ec05a5bdc3c536de09ee3082b3))
+* **parser:** or_return works for calls returning (T, ..., Error) ([#2571](https://github.com/grayscale-lang/grayscale/issues/2571)) ([be65b6f](https://github.com/grayscale-lang/grayscale/commit/be65b6fb4d4a1785378079d4dd96ba31d4c56a3d))
+* **parser:** reject #[...] whose closing ']' is on a later line ([8b746f2](https://github.com/grayscale-lang/grayscale/commit/8b746f23e9eb1ba1c6a0a37cbdd23ba4a58922f1))
+* **parser:** reject duplicate attribute usage ([#2600](https://github.com/grayscale-lang/grayscale/issues/2600)) ([0ea6280](https://github.com/grayscale-lang/grayscale/commit/0ea62803a0a133f7d936437185570a4479b98ac0))
+* **parser:** reject UTF-16 surrogate codepoints in char literal escapes ([94f5c68](https://github.com/grayscale-lang/grayscale/commit/94f5c68801681b3dac00136af6324f4ad74a297a))
+* **parser:** validate #[...] entry arguments like the stacked form ([7fc231f](https://github.com/grayscale-lang/grayscale/commit/7fc231f38e6e4f3f809ccdd1eec99dd069babc6d))
+* **runtime:** restore gray_call_depth around each #test run ([7a0eb6a](https://github.com/grayscale-lang/grayscale/commit/7a0eb6ac666d5cda7b5a9efaaca48f33bdf2d6cd))
+* **stdlib:** harden csv.read_file against non-seekable input ([#2607](https://github.com/grayscale-lang/grayscale/issues/2607)) ([81b9f51](https://github.com/grayscale-lang/grayscale/commit/81b9f5199bd459897c8bb197c5530f653326a292))
+* **stdlib:** remove fmt.format, threads.current, and uuid.generate_hyphenated aliases ([#2602](https://github.com/grayscale-lang/grayscale/issues/2602)) ([e264a42](https://github.com/grayscale-lang/grayscale/commit/e264a423f4cbdfb23667b1d3bc81d5adb5037df1))
+* **typechecker:** #strict when with all arms returning is terminating ([#2565](https://github.com/grayscale-lang/grayscale/issues/2565)) ([26a7fa1](https://github.com/grayscale-lang/grayscale/commit/26a7fa10721269887d6ab00f61d5ccde0cde088f))
+* **typechecker:** allow a container of func refs as a struct field type ([#2495](https://github.com/grayscale-lang/grayscale/issues/2495)) ([a62e832](https://github.com/grayscale-lang/grayscale/commit/a62e832c0d0eedb7bbafe2947440030a8fe9abc4))
+* **typechecker:** E3061 catches recursive structs cycled through a type alias ([#2529](https://github.com/grayscale-lang/grayscale/issues/2529)) ([718e891](https://github.com/grayscale-lang/grayscale/commit/718e891dc17d16045b9fc6c513cefcc00743e081))
+* **typechecker:** implicit enum selector keeps type context in module-qualified struct calls ([#2493](https://github.com/grayscale-lang/grayscale/issues/2493)) ([bce8e53](https://github.com/grayscale-lang/grayscale/commit/bce8e532093e14b2123d2f7bde7692468df09750))
+* **typechecker:** imported struct type passable as a generic type argument ([#2494](https://github.com/grayscale-lang/grayscale/issues/2494)) ([85618f0](https://github.com/grayscale-lang/grayscale/commit/85618f099c8412832d298d881f1fd564c93e43c9))
+* **typechecker:** infer wide-int element type for mut array literals ([3124562](https://github.com/grayscale-lang/grayscale/commit/3124562f5465374d9257219d92a5ac262d9a4572))
+* **typechecker:** reject #flags enum with more than 63 variants ([cb5af06](https://github.com/grayscale-lang/grayscale/commit/cb5af0670de67bd316308aef744798621f4fe42a))
+* **typechecker:** reject #test on main as program entry point ([7b22d61](https://github.com/grayscale-lang/grayscale/commit/7b22d61be5c3b1d5d646939576d2f563c2c35baf))
+* **typechecker:** reject a func return type at the declaration ([#2568](https://github.com/grayscale-lang/grayscale/issues/2568)) ([0d34528](https://github.com/grayscale-lang/grayscale/commit/0d345283eb2006e6fc04dff48d1e16b08b73368c))
+* **typechecker:** reject addr/raw/ref on a dynamic array element ([#2604](https://github.com/grayscale-lang/grayscale/issues/2604)) ([d2b7f2e](https://github.com/grayscale-lang/grayscale/commit/d2b7f2ee4515be6e05bb5d351d7ab57ce89af736))
+* **typechecker:** reject enum-variant access on a struct type name ([#2521](https://github.com/grayscale-lang/grayscale/issues/2521)) ([0a6df1c](https://github.com/grayscale-lang/grayscale/commit/0a6df1c8e3bc91781e8f78daa1462787fd27158a))
+* **typechecker:** reject fallible stdlib calls in expression position ([#2450](https://github.com/grayscale-lang/grayscale/issues/2450)) ([dafe7c2](https://github.com/grayscale-lang/grayscale/commit/dafe7c29ba5fae61db54ff5a47df17f10e0486c6))
+* **typechecker:** require import [@json](https://github.com/json) for #json structs ([#2601](https://github.com/grayscale-lang/grayscale/issues/2601)) ([4cca074](https://github.com/grayscale-lang/grayscale/commit/4cca0745452e4df6d1c969e6d74fe25ae09dbf0e))
+* **typechecker:** reserve 'main' for the entry-point function ([71a8460](https://github.com/grayscale-lang/grayscale/commit/71a8460b936409da3420499b6abb5e76b022aa26))
+* **typechecker:** scope string += E3048 to string targets ([c8193f3](https://github.com/grayscale-lang/grayscale/commit/c8193f3881bf2d8841e16e107032d0dd533df905))
+* **typechecker:** track addr() laundered through array/map/struct literals ([#2605](https://github.com/grayscale-lang/grayscale/issues/2605)) ([1d6c017](https://github.com/grayscale-lang/grayscale/commit/1d6c0174d9fe66a65a32907fc7a6cde6391ba243))
+* **typechecker:** type sqlite.query rows as map[string:string] ([1f25b58](https://github.com/grayscale-lang/grayscale/commit/1f25b58f5283d7baba50f4017accc5a174ba3996))
+* **typechecker:** validate all pairs in inferred mut map literals ([bea5a7f](https://github.com/grayscale-lang/grayscale/commit/bea5a7f978973e0234b72988d02fd3bbc1ea707b))
+
+## [0.5.5](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.4...grayscale-v0.5.5) (2026-08-29)
+
+
+### Bug Fixes
+
+* **codegen:** a user function shadows a 'using'd stdlib function of the same name ([#2580](https://github.com/grayscale-lang/grayscale/issues/2580)) ([1465aa6](https://github.com/grayscale-lang/grayscale/commit/1465aa6f69f18ae81fec5f3f2a0606e7e30d7a68))
+* **codegen:** build &gt;64-bit integer literals as wide values in all positions ([#2572](https://github.com/grayscale-lang/grayscale/issues/2572)) ([b52d725](https://github.com/grayscale-lang/grayscale/commit/b52d725f608bfa5f86bbd569893b69fda3355d3d))
+* **codegen:** make nested container fields usable through a ^T pointer ([#2570](https://github.com/grayscale-lang/grayscale/issues/2570)) ([86ba442](https://github.com/grayscale-lang/grayscale/commit/86ba4427b4b4a55a183329fa7abfb54da9d2144c))
+* **codegen:** mangle omitted array/map field element types in cross-module struct literals ([#2575](https://github.com/grayscale-lang/grayscale/issues/2575)) ([7a13926](https://github.com/grayscale-lang/grayscale/commit/7a1392674463505df99919b52ba5f75ab7563f22))
+* **codegen:** print string-backed enum struct fields and default them to the first variant ([#2576](https://github.com/grayscale-lang/grayscale/issues/2576)) ([fd86a00](https://github.com/grayscale-lang/grayscale/commit/fd86a006fec8660e1c83a77f67ffd68f2d8856ae))
+* **parser:** accept a module-qualified key type in long-form map[K:V] ([#2562](https://github.com/grayscale-lang/grayscale/issues/2562)) ([a55f1bc](https://github.com/grayscale-lang/grayscale/commit/a55f1bccc23acde9757c08b02c2c83dbbbd1bea8))
+* **typechecker:** allow in-range integer literal reassignment to unsigned and narrower types ([#2578](https://github.com/grayscale-lang/grayscale/issues/2578)) ([3674165](https://github.com/grayscale-lang/grayscale/commit/3674165e7d38f87253c4e8d3a9607572fd6ecdc0))
+* **typechecker:** only reserve a stdlib opaque type name while its module is imported ([#2579](https://github.com/grayscale-lang/grayscale/issues/2579)) ([cf6f7ce](https://github.com/grayscale-lang/grayscale/commit/cf6f7ce815a7bb782c469e1fb130f7e33d3e7b1b))
+* **typechecker:** reject #json struct fields with no JSON representation ([#2563](https://github.com/grayscale-lang/grayscale/issues/2563)) ([8cde7bf](https://github.com/grayscale-lang/grayscale/commit/8cde7bff8a309a15142bf58d66d5fd11a739f4d2))
+
+## [0.5.4](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.3...grayscale-v0.5.4) (2026-08-28)
+
+
+### Bug Fixes
+
+* **benchmarks:** auto-reset fixtures and run workloads standalone ([#2551](https://github.com/grayscale-lang/grayscale/issues/2551)) ([004ad2c](https://github.com/grayscale-lang/grayscale/commit/004ad2cea7a627977672107cc024e3301f842b28))
+* **ci:** declare strptime on glibc for time.parse ([6cbd174](https://github.com/grayscale-lang/grayscale/commit/6cbd1744a83ab337e2a950ad06f7e5df94f13f85))
+* **codegen:** bind map-value arrays to a temp for chained index and assign ([#2550](https://github.com/grayscale-lang/grayscale/issues/2550)) ([ed003bd](https://github.com/grayscale-lang/grayscale/commit/ed003bd9f4f112105345e3118e49741682c3dcc6))
+* **codegen:** defer non-constant file-scope initializers to global init ([#2545](https://github.com/grayscale-lang/grayscale/issues/2545)) ([e31df3c](https://github.com/grayscale-lang/grayscale/commit/e31df3c8a36004046659335162ae47dffd7218bc))
+* **codegen:** mask bit_not on u8 and u16 back to type width ([#2553](https://github.com/grayscale-lang/grayscale/issues/2553)) ([a73b10b](https://github.com/grayscale-lang/grayscale/commit/a73b10b2c520ab3452e43689181d09a9b1607ac0))
+* **codegen:** read cast(arr, [T]) results with the element width, not int64_t ([#2555](https://github.com/grayscale-lang/grayscale/issues/2555)) ([a2c59d9](https://github.com/grayscale-lang/grayscale/commit/a2c59d9a022bdf8571bfd91dd35be598d5a9592e))
+* **codegen:** read packed sized array elements at the real width in compound assign ([0c93c5c](https://github.com/grayscale-lang/grayscale/commit/0c93c5c400abb4b4c09a23e8da076f86cdc99e71))
+* **codegen:** resolve module-level var name when passed to a by-reference parameter ([#2546](https://github.com/grayscale-lang/grayscale/issues/2546)) ([5a5751b](https://github.com/grayscale-lang/grayscale/commit/5a5751b0256074eb0f17e2af02302550d09fc477))
+* **tests:** fix stdlib time test ([32dfb20](https://github.com/grayscale-lang/grayscale/commit/32dfb2027bf9a6634fffd3f3a909314ba67aa341))
+* **threads:** detect pthread_create failure instead of corrupting state ([#2554](https://github.com/grayscale-lang/grayscale/issues/2554)) ([6822591](https://github.com/grayscale-lang/grayscale/commit/6822591217fac9b0f1a963283df2e8b05898f7da))
+* **typechecker:** reject cast() between a string-backed enum and an integer ([#2536](https://github.com/grayscale-lang/grayscale/issues/2536)) ([c467d11](https://github.com/grayscale-lang/grayscale/commit/c467d11772573ce5c8b068c5e30a5e21ae85fa69))
+* **typechecker:** reject non-integer arguments to char() ([#2552](https://github.com/grayscale-lang/grayscale/issues/2552)) ([6839bb1](https://github.com/grayscale-lang/grayscale/commit/6839bb1133f12f9f31220e4fe3f251c2a2568438))
+* **typechecker:** resolve module-level var in member expr inside its own module ([#2537](https://github.com/grayscale-lang/grayscale/issues/2537)) ([2e16ffc](https://github.com/grayscale-lang/grayscale/commit/2e16ffcb4fcd52b826a963d6785a6b3d2660f3d3))
+* **typechecker:** resolve type aliases inside map, sized-array, and func signature positions ([#2524](https://github.com/grayscale-lang/grayscale/issues/2524)) ([838f52a](https://github.com/grayscale-lang/grayscale/commit/838f52aca067cebb3912c5ce8ac214c21763dd62))
+* **typechecker:** warn when a variable is declared with no value ([#2447](https://github.com/grayscale-lang/grayscale/issues/2447)) ([f83e0a8](https://github.com/grayscale-lang/grayscale/commit/f83e0a81945a60cc3312d48a121f7750a09739fd))
+* **windows:** fix bug in time.c ([d276f61](https://github.com/grayscale-lang/grayscale/commit/d276f61c4cfc125d351448df938be9639d6c9b5a))
+
+
+### Performance Improvements
+
+* **benchmarks:** add make benchmark real-workload suite ([#2551](https://github.com/grayscale-lang/grayscale/issues/2551)) ([ade370d](https://github.com/grayscale-lang/grayscale/commit/ade370df18486b03a3226c78cc8428432c369fb2))
+
+## [0.5.3](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.2...grayscale-v0.5.3) (2026-08-28)
+
+
+### Bug Fixes
+
+* **codegen:** report the written type name from type_of ([#2519](https://github.com/grayscale-lang/grayscale/issues/2519)) ([5974e27](https://github.com/grayscale-lang/grayscale/commit/5974e27c3cf3f7a83e96d08c31d6e11e58675027))
+* **codegen:** resolve a written struct name to its declaration ([#2496](https://github.com/grayscale-lang/grayscale/issues/2496)) ([5f3cbfd](https://github.com/grayscale-lang/grayscale/commit/5f3cbfd1b783132e8a858cf14eed0a23e8101f9d))
+* **codegen:** validate the value of a cast to an enum ([#2531](https://github.com/grayscale-lang/grayscale/issues/2531)) ([d618efe](https://github.com/grayscale-lang/grayscale/commit/d618efe2e62ddd8913553ee13cc03ca0f7ebd847))
+* **imports:** reject importing the same module twice in one file ([#2507](https://github.com/grayscale-lang/grayscale/issues/2507)) ([2b07b2d](https://github.com/grayscale-lang/grayscale/commit/2b07b2d8666abd79e50569d3784d661f661618c6))
+* **parser:** accept container type spellings in size_of() and cast() ([#2532](https://github.com/grayscale-lang/grayscale/issues/2532)) ([0f1e913](https://github.com/grayscale-lang/grayscale/commit/0f1e9131a549e44dda1d8fc725bf6695eaa381aa))
+* **parser:** parse a struct literal whose type name starts lowercase ([#2500](https://github.com/grayscale-lang/grayscale/issues/2500)) ([d214532](https://github.com/grayscale-lang/grayscale/commit/d2145327f0e2d6f1fde7c3712e6b01263abbe408))
+* **typechecker:** answer type-argument positions from the declaration ([#2538](https://github.com/grayscale-lang/grayscale/issues/2538)) ([ff2a0c8](https://github.com/grayscale-lang/grayscale/commit/ff2a0c861539e9fd6e755e7ff893625553d7368d))
+* **typechecker:** bind the receiver for an imported struct type ([#2492](https://github.com/grayscale-lang/grayscale/issues/2492)) ([b77c734](https://github.com/grayscale-lang/grayscale/commit/b77c73424948d6034978d0a6ad85f7b1b4aa4d7c))
+* **typechecker:** enforce private across module boundaries for structs, enums, and struct functions ([#2505](https://github.com/grayscale-lang/grayscale/issues/2505)) ([1afb08e](https://github.com/grayscale-lang/grayscale/commit/1afb08ef4a4c7a6d67c7115a4dc7987b900eae78))
+* **typechecker:** enforce private on bare names from using modules ([#2520](https://github.com/grayscale-lang/grayscale/issues/2520)) ([918edcc](https://github.com/grayscale-lang/grayscale/commit/918edcc087aa82e7e1e0b0f84326190abf960697))
+* **typechecker:** land plain assignment to a module-level mut variable ([#2508](https://github.com/grayscale-lang/grayscale/issues/2508)) ([37644f3](https://github.com/grayscale-lang/grayscale/commit/37644f3e454732e6e5dcb96a9de2dd6982a8d778))
+* **typechecker:** let a local shadow a module of the same name ([#2504](https://github.com/grayscale-lang/grayscale/issues/2504)) ([4e5d15e](https://github.com/grayscale-lang/grayscale/commit/4e5d15ed5850dbb47faf67ed7e7175c9144ccf1e))
+* **typechecker:** let a struct alias be used as a constructor ([#2518](https://github.com/grayscale-lang/grayscale/issues/2518)) ([68e4b11](https://github.com/grayscale-lang/grayscale/commit/68e4b113d318e9fbd77d2fd4c1f102e454d31e80))
+* **typechecker:** mark addr() on a module-level constant as a const source ([#2515](https://github.com/grayscale-lang/grayscale/issues/2515)) ([6d88e10](https://github.com/grayscale-lang/grayscale/commit/6d88e10f17b212fb2dd2505247382ad2e744c888))
+* **typechecker:** reject a builtin function name as an alias name ([#2530](https://github.com/grayscale-lang/grayscale/issues/2530)) ([6dd4fbf](https://github.com/grayscale-lang/grayscale/commit/6dd4fbfb4c5f400db35736d8e0c8efdc4eb864cb))
+* **typechecker:** reject a file-scope constant forward reference ([#2516](https://github.com/grayscale-lang/grayscale/issues/2516)) ([8ca6f1d](https://github.com/grayscale-lang/grayscale/commit/8ca6f1dda239bcb8d90e8d5892edeb20ca58a41f))
+* **typechecker:** reject a mismatched func ref in a struct literal ([#2543](https://github.com/grayscale-lang/grayscale/issues/2543)) ([a147c78](https://github.com/grayscale-lang/grayscale/commit/a147c7828e777c74ad187a5e6567eabaaa562a10))
+* **typechecker:** reject a public alias of a private type ([#2533](https://github.com/grayscale-lang/grayscale/issues/2533)) ([b86ef88](https://github.com/grayscale-lang/grayscale/commit/b86ef8867dd6d6cccdb1ef24aa1ea1ef7438750b))
+* **typechecker:** reject a reserved type name as an alias name ([#2522](https://github.com/grayscale-lang/grayscale/issues/2522)) ([d938222](https://github.com/grayscale-lang/grayscale/commit/d938222a095faa515d9ff1b21cb7bd5fe5b508ba))
+* **typechecker:** reject a type name used as a value wherever it appears ([#2535](https://github.com/grayscale-lang/grayscale/issues/2535)) ([9711bb4](https://github.com/grayscale-lang/grayscale/commit/9711bb4003ea95215b98347885f77369173c0af4))
+* **typechecker:** report modules whose mangled symbol names collide ([#2499](https://github.com/grayscale-lang/grayscale/issues/2499)) ([9c10989](https://github.com/grayscale-lang/grayscale/commit/9c1098968256c1c294fddaffd5e992a0f189e2d6))
+* **typechecker:** resolve a struct alias used as a call qualifier ([#2526](https://github.com/grayscale-lang/grayscale/issues/2526)) ([71762dd](https://github.com/grayscale-lang/grayscale/commit/71762ddbcb627d4c64eb29a9a00e3c5e7c3ae71c))
+* **typechecker:** resolve a struct field's type through its alias ([#2542](https://github.com/grayscale-lang/grayscale/issues/2542)) ([e39b5cd](https://github.com/grayscale-lang/grayscale/commit/e39b5cdf47266a02c9641f8b29c2df5c708e2212))
+* **typechecker:** resolve alias targets in the declaring module ([#2517](https://github.com/grayscale-lang/grayscale/issues/2517)) ([0f9e25f](https://github.com/grayscale-lang/grayscale/commit/0f9e25ffedfc744aa134b44627b843cf97fe7039))
+* **typechecker:** resolve aliases in the fields() type-name guard ([#2525](https://github.com/grayscale-lang/grayscale/issues/2525)) ([54a417a](https://github.com/grayscale-lang/grayscale/commit/54a417a3cc990689ca6131ef4ea569cc6e1db64d))
+* **typechecker:** resolve and validate the size_of type argument ([#2528](https://github.com/grayscale-lang/grayscale/issues/2528)) ([ac5d9f9](https://github.com/grayscale-lang/grayscale/commit/ac5d9f98523adecdcc566823db9dc07121fd0687))
+* **typechecker:** resolve type aliases in the cast target ([#2523](https://github.com/grayscale-lang/grayscale/issues/2523)) ([0b8f498](https://github.com/grayscale-lang/grayscale/commit/0b8f4982759b6e299d9230d8d4e7ee32f7d0d5c0))
+* **typechecker:** resolve types in a module whose name has an underscore ([#2514](https://github.com/grayscale-lang/grayscale/issues/2514)) ([ed4dab9](https://github.com/grayscale-lang/grayscale/commit/ed4dab90217c37a1e7295ec165c2a725a25a54d3))
+* **typechecker:** return a pointer from mem.alloc ([#2544](https://github.com/grayscale-lang/grayscale/issues/2544)) ([c67692a](https://github.com/grayscale-lang/grayscale/commit/c67692a5ecf81c15248e0bcf872e97df24014db9))
+* **typechecker:** skip value resolution for &lt;?&gt; type arguments ([#2539](https://github.com/grayscale-lang/grayscale/issues/2539)) ([2b9a9a5](https://github.com/grayscale-lang/grayscale/commit/2b9a9a5dd93b241f7714032cc792e1901c3d4ec4))
+* **typechecker:** validate that a cast target names a type ([#2534](https://github.com/grayscale-lang/grayscale/issues/2534)) ([2264e4a](https://github.com/grayscale-lang/grayscale/commit/2264e4a9e0a0594c9a37a13d5577f6fffe64911e))
+
+
+### Performance Improvements
+
+* **main:** parse arguments into a CompilerOptions struct ([b09cbb4](https://github.com/grayscale-lang/grayscale/commit/b09cbb4aaeca889af6ed82440852f34d8f855abd))
+* **parser:** extract the import resolver out of main() ([4df828e](https://github.com/grayscale-lang/grayscale/commit/4df828e1365228868c687149587169214a532996))
+* **runtime:** remove unused GRAY_MAX_INLINE_ELEM_SIZE ([5384391](https://github.com/grayscale-lang/grayscale/commit/53843919d6faeac77da505048aa6e65b578f5806))
+* **typechecker:** rename operator_to_string to operator_display_name ([03e84a3](https://github.com/grayscale-lang/grayscale/commit/03e84a3044bb9c1c00096b048c17956abf172800))
+* **util:** remove unused diagnostic_warning_help ([ff65f8a](https://github.com/grayscale-lang/grayscale/commit/ff65f8a31492e7737a9cfc5107c2b8ba3a86239a))
+
+## [0.5.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.1...grayscale-v0.5.2) (2026-08-26)
+
+
+### Bug Fixes
+
+* **codegen:** emit function forward declarations in their own module ([#2485](https://github.com/grayscale-lang/grayscale/issues/2485)) ([b43167b](https://github.com/grayscale-lang/grayscale/commit/b43167b793206b586655c5d818f00a18d04c9d4f))
+* **codegen:** emit the mangled symbol for ref(name) inside a module ([#2474](https://github.com/grayscale-lang/grayscale/issues/2474)) ([1ed61cb](https://github.com/grayscale-lang/grayscale/commit/1ed61cb7b7d3d5a4b8b17b9bbb034426fc190a50))
+* **codegen:** resolve unprefixed type names in scope before guessing ([4ad74ec](https://github.com/grayscale-lang/grayscale/commit/4ad74ec196b9be734e62da21918922be494c7cd7))
+* **codegen:** type an array or map element pointer by its element type ([#2497](https://github.com/grayscale-lang/grayscale/issues/2497)) ([fac035e](https://github.com/grayscale-lang/grayscale/commit/fac035e0f6155e1c0b5d121c7b4fce325de79bf1))
+* **imports:** reject an import of the program's entry point ([#2502](https://github.com/grayscale-lang/grayscale/issues/2502)) ([c11883b](https://github.com/grayscale-lang/grayscale/commit/c11883ba39b18cf5d1f750a7c902c936d2967602))
+* **imports:** report a failed import once, in the file that contains it ([#2480](https://github.com/grayscale-lang/grayscale/issues/2480)) ([8d05933](https://github.com/grayscale-lang/grayscale/commit/8d05933bf8f9a49a9146213928daa244580b050f))
+* **imports:** validate and bind the module name at the import site ([#2501](https://github.com/grayscale-lang/grayscale/issues/2501)) ([50cf054](https://github.com/grayscale-lang/grayscale/commit/50cf054022ee3c53d077dd4649edaaeb2337d82c))
+* **typechecker:** check argument count on module-qualified calls ([#2490](https://github.com/grayscale-lang/grayscale/issues/2490)) ([c3a7333](https://github.com/grayscale-lang/grayscale/commit/c3a7333eff66706468bc0763450a41ce38e0056b))
+* **typechecker:** check argument types on module-qualified calls ([#2487](https://github.com/grayscale-lang/grayscale/issues/2487)) ([51f4f27](https://github.com/grayscale-lang/grayscale/commit/51f4f27ada2ad711a8cda57d0f6675648ca0496f))
+* **typechecker:** check every leaf of a container type, and type bare func ([9afa2d1](https://github.com/grayscale-lang/grayscale/commit/9afa2d125a17d4107bd95953d9913ad5bb59022f))
+* **typechecker:** declare a variable whose member initializer failed ([b69a7c0](https://github.com/grayscale-lang/grayscale/commit/b69a7c046e38f8ae9ee038436aa30daf4e9cddc4))
+* **typechecker:** enforce private on module-level variables and constants ([#2468](https://github.com/grayscale-lang/grayscale/issues/2468)) ([3f75826](https://github.com/grayscale-lang/grayscale/commit/3f758267b96cbc31c02a0a15e4a0dd71b5a50dd0))
+* **typechecker:** mark an import used by a container or pointer type ([#2491](https://github.com/grayscale-lang/grayscale/issues/2491)) ([d405036](https://github.com/grayscale-lang/grayscale/commit/d40503633d594c8899ac9c043bbe2bdebf631d30))
+* **typechecker:** mark an import used by a qualified func reference ([fa7d781](https://github.com/grayscale-lang/grayscale/commit/fa7d781a5638fe85a61479bb9055e2c87c8d26e6))
+* **typechecker:** mark an import used when a bare name resolves through using ([ab8b2b0](https://github.com/grayscale-lang/grayscale/commit/ab8b2b0854c46e5920d650c03b603f90a6ec6f9a))
+* **typechecker:** name a function as written in diagnostics ([#2485](https://github.com/grayscale-lang/grayscale/issues/2485)) ([1954727](https://github.com/grayscale-lang/grayscale/commit/1954727ce971fc002816e3e8a4a477e1293f603d))
+* **typechecker:** name the module when two types share a name ([#2488](https://github.com/grayscale-lang/grayscale/issues/2488)) ([038d0e4](https://github.com/grayscale-lang/grayscale/commit/038d0e4adb41f3a73a46eb129a45ad8d07e73383))
+* **typechecker:** name what a module member is when rejecting assignment ([9e6a865](https://github.com/grayscale-lang/grayscale/commit/9e6a865d23b0baa1a6e3515d99cd79acc0b4a7b1))
+* **typechecker:** reject an undefined lowercase type name ([2b72c46](https://github.com/grayscale-lang/grayscale/commit/2b72c46d59d6b01f1ff1df96bb0156a94f81808d))
+* **typechecker:** reject concrete return type when returning the type argument ([#2461](https://github.com/grayscale-lang/grayscale/issues/2461)) ([67e1f1d](https://github.com/grayscale-lang/grayscale/commit/67e1f1d232ba78b04ca93cd8e25a727a71693f43))
+* **typechecker:** reject unresolvable module-qualified calls ([#2463](https://github.com/grayscale-lang/grayscale/issues/2463)) ([9737079](https://github.com/grayscale-lang/grayscale/commit/9737079dad08947f460ca42891d683f68ce6a89f))
+* **typechecker:** report a private type once, at the annotation that names it ([#2506](https://github.com/grayscale-lang/grayscale/issues/2506)) ([629f419](https://github.com/grayscale-lang/grayscale/commit/629f4195103442d0c968642a3be540afc42dd6b5))
+* **typechecker:** report a struct or enum return mismatch once ([#2462](https://github.com/grayscale-lang/grayscale/issues/2462)) ([c297392](https://github.com/grayscale-lang/grayscale/commit/c297392378025c630d3af0b7ac1bd8158cc0198a))
+* **typechecker:** report an unknown module member ([bba9445](https://github.com/grayscale-lang/grayscale/commit/bba94456cef6a247d8bfd9c1f08ade1c8c6a4aaf))
+* **typechecker:** report an unused function in its own file ([#2471](https://github.com/grayscale-lang/grayscale/issues/2471)) ([c4e10b5](https://github.com/grayscale-lang/grayscale/commit/c4e10b5cb0a38a7e0ad7c03ea4eeac712b5b182a))
+* **typechecker:** report an unused variable in its own file ([#2471](https://github.com/grayscale-lang/grayscale/issues/2471)) ([9615d34](https://github.com/grayscale-lang/grayscale/commit/9615d340ee2acefa00a4a91a18606421913c44a1))
+* **typechecker:** resolve bare sibling calls in struct function bodies ([#2459](https://github.com/grayscale-lang/grayscale/issues/2459)) ([9c050bc](https://github.com/grayscale-lang/grayscale/commit/9c050bc261dc47017ddc3d8b95cfccc01bda4a12))
+* **typechecker:** run generic handling on module-qualified calls ([#2460](https://github.com/grayscale-lang/grayscale/issues/2460)) ([f1e6967](https://github.com/grayscale-lang/grayscale/commit/f1e69675e91a311ea6a8a5bac90f43d7c83c3979))
+* **typechecker:** treat ref(mod.func) as the function reference it is ([4f89bea](https://github.com/grayscale-lang/grayscale/commit/4f89bea77132d2fca4f564b5e71e10082eff7f53))
+
+## [0.5.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.5.0...grayscale-v0.5.1) (2026-08-23)
+
+
+### Bug Fixes
+
+* **typechecker:** reserve all builtin function names ([999e0cc](https://github.com/grayscale-lang/grayscale/commit/999e0cc40bf5df18fc0211988447d3e84f1042c0))
+* **typechecker:** reserve all builtin function names ([cf71f7a](https://github.com/grayscale-lang/grayscale/commit/cf71f7ad1567663ba316896ba9c42126f4d58ca3))
+
+## [0.5.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.4.1...grayscale-v0.5.0) (2026-08-23)
+
+
+### Features
+
+* add #deprecated attribute ([#2384](https://github.com/grayscale-lang/grayscale/issues/2384)) ([ebc69ef](https://github.com/grayscale-lang/grayscale/commit/ebc69ef4ad6baaea61e020192525f86be3e29710))
+* **lang:** add keyword aliases fn, elif, switch, case, defer ([#2441](https://github.com/grayscale-lang/grayscale/issues/2441)) ([cb15833](https://github.com/grayscale-lang/grayscale/commit/cb158332aadfcfe01e9d021455e330285b60b832))
+* **stdlib:** add math float primitives, power-of-two helpers, and bounds constants ([#2435](https://github.com/grayscale-lang/grayscale/issues/2435)) ([141814b](https://github.com/grayscale-lang/grayscale/commit/141814b1a02c0c5785975861951cef26f70b6062))
+* **stdlib:** add runtime module ([#2310](https://github.com/grayscale-lang/grayscale/issues/2310)) ([1c36f59](https://github.com/grayscale-lang/grayscale/commit/1c36f59d3b7861cc34bbb49e9244fec67f6c1806))
+* **stdlib:** add runtime module for compiler-managed arena and execution introspection ([#2310](https://github.com/grayscale-lang/grayscale/issues/2310)) ([ddc16d5](https://github.com/grayscale-lang/grayscale/commit/ddc16d567615733e6e74c227fcee8fcee5e5f05b))
+* **stdlib:** add strings split, compare, and case functions ([#2433](https://github.com/grayscale-lang/grayscale/issues/2433)) ([2501ddf](https://github.com/grayscale-lang/grayscale/commit/2501ddfdd7a3762aeb974c6e9bf553c8be9e1d75))
+* **stdlib:** add time.parse, is_leap_year, since functions ([#2439](https://github.com/grayscale-lang/grayscale/issues/2439)) ([4486647](https://github.com/grayscale-lang/grayscale/commit/4486647fc9cb2ac979ec68eb2a98716839d74726))
+* **typechecker:** add #deprecated attribute for functions, structs, and enums ([#2384](https://github.com/grayscale-lang/grayscale/issues/2384)) ([646c93e](https://github.com/grayscale-lang/grayscale/commit/646c93edbd7bbd949d29abbba347d8721d0be851))
+
+
+### Bug Fixes
+
+* **codegen:** escape array copy-assignment to outer arena inside loop scope ([#2430](https://github.com/grayscale-lang/grayscale/issues/2430)) ([949dbf1](https://github.com/grayscale-lang/grayscale/commit/949dbf145809d7080f5652f732b83891b5b74e60))
+* **codegen:** escape container field writes to heap arena through new()-tracked pointers ([#2424](https://github.com/grayscale-lang/grayscale/issues/2424)) ([5ea3b4e](https://github.com/grayscale-lang/grayscale/commit/5ea3b4ee4ad6396d5c98e54f04920f0f1399fa4e))
+* **diagnostics:** restore --&gt; file:line:column format string ([#2443](https://github.com/grayscale-lang/grayscale/issues/2443)) ([3bef9f4](https://github.com/grayscale-lang/grayscale/commit/3bef9f47ea511139595b561f3d621bbd5da22bf0))
+* **fmt:** translate %b to a real C conversion and require a bool argument ([#2428](https://github.com/grayscale-lang/grayscale/issues/2428)) ([0a3908b](https://github.com/grayscale-lang/grayscale/commit/0a3908bb0b3f50161f26da9ad14ba49251e2e2f9))
+* **imports:** rewrite wrapped type names in local var-decl annotations ([#2427](https://github.com/grayscale-lang/grayscale/issues/2427)) ([68581b2](https://github.com/grayscale-lang/grayscale/commit/68581b2b7cad7b880f68313d287d0e9410a48138))
+* **lang:** reserve is and default as identifiers ([#2454](https://github.com/grayscale-lang/grayscale/issues/2454)) ([d079a70](https://github.com/grayscale-lang/grayscale/commit/d079a70a5f21e518b5bcf361d6955c97d692edeb))
+* **lexer:** accept exponent notation in float literals ([c7050f3](https://github.com/grayscale-lang/grayscale/commit/c7050f30f00d710fd0ecc6a8bc89c19895f23d57))
+* **parser:** diagnose misplaced #deprecated and #discard attributes ([1b7bd06](https://github.com/grayscale-lang/grayscale/commit/1b7bd060b6ef9883632b2b1a21ac0ae6bcd74ef4))
+* **parser:** reject float literals that overflow a 64-bit float ([10f92af](https://github.com/grayscale-lang/grayscale/commit/10f92afc151a219dab64ee750d09bc4e77ef62dc))
+* **parser:** reject reserved keywords as destructuring binding names ([#2451](https://github.com/grayscale-lang/grayscale/issues/2451)) ([912ed0a](https://github.com/grayscale-lang/grayscale/commit/912ed0a74ec677f2617fbfbd5d98518a8bc27b6d))
+* **parser:** report the keyword spelling the user typed ([8202a6f](https://github.com/grayscale-lang/grayscale/commit/8202a6f1018975227d94124bfbea95265235bcff))
+* **parser:** require declaration name and type on the same line ([#2455](https://github.com/grayscale-lang/grayscale/issues/2455)) ([02c5336](https://github.com/grayscale-lang/grayscale/commit/02c53368f0f8049d3ade960af7cb8e8a962dead4))
+* **runtime:** keep runtime.alloc_count cumulative across loop bodies ([d0ae993](https://github.com/grayscale-lang/grayscale/commit/d0ae993765c8d30aca9752dfcf1097b61324191f))
+* **stdlib:** drop trailing separator in strings.to_snake_case ([bef0cfd](https://github.com/grayscale-lang/grayscale/commit/bef0cfde1b0ab3dbf33d5cc0f96e0e1d074e3387))
+* **stdlib:** reject impossible calendar dates in time.parse ([12c11b5](https://github.com/grayscale-lang/grayscale/commit/12c11b5d6f13df489e4b89438d3d647e53e992a3))
+* **tests:** deflake is_alive check by spawning a slow worker ([5f31477](https://github.com/grayscale-lang/grayscale/commit/5f314771e492e2b0dbf84a44b1a749ae0b7fba2a))
+* **tests:** stop using reserved keyword 'fn' as a variable name ([9349e7f](https://github.com/grayscale-lang/grayscale/commit/9349e7f7583726254f6406cb5c21a8d000a10f29))
+* **tests:** use one membership operator spelling per file ([1952366](https://github.com/grayscale-lang/grayscale/commit/19523663dd7a854bc3840d2b8b84e0d79610bdb8))
+* **typechecker:** accept nil literal for pointer-typed call arguments ([#2426](https://github.com/grayscale-lang/grayscale/issues/2426)) ([049ff0d](https://github.com/grayscale-lang/grayscale/commit/049ff0d8414555f405ea862a6e9eae0583f49b56))
+* **typechecker:** enforce !in/not_in keyword alias consistency ([#2440](https://github.com/grayscale-lang/grayscale/issues/2440)) ([8779ee6](https://github.com/grayscale-lang/grayscale/commit/8779ee66507f1e9c35e675cd451a10083156bde8))
+* **typechecker:** guard constant folding against int64 overflow UB ([#2392](https://github.com/grayscale-lang/grayscale/issues/2392)) ([eda3e5b](https://github.com/grayscale-lang/grayscale/commit/eda3e5bf2a34879f4f46df37c8da88007458d9a5))
+* **typechecker:** recognize stdlib opaque types in new() across all import forms ([#2445](https://github.com/grayscale-lang/grayscale/issues/2445)) ([f1791ea](https://github.com/grayscale-lang/grayscale/commit/f1791ea642adabaed9479e0e643ca8028150f71e))
+* **typechecker:** resolve stdlib multi-return through the using path ([9d4dcf5](https://github.com/grayscale-lang/grayscale/commit/9d4dcf54ec2364d0f91981466a6cb8d909e963c8))
+* **typechecker:** scope E4014 shadowed-import check to the declaring file ([#2429](https://github.com/grayscale-lang/grayscale/issues/2429)) ([89a0a2c](https://github.com/grayscale-lang/grayscale/commit/89a0a2ca47bb866c53f169d814321e3febdd3f24))
+* **typechecker:** show unqualified name for undefined module-qualified types ([#2444](https://github.com/grayscale-lang/grayscale/issues/2444)) ([2a99923](https://github.com/grayscale-lang/grayscale/commit/2a9992358dc8db4fb5be639d126ec8ff5f932b7d))
+* **typechecker:** track pointer origin through assignment for E3063 and E3097 ([#2410](https://github.com/grayscale-lang/grayscale/issues/2410)) ([71a1431](https://github.com/grayscale-lang/grayscale/commit/71a143145067b1203b99dfc8066915cdd351535a))
+
+## [0.4.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.4.0...grayscale-v0.4.1) (2026-08-21)
+
+
+### Bug Fixes
+
+* **build:** derive sanitizer runtime test sources from one list ([#2389](https://github.com/grayscale-lang/grayscale/issues/2389)) ([873ccb9](https://github.com/grayscale-lang/grayscale/commit/873ccb988a71f814365754eb13ca36d0b22cd7a6))
+* **build:** route strndup through the platform layer for MinGW ([#2391](https://github.com/grayscale-lang/grayscale/issues/2391)) ([fb166bc](https://github.com/grayscale-lang/grayscale/commit/fb166bc347f9fed58236e59d6f6d83d41fbf043a))
+* **ci:** build release artifacts on runners matching the target arch ([#2393](https://github.com/grayscale-lang/grayscale/issues/2393)) ([80bc527](https://github.com/grayscale-lang/grayscale/commit/80bc52748a5afed2eb3a0b705ddb6b5d08bc913f))
+* **codegen:** arrow through p^.field on map key assignment ([#2400](https://github.com/grayscale-lang/grayscale/issues/2400)) ([732445b](https://github.com/grayscale-lang/grayscale/commit/732445b10ab399de45ccd9212cc70e3b17dc66aa))
+* **codegen:** choose the wide-integer constructor from the source type ([#2408](https://github.com/grayscale-lang/grayscale/issues/2408)) ([acb29f1](https://github.com/grayscale-lang/grayscale/commit/acb29f1bb0a2745ad203fa6372d13fd9ffb9e863))
+* **codegen:** escape map assignment copies to the outer arena ([#2399](https://github.com/grayscale-lang/grayscale/issues/2399)) ([ea0955f](https://github.com/grayscale-lang/grayscale/commit/ea0955f4a73f5aef6071909b4ad12179753f446d))
+* **codegen:** give tagged enums their real C type as map values ([#2320](https://github.com/grayscale-lang/grayscale/issues/2320)) ([9f4293c](https://github.com/grayscale-lang/grayscale/commit/9f4293c30b638b6ce5e8a1e1ea1f8636bf4ff979))
+* **codegen:** guard the real array when for_each iterates a field path ([#2397](https://github.com/grayscale-lang/grayscale/issues/2397)) ([c8f8371](https://github.com/grayscale-lang/grayscale/commit/c8f8371df5fab3716ab00194254dba50bd6b851a))
+* **codegen:** initialise container fields a struct literal omits ([#2402](https://github.com/grayscale-lang/grayscale/issues/2402)) ([15c3ff9](https://github.com/grayscale-lang/grayscale/commit/15c3ff99ab2b31d4f212d0d153f998be612cc128))
+* **codegen:** keep block temporaries alive in caller-arena functions ([#2377](https://github.com/grayscale-lang/grayscale/issues/2377)) ([11b1231](https://github.com/grayscale-lang/grayscale/commit/11b123161b73d3317f0357f01d7a39ed4dd15292))
+* **codegen:** keep maps mutated through pointers in a live arena ([#2380](https://github.com/grayscale-lang/grayscale/issues/2380)) ([008c29e](https://github.com/grayscale-lang/grayscale/commit/008c29e43bf9c5bb982615b595b110a95047c297))
+* **codegen:** route mutable call arguments through one shared helper ([#2403](https://github.com/grayscale-lang/grayscale/issues/2403)) ([7e7346c](https://github.com/grayscale-lang/grayscale/commit/7e7346ccaeded5fb89255fa61557f3106a8c1017))
+* **codegen:** run mutable-reference calls in the function arena ([#2295](https://github.com/grayscale-lang/grayscale/issues/2295)) ([4150314](https://github.com/grayscale-lang/grayscale/commit/4150314fdb5f234da643162cfc5e32e8230d16fc))
+* **codegen:** take container argument addresses off the pointer ([#2379](https://github.com/grayscale-lang/grayscale/issues/2379)) ([d13751f](https://github.com/grayscale-lang/grayscale/commit/d13751ffbaf793fbf8f49897960d5b51ca30c418))
+* **codegen:** type an empty map literal from its assignment target ([#2401](https://github.com/grayscale-lang/grayscale/issues/2401)) ([e36f03e](https://github.com/grayscale-lang/grayscale/commit/e36f03e5d2f3e0293bc9ab33582f9cc587c71f5c))
+* **imports:** count struct field types as a use of their module ([#2375](https://github.com/grayscale-lang/grayscale/issues/2375)) ([e9c8943](https://github.com/grayscale-lang/grayscale/commit/e9c8943f62d40ee9ac9d90cf436ab928df62e288))
+* **imports:** remove the fixed caps on import and directory-file counts ([#2416](https://github.com/grayscale-lang/grayscale/issues/2416)) ([30e7c04](https://github.com/grayscale-lang/grayscale/commit/30e7c04c6f08829cb9a0eb89100a2e8a4df93350))
+* **imports:** rewrite imported type names in struct declarations ([#2376](https://github.com/grayscale-lang/grayscale/issues/2376)) ([f7a2cb5](https://github.com/grayscale-lang/grayscale/commit/f7a2cb5d85dc690a2d785bf1ba969375af933e5b))
+* **parser:** check multi-var bounds before writing to names/types ([#2413](https://github.com/grayscale-lang/grayscale/issues/2413)) ([11db2f5](https://github.com/grayscale-lang/grayscale/commit/11db2f575a7ec6bc27cb16b2adece975dba3bb18))
+* **parser:** grow the using statement's module list ([#2412](https://github.com/grayscale-lang/grayscale/issues/2412)) ([cb39f5b](https://github.com/grayscale-lang/grayscale/commit/cb39f5bbabe396f383f034c13e3efde5e5051174))
+* **parser:** initialize in_interp in parser_create ([#2394](https://github.com/grayscale-lang/grayscale/issues/2394)) ([46239a6](https://github.com/grayscale-lang/grayscale/commit/46239a60d2825cf97281d92eaa3fb3cd57491c97))
+* **parser:** mark the or_return temp synthetic ([#2386](https://github.com/grayscale-lang/grayscale/issues/2386)) ([e48f671](https://github.com/grayscale-lang/grayscale/commit/e48f671a2c8c2655e8f7796986c3e68e4a4a011d))
+* **runtime:** allow arrays.append during for_each iteration ([#2387](https://github.com/grayscale-lang/grayscale/issues/2387)) ([4a2f150](https://github.com/grayscale-lang/grayscale/commit/4a2f1507a50fd78e678a6e2ead6daea97600031f))
+* **runtime:** deep-copy map string keys into the map's arena ([#2395](https://github.com/grayscale-lang/grayscale/issues/2395)) ([ddc9a0a](https://github.com/grayscale-lang/grayscale/commit/ddc9a0a31f1084f1960de354b3323bc10767a5dc))
+* **runtime:** grow arrays in their owning arena ([#2378](https://github.com/grayscale-lang/grayscale/issues/2378)) ([f4e2b43](https://github.com/grayscale-lang/grayscale/commit/f4e2b436cd509205960e87420ee359e1314c0f84))
+* **stdlib:** use _getpid on MinGW instead of unavailable getpid ([677e2fd](https://github.com/grayscale-lang/grayscale/commit/677e2fd041d35b39d0cc7a2b9060faf7b52a0a32))
+* support tagged union enums across module boundaries ([#2318](https://github.com/grayscale-lang/grayscale/issues/2318)) ([a9a6f4e](https://github.com/grayscale-lang/grayscale/commit/a9a6f4edfa48e631a4d837ff3dc178dff6bae3b5))
+* **typechecker:** check signatures on stdlib calls made by bare name ([#2417](https://github.com/grayscale-lang/grayscale/issues/2417)) ([0412f8c](https://github.com/grayscale-lang/grayscale/commit/0412f8c8d251bcedac837b3342da9c72c973795f))
+* **typechecker:** E3001 should name the value to cast, not the target ([#2408](https://github.com/grayscale-lang/grayscale/issues/2408)) ([e950c97](https://github.com/grayscale-lang/grayscale/commit/e950c9765bf35b72af854a83349353f5c5255fa8))
+* **typechecker:** enforce reserved '_gray_' prefix ([#2386](https://github.com/grayscale-lang/grayscale/issues/2386)) ([705ea61](https://github.com/grayscale-lang/grayscale/commit/705ea61a47dde1ff46596dd646dede31d6aa65e2))
+* **typechecker:** negate literal INT64_MIN through unsigned arithmetic ([#2414](https://github.com/grayscale-lang/grayscale/issues/2414)) ([b286e36](https://github.com/grayscale-lang/grayscale/commit/b286e362199cb2ec83b104b50d2682032aa5698e))
+* **typechecker:** reject interpolating arrays/maps of tagged enums ([#2398](https://github.com/grayscale-lang/grayscale/issues/2398)) ([726c72a](https://github.com/grayscale-lang/grayscale/commit/726c72aee68c70bd339db4879d51ec7434264d7b))
+* **typechecker:** reject type names as when subjects and non-string error() args ([#2419](https://github.com/grayscale-lang/grayscale/issues/2419)) ([888d1ea](https://github.com/grayscale-lang/grayscale/commit/888d1ea35a4823edae5a2b8fc83d3b6d8fe0dd12))
+
+
+### Performance Improvements
+
+* **lexer:** intern identifiers and bypass arena copies for keywords ([#2144](https://github.com/grayscale-lang/grayscale/issues/2144)) ([6e07382](https://github.com/grayscale-lang/grayscale/commit/6e073827ec0455037025bad424cb638e48266180))
+* **runtime:** make map removal O(1) instead of O(n) ([#2147](https://github.com/grayscale-lang/grayscale/issues/2147)) ([a62ed3c](https://github.com/grayscale-lang/grayscale/commit/a62ed3c2fa60c379f29088d8ecbb3965150577f2))
+
+## [0.4.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.3.0...grayscale-v0.4.0) (2026-08-14)
+
+
+### Features
+
+* **attrs:** add #discard attribute for unused return values ([#2139](https://github.com/grayscale-lang/grayscale/issues/2139)) ([94ad4fd](https://github.com/grayscale-lang/grayscale/commit/94ad4fd6e7fa38a101115e9c45dd64f0aaecdec7))
+* **builtins:** add fields() builtin for struct field introspection ([#2220](https://github.com/grayscale-lang/grayscale/issues/2220)) ([a64c6db](https://github.com/grayscale-lang/grayscale/commit/a64c6db81aaf43d1f4859731f9bb183d0a0402ff))
+* **builtins:** add system() builtin and document raw() ([#2221](https://github.com/grayscale-lang/grayscale/issues/2221)) ([12d460f](https://github.com/grayscale-lang/grayscale/commit/12d460f970e0a4ff6d806fc3946a540872b761a9))
+* **lang:** make variable declarations mutable by default ([#2087](https://github.com/grayscale-lang/grayscale/issues/2087)) ([5139454](https://github.com/grayscale-lang/grayscale/commit/51394542fcbdc78daaa3aebe94763ab9d9de1377))
+* **mem:** add raw() builtin for unchecked pointer access ([#2194](https://github.com/grayscale-lang/grayscale/issues/2194)) ([095c958](https://github.com/grayscale-lang/grayscale/commit/095c9583cd42e68b6a72943bfb406ef312e195cd))
+
+
+### Bug Fixes
+
+* **build:** reject unknown make targets before running anything ([#2370](https://github.com/grayscale-lang/grayscale/issues/2370)) ([e9111bd](https://github.com/grayscale-lang/grayscale/commit/e9111bd2b67b107a4a0b25ef936abb9d6002eae6))
+* **codegen:** bind map to temp in 'in' check to avoid rvalue address ([#2315](https://github.com/grayscale-lang/grayscale/issues/2315)) ([7a5a22d](https://github.com/grayscale-lang/grayscale/commit/7a5a22d031b2016d87c31c105245e5bf10b30e23))
+* **codegen:** emit element-wise conversion for array casts ([#2371](https://github.com/grayscale-lang/grayscale/issues/2371)) ([33b1eac](https://github.com/grayscale-lang/grayscale/commit/33b1eac4be18f1dcad6ce44b5a59d15b9b241350))
+* **codegen:** emit lvalue-safe code for ++/-- on struct fields through pointers ([#2358](https://github.com/grayscale-lang/grayscale/issues/2358)) ([7e41eb1](https://github.com/grayscale-lang/grayscale/commit/7e41eb1356b8565dfc3389ffff27d188f5167db2))
+* **codegen:** emit tagged enum typedefs after struct body definitions ([#2262](https://github.com/grayscale-lang/grayscale/issues/2262)) ([15f7868](https://github.com/grayscale-lang/grayscale/commit/15f7868a14954a2e67af43101a8a13b580e1a2a6))
+* **codegen:** forward-declare tagged enum types for self-referential payloads ([#2319](https://github.com/grayscale-lang/grayscale/issues/2319)) ([6bc4f51](https://github.com/grayscale-lang/grayscale/commit/6bc4f519b71894a928bf9e2e0007ef2c6443e4f8))
+* **codegen:** handle dereference args in raw() and addr() ([#2322](https://github.com/grayscale-lang/grayscale/issues/2322)) ([7fac2e5](https://github.com/grayscale-lang/grayscale/commit/7fac2e58ab0ba21f1309f9e998668dea925a1cb4))
+* **codegen:** handle dereferenced container pointer operations ([#2346](https://github.com/grayscale-lang/grayscale/issues/2346)) ([acd78f7](https://github.com/grayscale-lang/grayscale/commit/acd78f786cbba68700084c4763723dbc0b421f2f))
+* **codegen:** raw() on const struct no longer leaks C error ([#2345](https://github.com/grayscale-lang/grayscale/issues/2345)) ([d6fbe60](https://github.com/grayscale-lang/grayscale/commit/d6fbe607b5c68d0bfea49adc17818b80e0e7e761))
+* **codegen:** rewrite cross-module type refs in merged imports ([#2294](https://github.com/grayscale-lang/grayscale/issues/2294)) ([cd91725](https://github.com/grayscale-lang/grayscale/commit/cd917251c305e4993afaf6f0d211f8948b3999b8))
+* **codegen:** scope-aware raw variable tracking for shadowed pointers ([#2324](https://github.com/grayscale-lang/grayscale/issues/2324)) ([928e6b2](https://github.com/grayscale-lang/grayscale/commit/928e6b27fbccd21821e7719405682d374d6d6c4d))
+* **codegen:** skip nil check for inline raw() dereference ([#2323](https://github.com/grayscale-lang/grayscale/issues/2323)) ([a4b379b](https://github.com/grayscale-lang/grayscale/commit/a4b379b84d348449f01e09b0132c53c52c2b3596))
+* **codegen:** skip struct deep-copy escape for pointer type assignments ([#2317](https://github.com/grayscale-lang/grayscale/issues/2317)) ([8df341c](https://github.com/grayscale-lang/grayscale/commit/8df341cf246e5e8c1f6e4b111eb1e4f292f79277))
+* **codegen:** update raw status on pointer reassignment to addr/raw ([#2325](https://github.com/grayscale-lang/grayscale/issues/2325)) ([c86d1c0](https://github.com/grayscale-lang/grayscale/commit/c86d1c0830b1889d103eb6a9561d8e539170476f))
+* **codegen:** use dot access for multi-return temps with pointer types ([#2314](https://github.com/grayscale-lang/grayscale/issues/2314)) ([3299004](https://github.com/grayscale-lang/grayscale/commit/3299004eae928ac2d26c1b8b558d2a290800cd8d))
+* **parser:** allow mut-less array declarations without triggering E2075 ([#2363](https://github.com/grayscale-lang/grayscale/issues/2363)) ([f173be9](https://github.com/grayscale-lang/grayscale/commit/f173be94ae9feb6c462f926b6903dcbdd15cf728))
+* **parser:** allow repeated mut/const in multi-var declarations ([#2349](https://github.com/grayscale-lang/grayscale/issues/2349)) ([d6b076f](https://github.com/grayscale-lang/grayscale/commit/d6b076feb3736d14d14458f37119c55863800261))
+* **parser:** allow size_of(^T) pointer type expressions ([#2353](https://github.com/grayscale-lang/grayscale/issues/2353)) ([29c1ddf](https://github.com/grayscale-lang/grayscale/commit/29c1ddf492f7c8b401477523cb0336107f139318))
+* **parser:** reject #discard attribute on struct fields ([#2360](https://github.com/grayscale-lang/grayscale/issues/2360)) ([e4794d1](https://github.com/grayscale-lang/grayscale/commit/e4794d1b4fcd9a8c83caba6d306603121120c038))
+* **tests:** update strconv from_float expectation to match shortest-roundtrip output ([#2337](https://github.com/grayscale-lang/grayscale/issues/2337)) ([8f44593](https://github.com/grayscale-lang/grayscale/commit/8f44593c09a7a1927cb9b14c6c5c47f71ebd6794))
+* **typechecker,codegen:** allow ++/-- on pointer dereference targets ([#2351](https://github.com/grayscale-lang/grayscale/issues/2351)) ([db1139e](https://github.com/grayscale-lang/grayscale/commit/db1139eb4234833dc50008d0b5e3118fb1edd787))
+* **typechecker:** auto-dereference pointers from expressions, not just variables ([#2355](https://github.com/grayscale-lang/grayscale/issues/2355)) ([333b56c](https://github.com/grayscale-lang/grayscale/commit/333b56cf16163b3928268aa405e8996013b886d9))
+* **typechecker:** propagate expected type for struct field array initializers ([#2263](https://github.com/grayscale-lang/grayscale/issues/2263)) ([85ca91e](https://github.com/grayscale-lang/grayscale/commit/85ca91e77a9023ee6e09533e83e2fe6cccadd448))
+* **typechecker:** reject bare pointer as if/for condition ([#2356](https://github.com/grayscale-lang/grayscale/issues/2356)) ([9371df9](https://github.com/grayscale-lang/grayscale/commit/9371df91f53d3fc975877921794b3f4bbe3e2e04))
+* **typechecker:** reject different enum types in inline array literals ([#2368](https://github.com/grayscale-lang/grayscale/issues/2368)) ([6604a6f](https://github.com/grayscale-lang/grayscale/commit/6604a6f11df999bf420521780f62c5307ac4ae32))
+* **typechecker:** reject different struct types in inline array literals ([#2367](https://github.com/grayscale-lang/grayscale/issues/2367)) ([1b9d782](https://github.com/grayscale-lang/grayscale/commit/1b9d78264bb8de4dd92e3c025641eabd07fb6482))
+* **typechecker:** reject dot-notation calls on non-struct variables ([#2354](https://github.com/grayscale-lang/grayscale/issues/2354)) ([56d9b88](https://github.com/grayscale-lang/grayscale/commit/56d9b88c3b4a7f3261016f85e3a918f90f39b423))
+* **typechecker:** reject empty inline array literals with no type context ([#2369](https://github.com/grayscale-lang/grayscale/issues/2369)) ([2a2c2fa](https://github.com/grayscale-lang/grayscale/commit/2a2c2fa3f9b1c36cb9c6649a7640b1937de226e1))
+* **typechecker:** reject import statements after file-scope declarations ([#2364](https://github.com/grayscale-lang/grayscale/issues/2364)) ([66f74dd](https://github.com/grayscale-lang/grayscale/commit/66f74dddabd8843d3be51b83e62d1b7979e95d53))
+* **typechecker:** reject int/uint mixing in inline array literals ([#2366](https://github.com/grayscale-lang/grayscale/issues/2366)) ([5a09c47](https://github.com/grayscale-lang/grayscale/commit/5a09c47a78f6ed29fb6e524063053ac5eb1bf33e))
+* **typechecker:** reject mixed pointer element types in array literals ([#2359](https://github.com/grayscale-lang/grayscale/issues/2359)) ([7437a18](https://github.com/grayscale-lang/grayscale/commit/7437a187234151e037903857d9953e0c86e1c8eb))
+* **typechecker:** reject nested array literals with mismatched element types ([#2365](https://github.com/grayscale-lang/grayscale/issues/2365)) ([a6eb829](https://github.com/grayscale-lang/grayscale/commit/a6eb8294d601a81337dfe4ac3e03f22799610b6b))
+* **typechecker:** reject ref() reassignment with incompatible signature ([#2350](https://github.com/grayscale-lang/grayscale/issues/2350)) ([9cbe510](https://github.com/grayscale-lang/grayscale/commit/9cbe51017d2477efed7ae14048798c67af40c40b))
+* **typechecker:** reject type mismatch on pointer dereference assignment ([#2342](https://github.com/grayscale-lang/grayscale/issues/2342)) ([49e8541](https://github.com/grayscale-lang/grayscale/commit/49e8541117ec46ba63d0c8189fc268e8accb80bd))
+* **typechecker:** reject type names as arguments to raw() and addr() ([#2343](https://github.com/grayscale-lang/grayscale/issues/2343)) ([42f48d8](https://github.com/grayscale-lang/grayscale/commit/42f48d873ae1a4a9de011bc9a0543578c9861949))
+* **typechecker:** reject type names in fields() builtin ([#2361](https://github.com/grayscale-lang/grayscale/issues/2361)) ([c712784](https://github.com/grayscale-lang/grayscale/commit/c7127849da677513d590e429cbf7dc5106a99e58))
+* **typechecker:** reject zero-arg calls to builtins that require arguments ([#2344](https://github.com/grayscale-lang/grayscale/issues/2344)) ([7188dbd](https://github.com/grayscale-lang/grayscale/commit/7188dbdfbaa01ba69870e7a3c701a3fa6b76f57d))
+* **typechecker:** use cross-module-aware type comparison in assignments and array literals ([d761ac8](https://github.com/grayscale-lang/grayscale/commit/d761ac8d056488ff2d505317433eee089b05e9a7))
+* **typechecker:** validate argument count and types for ref() calls ([#2347](https://github.com/grayscale-lang/grayscale/issues/2347)) ([c831255](https://github.com/grayscale-lang/grayscale/commit/c8312551337c9331aea938b4423e675b560bf485))
+* **typechecker:** validate field access through explicit pointer dereference ([#2357](https://github.com/grayscale-lang/grayscale/issues/2357), [#2352](https://github.com/grayscale-lang/grayscale/issues/2352)) ([0c15217](https://github.com/grayscale-lang/grayscale/commit/0c15217f0459961d2889691771ed863d7e3e6518))
+
+
+### Performance Improvements
+
+* **codegen:** replace linear scans with bsearch for alias and enum lookups ([#2331](https://github.com/grayscale-lang/grayscale/issues/2331)) ([b38e03d](https://github.com/grayscale-lang/grayscale/commit/b38e03d56699d71a96cc956b9ee3fecc72b326d9))
+* **stdlib:** fix insert_at() overflow UB and use panic infrastructure ([#2335](https://github.com/grayscale-lang/grayscale/issues/2335)) ([6b41915](https://github.com/grayscale-lang/grayscale/commit/6b41915a8b21bf809622979f7975b5c258c3d666))
+* **stdlib:** iterate order array instead of capacity in JSON map encoders ([#2333](https://github.com/grayscale-lang/grayscale/issues/2333)) ([45d2d94](https://github.com/grayscale-lang/grayscale/commit/45d2d94f81479c0032b95f68190b92663a34baaa))
+* **stdlib:** replace O(n²) deduplicate with O(n) hash set ([#2334](https://github.com/grayscale-lang/grayscale/issues/2334)) ([63d1b47](https://github.com/grayscale-lang/grayscale/commit/63d1b470334f0ecba6c8feab6c75991ceef2555a))
+* **stdlib:** use uninitialized arena alloc for immediately-overwritten buffers ([#2332](https://github.com/grayscale-lang/grayscale/issues/2332)) ([5f4cf54](https://github.com/grayscale-lang/grayscale/commit/5f4cf54c41e0fdb4579be22041f56997cc25592e))
+* **typechecker:** extract mark_import_used() to replace 10 inline loops ([#2330](https://github.com/grayscale-lang/grayscale/issues/2330)) ([b806c9d](https://github.com/grayscale-lang/grayscale/commit/b806c9d6685ee37eb3c496a77008b11a8e302fa9))
+
+## [0.3.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.2.2...grayscale-v0.3.0) (2026-08-09)
+
+
+### Features
+
+* add Windows support ([#1342](https://github.com/grayscale-lang/grayscale/issues/1342)) ([e41ba3d](https://github.com/grayscale-lang/grayscale/commit/e41ba3dbb4fd277fc5e04890966b61cd759477bd))
+
+
+### Bug Fixes
+
+* **build:** make install work on Windows ([7580baf](https://github.com/grayscale-lang/grayscale/commit/7580baf71a68893d7eb26160cfd081ab02d076aa))
+* **cli:** embed runtime archive on Windows and shared util headers ([32a60b2](https://github.com/grayscale-lang/grayscale/commit/32a60b20c961c5c025d1ba367167ce75cdce26c3))
+* **cli:** prefer a repo-local grayc build over the embedded compiler ([ef9dec3](https://github.com/grayscale-lang/grayscale/commit/ef9dec338fbb8f6f104111d560a9e7ca56051520))
+* **cli:** report CPU, RAM, kernel, and compiler on Windows ([3f361cb](https://github.com/grayscale-lang/grayscale/commit/3f361cb4840ace6ccb38b691f674fc6e427a93a2))
+* **codegen:** mangle identifiers the C standard defines as macros ([feeeb04](https://github.com/grayscale-lang/grayscale/commit/feeeb0477edcd30d2108f668a203be22e7035e23))
+* **codegen:** materialize rvalue arguments as compound literals ([0370551](https://github.com/grayscale-lang/grayscale/commit/037055173c3bf81efa9ae1b08821b47e4356f8b8))
+* **codegen:** pass 64-bit values to upgraded fmt directives ([647456d](https://github.com/grayscale-lang/grayscale/commit/647456d693ef2f99b1fd78146178fd7ceec25fb9))
+* **codegen:** resolve struct function names through using-modules ([#2291](https://github.com/grayscale-lang/grayscale/issues/2291)) ([e53c25c](https://github.com/grayscale-lang/grayscale/commit/e53c25c1283fb66d0adf5e1022b0d8622b5ae7b8))
+* **codegen:** zero-initialize codegen state ([a1284f2](https://github.com/grayscale-lang/grayscale/commit/a1284f23bf38abe9b901f5414e59687eb7b3c638))
+* **compiler:** build generated programs with gnu11 and -static on Windows ([7c9a49f](https://github.com/grayscale-lang/grayscale/commit/7c9a49fa42acad28291ab6869660521cfc96d5fd))
+* **compiler:** find C compilers that are not on PATH on Windows ([8fd81a5](https://github.com/grayscale-lang/grayscale/commit/8fd81a5be5d5ac602724caf7df5567b808b37c24))
+* **compiler:** resolve util headers when building runtime from source ([585fe26](https://github.com/grayscale-lang/grayscale/commit/585fe26b4373c55a8639cce8643ca26a780be2b6))
+* **runtime:** use unsigned limb arithmetic in i128 add/sub/neg ([5ad92a7](https://github.com/grayscale-lang/grayscale/commit/5ad92a7ed6906a5fbe4143cc8f201e35f4468061))
+* **stdlib:** reach the system math.h from the math module header ([05e0f72](https://github.com/grayscale-lang/grayscale/commit/05e0f72872b269f279ef40f53be086834b13b235))
+* **stdlib:** use the system CSPRNG for random seeding on Windows ([ce46d5d](https://github.com/grayscale-lang/grayscale/commit/ce46d5d46d8ecb75fac769b047736c6482fa50be))
+* **stdlib:** use the system CSPRNG for uuid and crypto on Windows ([d2e9d57](https://github.com/grayscale-lang/grayscale/commit/d2e9d573d8c37b6639f073b8e8c21458d019aa3c))
+* **typechecker:** unify cross-module enum type identity ([bffb8b0](https://github.com/grayscale-lang/grayscale/commit/bffb8b0b74db21be191da911879f95766283a44b))
+* **typechecker:** unify cross-module enum type identity ([#2290](https://github.com/grayscale-lang/grayscale/issues/2290)) ([7de0d67](https://github.com/grayscale-lang/grayscale/commit/7de0d6784d9e3b163dff8a9b3d6d3403f5daf840))
+
+## [0.2.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.2.1...grayscale-v0.2.2) (2026-08-08)
+
+
+### Bug Fixes
+
+* **cli:** print error message for unknown subcommands ([#2288](https://github.com/grayscale-lang/grayscale/issues/2288)) ([d4a2226](https://github.com/grayscale-lang/grayscale/commit/d4a2226443616205ac742d607d5e67558b74dfc3))
+* **codegen:** add char/byte element types for arrays.append/insert_at/prepend ([#2297](https://github.com/grayscale-lang/grayscale/issues/2297)) ([8092089](https://github.com/grayscale-lang/grayscale/commit/8092089b6ded51acb6d90d528678fadbf1bc9a6b))
+* **codegen:** add missing element types for arrays.fill ([#2299](https://github.com/grayscale-lang/grayscale/issues/2299)) ([2a52728](https://github.com/grayscale-lang/grayscale/commit/2a52728e1983cecbdbe7f56752a3d084cd509c0a))
+* **codegen:** emit concrete enum type in arrays.append/insert_at/prepend ([#2242](https://github.com/grayscale-lang/grayscale/issues/2242)) ([7993715](https://github.com/grayscale-lang/grayscale/commit/799371554f70de698e4cb42efb977f2bc5b2ed69))
+* **codegen:** emit concrete enum type in arrays.append/insert_at/prepend ([#2242](https://github.com/grayscale-lang/grayscale/issues/2242)) ([0006121](https://github.com/grayscale-lang/grayscale/commit/0006121a7a42e45b5cecfb7416b9b283f675f9ef))
+* **codegen:** use correct C types for wide int arrays.append/insert_at/prepend ([#2298](https://github.com/grayscale-lang/grayscale/issues/2298)) ([f89a3a8](https://github.com/grayscale-lang/grayscale/commit/f89a3a85e93d2abf24981842f5c0d2596248f4ac))
+* **codegen:** use correct element size for enum array interpolation ([#2248](https://github.com/grayscale-lang/grayscale/issues/2248)) ([dda344e](https://github.com/grayscale-lang/grayscale/commit/dda344e9f0b69fd488cc676c9f6e7c540b12c8ac))
+* **parser:** correct or_return fallback count when user provides error value ([#2247](https://github.com/grayscale-lang/grayscale/issues/2247)) ([e0cb3e9](https://github.com/grayscale-lang/grayscale/commit/e0cb3e9a4e4213e25c153c6ca67448ad307ebd4e))
+* **parser:** parse compound types in tagged enum payloads ([#2287](https://github.com/grayscale-lang/grayscale/issues/2287)) ([8789d88](https://github.com/grayscale-lang/grayscale/commit/8789d88652deb3240206be40ec445b50020cc254))
+* **stdlib:** add parameterized query API to sqlite module ([#1690](https://github.com/grayscale-lang/grayscale/issues/1690)) ([55930b0](https://github.com/grayscale-lang/grayscale/commit/55930b09376b7c21fd4950ec86357901c7c14941))
+* **stdlib:** add parameterized query API to sqlite module ([#1690](https://github.com/grayscale-lang/grayscale/issues/1690)) ([b772cc7](https://github.com/grayscale-lang/grayscale/commit/b772cc7174003eabf196d372e1df125f7a6cf097))
+* **stdlib:** unescape doubled quotes in csv.parse() quoted fields ([#2239](https://github.com/grayscale-lang/grayscale/issues/2239)) ([84561c0](https://github.com/grayscale-lang/grayscale/commit/84561c0fd0fd7322a7c7160aa71a37f5959bdd7e))
+* **stdlib:** unescape doubled quotes in csv.parse() quoted fields ([#2239](https://github.com/grayscale-lang/grayscale/issues/2239)) ([cc184a8](https://github.com/grayscale-lang/grayscale/commit/cc184a8995277c8e76605ac240d6d8394a753260))
+* **tests:** register unused buffer test functions in test_util ([e55acf1](https://github.com/grayscale-lang/grayscale/commit/e55acf14381556dd6c97b201045a5cbe5a2a481d))
+* **typechecker:** allow explicit deref before struct function calls ([#2244](https://github.com/grayscale-lang/grayscale/issues/2244)) ([06e6ab6](https://github.com/grayscale-lang/grayscale/commit/06e6ab69644a77dbf730e8a090a9e1067d47d72f))
+* **typechecker:** correct E3001 narrowing hint to use cast() syntax ([#2264](https://github.com/grayscale-lang/grayscale/issues/2264)) ([77a78ba](https://github.com/grayscale-lang/grayscale/commit/77a78ba3feed89e232cc989f3ce1e274524398bb))
+* **typechecker:** emit W3005 for implicit enum selectors and tagged enum patterns in when/is ([#2259](https://github.com/grayscale-lang/grayscale/issues/2259)) ([1b28944](https://github.com/grayscale-lang/grayscale/commit/1b2894418b9f1367719bc71e8dcebac2352e3356))
+* **typechecker:** reject multi-return functions in 5 expression contexts ([#2260](https://github.com/grayscale-lang/grayscale/issues/2260)) ([fdbeeb4](https://github.com/grayscale-lang/grayscale/commit/fdbeeb488b8ec534db34da97fad99843cc6a37bf))
+* **typechecker:** reject tagged enums in interpolation and map values ([#2261](https://github.com/grayscale-lang/grayscale/issues/2261)) ([de576aa](https://github.com/grayscale-lang/grayscale/commit/de576aab0f162b82fe70362dde93b46ae738ee2b))
+* **typechecker:** resolve implicit enum selectors in map key bracket access ([#2246](https://github.com/grayscale-lang/grayscale/issues/2246)) ([93732d9](https://github.com/grayscale-lang/grayscale/commit/93732d93ad4995a711376c3c03489eeb9986146f))
+* **typechecker:** resolve implicit enum selectors in map key bracket access ([#2246](https://github.com/grayscale-lang/grayscale/issues/2246)) ([126f6fc](https://github.com/grayscale-lang/grayscale/commit/126f6fc4799e26ad3c9a137dfac811d45b9f3eed))
+* **typechecker:** resolve implicit enum selectors in map literal values ([#2249](https://github.com/grayscale-lang/grayscale/issues/2249)) ([ceaddcd](https://github.com/grayscale-lang/grayscale/commit/ceaddcd1885866439659383d49d4a888c8743753))
+* **typechecker:** resolve implicit enum selectors in struct field defaults ([#2223](https://github.com/grayscale-lang/grayscale/issues/2223)) ([96a410e](https://github.com/grayscale-lang/grayscale/commit/96a410e7ed9df9ec8c01aa1aa97f614d7a61cc86))
+* **typechecker:** resolve implicit enum selectors in struct field defaults ([#2223](https://github.com/grayscale-lang/grayscale/issues/2223)) ([98763db](https://github.com/grayscale-lang/grayscale/commit/98763db7fb010afb0c129576addeddf81715ab18))
+
+## [0.2.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.2.0...grayscale-v0.2.1) (2026-08-05)
+
+
+### Bug Fixes
+
+* **codegen:** emit wide integer intrinsics for struct field access ([#2224](https://github.com/grayscale-lang/grayscale/issues/2224)) ([61d0962](https://github.com/grayscale-lang/grayscale/commit/61d0962fb73844582d250ae53ab3b94d4f1cf8b6))
+* **codegen:** string() on char now returns the character, not the codepoint ([#2238](https://github.com/grayscale-lang/grayscale/issues/2238)) ([fb2b6fd](https://github.com/grayscale-lang/grayscale/commit/fb2b6fd2e55d528f8c26565a5a1cadbe6048b313))
+* **codegen:** use bigint to_string for wide integer fields in struct printing ([#2230](https://github.com/grayscale-lang/grayscale/issues/2230)) ([ff53192](https://github.com/grayscale-lang/grayscale/commit/ff53192cc03f5331b23202bfdb29e7d2d32db87a))
+* **codegen:** wrap left operand in parens for float/unsigned division zero-check ([#2243](https://github.com/grayscale-lang/grayscale/issues/2243)) ([481c8f0](https://github.com/grayscale-lang/grayscale/commit/481c8f0adf7c17ae49e7b805f4e85a3c8b484b52))
+* **parser:** handle module-qualified function calls in for_each iterable ([#2245](https://github.com/grayscale-lang/grayscale/issues/2245)) ([a960715](https://github.com/grayscale-lang/grayscale/commit/a960715f19191f90ca2b3c0b4189b6517b839faf))
+* **stdlib:** respect explicit seed in rand64 for deterministic output ([#2231](https://github.com/grayscale-lang/grayscale/issues/2231)) ([6c3af87](https://github.com/grayscale-lang/grayscale/commit/6c3af87fc8cfe227deaa09e5ad1da47e55f2b1a4))
+* **stdlib:** use 64-bit RNG in rand_int for full-range support ([#2231](https://github.com/grayscale-lang/grayscale/issues/2231)) ([eef9972](https://github.com/grayscale-lang/grayscale/commit/eef99720b04cdf275a3925c64a9f0ddc091fffbc))
+* **tests:** update tests for narrowing checks on reassignment ([7d3c9cc](https://github.com/grayscale-lang/grayscale/commit/7d3c9ccf20b376f3dbd2a499a8d1e1b9db451dae))
+* **typechecker:** add E3100 check for type names in struct-namespaced calls ([#2229](https://github.com/grayscale-lang/grayscale/issues/2229)) ([eee3976](https://github.com/grayscale-lang/grayscale/commit/eee3976942255df58a3c8ba4c893d14a0da69d46))
+* **typechecker:** reject array reassignment with mismatched element types ([#2235](https://github.com/grayscale-lang/grayscale/issues/2235)) ([b2a471d](https://github.com/grayscale-lang/grayscale/commit/b2a471d7e57ae9e8a2d33560fd25abf4a021a81a))
+* **typechecker:** reject cross-enum type reassignment ([#2234](https://github.com/grayscale-lang/grayscale/issues/2234)) ([176309c](https://github.com/grayscale-lang/grayscale/commit/176309ccafb13fe0e4514c1159ea90aa8f89100d))
+* **typechecker:** reject map reassignment with mismatched key or value types ([#2236](https://github.com/grayscale-lang/grayscale/issues/2236)) ([fa29783](https://github.com/grayscale-lang/grayscale/commit/fa29783df29a4bae360be338d6222f0feee1510e))
+* **typechecker:** reject numeric reassignment with narrowing or signedness mismatch ([#2232](https://github.com/grayscale-lang/grayscale/issues/2232)) ([8de1c91](https://github.com/grayscale-lang/grayscale/commit/8de1c91288988156d63be4c70927bfc174d8a4f2))
+* **typechecker:** resolve type aliases in map key validation and map value lookup ([#2237](https://github.com/grayscale-lang/grayscale/issues/2237)) ([c1ebcab](https://github.com/grayscale-lang/grayscale/commit/c1ebcab7109728cf5c19887a22f8d1f11eb7ac99))
+* **typechecker:** validate arrays.map callback return type matches element type ([#2240](https://github.com/grayscale-lang/grayscale/issues/2240)) ([1f8ef21](https://github.com/grayscale-lang/grayscale/commit/1f8ef21ad753558003b341b89d3f8969be0157d6))
+* **typechecker:** validate arrays.map callback return type matches element type ([#2240](https://github.com/grayscale-lang/grayscale/issues/2240)) ([5e5c711](https://github.com/grayscale-lang/grayscale/commit/5e5c711102f7af1e34a2ba6b0b8d6c04ecfdfe67))
+* **typechecker:** validate arrays.reduce callback return type matches accumulator ([#2241](https://github.com/grayscale-lang/grayscale/issues/2241)) ([ef4ca05](https://github.com/grayscale-lang/grayscale/commit/ef4ca05e95bd791e82153a5fe4649252d2f9e640))
+* **typechecker:** validate arrays.reduce callback return type matches accumulator ([#2241](https://github.com/grayscale-lang/grayscale/issues/2241)) ([27b7f28](https://github.com/grayscale-lang/grayscale/commit/27b7f2859923f85488196c7cdc414a1ae72a1245))
+
+## [0.2.0](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.1.4...grayscale-v0.2.0) (2026-07-31)
+
+
+### Features
+
+* **builtin:** extend new() to support all types ([#2193](https://github.com/grayscale-lang/grayscale/issues/2193)) ([6e62ec7](https://github.com/grayscale-lang/grayscale/commit/6e62ec771ea78a201471d79c5f6cc8669031d3f0))
+* **cli:** add cross-compilation support via zig cc ([#2093](https://github.com/grayscale-lang/grayscale/issues/2093)) ([ff6a08e](https://github.com/grayscale-lang/grayscale/commit/ff6a08eab365eaec70a6319d5ab9731485718252))
+* **lang:** add type aliasing with `alias` keyword ([#2136](https://github.com/grayscale-lang/grayscale/issues/2136)) ([6d244d8](https://github.com/grayscale-lang/grayscale/commit/6d244d8fde5710d60732e2e3b0ac12c28bcbba06))
+
+
+### Bug Fixes
+
+* **cli:** extract #doc attributes from file-scope variables ([#2196](https://github.com/grayscale-lang/grayscale/issues/2196)) ([786c724](https://github.com/grayscale-lang/grayscale/commit/786c7241aa5dd096dc1ef22f6d0f8f9e49892d40))
+* **cli:** restrict project names to ASCII alphanumeric, hyphens, and underscores ([#2175](https://github.com/grayscale-lang/grayscale/issues/2175)) ([09c2392](https://github.com/grayscale-lang/grayscale/commit/09c239264df452c278678a8ebdce11f365f19bd7))
+* **codegen:** recognize bigint comparisons as bool in println ([#2217](https://github.com/grayscale-lang/grayscale/issues/2217)) ([1307f12](https://github.com/grayscale-lang/grayscale/commit/1307f125933642ba31db46557d13f168629e7d5b))
+* **lexer,parser:** skip nested strings when tracking interpolation brace depth ([#2161](https://github.com/grayscale-lang/grayscale/issues/2161)) ([6043334](https://github.com/grayscale-lang/grayscale/commit/60433342d30b40cbb4d24d2a14c8d4aeb316b5ab))
+* **parser:** support chained member access in for_each collection ([#2190](https://github.com/grayscale-lang/grayscale/issues/2190)) ([2246564](https://github.com/grayscale-lang/grayscale/commit/224656404038a15e2fcbd2af5906fcf4cb8ff574))
+* **runtime:** add iteration guard to maps.clear ([#2187](https://github.com/grayscale-lang/grayscale/issues/2187)) ([c1eaf00](https://github.com/grayscale-lang/grayscale/commit/c1eaf009dc49cbd23dff9b01650dee9e45553525))
+* **stdlib:** eliminate TOCTOU race in thread detach cleanup ([#2181](https://github.com/grayscale-lang/grayscale/issues/2181)) ([99d3080](https://github.com/grayscale-lang/grayscale/commit/99d308028eaf77fb30c1477f63fee99fb8275eab))
+* **stdlib:** seed PRNG with arc4random/urandom instead of time(NULL) ([#2180](https://github.com/grayscale-lang/grayscale/issues/2180)) ([fb64fff](https://github.com/grayscale-lang/grayscale/commit/fb64fffd60d6113f71a4dc3a32ceda401c9cba2b))
+* **typechecker,codegen:** allow explicit type annotations for stdlib opaque types ([#2216](https://github.com/grayscale-lang/grayscale/issues/2216)) ([f946806](https://github.com/grayscale-lang/grayscale/commit/f9468068cd25e375ed62ca297e66449455afa6be))
+* **typechecker:** propagate const_source through pointer assignment ([#2211](https://github.com/grayscale-lang/grayscale/issues/2211)) ([d232152](https://github.com/grayscale-lang/grayscale/commit/d23215257ce89e2b1bd6244eaddb8909a0c91447))
+* **typechecker:** remove dead E3067, fix E4021 cross-module match, rename E4006 test ([#2226](https://github.com/grayscale-lang/grayscale/issues/2226)) ([1844f8a](https://github.com/grayscale-lang/grayscale/commit/1844f8a50863487063230295957bdec42e3f68fe))
+* **typechecker:** require explicit type on file-scope const primitives ([#2120](https://github.com/grayscale-lang/grayscale/issues/2120)) ([9d6504b](https://github.com/grayscale-lang/grayscale/commit/9d6504bd6642eeb71988d43d522a311271fed517))
+* **typechecker:** restore struct context during generic re-check to prevent spurious E4017 ([#2197](https://github.com/grayscale-lang/grayscale/issues/2197)) ([fb6e62f](https://github.com/grayscale-lang/grayscale/commit/fb6e62fa1d2804e7be6742fed7b122c07c6e067a))
+* **typechecker:** revert [#2149](https://github.com/grayscale-lang/grayscale/issues/2149) optimization that caused NULL result segfault ([0fa296b](https://github.com/grayscale-lang/grayscale/commit/0fa296b80bc52dd5334b2b19f55441888642f8b5))
+* **typechecker:** support type parameter forwarding between generic functions ([#2059](https://github.com/grayscale-lang/grayscale/issues/2059)) ([376fc83](https://github.com/grayscale-lang/grayscale/commit/376fc8340ce98362c834f00f784b9de29debd60d))
+
+
+### Performance Improvements
+
+* **runtime:** add gray_arena_alloc_uninitialized to eliminate redundant zeroing ([#2151](https://github.com/grayscale-lang/grayscale/issues/2151)) ([567ef36](https://github.com/grayscale-lang/grayscale/commit/567ef36d082865aed8c84c511123571b58ce91e1))
+* **typechecker:** cache typechecker_lookup_using_constant result ([#2149](https://github.com/grayscale-lang/grayscale/issues/2149)) ([ad26cf3](https://github.com/grayscale-lang/grayscale/commit/ad26cf3fbc73036d696596c5d477fd913403e812))
+
+## [0.1.4](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.1.3...grayscale-v0.1.4) (2026-07-26)
+
+
+### Bug Fixes
+
+* **cli:** reject legacy EZ releases in update checks ([e8fa984](https://github.com/grayscale-lang/grayscale/commit/e8fa984037bb0bc1a498d2b10c072bef724dfc00))
+* **cli:** reject legacy EZ releases in update version checks ([2aca3cf](https://github.com/grayscale-lang/grayscale/commit/2aca3cfb404bbc9499728ae4f050a66bd0de5c06))
+
+## [0.1.3](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.1.2...grayscale-v0.1.3) (2026-07-26)
+
+
+### Bug Fixes
+
+* **codegen:** emit overflow checks for compound assignment through pointer dereference ([#2164](https://github.com/grayscale-lang/grayscale/issues/2164)) ([f3d4624](https://github.com/grayscale-lang/grayscale/commit/f3d4624551f53b1815be13b91584c19deaec12a1))
+* **codegen:** use gray_string_concat for interpolation to preserve null bytes ([#2195](https://github.com/grayscale-lang/grayscale/issues/2195)) ([f0951b8](https://github.com/grayscale-lang/grayscale/commit/f0951b8a5ecc84e2d5add5b65727b9859b24ae02))
+* **parser:** enforce 64KB limit on string interpolation expressions ([#2177](https://github.com/grayscale-lang/grayscale/issues/2177)) ([43e05c3](https://github.com/grayscale-lang/grayscale/commit/43e05c35ca475563bac79f624d967373127f4a04))
+* **tests:** correct e2e test count double-counting in test_e2e_divide_by_zero ([46acb35](https://github.com/grayscale-lang/grayscale/commit/46acb35afd6ad1909ace5e10e73da326c3e05603))
+* **typechecker:** allow addr() on const variables, catch mutation at write sites ([#2191](https://github.com/grayscale-lang/grayscale/issues/2191)) ([626809a](https://github.com/grayscale-lang/grayscale/commit/626809aa99d4ad7d67ed34251c4eaa300a90d1a9))
+* **typechecker:** catch const mutation through nested access and postfix ([#2162](https://github.com/grayscale-lang/grayscale/issues/2162)) ([dbb9df5](https://github.com/grayscale-lang/grayscale/commit/dbb9df5a0a497ab507da09a82c5081546634c544))
+
+## [0.1.2](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.1.1...grayscale-v0.1.2) (2026-07-25)
+
+
+### Bug Fixes
+
+* **cli:** filter releases to grayscale-v* tags, excluding legacy EZ releases ([e3805ce](https://github.com/grayscale-lang/grayscale/commit/e3805ce85040e92ed66499abca72fa2151f5779c))
+* **cli:** filter releases to grayscale-v* tags, excluding legacy EZ releases ([#2201](https://github.com/grayscale-lang/grayscale/issues/2201)) ([05636ae](https://github.com/grayscale-lang/grayscale/commit/05636aea32add6fb7983d8abf90964b05927b46e))
+
+## [0.1.1](https://github.com/grayscale-lang/grayscale/compare/grayscale-v0.1.0...grayscale-v0.1.1) (2026-07-25)
+
+
+### Bug Fixes
+
+* **codegen:** decrement .iterating guard on early return from for_each ([#2163](https://github.com/grayscale-lang/grayscale/issues/2163)) ([ff2581d](https://github.com/grayscale-lang/grayscale/commit/ff2581deb20841ac019003d1225a03e2364f3606))
+* **codegen:** scope ref_vars and bigint_vars per function to prevent cross-function leaks ([#2142](https://github.com/grayscale-lang/grayscale/issues/2142)) ([6e59b16](https://github.com/grayscale-lang/grayscale/commit/6e59b16582917d0b3aa69ef26e7c7128577ee7bd))
+* **codegen:** use 64-bit shift for flags enum bit values ([#2186](https://github.com/grayscale-lang/grayscale/issues/2186)) ([04facce](https://github.com/grayscale-lang/grayscale/commit/04faccebc2868641a2d2c429ade4ec93de22d798))
+* **lexer:** cap identifier length at 255 characters ([#2182](https://github.com/grayscale-lang/grayscale/issues/2182)) ([eef5f87](https://github.com/grayscale-lang/grayscale/commit/eef5f87bc1525836af4b238d04cad51cf0ca0bf7))
+* **lexer:** saturate line and column counters at INT_MAX ([#2183](https://github.com/grayscale-lang/grayscale/issues/2183)) ([1209418](https://github.com/grayscale-lang/grayscale/commit/1209418dedcfc93ac0f879ed7cafe73d867ba4fa))
+* **parser:** add recursion depth limit for block statement nesting ([#2168](https://github.com/grayscale-lang/grayscale/issues/2168)) ([738a388](https://github.com/grayscale-lang/grayscale/commit/738a3885ab9ea68f71afd860d5f731c9d44fde50))
+* **parser:** cap array type nesting depth at 64 levels ([#2169](https://github.com/grayscale-lang/grayscale/issues/2169)) ([3101a8f](https://github.com/grayscale-lang/grayscale/commit/3101a8f82dea7d5cfb0e02ca42c7b81b46cbd772))
+* **parser:** replace strdup with arena allocation in error paths ([#2184](https://github.com/grayscale-lang/grayscale/issues/2184)) ([a92d62f](https://github.com/grayscale-lang/grayscale/commit/a92d62ff9fde4ed28166d3accc324988c4260c1d))
+* **runtime:** correct 256-bit subtraction borrow propagation ([#2192](https://github.com/grayscale-lang/grayscale/issues/2192)) ([5a77320](https://github.com/grayscale-lang/grayscale/commit/5a77320ec3bd0a306c063b45cc79c076286f4a31))
+* **runtime:** include source location in runtime panics ([#2188](https://github.com/grayscale-lang/grayscale/issues/2188)) ([714accf](https://github.com/grayscale-lang/grayscale/commit/714accfe0a21931a2c814aabd2e8e212025f6ffa))
+* **runtime:** panic on wide integer division by zero ([#2178](https://github.com/grayscale-lang/grayscale/issues/2178)) ([7056543](https://github.com/grayscale-lang/grayscale/commit/7056543dc7f7f8d9f4648eb04038dfe6a3a97e4d))
+* **runtime:** prevent int32 overflow in array capacity doubling ([#2166](https://github.com/grayscale-lang/grayscale/issues/2166)) ([c16947b](https://github.com/grayscale-lang/grayscale/commit/c16947b3d6ce01e49e15be1fb0e31ac441af31bd))
+* **runtime:** prevent size_t overflow in arena allocation check ([#2171](https://github.com/grayscale-lang/grayscale/issues/2171)) ([5001941](https://github.com/grayscale-lang/grayscale/commit/50019413f4818cb000c485d90f1eecfd7c2c9295))
+* **runtime:** validate digits in bigint decimal parser ([#2179](https://github.com/grayscale-lang/grayscale/issues/2179)) ([9ded657](https://github.com/grayscale-lang/grayscale/commit/9ded657ebfd2a1593e7d561982dd83b20670cee7))
+* **typechecker:** allow bitwise operators on #flags enums ([#2133](https://github.com/grayscale-lang/grayscale/issues/2133)) ([a57e764](https://github.com/grayscale-lang/grayscale/commit/a57e764954ec33329e2e042f8181f8950e326ac9))
+* **typechecker:** auto-deref pointer receivers for struct function dispatch ([#2131](https://github.com/grayscale-lang/grayscale/issues/2131)) ([889be08](https://github.com/grayscale-lang/grayscale/commit/889be0838463c699a006b9e3a82434ad79e70e02))
+
+
+### Performance Improvements
+
+* **codegen:** single categorization pass over program statements ([#2148](https://github.com/grayscale-lang/grayscale/issues/2148)) ([4a0ffc6](https://github.com/grayscale-lang/grayscale/commit/4a0ffc6d66f82815aa6f4634945e93be70be6cd3))
+* **parser:** remove prescan that double-lexed entire source file ([#2143](https://github.com/grayscale-lang/grayscale/issues/2143)) ([cc102eb](https://github.com/grayscale-lang/grayscale/commit/cc102eb7a36ce80e675b404f0ef37ae059bb4a3f))
+* **typechecker:** table-driven stdlib return type resolution ([#2145](https://github.com/grayscale-lang/grayscale/issues/2145)) ([6b5c27c](https://github.com/grayscale-lang/grayscale/commit/6b5c27cf2459bc5f850cd5ab420d21f29eea0f1f))
+
+
+### Documentation
+
+* regenerate ERRORS.md from error_codes.h ([57b2e2b](https://github.com/grayscale-lang/grayscale/commit/57b2e2be4f67a6846948bd390d5312083d813ecb))
+* regenerate ERRORS.md from error_codes.h ([1139ae5](https://github.com/grayscale-lang/grayscale/commit/1139ae56a4911b97a91b3c4ccf7a4b42ff53f3d9))
+* update CONTRIBUTING.md project structure to reflect current layout ([04b6580](https://github.com/grayscale-lang/grayscale/commit/04b6580ed9c76e07218cdbe7713edc9bf9ba2bd1))
+* update tagline ([5c2f4f6](https://github.com/grayscale-lang/grayscale/commit/5c2f4f6ed3282ee5547bbd72908a250e17a68ac5))
+
+## [0.1.0](https://github.com/grayscale-lang/grayscale/compare/v0.0.4...v0.1.0) (2026-07-23)
+
+
+### Features
+
+* **stdlib:** add `write_bytes()`, `append_bytes()`, `temp_file()`, `temp_dir()` to `io` module ([6e761f5](https://github.com/grayscale-lang/grayscale/commit/6e761f59a39e0062b1ec72d0dbd79d85ef5c68f8))
+* **stdlib:** add write_bytes, append_bytes, temp_file, temp_dir to io module ([#1868](https://github.com/grayscale-lang/grayscale/issues/1868)) ([5875f3e](https://github.com/grayscale-lang/grayscale/commit/5875f3e8775ddfefe73d7ec7ce176d0f06e35157))
+
+## [0.0.4](https://github.com/grayscale-lang/grayscale/compare/v0.0.3...v0.0.4) (2026-07-23)
+
+
+### Bug Fixes
+
+* **codegen:** evaluate when match expression once into a temporary ([#2126](https://github.com/grayscale-lang/grayscale/issues/2126)) ([50ea594](https://github.com/grayscale-lang/grayscale/commit/50ea594bf5357b7f49b2de934ba84c716fee6905))
+* **codegen:** hoist map collection into temporary for for_each iteration ([#2128](https://github.com/grayscale-lang/grayscale/issues/2128)) ([358ff60](https://github.com/grayscale-lang/grayscale/commit/358ff608c9e60c6b08924f13e54da768b926b487))
+* **codegen:** inject default params for struct function calls ([#2130](https://github.com/grayscale-lang/grayscale/issues/2130)) ([187e5bc](https://github.com/grayscale-lang/grayscale/commit/187e5bc9adf150b2320c5026df4906ca02a88b21))
+* **parser:** emit E2002 for type keywords as enum binding names ([#2129](https://github.com/grayscale-lang/grayscale/issues/2129)) ([9bfe428](https://github.com/grayscale-lang/grayscale/commit/9bfe428853fc6934c73780bd03f4b6b6c75053a2))
+* **typechecker:** add child scopes for while and loop bodies ([#2127](https://github.com/grayscale-lang/grayscale/issues/2127)) ([aa7e86e](https://github.com/grayscale-lang/grayscale/commit/aa7e86e1a23e2559c08271e2bc7600d34514d991))
+* **typechecker:** emit E3040 for multi-return calls in aggregate contexts ([#2114](https://github.com/grayscale-lang/grayscale/issues/2114)) ([013566b](https://github.com/grayscale-lang/grayscale/commit/013566b05edbaed10ff5af6aca4a55a086c65b7d))
+* **typechecker:** emit E3130 for bare func as struct field type ([#2121](https://github.com/grayscale-lang/grayscale/issues/2121)) ([ec7232c](https://github.com/grayscale-lang/grayscale/commit/ec7232c3df53423d55f10def71aa4d8b7282e098))
+* **typechecker:** reject global constant forward references ([#2132](https://github.com/grayscale-lang/grayscale/issues/2132)) ([05865bc](https://github.com/grayscale-lang/grayscale/commit/05865bc378e2af9a243b024fad2a3e37e6785ddb))
+* **typechecker:** validate types for compound assignment operators ([#2125](https://github.com/grayscale-lang/grayscale/issues/2125)) ([307ce27](https://github.com/grayscale-lang/grayscale/commit/307ce27ff66157d151d55b5cb14aab06ea66f531))
+
+
+### Documentation
+
+* regenerate ERRORS.md from error_codes.h ([c09d816](https://github.com/grayscale-lang/grayscale/commit/c09d816fce751b23ee701ae693af446b1699326e))
+* Updated STANDARD.md ([456fef5](https://github.com/grayscale-lang/grayscale/commit/456fef5adc28be7785f4af4396e76f582fed2674))
+
+## [0.0.3](https://github.com/grayscale-lang/grayscale/compare/v0.0.2...v0.0.3) (2026-07-21)
+
+
+### Bug Fixes
+
+* **cli:** suppress usage text on runtime panic exit ([bc0322b](https://github.com/grayscale-lang/grayscale/commit/bc0322b0ea8fee4f5e6f655aafac5eac6ad602c8))
+* **codegen:** add instance dispatch for struct functions ([134ff8a](https://github.com/grayscale-lang/grayscale/commit/134ff8af291ea02895a6c1b04c87107908bc3f4c))
+* **codegen:** add source location to runtime panics ([#2113](https://github.com/grayscale-lang/grayscale/issues/2113)) ([f1e1790](https://github.com/grayscale-lang/grayscale/commit/f1e17906c147c1140d5bd69e186a5931bcf550af))
+* **codegen:** correct buffer size for wildcard function name mangling ([649c958](https://github.com/grayscale-lang/grayscale/commit/649c9588ff48de629a6dadb4ad9a01754cedf783))
+* **codegen:** include bigint.h unconditionally as a core header ([2c87be0](https://github.com/grayscale-lang/grayscale/commit/2c87be0832c4d4fd2464d02f7b4018f6de07b4e2))
+* **codegen:** inject instance for all struct function dispatch patterns ([42bc3ee](https://github.com/grayscale-lang/grayscale/commit/42bc3eec97e79c3d3c9c06e9c2f257b42ab3949c))
+* **codegen:** inject self param for both mutable and immutable struct functions ([5f528e3](https://github.com/grayscale-lang/grayscale/commit/5f528e3b02036aa5e2de9e0a49d56226dc465f1f))
+* **codegen:** preserve module prefix for user-defined types in type resolution ([f19c004](https://github.com/grayscale-lang/grayscale/commit/f19c004312d51660580f78f1ede4d4b1c079cd27))
+* **codegen:** prevent infinite recursion in cross-module struct type resolution ([2d333cd](https://github.com/grayscale-lang/grayscale/commit/2d333cdd36c9bb26e2a6351439420de960424901))
+* **imports:** detect module name collisions across import statements ([8e1cca4](https://github.com/grayscale-lang/grayscale/commit/8e1cca47b0c44b0c6b82a408a7d50b70c51aea09))
+* **parser:** reject wildcard ? in struct field types ([#2079](https://github.com/grayscale-lang/grayscale/issues/2079)) ([f0e55f4](https://github.com/grayscale-lang/grayscale/commit/f0e55f48ecc0840dcfb9cb9e15f08349f35de82f))
+* **parser:** use correct length when stripping .gray extension from imports ([b2297f0](https://github.com/grayscale-lang/grayscale/commit/b2297f0d0a66cbfba7552c303c0f42bd07cd8ed6))
+* **runtime:** add char and byte variants for array contains operator ([d220201](https://github.com/grayscale-lang/grayscale/commit/d22020171492b556bbef0e6ae44c7b4a23827db3))
+* **runtime:** add memory barrier to ARM64 CAS failure paths ([#2069](https://github.com/grayscale-lang/grayscale/issues/2069)) ([0fd1da3](https://github.com/grayscale-lang/grayscale/commit/0fd1da39a0f3a66548ec167981d87232ae2e8fa3))
+* **runtime:** make spinlock_destroy idempotent to prevent double-free crash ([#2068](https://github.com/grayscale-lang/grayscale/issues/2068)) ([79687e7](https://github.com/grayscale-lang/grayscale/commit/79687e71f2e68c19b8cc29763ba99c9ab45eb7c7))
+* **stdlib:** resolve isfinite linker failure on macOS arm64 ([700fa79](https://github.com/grayscale-lang/grayscale/commit/700fa79b34f913166e4524acb5755379c918e867))
+* **stdlib:** use overflow-checked subtraction in time.diff ([#2067](https://github.com/grayscale-lang/grayscale/issues/2067)) ([328f2be](https://github.com/grayscale-lang/grayscale/commit/328f2be6b809e558f3ebbe4ed80a74903ee9d1de))
+* **tests:** resolve 6 failing integration tests ([5f20f14](https://github.com/grayscale-lang/grayscale/commit/5f20f14a35f201e08ad25fed270761b976d2c4c1))
+* **test:** use correct endpoint for HEAD request in http_custom_headers ([7e9e89c](https://github.com/grayscale-lang/grayscale/commit/7e9e89c5b15f0f8f9d3920caf952a562e9382508))
+* **typechecker:** add arg type validation for stdlib functions missing coverage ([d3a4114](https://github.com/grayscale-lang/grayscale/commit/d3a41149527235299af8f41a61bd244dc55d513d))
+* **typechecker:** emit E3027 for non-self instance dispatch with & params ([#2116](https://github.com/grayscale-lang/grayscale/issues/2116)) ([3df4549](https://github.com/grayscale-lang/grayscale/commit/3df4549148a66645a46aafad4e9bf4e8b65d1410))
+* **typechecker:** register inferred-type vars from wildcard expressions ([#2080](https://github.com/grayscale-lang/grayscale/issues/2080)) ([19b05ee](https://github.com/grayscale-lang/grayscale/commit/19b05ee5de1e62ce506e4f048380fe8a4adb84f3))
+* **typechecker:** reject runtime function calls in const initializers ([#2104](https://github.com/grayscale-lang/grayscale/issues/2104)) ([00aa411](https://github.com/grayscale-lang/grayscale/commit/00aa411da4effdddd34141f2b4fc08750f807172))
+* **typechecker:** route instance dispatch through semantic analysis ([10c48b3](https://github.com/grayscale-lang/grayscale/commit/10c48b357ef7c64cd5919ceaf3cc911252fec817))
+* **typechecker:** validate arg types for time.diff, os.set_env, os.unset_env ([#2064](https://github.com/grayscale-lang/grayscale/issues/2064)) ([ef12499](https://github.com/grayscale-lang/grayscale/commit/ef12499c9c2c534696cfabca80c383c0a6e99c80))
+* **typechecker:** validate callback param types for arrays.any/all/filter/map/reduce ([#2063](https://github.com/grayscale-lang/grayscale/issues/2063)) ([ba32c3e](https://github.com/grayscale-lang/grayscale/commit/ba32c3ee9c71eef0a83cf9fd00a6239c32007bf8))
+
+
+### Performance Improvements
+
+* **typechecker:** free owned ret_types arrays in scope_destroy ([#2071](https://github.com/grayscale-lang/grayscale/issues/2071)) ([663dba1](https://github.com/grayscale-lang/grayscale/commit/663dba162c8e96e1cfbf4fd50a6f92c21208949f))
+
+
+### Documentation
+
+* regenerate ERRORS.md from error_codes.h ([0138049](https://github.com/grayscale-lang/grayscale/commit/013804933c2420d4e7ac6d1ac1c01b604431b120))
+
+## [0.0.2](https://github.com/grayscale-lang/grayscale/compare/v0.0.1...v0.0.2) (2026-07-18)
+
+
+### Bug Fixes
+
+* **compiler:** suppress -Winfinite-recursion warning from leaking to user output ([#2102](https://github.com/grayscale-lang/grayscale/issues/2102)) ([69729f5](https://github.com/grayscale-lang/grayscale/commit/69729f54a029b0dabeb413386b3a9ff891bd8924))
+
+## Grayscale 0.0.1
+
+The Grayscale Programming Language — formerly known as EZ.
+
+Grayscale 0.0.1 is the first release under the new name. The language, compiler,
+and tooling are identical to EZ 3.9.0 with the following changes:
+
+- Language renamed from EZ to Grayscale
+- CLI binary renamed from `ez` to `gray`
+- Compiler binary renamed from `ezc` to `grayc`
+- File extension changed from `.ez` to `.gray`
+- Runtime library renamed from `libezrt.a` to `libgrayrt.a`
+- All `ez_` / `EZ_` prefixes renamed to `gray_` / `GRAY_`
+- Repository moved to `grayscale-lang/grayscale`
+
+See tag `ez-3.9.0-final` for the last EZ release.
+
+---
+
+## Prehistory (as EZ)
+
+The following changelog entries are from the project's prior life as EZ.
+
+## [3.8.6](https://github.com/SchoolyB/EZ/compare/v3.8.5...v3.8.6) (2026-07-10)
+
+
+### Bug Fixes
+
+* add depth limit to json.is_valid to prevent stack overflow on deeply nested input ([#2020](https://github.com/SchoolyB/EZ/issues/2020)) ([0914ab7](https://github.com/SchoolyB/EZ/commit/0914ab70c955166ed93e90f760b4fc2760c55563))
+* add optional host parameter to net.listen() and server.listen() to allow interface-specific binding ([#2017](https://github.com/SchoolyB/EZ/issues/2017)) ([63e84e6](https://github.com/SchoolyB/EZ/commit/63e84e6e37d01f6fd33be293064711f2a96b883e))
+* add scope_destroy() to release scope memory at all typechecker call sites ([b6a1ac6](https://github.com/SchoolyB/EZ/commit/b6a1ac6a680402b8debe9b4d7f1812a594641147))
+* add type_pool_reset() to free heap strings from type pool on shutdown ([f9ef806](https://github.com/SchoolyB/EZ/commit/f9ef806a08b0338d0d6766e86adf1456f650e1d9))
+* add typechecker_free() and typetable_free() to release typechecker memory ([dce12dc](https://github.com/SchoolyB/EZ/commit/dce12dc12ab8fb72bec24c79f06b6e9da6d9fc2a))
+* cap HTTP server at 1024 concurrent connections and apply 30s read timeout per connection ([#2011](https://github.com/SchoolyB/EZ/issues/2011)) ([7d2d30d](https://github.com/SchoolyB/EZ/commit/7d2d30d29b2a81cd139dddd4ec8a60c509408d46))
+* cap os.exec stdout/stderr collection at 64 MiB per stream to prevent memory exhaustion ([#2010](https://github.com/SchoolyB/EZ/issues/2010)) ([ae9b26d](https://github.com/SchoolyB/EZ/commit/ae9b26db48c628769a33671682a73e39de62c7b6))
+* correct element type parsing for nested bracket types in array initializers ([2b61fff](https://github.com/SchoolyB/EZ/commit/2b61fff149f65a6a4ad6bc9e714ef0f43d0c3272))
+* free global_init buffer in codegen_destroy() ([6b9ea93](https://github.com/SchoolyB/EZ/commit/6b9ea93349af0dca1700660d2bdbdee50841aae4))
+* heap-allocate builtin struct field arrays to prevent free-of-static crash ([60e273b](https://github.com/SchoolyB/EZ/commit/60e273bb9a4c32d241604f3164beb9efff162c6c))
+* initialize ns_func_names fields in codegen_create to prevent garbage free ([1ab0464](https://github.com/SchoolyB/EZ/commit/1ab0464c95d21b36884fb5745b0fc58d4944fa64))
+* json.encode always quotes map[string:string] values, escape all control chars ([#2019](https://github.com/SchoolyB/EZ/issues/2019)) ([c490066](https://github.com/SchoolyB/EZ/commit/c490066a89efd5224aede9e83487c3b9f40aa828))
+* reject CORS origins containing CR or LF to prevent HTTP header injection (P0101) ([#2009](https://github.com/SchoolyB/EZ/issues/2009)) ([3188d1d](https://github.com/SchoolyB/EZ/commit/3188d1d7ab7b176136ae71ecc5532d0087b743e8))
+* reject https:// URLs in http module with explicit error instead of silent plaintext fallback ([#2007](https://github.com/SchoolyB/EZ/issues/2007)) ([b25c633](https://github.com/SchoolyB/EZ/commit/b25c633b6812c83b3d92c526d4a2acfff4609f6a))
+* repair result-clobbering NULL and dangling stack pointers in typechecker ([#2040](https://github.com/SchoolyB/EZ/issues/2040), [#2045](https://github.com/SchoolyB/EZ/issues/2045)) ([e74831a](https://github.com/SchoolyB/EZ/commit/e74831a2218effa27963f1924316f3890bdfc90e))
+* report 'unexpected end of interpolation expression' instead of EOF in ${...} sub-parser ([#2018](https://github.com/SchoolyB/EZ/issues/2018)) ([ef0369d](https://github.com/SchoolyB/EZ/commit/ef0369d46d8806bd43127dadb5803935a93402d6))
+* resolve rvalue address-of bug in stdlib codegen ([#2053](https://github.com/SchoolyB/EZ/issues/2053), [#2052](https://github.com/SchoolyB/EZ/issues/2052)) ([2657125](https://github.com/SchoolyB/EZ/commit/2657125851c6e9b75bcccc6b3463071999570557))
+* resolve string enum element type in array indexing and iteration ([1a0956a](https://github.com/SchoolyB/EZ/commit/1a0956a2fb21c16bb3871a2774411c1e779f7a07))
+* resolve wildcard-returned enums as TK_ENUM instead of TK_STRUCT ([#2054](https://github.com/SchoolyB/EZ/issues/2054)) ([a90e756](https://github.com/SchoolyB/EZ/commit/a90e756db0e24193af8c65173ee010613c6481d1))
+* send HTTP request headers and body separately to remove 8KB body size limit ([#2013](https://github.com/SchoolyB/EZ/issues/2013)) ([8df4f3e](https://github.com/SchoolyB/EZ/commit/8df4f3edfbb94298d3bb67b937bc8aff03983121))
+* strdup type_array inputs and resolve remaining free-of-non-heap crashes ([ca7aa46](https://github.com/SchoolyB/EZ/commit/ca7aa46dffcc595affb2cf3b5e24f991ae73d4a8))
+* track and free struct-namespaced function name strings in codegen ([480c807](https://github.com/SchoolyB/EZ/commit/480c80772fc1de968ec7511e1067514b0c80377d))
+* use arena allocation for named-arg reorder buffer in tc_resolve_named_args() ([58cc8b4](https://github.com/SchoolyB/EZ/commit/58cc8b4aad74b134fec8db07566a8b30472e50c7))
+* use correct C type for integer enum array element access ([bb62a4a](https://github.com/SchoolyB/EZ/commit/bb62a4a37b72b85bc7fd00bda908b5456d9195d2))
+* use lvalue check in addr-of wrapping to preserve mutation semantics ([#2053](https://github.com/SchoolyB/EZ/issues/2053), [#2052](https://github.com/SchoolyB/EZ/issues/2052)) ([c8becba](https://github.com/SchoolyB/EZ/commit/c8becbaf1d4e5f61c0ec77ed195aa9cd32f6caa3))
+
+
+### Performance Improvements
+
+* add early-out for equal names in tc_same_enum_type and tc_same_struct_type ([#2043](https://github.com/SchoolyB/EZ/issues/2043)) ([79d9dc3](https://github.com/SchoolyB/EZ/commit/79d9dc3e73d0e92f6b25b60e3921c0bd4cadc11a))
+* add parallel index array to find_enum_index to eliminate O(n) scan after bsearch ([#2042](https://github.com/SchoolyB/EZ/issues/2042)) ([963cbfc](https://github.com/SchoolyB/EZ/commit/963cbfca6da9f3bc3f69bd85bd02295cf7b4ac0d))
+* cache tc_lookup_using_constant result to avoid double call ([#2040](https://github.com/SchoolyB/EZ/issues/2040)) ([180d0d7](https://github.com/SchoolyB/EZ/commit/180d0d794fc002cade869c814b34f38a116dd86c))
+* eliminate O(n) inner loop in tc_lookup_using_constant via pre-computed import index ([#2041](https://github.com/SchoolyB/EZ/issues/2041)) ([ce92138](https://github.com/SchoolyB/EZ/commit/ce921380d323f847601c8cb8c343fb544db9a964))
+* fix several remaining memory leaks in typechecker and codegen ([5f513eb](https://github.com/SchoolyB/EZ/commit/5f513eb055c4511cea4da502c80f9fb974d77bcf))
+* replace 202 unconditional stack diagnostic buffers with arena allocation via tc_fmt helper ([#2044](https://github.com/SchoolyB/EZ/issues/2044)) ([287ec00](https://github.com/SchoolyB/EZ/commit/287ec00c0a1a618770de997617e0efa3df3ba274))
+* replace strlen+sprintf heap allocs with snprintf into stack buffer in name-mangling paths ([#2045](https://github.com/SchoolyB/EZ/issues/2045)) ([1ee7731](https://github.com/SchoolyB/EZ/commit/1ee77310ecb043954076183602dcc228b0817d9b))
+
+## [3.8.5](https://github.com/SchoolyB/EZ/compare/v3.8.4...v3.8.5) (2026-07-07)
+
+
+### Bug Fixes
+
+* correct lower bound in uint-to-int cast error message ([178bcf3](https://github.com/SchoolyB/EZ/commit/178bcf388a51f0c4de690481259182aa7d34f66b))
+* emit correct HTTP reason phrase and Location header for redirects ([611016e](https://github.com/SchoolyB/EZ/commit/611016ec0ee64f1a3bddced58d4d28b3d8a6ae04))
+* improve compiler parsing, HTTP behavior, and CLI safety ([67e1e56](https://github.com/SchoolyB/EZ/commit/67e1e564ccc49575ef6f59facef091ed95893bb5))
+* parse fixed-size array of maps type annotation [map[K:V], N] ([1b183d1](https://github.com/SchoolyB/EZ/commit/1b183d16cab357b796e6c86f1c73c8a266f9f89b))
+* prompt for confirmation before ez pz --force deletes existing directory ([d34a65c](https://github.com/SchoolyB/EZ/commit/d34a65cd5e856085b5ace77923e43f2f9dedd3cd))
+* warn when ez doc --output writes outside the current directory ([83adb16](https://github.com/SchoolyB/EZ/commit/83adb1661159d57bddfc0dcc0a8a030b18d60b3a))
+
+## [3.8.4](https://github.com/SchoolyB/EZ/compare/v3.8.3...v3.8.4) (2026-07-06)
+
+
+### Bug Fixes
+
+* add missing ez_i128_to_u64 and range-check all wide-to-scalar casts ([#2029](https://github.com/SchoolyB/EZ/issues/2029), [#2030](https://github.com/SchoolyB/EZ/issues/2030)) ([f6a45ae](https://github.com/SchoolyB/EZ/commit/f6a45aea00c87753a01b916b1f1946c99923c68a))
+
+## [3.8.3](https://github.com/SchoolyB/EZ/compare/v3.8.2...v3.8.3) (2026-07-05)
+
+
+### Bug Fixes
+
+* add range checks to cast between int/uint and i64/u64 ([#2026](https://github.com/SchoolyB/EZ/issues/2026)) ([fab59e3](https://github.com/SchoolyB/EZ/commit/fab59e342590eeb5ca71a67670233068f302fc36))
+* add runtime panic for invalid bit shift amounts ([#2025](https://github.com/SchoolyB/EZ/issues/2025)) ([37afcb3](https://github.com/SchoolyB/EZ/commit/37afcb34c51c4d151105689f35420406c8b5a423))
+* emit E5039 for const expression overflow, suppress C error ([#2028](https://github.com/SchoolyB/EZ/issues/2028)) ([1c517f1](https://github.com/SchoolyB/EZ/commit/1c517f1073e5a6e1714b3d7dbb08c9df164f0be8))
+* overflow-check range loop step increment ([#2027](https://github.com/SchoolyB/EZ/issues/2027)) ([248316f](https://github.com/SchoolyB/EZ/commit/248316f996f004857b8b6efbb6a9ba49e10e401d))
+* reject incompatible bigint types in arithmetic and comparison ([#2004](https://github.com/SchoolyB/EZ/issues/2004)) ([ab27912](https://github.com/SchoolyB/EZ/commit/ab27912ac303e574124722ec07e02193e28d55e3))
+* reject string index assignment with E3004 instead of leaking C error ([#2005](https://github.com/SchoolyB/EZ/issues/2005)) ([594dd13](https://github.com/SchoolyB/EZ/commit/594dd1351b270fd2fc675221ef9405a9b62df768))
+
+## [3.8.2](https://github.com/SchoolyB/EZ/compare/v3.8.1...v3.8.2) (2026-06-30)
+
+
+### Bug Fixes
+
+* **cli:** cap update download at 256 MiB to prevent disk exhaustion ([#1980](https://github.com/SchoolyB/EZ/issues/1980)) ([2b14809](https://github.com/SchoolyB/EZ/commit/2b14809f18b3b382a3b345a635b7ac827438404c))
+* **cli:** redact home directory from C compiler path in ez report ([#1983](https://github.com/SchoolyB/EZ/issues/1983)) ([26eeeb0](https://github.com/SchoolyB/EZ/commit/26eeeb0cce7d71ae82704e5d029653d3068857a5))
+* **cli:** reject path traversal sequences in ez pz project name ([#1979](https://github.com/SchoolyB/EZ/issues/1979)) ([badd948](https://github.com/SchoolyB/EZ/commit/badd948405be3979cab3aeb95de96b9d06f6302a))
+* **cli:** remove unsupported sized integer/float types from ez man docs ([#1976](https://github.com/SchoolyB/EZ/issues/1976)) ([f660865](https://github.com/SchoolyB/EZ/commit/f660865924b59aa29c5a33ea48fcf9b0ae64f346))
+* **cli:** restrict update download URLs to trusted GitHub release origin ([#1978](https://github.com/SchoolyB/EZ/issues/1978)) ([599f8c2](https://github.com/SchoolyB/EZ/commit/599f8c2f839ded18f363556c4a6e4cb117c909fa))
+* **codegen:** cast dividend to int64_t in div/mod overflow check to silence Wtautological-constant-out-of-range-compare ([2b753be](https://github.com/SchoolyB/EZ/commit/2b753be1a4b138cfdfe55246960842077c95505f))
+* **codegen:** cast of negative float to uint/u64 now panics with P0091 ([#1964](https://github.com/SchoolyB/EZ/issues/1964)) ([37f4d51](https://github.com/SchoolyB/EZ/commit/37f4d519d5f377cb634e4ac282b6813f5af9b38a))
+* **codegen:** emit T * const for const pointer variables, not const T * ([#1937](https://github.com/SchoolyB/EZ/issues/1937)) ([381b662](https://github.com/SchoolyB/EZ/commit/381b6628d2a0b68269104a6fa4c4c1f3c4098310))
+* **codegen:** fixed-size array [T, N] with partial init now has length N ([#1965](https://github.com/SchoolyB/EZ/issues/1965)) ([9810873](https://github.com/SchoolyB/EZ/commit/9810873d12b81884e2d1863f5667bf7be702c09e))
+* **codegen:** map compound assignment now reads existing value before applying op ([#1971](https://github.com/SchoolyB/EZ/issues/1971)) ([c19d6e8](https://github.com/SchoolyB/EZ/commit/c19d6e8c8959b5b850bda4d42788809182ae5e49))
+* **codegen:** promote integer literals to double in [float]/[f32]/[f64] array literals ([#1963](https://github.com/SchoolyB/EZ/issues/1963)) ([c4c39b8](https://github.com/SchoolyB/EZ/commit/c4c39b8412462e1e7c8152a416e1f2f25f915246))
+* **codegen:** string(Error) now returns the error message instead of leaking C error ([#1977](https://github.com/SchoolyB/EZ/issues/1977)) ([72d3f2d](https://github.com/SchoolyB/EZ/commit/72d3f2d7a7c7a4d64bdfd481730a23057316626e))
+* consolidate reserved name lists into shared reserved.h ([#1954](https://github.com/SchoolyB/EZ/issues/1954)) ([a42a410](https://github.com/SchoolyB/EZ/commit/a42a41019a197e05dbd1bf3b15a69df03af3ab83))
+* **leaks:** print clear PASS/FAIL summary at end of make leaks output ([#1975](https://github.com/SchoolyB/EZ/issues/1975)) ([141b947](https://github.com/SchoolyB/EZ/commit/141b947b90d10ab539dc3ca8fec947f76e957998))
+* **lexer:** catch physical newline in string literal as E1023 ([#1959](https://github.com/SchoolyB/EZ/issues/1959)) ([683203b](https://github.com/SchoolyB/EZ/commit/683203b013b038ea2e041d3aa07f4857bc0d96f3))
+* **parser:** accept complex types in multi-return destructuring positions 2+ ([#1962](https://github.com/SchoolyB/EZ/issues/1962)) ([a2b0454](https://github.com/SchoolyB/EZ/commit/a2b0454d0eb523e95a154565627300a2caed7b7e))
+* **parser:** emit E2086 when in/not_in/!in has no left-hand value ([#1960](https://github.com/SchoolyB/EZ/issues/1960)) ([de90608](https://github.com/SchoolyB/EZ/commit/de906080604f2534a3cdeb30952a3e4eea3ae919))
+* **parser:** support blank identifier _ as for loop variable in range iteration ([#1972](https://github.com/SchoolyB/EZ/issues/1972)) ([3dc99b3](https://github.com/SchoolyB/EZ/commit/3dc99b3de1428de7cc4f7ccf64571288576caddd))
+* **runtime:** drain overlong input() lines to prevent stdin contamination ([#1981](https://github.com/SchoolyB/EZ/issues/1981)) ([0576927](https://github.com/SchoolyB/EZ/commit/057692798834c959f4b128fd0c2d3229dcb42b75))
+* **runtime:** use pre-addition overflow check in ez_string_concat to eliminate signed UB ([#1984](https://github.com/SchoolyB/EZ/issues/1984)) ([c1af77d](https://github.com/SchoolyB/EZ/commit/c1af77d7bbda0ea927467d02c10fda383001c419))
+* **scripts:** handle escaped quotes in error message extraction ([790e2cf](https://github.com/SchoolyB/EZ/commit/790e2cf079d895f3fe328a668c59aa21ca00a602))
+* **typechecker:** allow range(n, n) as empty sequence per spec start &lt;= end ([#1969](https://github.com/SchoolyB/EZ/issues/1969)) ([f4683f9](https://github.com/SchoolyB/EZ/commit/f4683f9e0415d69f55e756945301c2821f1e72c4))
+* **typechecker:** reject == / != on tagged enums with E3124 ([#1967](https://github.com/SchoolyB/EZ/issues/1967)) ([ce02e3e](https://github.com/SchoolyB/EZ/commit/ce02e3e714ef1caabe999ef044d4d1bf34552428))
+* **typechecker:** reject for_each with both positions as _ with E3123 ([#1966](https://github.com/SchoolyB/EZ/issues/1966)) ([7bda22b](https://github.com/SchoolyB/EZ/commit/7bda22b7103d037b3e3a1beefadbc49332641b44))
+* **typechecker:** reject tagged enum passed to print functions with E5038 ([#1968](https://github.com/SchoolyB/EZ/issues/1968)) ([d83c720](https://github.com/SchoolyB/EZ/commit/d83c720edf9a3bd92d384fb716d290be49357c97))
+* **typechecker:** replace misleading 'only structs' phrasing in E3013 messages ([b0d1695](https://github.com/SchoolyB/EZ/commit/b0d1695160eeee23de1f1130db04188a9610ca36))
+
+
+### Performance Improvements
+
+* **codegen:** collapse buf_append_indent loop into a single buf_appendn call ([#1953](https://github.com/SchoolyB/EZ/issues/1953)) ([b27f4ed](https://github.com/SchoolyB/EZ/commit/b27f4ede1fe8ddda1219e8253a384c696d3e9a1f))
+* **codegen:** eliminate double vsnprintf in emitf for short emissions ([#1952](https://github.com/SchoolyB/EZ/issues/1952)) ([aaa214d](https://github.com/SchoolyB/EZ/commit/aaa214d2866172055ce6a3227704125c9585a28d))
+* **codegen:** replace linear scan in is_c_keyword with bsearch ([#1956](https://github.com/SchoolyB/EZ/issues/1956)) ([d2ac0a2](https://github.com/SchoolyB/EZ/commit/d2ac0a2c246ac4eda91621f8a95b68259ffdb936))
+* **error:** add cached error/warning counters to DiagnosticList ([#1943](https://github.com/SchoolyB/EZ/issues/1943)) ([b7ac109](https://github.com/SchoolyB/EZ/commit/b7ac10985b2a1ae5ff15bc6404c8c8072005bac6))
+* **error:** build line-offset index in diag_set_source ([#1942](https://github.com/SchoolyB/EZ/issues/1942)) ([e0c5a5a](https://github.com/SchoolyB/EZ/commit/e0c5a5a7e2de5dde865c822935ae009a68f49476))
+* **error:** replace single-file source cache with 4-slot LRU cache ([#1947](https://github.com/SchoolyB/EZ/issues/1947)) ([48ee72e](https://github.com/SchoolyB/EZ/commit/48ee72e1a1bc974d51a01c8a748690b6526451f1))
+* **imports:** limit rewrite_labels outer pass to original main-program nodes ([#1946](https://github.com/SchoolyB/EZ/issues/1946)) ([22b8643](https://github.com/SchoolyB/EZ/commit/22b864314f522771f5d226c2612584b8aa841936))
+* **imports:** replace O(n) import-seen scan with FNV-1a open-addressing hash set ([#1951](https://github.com/SchoolyB/EZ/issues/1951)) ([8f5f9e2](https://github.com/SchoolyB/EZ/commit/8f5f9e2217fe4ef869b3db5801d20b2b86f0fdf4))
+* **imports:** replace while+rescan with a pending import queue ([#1945](https://github.com/SchoolyB/EZ/issues/1945)) ([b073b80](https://github.com/SchoolyB/EZ/commit/b073b80d6eb830af533d0f45de682889565cbb31))
+* **scan:** replace bubble sort in scan_ez_files with qsort ([#1944](https://github.com/SchoolyB/EZ/issues/1944)) ([1946c88](https://github.com/SchoolyB/EZ/commit/1946c888af092c5d2456947a02f9875121b9ea6d))
+* **typechecker:** replace O(n) scans in display name and enum helpers with bsearch ([#1948](https://github.com/SchoolyB/EZ/issues/1948)) ([ea19b7c](https://github.com/SchoolyB/EZ/commit/ea19b7cb70dc7c885c287b91d9f0f82c42e84acf))
+* **typechecker:** replace O(n) scans in fallible stdlib lookups with bsearch ([#1949](https://github.com/SchoolyB/EZ/issues/1949)) ([521246d](https://github.com/SchoolyB/EZ/commit/521246d2002ddb3d3af85f70f0f255ec07d6c0b0))
+* **typechecker:** sort stdlib lookup tables in typechecker_create ([#1955](https://github.com/SchoolyB/EZ/issues/1955)) ([b54a2f6](https://github.com/SchoolyB/EZ/commit/b54a2f67f3dd68883db645b4e0aa4784aef709b3))
+* **typechecker:** use stack buffer in levenshtein to avoid malloc on every call ([#1950](https://github.com/SchoolyB/EZ/issues/1950)) ([75f9ed4](https://github.com/SchoolyB/EZ/commit/75f9ed4d87b98f81baafedd2b8847cf349feba23))
+
+## [3.8.1](https://github.com/SchoolyB/EZ/compare/v3.8.0...v3.8.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* **main:** suppress ld warnings from cc link command with -Wl,-w ([3ab0df7](https://github.com/SchoolyB/EZ/commit/3ab0df775f07e195e61fa42da485df18ceb7e74e))
+
+## [3.8.0](https://github.com/SchoolyB/EZ/compare/v3.7.0...v3.8.0) (2026-06-23)
+
+
+### Features
+
+* support for_each over inline array literals ([#1931](https://github.com/SchoolyB/EZ/issues/1931)) ([cadb6a8](https://github.com/SchoolyB/EZ/commit/cadb6a8e6894dc27724d5f4e09a82a3b2390d6ba))
+
+
+### Bug Fixes
+
+* panic P0090 on range() zero step instead of hanging ([#1924](https://github.com/SchoolyB/EZ/issues/1924)) ([#1933](https://github.com/SchoolyB/EZ/issues/1933)) ([efb9739](https://github.com/SchoolyB/EZ/commit/efb9739825739ee4820734d86ddd8567b6e9126b))
+* reject addr() on const variables with E3122 ([#1930](https://github.com/SchoolyB/EZ/issues/1930)) ([de5f604](https://github.com/SchoolyB/EZ/commit/de5f604979b09fb3ae7fda17539b2611ca1426dc))
+* reject copy() on pointer types with E5037 ([#1928](https://github.com/SchoolyB/EZ/issues/1928)) ([#1936](https://github.com/SchoolyB/EZ/issues/1936)) ([c7a8fac](https://github.com/SchoolyB/EZ/commit/c7a8face9aa9655fe9c5335f4099f14817fb8150))
+* reject duplicate default branches in when statements with E2085 ([#1926](https://github.com/SchoolyB/EZ/issues/1926)) ([#1935](https://github.com/SchoolyB/EZ/issues/1935)) ([1074521](https://github.com/SchoolyB/EZ/commit/10745214f5f5d75aa7a5034e5c803e9579d3198f))
+* reject nil comparison with non-pointer types with E3092 ([#1929](https://github.com/SchoolyB/EZ/issues/1929)) ([a903d7c](https://github.com/SchoolyB/EZ/commit/a903d7c8b6f204d4236b5c453a569e322028e50f))
+* reject pointer ordering comparisons with E3120 ([#1923](https://github.com/SchoolyB/EZ/issues/1923)) ([#1932](https://github.com/SchoolyB/EZ/issues/1932)) ([f035594](https://github.com/SchoolyB/EZ/commit/f0355947944d75c29592cf52f861224cbbe8db2e))
+* reject struct, array, map, and pointer as when conditions with E3121 ([#1925](https://github.com/SchoolyB/EZ/issues/1925)) ([#1934](https://github.com/SchoolyB/EZ/issues/1934)) ([2ca1702](https://github.com/SchoolyB/EZ/commit/2ca170218e7bcf81379e6ff59aede37f18ab2c98))
+
+## [3.7.0](https://github.com/SchoolyB/EZ/compare/v3.6.3...v3.7.0) (2026-06-22)
+
+
+### Features
+
+* **stdlib:** add `os.exec()` for subprocess execution with stderr capture ([c29a8f5](https://github.com/SchoolyB/EZ/commit/c29a8f52181ea3a462824b19f7752c73544a0b6c))
+* **stdlib:** add character classification functions to strings module ([#1919](https://github.com/SchoolyB/EZ/issues/1919)) ([4e1608a](https://github.com/SchoolyB/EZ/commit/4e1608a3600f7936303ef515db58ecbf257990cf))
+* **stdlib:** add character classification functions to strings module ([#1919](https://github.com/SchoolyB/EZ/issues/1919)) ([9f172c6](https://github.com/SchoolyB/EZ/commit/9f172c6c24e20a018778ee4efabe7447902124fe))
+* **stdlib:** add os.exec() for subprocess execution with stderr capture ([#1447](https://github.com/SchoolyB/EZ/issues/1447)) ([9d8741b](https://github.com/SchoolyB/EZ/commit/9d8741bf25721c43c57192334a2a7ee36804e2c6))
+* **stdlib:** capture stdout in os.exec, return (int, string, string, bool) ([ec9eaf1](https://github.com/SchoolyB/EZ/commit/ec9eaf1dd5304673ba7ce9a9a16f903f38b01c70))
+
+
+### Bug Fixes
+
+* **cli:** separate bare ez output from help output ([#1917](https://github.com/SchoolyB/EZ/issues/1917)) ([5eee078](https://github.com/SchoolyB/EZ/commit/5eee07853ab0c76a4964fe7cfd78eec65e020ac6))
+* **typechecker:** add stdlib arg count and type validation for math, maps, mem, threads, sync, channels, atomic, fmt, server ([#1918](https://github.com/SchoolyB/EZ/issues/1918)) ([65818c9](https://github.com/SchoolyB/EZ/commit/65818c9992a0e31f19008b8239d1a1eecb9de418))
+
+## [3.6.3](https://github.com/SchoolyB/EZ/compare/v3.6.2...v3.6.3) (2026-06-22)
+
+
+### Bug Fixes
+
+* **typechecker:** fix segfault from null result in tc_lookup_using_constant ([#1912](https://github.com/SchoolyB/EZ/issues/1912)) ([971760c](https://github.com/SchoolyB/EZ/commit/971760cf1658be4c1d33804b4765c4b44acd7692))
+* **typechecker:** reject arrays.contains() with struct element types ([#1901](https://github.com/SchoolyB/EZ/issues/1901)) ([a3e2ef4](https://github.com/SchoolyB/EZ/commit/a3e2ef47f2b39ee40b7252b2eeaf85ea54faa13e))
+* **typechecker:** reject maps.contains_value() with struct value types ([#1902](https://github.com/SchoolyB/EZ/issues/1902)) ([1d1774c](https://github.com/SchoolyB/EZ/commit/1d1774ceb96aae47dd7f62059789706634b9ac29))
+
+
+### Performance Improvements
+
+* **codegen:** replace malloc/free with stack buffer in NODE_MEMBER_EXPR ([#1911](https://github.com/SchoolyB/EZ/issues/1911)) ([eb2a80b](https://github.com/SchoolyB/EZ/commit/eb2a80b263f3f7ceb5341268a9d0d95dca0814de))
+* **typechecker:** add hash index to type pool for O(1) lookup ([#1909](https://github.com/SchoolyB/EZ/issues/1909)) ([624a035](https://github.com/SchoolyB/EZ/commit/624a0352940d083eaa4a923fde3f8dbdbddeedef))
+* **typechecker:** add hash table per scope for O(1) symbol lookup ([#1910](https://github.com/SchoolyB/EZ/issues/1910)) ([dd092e9](https://github.com/SchoolyB/EZ/commit/dd092e9ec2a9334d22d47830369a3621b2c3c1b9))
+* **typechecker:** combine tc_is_using/tc_resolve_using into single-pass lookup ([#1912](https://github.com/SchoolyB/EZ/issues/1912)) ([b3a5ec2](https://github.com/SchoolyB/EZ/commit/b3a5ec2732bba2e66305857a7e9a6290439e4938))
+* **typechecker:** replace is_struct_name and is_enum_name linear scans with sorted bsearch ([#1906](https://github.com/SchoolyB/EZ/issues/1906)) ([80fa62e](https://github.com/SchoolyB/EZ/commit/80fa62e98f78f3243d0ed49e57d9186818790325))
+* **typechecker:** replace module and builtin name linear scans with bsearch ([#1908](https://github.com/SchoolyB/EZ/issues/1908)) ([2b3975e](https://github.com/SchoolyB/EZ/commit/2b3975ea3edfd4fb1e932b3e6c304e8e94d967f3))
+* **typechecker:** replace strdup with arena_strdup in error paths ([#1904](https://github.com/SchoolyB/EZ/issues/1904)) ([06a68a3](https://github.com/SchoolyB/EZ/commit/06a68a36e6b1bc68884a8db68024cb6a5e965cd9))
+* **typechecker:** sort stdlib arg tables and use bsearch for lookup ([#1907](https://github.com/SchoolyB/EZ/issues/1907)) ([486edbc](https://github.com/SchoolyB/EZ/commit/486edbc76703eb5aa2403385572bfe02477ad8a3))
+* **typechecker:** use sorted bsearch for find_func ([#1905](https://github.com/SchoolyB/EZ/issues/1905)) ([93926c7](https://github.com/SchoolyB/EZ/commit/93926c7f98dd1670fca99f4cc45f416fe8a2899d))
+
+## [3.6.2](https://github.com/SchoolyB/EZ/compare/v3.6.1...v3.6.2) (2026-06-19)
+
+
+### Bug Fixes
+
+* **cli:** correct errors in pz server and client scaffold templates ([#1888](https://github.com/SchoolyB/EZ/issues/1888)) ([88c709b](https://github.com/SchoolyB/EZ/commit/88c709b49b426d073a5bc84f089c18d334e23b43))
+* **cli:** replace return with exit(0) in pz cli template main() ([#1890](https://github.com/SchoolyB/EZ/issues/1890)) ([6ddb39c](https://github.com/SchoolyB/EZ/commit/6ddb39ccff271e8ef8b9fab0b28b79440caa66af))
+* **codegen:** escape Error return values from function arena before destruction ([#1895](https://github.com/SchoolyB/EZ/issues/1895)) ([8c94e57](https://github.com/SchoolyB/EZ/commit/8c94e5706ef69affa66e2ee203839f0970d25893))
+* **codegen:** materialize rvalue arrays and maps in string interpolation ([#1894](https://github.com/SchoolyB/EZ/issues/1894)) ([159fd7a](https://github.com/SchoolyB/EZ/commit/159fd7a776d4655f54a5cc8f97f3b13411abde03))
+* **codegen:** materialize rvalue maps and arrays in json.encode() ([#1898](https://github.com/SchoolyB/EZ/issues/1898)) ([6818385](https://github.com/SchoolyB/EZ/commit/6818385dae0463c6bac855f9f4cf7d6f373dc175))
+* **codegen:** recognize or_return temp prefix in fallible stdlib result checks ([#1893](https://github.com/SchoolyB/EZ/issues/1893)) ([1eeb0fc](https://github.com/SchoolyB/EZ/commit/1eeb0fc95debf3938f26aea2da488cff27609549))
+* **typechecker:** reject fixed-size array types in function parameters ([#1892](https://github.com/SchoolyB/EZ/issues/1892)) ([257dfda](https://github.com/SchoolyB/EZ/commit/257dfda91c48b464d74210c0b7058838140e6c5b))
+* **typechecker:** reject sized integer and float type names used as function calls ([#1896](https://github.com/SchoolyB/EZ/issues/1896)) ([fb3570f](https://github.com/SchoolyB/EZ/commit/fb3570f34a39a0b4eea3450ddafc798f885def3e))
+* **typechecker:** validate argument types for server response builder functions ([#1887](https://github.com/SchoolyB/EZ/issues/1887)) ([4c62066](https://github.com/SchoolyB/EZ/commit/4c62066e3df7c6e5e1f8dc624063496f18a37761))
+
+## [3.6.1](https://github.com/SchoolyB/EZ/compare/v3.6.0...v3.6.1) (2026-06-17)
+
+
+### Bug Fixes
+
+* **codegen:** emit 0 instead of {0} for scalar or_return slots ([#1882](https://github.com/SchoolyB/EZ/issues/1882)) ([d9e6a23](https://github.com/SchoolyB/EZ/commit/d9e6a233da99eba0458d83b8d7674d3af0a38726))
+* **codegen:** use outer arena for struct deep copy inside scoped blocks ([#1880](https://github.com/SchoolyB/EZ/issues/1880)) ([c0140aa](https://github.com/SchoolyB/EZ/commit/c0140aac5abeaa698741073383ac2f63e7fb5bd1))
+* **parser:** reject blank identifier declarations missing '=' ([#1878](https://github.com/SchoolyB/EZ/issues/1878)) ([c7ec8ad](https://github.com/SchoolyB/EZ/commit/c7ec8adb3517c753a6b98aa3ef73afc30c122db5))
+* **tests:** update enum tests ([#1885](https://github.com/SchoolyB/EZ/issues/1885)) ([a56358d](https://github.com/SchoolyB/EZ/commit/a56358d67060680a66b6bf4c58754ede589470c0))
+* **typechecker:** reject integer comparison and assignment with enum types ([#1884](https://github.com/SchoolyB/EZ/issues/1884)) ([ad2334e](https://github.com/SchoolyB/EZ/commit/ad2334e818b6b2897c9e275960e2d5842e5c8ee7))
+* **typechecker:** unify struct array types across imported files ([#1879](https://github.com/SchoolyB/EZ/issues/1879)) ([ab424fe](https://github.com/SchoolyB/EZ/commit/ab424fe8a83b8205bf8c780721f8d2a2697ee201))
+
+## [3.6.0](https://github.com/SchoolyB/EZ/compare/v3.5.15...v3.6.0) (2026-06-16)
+
+
+### Features
+
+* **arrays:** add map, filter, reduce higher-order functions ([#1795](https://github.com/SchoolyB/EZ/issues/1795)) ([706ba17](https://github.com/SchoolyB/EZ/commit/706ba174711a23da05af9b7e8102caba21b61be9))
+* **compiler:** add tagged union enums with pattern destructuring ([#1709](https://github.com/SchoolyB/EZ/issues/1709)) ([2af9502](https://github.com/SchoolyB/EZ/commit/2af9502783e28815ed91edbd54b4af575359973b))
+* **fmt:** add printfln, eprintf, eprintfln, sprintfln functions ([#1838](https://github.com/SchoolyB/EZ/issues/1838)) ([ac94620](https://github.com/SchoolyB/EZ/commit/ac9462050f5110c84a84c4832bf6d5d76572974c))
+* implicit enum selector .VARIANT syntax ([#1850](https://github.com/SchoolyB/EZ/issues/1850)) ([61fd916](https://github.com/SchoolyB/EZ/commit/61fd916dcfb0ad76dc1e88aad14292f9ae2671ad))
+* named function arguments ([639dd40](https://github.com/SchoolyB/EZ/commit/639dd40722fd01c6f1fbbaebaa478ada5fc1379b))
+* **parser,typechecker:** support named function arguments ([#1840](https://github.com/SchoolyB/EZ/issues/1840)) ([52171e1](https://github.com/SchoolyB/EZ/commit/52171e1a904c0df6afd33bf7fc73e6ac7c598927))
+* **stdlib:** add `map`, `filter`, `reduce` functions to arrays stdlib module ([3ee4f3c](https://github.com/SchoolyB/EZ/commit/3ee4f3cb4dbbc31de2550989305a3de5d2a9153a))
+* **stdlib:** add `printfln`, `eprintf`, `eprintfln`, `sprintfln` to `fmt` stdlib module ([9b2e27a](https://github.com/SchoolyB/EZ/commit/9b2e27af406f8c75945de946a784f6fdebdaaffc))
+* struct default values ([b444ee9](https://github.com/SchoolyB/EZ/commit/b444ee91670779c0d779ab4eda0a19c52b579905))
+* **structs:** add default field values for struct declarations ([#1794](https://github.com/SchoolyB/EZ/issues/1794)) ([ad26dd2](https://github.com/SchoolyB/EZ/commit/ad26dd2afe9622bad3bec9e33e8d6db5f5e953f6))
+* tagged union enums with pattern destructuring ([7f66e96](https://github.com/SchoolyB/EZ/commit/7f66e96f1e2b3694c6c73739e4232bbb2e752c61))
+* **typechecker:** add implicit enum selector .VARIANT syntax ([#1850](https://github.com/SchoolyB/EZ/issues/1850)) ([f154522](https://github.com/SchoolyB/EZ/commit/f1545224898d1786f4d508742cf411339f896fdf))
+* **uuid:** add UUID struct type to uuid module ([5b92b93](https://github.com/SchoolyB/EZ/commit/5b92b9318af3ba9a3726be3c4faee3af7160ed2f))
+* **uuid:** add UUID struct type to uuid module ([#1870](https://github.com/SchoolyB/EZ/issues/1870)) ([5f0b2a7](https://github.com/SchoolyB/EZ/commit/5f0b2a79cce0003417cb1ebec6f9599fbfe9b81e))
+
+
+### Bug Fixes
+
+* **codegen:** handle default params and mutable refs in cross-module using calls ([#1872](https://github.com/SchoolyB/EZ/issues/1872)) ([c6ce374](https://github.com/SchoolyB/EZ/commit/c6ce374eda13b2d045f78aeb8f9700bb85829ad1))
+* **codegen:** prefix default-value bindings to prevent variable shadowing ([#1840](https://github.com/SchoolyB/EZ/issues/1840)) ([bf0e393](https://github.com/SchoolyB/EZ/commit/bf0e393bd33e45bae229abfb653d677687c1b2c1))
+* **codegen:** strip module prefixes from struct/enum names in println output ([9b0bcf4](https://github.com/SchoolyB/EZ/commit/9b0bcf4ec45cf1911ca478711ce62396120bbd49))
+* **codegen:** use bare param names in default-value statement expressions ([a076141](https://github.com/SchoolyB/EZ/commit/a076141fdee3e99d20684507ed0cbc4d7a75418f))
+* **parser:** also reject reserved type names as struct field names ([#1859](https://github.com/SchoolyB/EZ/issues/1859)) ([62ca179](https://github.com/SchoolyB/EZ/commit/62ca179e3d5afe6b4acd37130be75e3fdce493ba))
+* **parser:** enforce separate lines for all struct fields and enum variants ([#1867](https://github.com/SchoolyB/EZ/issues/1867)) ([f50b5c3](https://github.com/SchoolyB/EZ/commit/f50b5c3ae1e6ed2c6c4fee3b4e9a10aadad4777e))
+* **parser:** reject reserved keywords as struct field names ([#1859](https://github.com/SchoolyB/EZ/issues/1859)) ([db595c5](https://github.com/SchoolyB/EZ/commit/db595c57f1b6af856355c2ede54592c828d92737))
+* **parser:** restrict 'for x in' to range() and add for_each shadowing warning ([d3b4384](https://github.com/SchoolyB/EZ/commit/d3b4384d1ea71329e79b09288fb05eef36b6733c))
+* **stdlib:** remove function name aliases csv.decode, csv.format, json.format ([189b7f1](https://github.com/SchoolyB/EZ/commit/189b7f1e261a9b377ceb23309c14f13f742973ec))
+* **tests:** remove stale E3042 unit and integration tests ([a076141](https://github.com/SchoolyB/EZ/commit/a076141fdee3e99d20684507ed0cbc4d7a75418f))
+* **tests:** remove stale E3042 unit test ([28bc4a0](https://github.com/SchoolyB/EZ/commit/28bc4a024be6509b956c86ca35a145d45c9f84f9))
+* **tests:** update tests using reserved builtin/stdlib/type names ([7987209](https://github.com/SchoolyB/EZ/commit/798720984a444c504b3a4a5b963aeb67bb1d90bd))
+* **typechecker:** accept stdlib struct types in struct field declarations ([#1870](https://github.com/SchoolyB/EZ/issues/1870)) ([5ede4d1](https://github.com/SchoolyB/EZ/commit/5ede4d150f3583d0fa12dec2f6e3f34ada4eab2d))
+* **typechecker:** account for default params in cross-module function calls ([#1872](https://github.com/SchoolyB/EZ/issues/1872)) ([cc7c6cd](https://github.com/SchoolyB/EZ/commit/cc7c6cdbfea7fd612f8198fb68af1afc35723020))
+* **typechecker:** add missing arg type validation for strings stdlib functions ([#1875](https://github.com/SchoolyB/EZ/issues/1875)) ([308108a](https://github.com/SchoolyB/EZ/commit/308108ab1d163ee8e45da838af344adbced177bf))
+* **typechecker:** allow instance dispatch for all struct functions ([#1848](https://github.com/SchoolyB/EZ/issues/1848)) ([367ef74](https://github.com/SchoolyB/EZ/commit/367ef744231f1f5ca6436466688e3ec450f43b59))
+* **typechecker:** block builtin and stdlib names from all identifier positions ([#1859](https://github.com/SchoolyB/EZ/issues/1859)) ([3fbb037](https://github.com/SchoolyB/EZ/commit/3fbb037c8d3454e558b4a1d8efb84bfeedd80bf0))
+* **typechecker:** compare display names for cross-module struct/enum type matching ([#1873](https://github.com/SchoolyB/EZ/issues/1873)) ([3165652](https://github.com/SchoolyB/EZ/commit/3165652112166b20abac2602b9788fd0a3434ab3))
+* **typechecker:** prevent transitive import type leaking ([bc37dd9](https://github.com/SchoolyB/EZ/commit/bc37dd96291701167dcf788fa4c68d91011c670e))
+* **typechecker:** reject arithmetic and ordering on enum variables ([#1858](https://github.com/SchoolyB/EZ/issues/1858)) ([0cb5d15](https://github.com/SchoolyB/EZ/commit/0cb5d15bd49ba61ca724c673c8282b03a69b7048))
+* **typechecker:** reject comparison of different enum types ([#1865](https://github.com/SchoolyB/EZ/issues/1865)) ([f64aa67](https://github.com/SchoolyB/EZ/commit/f64aa6799f3e65f4c3b7d9131284489d840ffec9))
+* **typechecker:** reject enum constants passed to mutable parameters ([#1844](https://github.com/SchoolyB/EZ/issues/1844)) ([0e7f608](https://github.com/SchoolyB/EZ/commit/0e7f608c070f9fe7d9ee98cb905a397b6f26451b))
+* **typechecker:** reject mixed enum types in array literals ([#1862](https://github.com/SchoolyB/EZ/issues/1862)) ([0838368](https://github.com/SchoolyB/EZ/commit/0838368bce6d6c62c10f528269a3198bac370583))
+* **typechecker:** reject multi-return destructuring with too few variables ([#1860](https://github.com/SchoolyB/EZ/issues/1860)) ([afbad4c](https://github.com/SchoolyB/EZ/commit/afbad4c32abfeff4bf621a7ef545b883deecf341))
+* **typechecker:** reject return of wrong enum type ([#1864](https://github.com/SchoolyB/EZ/issues/1864)) ([3f5fb02](https://github.com/SchoolyB/EZ/commit/3f5fb0205af099354f66954e4c8402cfbb4f3dc2))
+* **typechecker:** reject string() on array, map, struct, pointer with E3043 ([#1853](https://github.com/SchoolyB/EZ/issues/1853), [#1854](https://github.com/SchoolyB/EZ/issues/1854)) ([f4146fa](https://github.com/SchoolyB/EZ/commit/f4146faebe8387b2d58819498e11394bcd507427))
+* **typechecker:** reject string() on string values with E3043 ([#1852](https://github.com/SchoolyB/EZ/issues/1852)) ([f3d42ee](https://github.com/SchoolyB/EZ/commit/f3d42ee50e9be6267003e033528d922861d66938))
+* **typechecker:** reject wrong enum type in map literal keys and values ([#1863](https://github.com/SchoolyB/EZ/issues/1863)) ([1b6d845](https://github.com/SchoolyB/EZ/commit/1b6d8459cd0c55785e4a83348c239478f185fdb6))
+* **typechecker:** skip early resolve for implicit enum args, propagate array-of-enum expected_type ([#1850](https://github.com/SchoolyB/EZ/issues/1850)) ([acc0857](https://github.com/SchoolyB/EZ/commit/acc08573c641fc2961cf27d979410642c28b93db))
+* **typechecker:** strip module prefix from struct name in all error messages ([#1866](https://github.com/SchoolyB/EZ/issues/1866)) ([25aff14](https://github.com/SchoolyB/EZ/commit/25aff1451688664729c5e46fd266f2dc2e6d4717))
+* **typechecker:** strip module prefixes from user-facing error messages ([cfeffde](https://github.com/SchoolyB/EZ/commit/cfeffde793b6ea0935ac0e0f52b5e6c54854d716))
+* **typechecker:** use type_display_name in struct function arg errors ([#1866](https://github.com/SchoolyB/EZ/issues/1866)) ([8c4af9a](https://github.com/SchoolyB/EZ/commit/8c4af9ad2649845ddeae699e2a3f64bfa625881d))
+* **typechecker:** validate mutable params in instance dispatch path ([#1845](https://github.com/SchoolyB/EZ/issues/1845)) ([fb98a9c](https://github.com/SchoolyB/EZ/commit/fb98a9ca6a24a4a76c40b73872eeb3c600941701))
+* **typechecker:** warn when function parameter shadows enum variant ([#1861](https://github.com/SchoolyB/EZ/issues/1861)) ([26f8e1d](https://github.com/SchoolyB/EZ/commit/26f8e1d19913e856ce259d372d9db306f0d25d52))
+
+## [3.5.15](https://github.com/SchoolyB/EZ/compare/v3.5.14...v3.5.15) (2026-06-13)
+
+
+### Bug Fixes
+
+* **parser:** backfill default values across grouped params ([#1823](https://github.com/SchoolyB/EZ/issues/1823)) ([ce8b999](https://github.com/SchoolyB/EZ/commit/ce8b9996c9daf2470c532d75007d3664feebfe8c))
+* typechecker & parser improvements ([7b42747](https://github.com/SchoolyB/EZ/commit/7b427476c577e5207d111477f1a20ba14059582e))
+* **typechecker:** enforce private on struct function references ([#1835](https://github.com/SchoolyB/EZ/issues/1835)) ([3b82944](https://github.com/SchoolyB/EZ/commit/3b829443e148c89b493a591132f376b80aab8be3))
+* **typechecker:** reject func references to builtin and stdlib functions ([#1832](https://github.com/SchoolyB/EZ/issues/1832)) ([2306015](https://github.com/SchoolyB/EZ/commit/23060154f7215a3bf31f865daa2e680f43f5ad44))
+* **typechecker:** reject func-typed fields on #json structs ([#1836](https://github.com/SchoolyB/EZ/issues/1836)) ([63746f3](https://github.com/SchoolyB/EZ/commit/63746f355497fbbbc5b7e8bdef76f5ac69f24b91))
+* **typechecker:** reject struct functions declared on #json structs ([#1837](https://github.com/SchoolyB/EZ/issues/1837)) ([962cc8f](https://github.com/SchoolyB/EZ/commit/962cc8fa60e1e2e19a033a6eb9c9cb9978c4325e))
+* **typechecker:** reject unknown directives, arg count mismatches, and dangling % in fmt format strings ([#1839](https://github.com/SchoolyB/EZ/issues/1839)) ([e306837](https://github.com/SchoolyB/EZ/commit/e30683734c6d5a42078c9ea5d390ecce2421a5fc))
+
+## [3.5.14](https://github.com/SchoolyB/EZ/compare/v3.5.13...v3.5.14) (2026-06-11)
+
+
+### Bug Fixes
+
+* **codegen:** println(ref(x)) now prints value instead of address ([#1819](https://github.com/SchoolyB/EZ/issues/1819)) ([7764562](https://github.com/SchoolyB/EZ/commit/7764562915b6dea71ad8ecc4b9e4fe6d94f855e8))
+* **codegen:** use -&gt; instead of . when calling func reference in struct field via pointer ([#1830](https://github.com/SchoolyB/EZ/issues/1830)) ([6fcee13](https://github.com/SchoolyB/EZ/commit/6fcee1338e7b454302928c9848b900d5c4a68d81))
+* **parser,codegen:** allow bare func as map value type ([#1831](https://github.com/SchoolyB/EZ/issues/1831)) ([0b6163f](https://github.com/SchoolyB/EZ/commit/0b6163fb065a85038798ba9f5400e3db777694a7))
+* **parser:** reject typed func signature as array element type with E2082 ([e6882a8](https://github.com/SchoolyB/EZ/commit/e6882a800460b9a5744ec290bef5ef2a2a145ed6))
+* **tests:** update func ref tests to use const and remove invalid reassign test ([4558676](https://github.com/SchoolyB/EZ/commit/45586765cdceab92b50bb6787e5344f24aebe3f5))
+* **typechecker:** reject copy() on func references ([#1820](https://github.com/SchoolyB/EZ/issues/1820)) ([77cca61](https://github.com/SchoolyB/EZ/commit/77cca61161c8d21fe24fda38433dfd783b016341))
+* **typechecker:** reject fmt.println as unknown fmt function ([b964d64](https://github.com/SchoolyB/EZ/commit/b964d641a35410cc696d9de776367122a2b4e833))
+* **typechecker:** reject func references passed to print functions ([#1821](https://github.com/SchoolyB/EZ/issues/1821)) ([f49a271](https://github.com/SchoolyB/EZ/commit/f49a27126d7617b3f9e7dc99ec4e87a37fc121a0))
+* **typechecker:** reject func-type return values assigned to variables and chained calls ([#1829](https://github.com/SchoolyB/EZ/issues/1829)) ([1e70edf](https://github.com/SchoolyB/EZ/commit/1e70edf790e4582137acf0b35d860be987c0b166))
+* **typechecker:** reject mismatched func ref assigned to struct field ([#1822](https://github.com/SchoolyB/EZ/issues/1822)) ([c675fee](https://github.com/SchoolyB/EZ/commit/c675fee42ec225c3270743c8b34f2ffdc72afa40))
+* **typechecker:** reject mismatched func ref in typed return statement ([#1817](https://github.com/SchoolyB/EZ/issues/1817)) ([2459c5b](https://github.com/SchoolyB/EZ/commit/2459c5b0e989f4891f4f4c9572a6cf10b431da0d))
+* **typechecker:** reject mut on func reference variable declarations ([#1818](https://github.com/SchoolyB/EZ/issues/1818)) ([2271ba4](https://github.com/SchoolyB/EZ/commit/2271ba41077c11aefa9b3bbf2bfb0dc4277b4b10))
+
+## [3.5.13](https://github.com/SchoolyB/EZ/compare/v3.5.12...v3.5.13) (2026-06-10)
+
+
+### Bug Fixes
+
+* **codegen:** cast integer literals to int64_t in shift expressions to prevent UB for shifts &gt;= 32 ([62fd12e](https://github.com/SchoolyB/EZ/commit/62fd12e97805ae2cd555a741245dcb179fce5685))
+* **codegen:** emit bigint constructor/extractor functions for wide integer casts ([#1803](https://github.com/SchoolyB/EZ/issues/1803)) ([eea42c8](https://github.com/SchoolyB/EZ/commit/eea42c8a7c368e1b0acd750184f72bcb5b60a3dd))
+* **codegen:** implicit scalar-to-bigint assignment and compound operators on wide integer types ([#1805](https://github.com/SchoolyB/EZ/issues/1805), [#1806](https://github.com/SchoolyB/EZ/issues/1806)) ([27a3356](https://github.com/SchoolyB/EZ/commit/27a33563a75d16685e00cb439c56b43a8b46fc6d))
+* **codegen:** prevent double-wrap when assigning cast(expr, bigint) to bigint var ([#1803](https://github.com/SchoolyB/EZ/issues/1803)) ([e0d9ae9](https://github.com/SchoolyB/EZ/commit/e0d9ae93463685151720116a55a92fbac3d81554))
+* **codegen:** prevent double-wrap when negating bigint variable ([676999d](https://github.com/SchoolyB/EZ/commit/676999d5da1453bf2b56efd68a0ee01c4f95e3c8))
+* **codegen:** size_of on literals returns correct size, type_of on inferred wide ints returns specific type ([#1809](https://github.com/SchoolyB/EZ/issues/1809), [#1810](https://github.com/SchoolyB/EZ/issues/1810)) ([191dd5e](https://github.com/SchoolyB/EZ/commit/191dd5e2bb327e84583136f2c490f34424c6b9e8))
+* **codegen:** use bigint eq functions in when/is for wide integer types ([#1804](https://github.com/SchoolyB/EZ/issues/1804)) ([51089e7](https://github.com/SchoolyB/EZ/commit/51089e7ffc96a9d3d70b70fd65f33cddf7335e9e))
+* **codegen:** use println_str for string enum values in println/print/eprint ([#1801](https://github.com/SchoolyB/EZ/issues/1801)) ([ad90143](https://github.com/SchoolyB/EZ/commit/ad9014313032b00aca7eb908bba894d6065c141f))
+* **errors:** remove angle bracket placeholders from E3065 and E3069 error messages ([225eaef](https://github.com/SchoolyB/EZ/commit/225eaefced5fcba8128e97e33b47fb1bb3529ecb))
+* **parser:** support custom fallback values in or_return ([#1808](https://github.com/SchoolyB/EZ/issues/1808)) ([da9f01d](https://github.com/SchoolyB/EZ/commit/da9f01dd5a88a88725066fc89ac2875320f00434))
+* **tests:** remove cast(string, int) test case from cast_keyword (rejected by E3043) ([3639475](https://github.com/SchoolyB/EZ/commit/3639475e813c8813fa5ea20ad308ae32c40ee78b))
+* **tests:** remove cast(string, int/float) test cases from cast_conversions (rejected by E3043) ([780e9bb](https://github.com/SchoolyB/EZ/commit/780e9bb877b788c146429976dea5d8181a210e07))
+* **tests:** use typed enum array in stress_enums (correct element sizing) ([69341e3](https://github.com/SchoolyB/EZ/commit/69341e3724a65b4591a1404da4bfc0207553c1c9))
+* **typechecker,codegen:** restore string enum ↔ string interop ([#1801](https://github.com/SchoolyB/EZ/issues/1801)) ([f67c08d](https://github.com/SchoolyB/EZ/commit/f67c08d9006fb9147d4e18022a0e4af7e9e9943f))
+* **typechecker,codegen:** string enum type tracking and comparisons ([#1801](https://github.com/SchoolyB/EZ/issues/1801)) ([158a6c9](https://github.com/SchoolyB/EZ/commit/158a6c9f0901ca6beb859f9c93adc0498dea1a95))
+* **typechecker:** reject cast(string, int/float/uint) with E3043 ([#1807](https://github.com/SchoolyB/EZ/issues/1807)) ([c5294c3](https://github.com/SchoolyB/EZ/commit/c5294c35fe7cfdc854f5cda9326e154bf840c442))
+* **typechecker:** string enum interop with when/is, return types, and array element assignment ([#1801](https://github.com/SchoolyB/EZ/issues/1801)) ([1ccf16a](https://github.com/SchoolyB/EZ/commit/1ccf16a57312470f0d3446c9c186beeef0cca9cf))
+
+## [3.5.12](https://github.com/SchoolyB/EZ/compare/v3.5.11...v3.5.12) (2026-06-07)
+
+
+### Bug Fixes
+
+* **cli:** restore formatEZSource for fmt unit tests ([24e28ff](https://github.com/SchoolyB/EZ/commit/24e28ffec5f5092940ce5f919cc6b9c5989eae9c))
+* **codegen:** correct uuid.generate() mapping and wire missing generate_compact ([aa28123](https://github.com/SchoolyB/EZ/commit/aa28123b6b01e514fc0769d83826437e66142381))
+* **codegen:** restore correct uuid.generate() → compact mapping ([67ddafc](https://github.com/SchoolyB/EZ/commit/67ddafcbd6f1ac492bce0aa53c7540dd8230eed0))
+* **fmt:** implement lexer-based indentation engine for ez fmt ([984425f](https://github.com/SchoolyB/EZ/commit/984425ff00308b5bc251f5e804897e5f27407455))
+* **fmt:** implement lexer-based indentation engine for ez fmt ([bdc0fe8](https://github.com/SchoolyB/EZ/commit/bdc0fe87c580a00e1d42d59f248d89ba7bda3303))
+* **parser:** reject postfix ^ in return type with E2081 ([223e3c7](https://github.com/SchoolyB/EZ/commit/223e3c763801305e51961f8f48f3182dc83cc906))
+* **tests:** replace httpbin.org with httpbun.com for reliable CI ([6989944](https://github.com/SchoolyB/EZ/commit/69899447a0a153e33e716e4386dea79ec3e0c1f1))
+* **typechecker:** add W3005 and W3006 warnings for unsafe when statement patterns ([55bcfe7](https://github.com/SchoolyB/EZ/commit/55bcfe7b6271291b3e5006fe87e2fa1f8b2693ff))
+* **typechecker:** catch struct/enum type names used as value arguments ([#1797](https://github.com/SchoolyB/EZ/issues/1797)) ([6f2ac19](https://github.com/SchoolyB/EZ/commit/6f2ac197809cd565ac92af3b7110926631dab727))
+* **typechecker:** remove phantom arrays.insert, set, and sum functions ([13f6214](https://github.com/SchoolyB/EZ/commit/13f621405839599ab9bcc34afa6660e4f69edb19))
+* **typechecker:** remove phantom math.mod/pi/e/tau function registrations ([b952bc0](https://github.com/SchoolyB/EZ/commit/b952bc0df01db20836f429962e11fdc9809a64fc))
+* **typechecker:** remove phantom threads.sleep_s/sleep_ms/sleep_ns — sleep() is the only threads sleep, _s/_ms/_ns are builtins ([ab8d7bd](https://github.com/SchoolyB/EZ/commit/ab8d7bde15a096159d983f756982db41be259b10))
+* **typechecker:** resolve imported constants in global array initializers ([611d3f2](https://github.com/SchoolyB/EZ/commit/611d3f246f2d0eceefe601106bc052cb9ec811ee))
+* **typechecker:** skip false-positive E3001 when wildcard arg is unresolved in main pass ([3b2d2fb](https://github.com/SchoolyB/EZ/commit/3b2d2fb7a751262520fe4e219cf80c15a53ef0fc))
+* **typechecker:** validate io.write_file and io.append_file content arg type ([dcf4b61](https://github.com/SchoolyB/EZ/commit/dcf4b61f015016f7c13a8b076c3815452604c264))
+
+## [3.5.11](https://github.com/SchoolyB/EZ/compare/v3.5.10...v3.5.11) (2026-06-06)
+
+
+### Bug Fixes
+
+* **codegen:** add cycle guards to prevent segfault on circular struct references ([#1784](https://github.com/SchoolyB/EZ/issues/1784)) ([0fbc1ac](https://github.com/SchoolyB/EZ/commit/0fbc1ace2f17c915e427d4f19bf88b6d98175a38))
+* **codegen:** deep-copy array fields from struct member access on assignment ([#1789](https://github.com/SchoolyB/EZ/issues/1789)) ([e1d9314](https://github.com/SchoolyB/EZ/commit/e1d93149548ffb3a151fa74edcf49f78cd1e6c73))
+* **codegen:** fix addr() on pointer-deref field generating invalid C ([#1785](https://github.com/SchoolyB/EZ/issues/1785)) ([40a1010](https://github.com/SchoolyB/EZ/commit/40a1010d543748a324ed3bbdae1f0b66d6a54166))
+* **codegen:** fix array field indexing through struct pointer generating invalid C ([#1787](https://github.com/SchoolyB/EZ/issues/1787)) ([f1ad1b9](https://github.com/SchoolyB/EZ/commit/f1ad1b920c72f43398c53b0a9c9735dd78a7a0cb))
+* **codegen:** infer correct type for pointer dereference assignments ([#1786](https://github.com/SchoolyB/EZ/issues/1786)) ([a336d74](https://github.com/SchoolyB/EZ/commit/a336d74a548409c4fda8943c2db70b81586a610a))
+* **main:** use fork+execv instead of system() in run mode ([#1285](https://github.com/SchoolyB/EZ/issues/1285)) ([f36dab9](https://github.com/SchoolyB/EZ/commit/f36dab9251fcf4388b9f9aacc73833b62f16d4cb))
+* pointer/struct bug fixes ([4f72660](https://github.com/SchoolyB/EZ/commit/4f72660d844535c23966e842eda48fdc6bb1fdb6))
+* **typechecker:** catch struct type mismatch in pointer dereference assignment ([#1788](https://github.com/SchoolyB/EZ/issues/1788)) ([8019d7a](https://github.com/SchoolyB/EZ/commit/8019d7add8d0f84e387bcd5a8cf08b594338ef7b))
+* **typechecker:** catch struct type mismatch in struct field assignment and nested literals ([#1790](https://github.com/SchoolyB/EZ/issues/1790)) ([f5b015b](https://github.com/SchoolyB/EZ/commit/f5b015b393e0a127bf7f98bca9238ee2a974ba8a))
+* **typechecker:** reject reserved stdlib type names as struct names ([#1791](https://github.com/SchoolyB/EZ/issues/1791)) ([9f4c4ac](https://github.com/SchoolyB/EZ/commit/9f4c4ac7a8efe8a96cb404fd65bf5f68051aa99d))
+
+## [3.5.10](https://github.com/SchoolyB/EZ/compare/v3.5.9...v3.5.10) (2026-06-05)
+
+
+### Bug Fixes
+
+* **compiler:** quote output path in run-mode shell execution ([#1703](https://github.com/SchoolyB/EZ/issues/1703)) ([e340b2e](https://github.com/SchoolyB/EZ/commit/e340b2ea5a13de41745a6abf235788a75fc67aee))
+* **stdlib:** reject CR/LF in HTTP URL host and path components ([#1703](https://github.com/SchoolyB/EZ/issues/1703)) ([8b7a5ef](https://github.com/SchoolyB/EZ/commit/8b7a5ef7b8b6f8df1d6db38b8e189cb18539d3ea))
+* **typechecker:** validate embed() path stays within source directory ([#1703](https://github.com/SchoolyB/EZ/issues/1703)) ([cab23c0](https://github.com/SchoolyB/EZ/commit/cab23c016477c6dc2a5b3d1bfde87e23ddd857a8))
+
+## [3.5.9](https://github.com/SchoolyB/EZ/compare/v3.5.8...v3.5.9) (2026-06-05)
+
+
+### Bug Fixes
+
+* codegen & typechecker bugs ([73aa742](https://github.com/SchoolyB/EZ/commit/73aa742b04f0db34d5f4c9b43e57fa3c8e6e08b2))
+* **codegen/typechecker:** monomorphize wildcard struct functions per call site ([591c330](https://github.com/SchoolyB/EZ/commit/591c330870808adb7b3182dd9a3f42cc281bf21c))
+* **codegen:** emit EzMulti typedef for struct-scoped multi-return functions ([3e62879](https://github.com/SchoolyB/EZ/commit/3e62879cf5e6214175beea5de78bb3319fbd57e8)), closes [#1776](https://github.com/SchoolyB/EZ/issues/1776)
+* **codegen:** resolve correct print variant for wildcard params ([1bca397](https://github.com/SchoolyB/EZ/commit/1bca39732126bdadfa0c40524af5f737166abd98)), closes [#1774](https://github.com/SchoolyB/EZ/issues/1774)
+* **stdlib/codegen:** add missing eprint builtin variants and fix dispatch ([a9a37cc](https://github.com/SchoolyB/EZ/commit/a9a37ccf8e08febce5a9d608a3bb6be94b07b4d6))
+* **stdlib:** add missing eprintln float and bool builtin variants ([b9652d5](https://github.com/SchoolyB/EZ/commit/b9652d5e02232e43c6cb1757a5badfa6ad058a0c))
+* **typechecker:** allow '?' as struct field type in field-type validation ([f986db8](https://github.com/SchoolyB/EZ/commit/f986db827f0b3805665956d1208f5749ce401ef7))
+* **typechecker:** auto-deref pointer fields in nested member access ([dc9f42e](https://github.com/SchoolyB/EZ/commit/dc9f42ec6354620541ed8277d430c9237bcd486d)), closes [#1777](https://github.com/SchoolyB/EZ/issues/1777)
+
+## [3.5.8](https://github.com/SchoolyB/EZ/compare/v3.5.7...v3.5.8) (2026-06-04)
+
+
+### Bug Fixes
+
+* **codegen,typechecker:** remove unimplemented http module stubs request and json_body ([#1773](https://github.com/SchoolyB/EZ/issues/1773)) ([4fb7169](https://github.com/SchoolyB/EZ/commit/4fb7169a79c87fd799a4da717a1cdfd65f4c3b39))
+* **codegen,typechecker:** remove unimplemented server.parse_json stub ([#1701](https://github.com/SchoolyB/EZ/issues/1701)) ([87f3f2e](https://github.com/SchoolyB/EZ/commit/87f3f2e2c36a20ce960a7f043a216cf42205a623))
+* **typechecker:** correct json module tracking table entry from pretty to pretty_print ([#1773](https://github.com/SchoolyB/EZ/issues/1773)) ([2244d83](https://github.com/SchoolyB/EZ/commit/2244d8321ced74f9c3d6e4cf6ea7c91429a7811e))
+* **typechecker:** json.decode() now returns concrete map[string:string] type when destructured ([#1773](https://github.com/SchoolyB/EZ/issues/1773)) ([62fb26d](https://github.com/SchoolyB/EZ/commit/62fb26dd5d799a62e5dc4a6922cc3ba3d1714f07))
+
+## [3.5.7](https://github.com/SchoolyB/EZ/compare/v3.5.6...v3.5.7) (2026-06-03)
+
+
+### Bug Fixes
+
+* type system improvements and struct field validation ([c954917](https://github.com/SchoolyB/EZ/commit/c954917955309e10b3369613b30588470b8708a0))
+* **typechecker,parser:** infer parameter type from enum member default value ([8e19118](https://github.com/SchoolyB/EZ/commit/8e19118a74450ba2413f916b78bbc1f09ef54e44))
+* **typechecker:** catch undefined types in struct fields for arrays, maps, and pointers recursively ([27d8466](https://github.com/SchoolyB/EZ/commit/27d84665e9a0334e401137f73ae06ea5d46edc38))
+* **typechecker:** intern dynamic types and raise pool cap to 4096 ([#1770](https://github.com/SchoolyB/EZ/issues/1770)) ([73cf194](https://github.com/SchoolyB/EZ/commit/73cf1947fae1c4f8c0d434f5fd33b47999a0c64b))
+
+## [3.5.6](https://github.com/SchoolyB/EZ/compare/v3.5.5...v3.5.6) (2026-06-03)
+
+
+### Bug Fixes
+
+* **codegen,runtime:** byte + negative int fires P0016 instead of P0015 ([#1755](https://github.com/SchoolyB/EZ/issues/1755)) ([69f21d5](https://github.com/SchoolyB/EZ/commit/69f21d5326c521190b2bd1ebd81905c96d8600fb))
+* **codegen,typechecker:** arrays.append pointer C error + E3097 dangling addr ([c9926ee](https://github.com/SchoolyB/EZ/commit/c9926ee63108662d660e0d092a04b36f2ef97c22))
+* **codegen:** runtime panic on narrowing integer assignment and call args ([#1753](https://github.com/SchoolyB/EZ/issues/1753)) ([853f103](https://github.com/SchoolyB/EZ/commit/853f103457b09831dec2f3949d0afe7c4ff926c1))
+* compiler fixes ([b79b857](https://github.com/SchoolyB/EZ/commit/b79b85746ec47ca854787e1966e51eaff24b58ee))
+* **runtime,codegen:** deep-copy string key data in ez_map_copy and emit_map_deep_copy ([d860f39](https://github.com/SchoolyB/EZ/commit/d860f39e3bd599472610425ca96eb1b9c1ba0916))
+* **typechecker,codegen:** assert double message ([#1766](https://github.com/SchoolyB/EZ/issues/1766)) + E3097 for addr() in call args ([#1767](https://github.com/SchoolyB/EZ/issues/1767)) ([b3b0df8](https://github.com/SchoolyB/EZ/commit/b3b0df8282f6e4e7cb5b0cd65e2083e5a067b405))
+* **typechecker,codegen:** byte() returns byte type; bit_not byte masks to 8 bits; W3004→E3097 ([50c0057](https://github.com/SchoolyB/EZ/commit/50c00575cdf3b0578b41f47635069f30390d63da))
+* **typechecker:** catch pointer-pointee mismatches across all assignment and comparison paths ([#1746](https://github.com/SchoolyB/EZ/issues/1746)-[#1751](https://github.com/SchoolyB/EZ/issues/1751)) ([39ac98c](https://github.com/SchoolyB/EZ/commit/39ac98cd4c4c775d8d603f9975af880c72460fa4))
+* **typechecker:** catch pointer-to-pointer type mismatch in var decls ([#1745](https://github.com/SchoolyB/EZ/issues/1745)) ([1c5d00f](https://github.com/SchoolyB/EZ/commit/1c5d00f77a277269371664b50d4f8980ab6b264c))
+* **typechecker:** narrow bigint rank check to vr&gt;=5 to avoid false positives on int literals ([057ae83](https://github.com/SchoolyB/EZ/commit/057ae830ab9712be6bc710854095249e784348cc))
+* **typechecker:** raise E3001 on implicit bigint narrowing in var_decl, reassignment, and call args ([#1759](https://github.com/SchoolyB/EZ/issues/1759)) ([5978c49](https://github.com/SchoolyB/EZ/commit/5978c49016e8c3bea259cf27648a267f7d512bdc))
+
+## [3.5.5](https://github.com/SchoolyB/EZ/compare/v3.5.4...v3.5.5) (2026-06-02)
+
+
+### Bug Fixes
+
+* handle big-int pointer dereference in println and deref-assign ([9a06c7c](https://github.com/SchoolyB/EZ/commit/9a06c7c6a848b33e2eca3f49e95877243932b9e9)), closes [#1761](https://github.com/SchoolyB/EZ/issues/1761)
+* reject implicit byte/u8 assignment — they are distinct types ([7d6e55f](https://github.com/SchoolyB/EZ/commit/7d6e55f1fc80401a2299c26ab1bda32e2e95a75b)), closes [#1752](https://github.com/SchoolyB/EZ/issues/1752)
+* reject negation of unsigned integer types (E3096) ([f0eef54](https://github.com/SchoolyB/EZ/commit/f0eef5427c0585d9968f6abd66104b6526457f88)), closes [#1757](https://github.com/SchoolyB/EZ/issues/1757)
+* type safety and big-int bug fixes ([db5527a](https://github.com/SchoolyB/EZ/commit/db5527a7f7550b48f7be7092018565590e731498))
+* widen mixed-width integer arithmetic to larger operand type ([989abc2](https://github.com/SchoolyB/EZ/commit/989abc2edc4355d17e6c0bd40908bfa669cd03ad)), closes [#1756](https://github.com/SchoolyB/EZ/issues/1756)
+* widen smaller integer operands in big-int arithmetic expressions ([0fb52b9](https://github.com/SchoolyB/EZ/commit/0fb52b97e5e63093a312af9e890d5c07fc07c842)), closes [#1758](https://github.com/SchoolyB/EZ/issues/1758)
+
+## [3.5.4](https://github.com/SchoolyB/EZ/compare/v3.5.3...v3.5.4) (2026-06-01)
+
+
+### Bug Fixes
+
+* check fputs return value in write_file ([#1741](https://github.com/SchoolyB/EZ/issues/1741)) ([767da19](https://github.com/SchoolyB/EZ/commit/767da19ec71accb494892115e30f77d2b6cc1f42))
+
+## [3.5.3](https://github.com/SchoolyB/EZ/compare/v3.5.2...v3.5.3) (2026-06-01)
+
+
+### Bug Fixes
+
+* **cli:** quote runtime_dir and output_file in shell command, reject single quotes ([8dfbe66](https://github.com/SchoolyB/EZ/commit/8dfbe66d71141f565796cbd848e011b82a32f256))
+* **codegen:** free prefixed string in emit_call after user-module lookup ([dffc51e](https://github.com/SchoolyB/EZ/commit/dffc51eabe3617aa2ac3bfcb770270655c82ff02))
+* **codegen:** route uint ++ and -- through overflow/underflow checks ([90aacad](https://github.com/SchoolyB/EZ/commit/90aacadc0b4231dd311f78f4ce529ca52773af77))
+* **runtime:** guard realloc return in main.c and ez_server.c ([f12298a](https://github.com/SchoolyB/EZ/commit/f12298a38987942b677a516e6b79548d7901ad02))
+* **stdlib:** add sys/random.h include for getentropy on Linux ([cf504d9](https://github.com/SchoolyB/EZ/commit/cf504d903e6053691469852bdbad23b84739c569))
+* **stdlib:** cap send() length at buffer size in HTTP server and client ([282ffcd](https://github.com/SchoolyB/EZ/commit/282ffcd179da8e08519eb73c6420778ec8663e8b))
+* **stdlib:** check malloc and pthread_create in server accept loop ([2a3a369](https://github.com/SchoolyB/EZ/commit/2a3a3697db2603ac8fe50fcec6e5fe3b68041d75))
+* typechecker, runtime, stdlib, and codegen bug fixes ([f301bbd](https://github.com/SchoolyB/EZ/commit/f301bbda9943d39ef9f43604f81a0c2aeec6761f))
+* **typechecker:** catch addr() of wrong struct type passed to pointer parameter ([41cae70](https://github.com/SchoolyB/EZ/commit/41cae700a3a21eab73095b37bd64acb1673c3429))
+* **typechecker:** catch pointer assigned to non-pointer variable ([1bcb0c2](https://github.com/SchoolyB/EZ/commit/1bcb0c298d02317a42ca3d1e7feb384a5a1e6ad1))
+* **typechecker:** catch struct-to-different-struct reassignment ([1f20af6](https://github.com/SchoolyB/EZ/commit/1f20af6c565aacd993c6a527d79b35ccfb23d4a5))
+* **typechecker:** emit E3003 when float is used as string index ([b2302e3](https://github.com/SchoolyB/EZ/commit/b2302e333493d515fa6920641df85ac0e28163a5))
+* **typechecker:** emit E3095 when 'in' is used on a non-array/map/string type ([6449e2d](https://github.com/SchoolyB/EZ/commit/6449e2d9e82048d7b67c20a8a4de0bfc2e34ba4a))
+* **typechecker:** tighten array/map element type coercion checks ([57b0041](https://github.com/SchoolyB/EZ/commit/57b0041e17289365618503a11124194e8ddce968))
+
+
+### Performance Improvements
+
+* minor optimizations across Go CLI and C compiler ([7311a50](https://github.com/SchoolyB/EZ/commit/7311a50bc12819d2df672e4208d16c2c740e8714))
+
+## [3.5.2](https://github.com/SchoolyB/EZ/compare/v3.5.1...v3.5.2) (2026-05-31)
+
+
+### Bug Fixes
+
+* **ci:** remove deleted lineeditor package from test-go target ([4bc65ab](https://github.com/SchoolyB/EZ/commit/4bc65abf5da5485e8ec2dc122f5466f4266dc36d))
+* **ezc:** handle realloc failure in read_file NUL-termination step ([9fee714](https://github.com/SchoolyB/EZ/commit/9fee714ad68317ffaffc51b0311db5e7f96db001))
+* typechecker bugfixes ([#1722](https://github.com/SchoolyB/EZ/issues/1722)) ([f1a9fa8](https://github.com/SchoolyB/EZ/commit/f1a9fa8c6543cf7cc6a4b18e5c06addeb3b84a91))
+* **typechecker:** catch array element type mismatches in assignment, args, and return ([1be4947](https://github.com/SchoolyB/EZ/commit/1be49479e890e5c04c1e24a231f8766833802349))
+* **typechecker:** catch map key/value type mismatches in assignment, args, and return ([466dcbd](https://github.com/SchoolyB/EZ/commit/466dcbd0fa9d6290b05ee65f4173656bdecd8fb6))
+* **typechecker:** catch struct returned from primitive-typed function ([dfec4c2](https://github.com/SchoolyB/EZ/commit/dfec4c2797d7a948d11a80bf1acdb027c76b1f74))
+* **typechecker:** emit E3010 for invalid field on chained struct access ([f23ee97](https://github.com/SchoolyB/EZ/commit/f23ee97f259224f4770542a5d2f44752162e9985))
+* **typechecker:** emit E3090 when '!' is used on a non-bool type ([c61f652](https://github.com/SchoolyB/EZ/commit/c61f6529385e2b23bc3319f8cf700e361cea39c0))
+* **typechecker:** emit E3091 when non-scalar type is used as if/for condition ([d844bf9](https://github.com/SchoolyB/EZ/commit/d844bf9110a6fa453ab2500699801e195a3b32df))
+* **typechecker:** emit E3092 when struct, map, or array is compared to nil ([d929ee2](https://github.com/SchoolyB/EZ/commit/d929ee297c6823957ce9f1fc51a0fb45f55f1f68))
+* **typechecker:** emit E3093 when arithmetic operators are used on map, array, or struct ([6a4c862](https://github.com/SchoolyB/EZ/commit/6a4c8629fbad30e6d84eb9343805edcaa4a69f0c))
+* **typechecker:** emit E3094 when wrong type is assigned to array element by index ([ad869e0](https://github.com/SchoolyB/EZ/commit/ad869e0cf42064dcd96788d27640f222b2dce78c))
+
+## [3.5.1](https://github.com/SchoolyB/EZ/compare/v3.5.0...v3.5.1) (2026-05-31)
+
+
+### Bug Fixes
+
+* **parser:** suppress struct literal parsing in when subject expression ([ee74f85](https://github.com/SchoolyB/EZ/commit/ee74f85c94759e84325caa5e0b49a41ab80aaed1))
+
+## [3.5.0](https://github.com/SchoolyB/EZ/compare/v3.4.3...v3.5.0) (2026-05-30)
+
+
+### Features
+
+* **cli:** add ez man command for builtin function documentation ([f812762](https://github.com/SchoolyB/EZ/commit/f812762f1b6a28a3219e87e7dd34634b49c70bcd))
+* **cli:** add ez man stdlib support, starting with math module ([536aa1a](https://github.com/SchoolyB/EZ/commit/536aa1a69ee16bda7b554042ab77fdca7f60e132))
+* **cli:** add strings module to ez man ([ef357dc](https://github.com/SchoolyB/EZ/commit/ef357dc4ede71ee9a16e8772fd73fe0a0d2dd7d8))
+* **cli:** add type documentation support to ez man ([479677a](https://github.com/SchoolyB/EZ/commit/479677a1852c8357f265a43dd9e02a72bc37bf26))
+* **lang:** add bitwise keyword operators (bit_and, bit_or, bit_xor, bit_not, bit_shift_left, bit_shift_right) ([466d4d6](https://github.com/SchoolyB/EZ/commit/466d4d687967d671b0b0127efb3e6d39c1230b33)), closes [#1686](https://github.com/SchoolyB/EZ/issues/1686)
+* **runtime:** structured P0001–P0077 panic codes with consistent formatting ([b9804cc](https://github.com/SchoolyB/EZ/commit/b9804cc02dc9626700a17b7bb9440b77d6bc8667)), closes [#1696](https://github.com/SchoolyB/EZ/issues/1696)
+* **stdlib:** improve io module with new functions and consistency fixes ([faf2364](https://github.com/SchoolyB/EZ/commit/faf236400b617403eb1546391c9c92d3e6052002))
+* **typechecker,codegen:** implement embed() compile-time file embedding builtin ([#1704](https://github.com/SchoolyB/EZ/issues/1704)) ([34064ff](https://github.com/SchoolyB/EZ/commit/34064ffacbe3d62c95a6f4d34f06daa600d4c44e))
+* **typechecker:** complete using_funcs[] whitelist for all stdlib modules ([53a4ff1](https://github.com/SchoolyB/EZ/commit/53a4ff12dfca495ffb1d67fe21b3ccb0359e4a5d))
+* **typechecker:** enforce error handling for fallible stdlib functions ([#1703](https://github.com/SchoolyB/EZ/issues/1703)) ([5a6f3c3](https://github.com/SchoolyB/EZ/commit/5a6f3c39410d89d770726414eb667d4036702943))
+* **typechecker:** recursive struct pointer fields with exhaustive validation ([#1687](https://github.com/SchoolyB/EZ/issues/1687)) ([9501e53](https://github.com/SchoolyB/EZ/commit/9501e53f78b8b4359f88091b7d1d2910e50e8191))
+
+
+### Bug Fixes
+
+* **cli:** suppress update prompt on dev and dirty builds ([751e526](https://github.com/SchoolyB/EZ/commit/751e5263bf533918d2306c71a9ccc2b434d6b083))
+* **codegen+typechecker:** server.listen arg order, E5026 for stdlib arg type mismatches ([f0d34fb](https://github.com/SchoolyB/EZ/commit/f0d34fbc1e80df70e48b549602d744f666466a07))
+* **codegen:** add missing io functions to E5011 void-call whitelist ([cc5e04a](https://github.com/SchoolyB/EZ/commit/cc5e04a6e766f402b4b692230596e7f0324fa650))
+* **codegen:** correct array/map interpolation for uint, byte, and char elements ([8c2c691](https://github.com/SchoolyB/EZ/commit/8c2c6912ed61092ccb61708c4f77604081d02b36)), closes [#1679](https://github.com/SchoolyB/EZ/issues/1679)
+* **codegen:** implement bool() builtin conversion ([#1702](https://github.com/SchoolyB/EZ/issues/1702)) ([d2c9e26](https://github.com/SchoolyB/EZ/commit/d2c9e26139c3945b2981615a91dbff15525ee71f))
+* **codegen:** multi-return functions now escape _func_arena and restore ez_default_arena ([#1688](https://github.com/SchoolyB/EZ/issues/1688)) ([a64af6b](https://github.com/SchoolyB/EZ/commit/a64af6b97578dc1f71da57a26da25b4a43862e09))
+* **codegen:** support variable negative step in for range loops ([230722c](https://github.com/SchoolyB/EZ/commit/230722cdc4fb40cb48addfc978c52d708a9fd799)), closes [#1683](https://github.com/SchoolyB/EZ/issues/1683)
+* **codegen:** unwind scratch arena before break and continue ([0b85251](https://github.com/SchoolyB/EZ/commit/0b85251438a383da58e6efa579d08eb116ab4e1e)), closes [#1684](https://github.com/SchoolyB/EZ/issues/1684)
+* complete panic[Pxxx] migration and fix nested-loop break/continue arena bug ([9b27408](https://github.com/SchoolyB/EZ/commit/9b274087b33e4f2c2fb1e6cfacd48402e8069978))
+* **errors:** introduce E8xxx series for bitwise operator errors ([f5cb33b](https://github.com/SchoolyB/EZ/commit/f5cb33bdfb1a493461fa5ba259cb5e94e0043d95))
+* **io:** register io panic codes in error_codes.h and fix P0077 message ([ca1dc2d](https://github.com/SchoolyB/EZ/commit/ca1dc2d193bdfa0140799cebf2a0f37be1c63d3b))
+* new() use-after-free, for while-style parsing, when enum ptr deref ([#1687](https://github.com/SchoolyB/EZ/issues/1687)) ([09ceac6](https://github.com/SchoolyB/EZ/commit/09ceac68abaeadf574a6778b83fd06cea4d2797f))
+* **parser:** consume optional trailing comma after struct field type ([f69d1a2](https://github.com/SchoolyB/EZ/commit/f69d1a2bd2d196d334c283f21d6d0012a5395a86))
+* **parser:** correct line/column offsets for diagnostics inside interpolated strings ([9fed78d](https://github.com/SchoolyB/EZ/commit/9fed78de157736e92d9e307ae2796addd290b5ed))
+* **runtime:** fix ez_map_set tombstone scan creating duplicate keys ([898dd41](https://github.com/SchoolyB/EZ/commit/898dd4151d8d8d5967dce78fe27cc052d1db3a41)), closes [#1680](https://github.com/SchoolyB/EZ/issues/1680)
+* **runtime:** make ez_default_arena thread-local to eliminate arena data races ([566f4f9](https://github.com/SchoolyB/EZ/commit/566f4f9ac448918ba7b1409f5dc4dbe0257e0207)), closes [#1689](https://github.com/SchoolyB/EZ/issues/1689)
+* **stdlib:** arrays.get_first/last/remove_first/last return correct value for all element types ([#1681](https://github.com/SchoolyB/EZ/issues/1681)) ([2c9e84a](https://github.com/SchoolyB/EZ/commit/2c9e84ac79cc086e18a3a58cf846162054268b6e))
+* **stdlib:** arrays.remove_at panics on out-of-bounds index ([#1682](https://github.com/SchoolyB/EZ/issues/1682)) ([541cf71](https://github.com/SchoolyB/EZ/commit/541cf71745e0e1decc5b1516de440fa05312867e))
+* **stdlib:** patch server stack buffer overflow and arena struct leak ([#1691](https://github.com/SchoolyB/EZ/issues/1691)) ([9dbd537](https://github.com/SchoolyB/EZ/commit/9dbd5375e424ef163117f180913c963b7ff9c9e3))
+* **tests:** correct inline struct syntax in test_valid_recursive_pointer_struct ([#1687](https://github.com/SchoolyB/EZ/issues/1687)) ([116ee4a](https://github.com/SchoolyB/EZ/commit/116ee4a4b4d47a92a4c422beb3300010aa09f47f))
+* **typechecker:** add E3004 check for string index assignment with wrong type ([9afe081](https://github.com/SchoolyB/EZ/commit/9afe081540ff819be568661c7890bbf4e885303a)), closes [#1694](https://github.com/SchoolyB/EZ/issues/1694)
+* **typechecker:** implement 6 missing compile-time checks ([6c5b5d6](https://github.com/SchoolyB/EZ/commit/6c5b5d6427e09a94f44f64edf2a63a02670dbd2f))
+* **typechecker:** replace 'fallible' with 'can fail' in E3089 message ([#1703](https://github.com/SchoolyB/EZ/issues/1703)) ([8043866](https://github.com/SchoolyB/EZ/commit/8043866e92c2553a36f99faaa0867b77e7b7bae6))
+
+## [3.4.3](https://github.com/SchoolyB/EZ/compare/v3.4.2...v3.4.3) (2026-05-28)
+
+
+### Bug Fixes
+
+* **codegen:** recursive wildcard binding at call sites for nested composite types ([d62ccbe](https://github.com/SchoolyB/EZ/commit/d62ccbebfb6bc9fa586852d602699077e8922744))
+* **stdlib:** forward-declare arc4random_buf to fix macOS build ([835fde6](https://github.com/SchoolyB/EZ/commit/835fde68228a6ca639063a0055493c27631ee570))
+* **stdlib:** reject leading whitespace in strconv, fix url_decode invalid %, fix regex find_all OOB ([f521496](https://github.com/SchoolyB/EZ/commit/f521496393302ff91b47663cf2b8dd65fccb0b0e))
+* **stdlib:** replace rand()/srand() in crypto.random_hex with platform CSPRNG ([8e47bb0](https://github.com/SchoolyB/EZ/commit/8e47bb030e795caeea50c66250539727f5e7f74b)), closes [#1648](https://github.com/SchoolyB/EZ/issues/1648)
+* **typechecker:** allow auto-deref field assignment on pointer parameters ([daa819f](https://github.com/SchoolyB/EZ/commit/daa819ff0c49bfd4480d25bf9c2850d4272dc85a)), closes [#1653](https://github.com/SchoolyB/EZ/issues/1653)
+* **typechecker:** wildcard unifier recurses into nested composite types ([cfef697](https://github.com/SchoolyB/EZ/commit/cfef697019fe1463c2299b61f3e8c0e6db0f3ce3)), closes [#1652](https://github.com/SchoolyB/EZ/issues/1652)
+
+## [3.4.2](https://github.com/SchoolyB/EZ/compare/v3.4.1...v3.4.2) (2026-05-21)
+
+
+### Bug Fixes
+
+* **typechecker:** reject ref()/addr() on map index access path ([#1673](https://github.com/SchoolyB/EZ/issues/1673)) ([5f8f0ee](https://github.com/SchoolyB/EZ/commit/5f8f0ee75758c88c4dbf620eccc88f0dfb6003d0)), closes [#1654](https://github.com/SchoolyB/EZ/issues/1654)
+
+## [3.4.1](https://github.com/SchoolyB/EZ/compare/v3.4.0...v3.4.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* codegen and typechecker bugs in module-aware compilation ([#1671](https://github.com/SchoolyB/EZ/issues/1671)) ([b9c658d](https://github.com/SchoolyB/EZ/commit/b9c658d6a27152278b38032559b9c77977e2c164))
+
+## [3.4.0](https://github.com/SchoolyB/EZ/compare/v3.3.1...v3.4.0) (2026-05-20)
+
+
+### Features
+
+* **builtins:** add here() returning SourceLocation for source-position capture ([#1660](https://github.com/SchoolyB/EZ/issues/1660)) ([07fa474](https://github.com/SchoolyB/EZ/commit/07fa47455747830ae510305fc8eb261654706adc))
+* here() builtin returning SourceLocation ([#1660](https://github.com/SchoolyB/EZ/issues/1660)) ([efeb3a3](https://github.com/SchoolyB/EZ/commit/efeb3a352364a682976a898838dd864432ab564f))
+* threads detach, current, yield, sleep, is_alive, thread_count ([#1453](https://github.com/SchoolyB/EZ/issues/1453)) ([ec273dc](https://github.com/SchoolyB/EZ/commit/ec273dc70e08ee8c4f0675bb6162618ac8acf582))
+* **threads:** add detach, current, yield, sleep, is_alive, thread_count ([#1453](https://github.com/SchoolyB/EZ/issues/1453)) ([e78f57d](https://github.com/SchoolyB/EZ/commit/e78f57d26c93d8e1251b26f13b2a56ac359ae0be))
+* uuid parse, generate_random, generate_time_ordered, NIL_UUID ([#1452](https://github.com/SchoolyB/EZ/issues/1452)) ([7df9ae2](https://github.com/SchoolyB/EZ/commit/7df9ae22bda510f367934a2a628960a3326494ae))
+* **uuid:** add parse, generate_random, generate_time_ordered, NIL_UUID ([#1452](https://github.com/SchoolyB/EZ/issues/1452)) ([ed9e789](https://github.com/SchoolyB/EZ/commit/ed9e789f6e20c88486a3eb6bb76d1cf0c3db95bc))
+
+
+### Bug Fixes
+
+* **codegen:** multi-file struct codegen — three findings from Marlowe port ([d3e75d5](https://github.com/SchoolyB/EZ/commit/d3e75d5e66e997e2495110c217b50c921007e09b))
+* **codegen:** thread struct field type into empty array literal sizing ([#1664](https://github.com/SchoolyB/EZ/issues/1664)) ([deb12da](https://github.com/SchoolyB/EZ/commit/deb12dacd304d4903e5378d3bb4ece3c6fa18654))
+* **import:** rewrite composite type names in imported declarations ([#1665](https://github.com/SchoolyB/EZ/issues/1665)) ([b205a5e](https://github.com/SchoolyB/EZ/commit/b205a5e05cb5dd01eac361817099676a03d1193e))
+* **typechecker:** reject 'here' as user variable/function/type/param (E5016) ([3d66ec1](https://github.com/SchoolyB/EZ/commit/3d66ec191cb2aadf74390b0507bb0b6b82af181b))
+
+## [3.3.1](https://github.com/SchoolyB/EZ/compare/v3.3.0...v3.3.1) (2026-05-19)
+
+
+### Bug Fixes
+
+* **codegen:** map stdlib opaque types to their C typedefs ([#1645](https://github.com/SchoolyB/EZ/issues/1645)) ([#1657](https://github.com/SchoolyB/EZ/issues/1657)) ([30564e9](https://github.com/SchoolyB/EZ/commit/30564e90c68a2d9c1f0c2faa95e2f3a2b2890481))
+* **parser:** accept bare '_ = expr' at statement position ([#1647](https://github.com/SchoolyB/EZ/issues/1647)) ([#1656](https://github.com/SchoolyB/EZ/issues/1656)) ([83877c5](https://github.com/SchoolyB/EZ/commit/83877c59aebe3a44f553dde1596235ae886b99d8))
+* **parser:** reject throwaway '_' with a non-call RHS (E5012) ([c676763](https://github.com/SchoolyB/EZ/commit/c67676320935c7e47455f01ac5b4aab115632796))
+* **typechecker:** reject file-scope initializers that call functions (E5013) ([92de338](https://github.com/SchoolyB/EZ/commit/92de338ae30b3f677b5744c09bcc67da891e6a74))
+
+## [3.3.0](https://github.com/SchoolyB/EZ/compare/v3.2.2...v3.3.0) (2026-05-12)
+
+
+### Features
+
+* **cli:** add `ez fmt` command for code formatting ([#1638](https://github.com/SchoolyB/EZ/issues/1638)) ([8e9027b](https://github.com/SchoolyB/EZ/commit/8e9027ba8ca2a2503793aca217acb11bc1434a1e)), closes [#1564](https://github.com/SchoolyB/EZ/issues/1564)
+
+
+### Bug Fixes
+
+* **cli:** remove --diff flag from ez fmt ([#1564](https://github.com/SchoolyB/EZ/issues/1564)) ([a0f2180](https://github.com/SchoolyB/EZ/commit/a0f2180b3f10f38b06f4178ea21e9d8268f1216c))
+* **parser:** reject invalid characters in C header import paths ([#1618](https://github.com/SchoolyB/EZ/issues/1618)) ([6646d68](https://github.com/SchoolyB/EZ/commit/6646d68694d7b345bb8bdcdb8b7a0ece4ce3bbae))
+* runtime security bugs ([f0d1151](https://github.com/SchoolyB/EZ/commit/f0d11516795c9648cd68e5c6aa45797ca7bcbc3a))
+* **runtime:** cast to unsigned char at all ctype.h call sites ([#1616](https://github.com/SchoolyB/EZ/issues/1616)) ([d40683b](https://github.com/SchoolyB/EZ/commit/d40683b7c43397b15f5041acd74e76f2604ec087))
+* **stdlib:** compute exact buffer size in csv stringify to prevent heap overflow ([#1617](https://github.com/SchoolyB/EZ/issues/1617)) ([6f3ae23](https://github.com/SchoolyB/EZ/commit/6f3ae23ad0a55dfbc20b0bbe2c99662c8eabb696))
+* **stdlib:** use correct comparators for float and string array sorts ([#1632](https://github.com/SchoolyB/EZ/issues/1632)) ([24afcd8](https://github.com/SchoolyB/EZ/commit/24afcd8a1d6fa8ea6297410c0d28968ce282696f))
+* **typechecker:** reject dynamic format strings and validate directives in fmt.printf/sprintf/format ([#1633](https://github.com/SchoolyB/EZ/issues/1633)) ([35b31c1](https://github.com/SchoolyB/EZ/commit/35b31c1469d587d10a51cd8813c6307db4b24e3d))
+
+## [3.2.2](https://github.com/SchoolyB/EZ/compare/v3.2.1...v3.2.2) (2026-05-10)
+
+
+### Bug Fixes
+
+* **codegen:** grow ensure cleanup buffer dynamically ([3bfeecd](https://github.com/SchoolyB/EZ/commit/3bfeecd966843ea404eca93bc7f05d5f1ad28b54)), closes [#1630](https://github.com/SchoolyB/EZ/issues/1630)
+* **runtime/arrays:** panic on mutation during for_each iteration ([3a40baa](https://github.com/SchoolyB/EZ/commit/3a40baa31a312f1a6b865dcaa1870ed900b7e03b)), closes [#1628](https://github.com/SchoolyB/EZ/issues/1628)
+* runtime/codegen/stdlib fixes ([f294b4e](https://github.com/SchoolyB/EZ/commit/f294b4e4146ab889ba2233f775c50d1a29bc06a0))
+* **runtime/maps:** normalize float keys so +0.0 and -0.0 collide ([21e1476](https://github.com/SchoolyB/EZ/commit/21e1476904c590d3dee3640d7206061aeb57b8bf)), closes [#1631](https://github.com/SchoolyB/EZ/issues/1631)
+* **runtime:** make c_string() safe — NULL-check, copy onto arena, clamp length ([2b65ba6](https://github.com/SchoolyB/EZ/commit/2b65ba6bd066cc3b91ce582747129e02b301a3f4))
+* **stdlib/arrays:** bounds-check insert_at and drop fixed 32-byte stack buffer ([#1622](https://github.com/SchoolyB/EZ/issues/1622)) ([#1625](https://github.com/SchoolyB/EZ/issues/1625)) ([8693f7c](https://github.com/SchoolyB/EZ/commit/8693f7c725f4b53eff68841a26742115cc6e2779))
+* **stdlib/encoding:** validate base64_decode input and reject malformed data ([47f09fc](https://github.com/SchoolyB/EZ/commit/47f09fc9393c5396ec9b61f5a696cd734e09a533))
+* **stdlib/random:** size shuffle scratch buffer to actual element width ([e1da7ff](https://github.com/SchoolyB/EZ/commit/e1da7ff18d9d4dbec4d9dc0962c0a191d8c5a23f))
+* **stdlib/strings:** reject overflowing repeat and replace results ([9618ac5](https://github.com/SchoolyB/EZ/commit/9618ac5908d9e3d514a987b3a8587d26984dbf1f)), closes [#1615](https://github.com/SchoolyB/EZ/issues/1615)
+* **stdlib:** handle ftell failure on non-seekable inputs in read_file ([#1626](https://github.com/SchoolyB/EZ/issues/1626)) ([4e9b451](https://github.com/SchoolyB/EZ/commit/4e9b45181aa893b0df92af76df57641e8b8f47c7))
+
+## [3.2.1](https://github.com/SchoolyB/EZ/compare/v3.2.0...v3.2.1) (2026-05-05)
+
+
+### Bug Fixes
+
+* **codegen:** drop extra stream arg in non-container char print ([81bfbdf](https://github.com/SchoolyB/EZ/commit/81bfbdf036362700eb6694eb679220957097a65d))
+* **codegen:** heap-allocate mangled buffer in monomorphisation forward decl ([01a1842](https://github.com/SchoolyB/EZ/commit/01a184297a94036664497b2fc61885cf8fac7e81))
+* **io:** create copy_file destination with mode 0644 instead of 0666 ([e444039](https://github.com/SchoolyB/EZ/commit/e44403993e4004a8202077fa652fd76e08ac53f2))
+
+
+### Performance Improvements
+
+* **codegen:** build func-field index once instead of nested struct scan ([eced4b2](https://github.com/SchoolyB/EZ/commit/eced4b29144cb457703cc8931291f3bcf352cf45))
+* **codegen:** replace find_func linear scan with sorted bsearch index ([2dbb8ff](https://github.com/SchoolyB/EZ/commit/2dbb8ff3554b2e1e4a621e366760d916e4450b67))
+* **error_codes:** replace chained strcmp with sorted bsearch lookup ([5d36216](https://github.com/SchoolyB/EZ/commit/5d36216321a18462ef149f5ded52abae46b169f7))
+* **typechecker:** replace chained strcmp in type_from_name with bsearch table ([e62f607](https://github.com/SchoolyB/EZ/commit/e62f607c417d79cc48ed62e1d19dc9f6c199fcea))
+
+## [3.2.0](https://github.com/SchoolyB/EZ/compare/v3.1.2...v3.2.0) (2026-05-04)
+
+
+### Features
+
+* pass --quiet and --no-color flags through ez watch ([#1606](https://github.com/SchoolyB/EZ/issues/1606)) ([e35016e](https://github.com/SchoolyB/EZ/commit/e35016ea4d56054ba0d81be1a740f6dc323e0513)), closes [#1573](https://github.com/SchoolyB/EZ/issues/1573)
+* **stdlib:** add base parameter to strconv.to_int/to_uint ([#1603](https://github.com/SchoolyB/EZ/issues/1603)) ([3fd62c8](https://github.com/SchoolyB/EZ/commit/3fd62c899378b192ceb631c85ad5f710b81ec93b))
+* **stdlib:** add strconv module ([#1603](https://github.com/SchoolyB/EZ/issues/1603)) ([fbc995e](https://github.com/SchoolyB/EZ/commit/fbc995e64717428d6f12870f769b8e328ae9f8db))
+* **stdlib:** add strconv module for string/type conversions ([#1603](https://github.com/SchoolyB/EZ/issues/1603)) ([ae8a310](https://github.com/SchoolyB/EZ/commit/ae8a3104e7059e4c3148d438370e005636f49f42))
+
+
+### Bug Fixes
+
+* **cli:** remove duplicate --no-color flag on watchCmd ([1935e83](https://github.com/SchoolyB/EZ/commit/1935e83625e05725b040caee92f0b485bbff5c43))
+* **parser:** replace uppercase heuristic with struct name prescan ([e72004b](https://github.com/SchoolyB/EZ/commit/e72004b32cf3782b2c5ee7ee375bd4578556b741))
+* **parser:** suppress struct literal parsing on RHS of comparisons ([0db8b88](https://github.com/SchoolyB/EZ/commit/0db8b889c41283d081bc9cdaf2e57cde3d0d9ec6))
+* **repo:** enable blank issues in issue template config ([3f8db8f](https://github.com/SchoolyB/EZ/commit/3f8db8f91ff60fd8d37caf0ac1f09418660105ca))
+* **stdlib:** complete strconv module wiring (Makefile, fallible tables) ([#1603](https://github.com/SchoolyB/EZ/issues/1603)) ([20e7ee0](https://github.com/SchoolyB/EZ/commit/20e7ee054d6a4a3c67f59bbfce8a3c8366dc8e35))
+* **typechecker:** allow type names in size_of while rejecting bare builtin functions ([b67ee7c](https://github.com/SchoolyB/EZ/commit/b67ee7c8f219c084cf208af9d4c79a0bf06a8fe8))
+* **typechecker:** enforce private access, reject nonexistent struct functions, catch struct type mismatches ([#1599](https://github.com/SchoolyB/EZ/issues/1599)) ([4151ca7](https://github.com/SchoolyB/EZ/commit/4151ca71990cf3cb882f75c360b96b7dca488d89))
+* **typechecker:** reject bare builtin names used as values ([3e48888](https://github.com/SchoolyB/EZ/commit/3e48888ed635c0ac1d1e5cb9ae9971535d179850))
+* **typechecker:** suppress false W1002 warnings for sub-file imports ([5df0121](https://github.com/SchoolyB/EZ/commit/5df01218580099a1009170a59dfa2593c79629a3))
+
+## [3.1.2](https://github.com/SchoolyB/EZ/compare/v3.1.1...v3.1.2) (2026-05-02)
+
+
+### Bug Fixes
+
+* **parser,typechecker:** parse complex multi-return types and hide internal name prefixes ([88c5c3b](https://github.com/SchoolyB/EZ/commit/88c5c3bf0db6c3169bf57643310dad7e1fac906b))
+* **typechecker:** handle multi-return and arg validation for module calls ([5669924](https://github.com/SchoolyB/EZ/commit/5669924daad80f2f1cf96026ca35acecd3a41926))
+* **typechecker:** handle range exprs in import rewriting and in/!in type checks ([6d2f8c1](https://github.com/SchoolyB/EZ/commit/6d2f8c1904ba9e84570f3e0cf800a8d467f9f028))
+* **typechecker:** validate argument types for stdlib function calls ([6f34119](https://github.com/SchoolyB/EZ/commit/6f3411985dd7aaa4e6f31028e4797cf44d348a5c))
+* wire arrays.remove() function ([bfc8f03](https://github.com/SchoolyB/EZ/commit/bfc8f0317d62cbc8a6e3b4bc8caf4a27e66f2563))
+
+## [3.1.1](https://github.com/SchoolyB/EZ/compare/v3.1.0...v3.1.1) (2026-05-01)
+
+
+### Bug Fixes
+
+* **codegen:** remove two unused-variable warnings ([121647d](https://github.com/SchoolyB/EZ/commit/121647d7de0ba2230e4a0c5191e06dfd0e3c55af))
+* **codegen:** remove two unused-variable warnings ([#1597](https://github.com/SchoolyB/EZ/issues/1597)) ([8cbc765](https://github.com/SchoolyB/EZ/commit/8cbc7654275f3b7cec5664ea43cb55627f984fd1))
+* **codegen:** resolve struct function return types in resolve_print_suffix ([#1595](https://github.com/SchoolyB/EZ/issues/1595)) ([8b4647a](https://github.com/SchoolyB/EZ/commit/8b4647ac36e67df696adb4e2175c27a7ecb3039d))
+* import system, cast system, and code quality improvements ([542ecd0](https://github.com/SchoolyB/EZ/commit/542ecd03894c22cb1e87fa81ce95fbe0bf43219a))
+* **imports:** propagate stdlib imports from transitive files ([#1596](https://github.com/SchoolyB/EZ/issues/1596)) ([9bc943f](https://github.com/SchoolyB/EZ/commit/9bc943f3829286311532f820db3e7e29d11944cb))
+* **imports:** resolve transitive paths, diamond deps, and directory imports ([#1596](https://github.com/SchoolyB/EZ/issues/1596)) ([377c170](https://github.com/SchoolyB/EZ/commit/377c170d65ef9a2507fc6a71843fde7f195d7a45))
+* **imports:** sibling cross-references, spurious W2013, and redundant file warning ([#1596](https://github.com/SchoolyB/EZ/issues/1596)) ([e9814a9](https://github.com/SchoolyB/EZ/commit/e9814a935da50401c4c748256a8df8767807b8e7))
+* **imports:** sibling struct access, W2015 namespace hint, W2013 transitive suppression ([#1596](https://github.com/SchoolyB/EZ/issues/1596)) ([144bbc3](https://github.com/SchoolyB/EZ/commit/144bbc3ed80aa300162fb215905a1720fd1cd4e7))
+* **test:** correct relative path in dir-transitive test ([#1596](https://github.com/SchoolyB/EZ/issues/1596)) ([6827f2b](https://github.com/SchoolyB/EZ/commit/6827f2b1a869b515a6b9cea7b71dc8704e5bf0e5))
+* **typechecker:** various bugs in the cast() system ([#1598](https://github.com/SchoolyB/EZ/issues/1598)) ([b6dfc20](https://github.com/SchoolyB/EZ/commit/b6dfc2048113693cbab729365f6c21d94989c8e7))
+
+## [3.1.0](https://github.com/SchoolyB/EZ/compare/v3.0.0...v3.1.0) (2026-04-29)
+
+
+### Features
+
+* **cli:** add -o/--output flag to ez doc ([3f590e8](https://github.com/SchoolyB/EZ/commit/3f590e8c0dd224ebc79fb1f56d365eb399a71896))
+* **cli:** add -o/--output flag to ez doc ([0916278](https://github.com/SchoolyB/EZ/commit/09162785a00cbaba53e6b60d08543048e4a2f87e))
+
+
+### Bug Fixes
+
+* **codegen:** map HttpRequest/HttpResponse to correct C types ([#1585](https://github.com/SchoolyB/EZ/issues/1585)) ([2cc6dbd](https://github.com/SchoolyB/EZ/commit/2cc6dbd6037531551ad23cc1c1f959c64332398d))
+* **codegen:** resolve wildcard type in string interpolation ([#1584](https://github.com/SchoolyB/EZ/issues/1584)) ([646f1cb](https://github.com/SchoolyB/EZ/commit/646f1cbaa337c191742c14ffad51cf2c0106f781))
+* **codegen:** revert string/char quote encapsulation in print functions ([#1580](https://github.com/SchoolyB/EZ/issues/1580)) ([f0cdb28](https://github.com/SchoolyB/EZ/commit/f0cdb283931bb3335ecb31df202a916efb0aa1fc))
+* **stdlib:** wire 7 partially implemented stdlib functions end-to-end ([#1580](https://github.com/SchoolyB/EZ/issues/1580)) ([8d6b8bd](https://github.com/SchoolyB/EZ/commit/8d6b8bdf658205f675989e657c9e0f3bc793bddf))
+* typechecker hardening, stdlib wiring, and code scanning fixes ([dd5fe8b](https://github.com/SchoolyB/EZ/commit/dd5fe8b5be97d12599a5043f66069cf474c69423))
+* **typechecker,codegen:** validate 'in' operator types and wire string containment ([#1589](https://github.com/SchoolyB/EZ/issues/1589), [#1590](https://github.com/SchoolyB/EZ/issues/1590)) ([ddbd4f5](https://github.com/SchoolyB/EZ/commit/ddbd4f5ed71a39365a91829958578c4aedf798e7))
+* **typechecker:** allow enum values in 'in' operator for matching collections ([#1589](https://github.com/SchoolyB/EZ/issues/1589)) ([c85bb8c](https://github.com/SchoolyB/EZ/commit/c85bb8cedd4a2e36650beeacf4e697e2e7f05590))
+* **typechecker:** exempt built-in Error type from E4016 and fix missed e2e expectations ([#1585](https://github.com/SchoolyB/EZ/issues/1585)) ([014a814](https://github.com/SchoolyB/EZ/commit/014a814eef5f143e12a070d9637e725d73b3db53))
+* **typechecker:** format array/map types in error messages ([#1589](https://github.com/SchoolyB/EZ/issues/1589)) ([bdb6570](https://github.com/SchoolyB/EZ/commit/bdb65709e3e50a743d5a232bc7193566c4e1310e))
+* **typechecker:** register HttpRequest type and scope HTTP types to imports ([#1585](https://github.com/SchoolyB/EZ/issues/1585)) ([58b3bbe](https://github.com/SchoolyB/EZ/commit/58b3bbed4a8b096817c1ed77089372d16322fb77))
+* **typechecker:** reject return statements with too many values ([#1588](https://github.com/SchoolyB/EZ/issues/1588)) ([7397aee](https://github.com/SchoolyB/EZ/commit/7397aee55612b621a4d6a64ea6696f2e68d2bc52))
+* **typechecker:** reject type names passed to type_of() ([#1586](https://github.com/SchoolyB/EZ/issues/1586)) ([f573e12](https://github.com/SchoolyB/EZ/commit/f573e122a8c7f421a5deabd1837fbc3ea51cb883))
+* **typechecker:** reject undefined/unimported struct types ([#1585](https://github.com/SchoolyB/EZ/issues/1585)) ([da55c33](https://github.com/SchoolyB/EZ/commit/da55c33145a649c5840a582ec9af101a8b5e6463))
+* **typechecker:** scope HttpRequest to server module only ([#1585](https://github.com/SchoolyB/EZ/issues/1585)) ([7095990](https://github.com/SchoolyB/EZ/commit/70959902a7c6aa53a32441ea4ac1a63b1b3383e0))
+* **typechecker:** validate argument count for struct function calls ([#1587](https://github.com/SchoolyB/EZ/issues/1587)) ([fd0695e](https://github.com/SchoolyB/EZ/commit/fd0695ef451731c210f73e3e94cca5d121a5ca83))
+* **typechecker:** validate argument types for range, assert, exit, panic builtins ([#1591](https://github.com/SchoolyB/EZ/issues/1591)) ([ef21472](https://github.com/SchoolyB/EZ/commit/ef214725f77a274d655deaad8f05b690a879e6aa))
+
+## [3.0.0](https://github.com/SchoolyB/EZ/compare/v2.0.0...v3.0.0) (2026-04-28)
+
+EZ 3.0 is a "from the ground up rewrite". The Go-based interpreter has been replaced by a **compiled backend** that emits C and produces native binaries. Every stage of the pipeline — lexer, parser, typechecker, and code generator is now written in C. The Go CLI remains as the user-facing tooling wrapper.
+
+### Breaking Changes
+
+- **Compiled, not interpreted.** EZ programs now compile to native binaries via C. The Go interpreter is gone.
+- **`@std` module removed.** All former `@std` functions (`println`, `print`, `len` `input`, `assert`, `panic`, `exit`, etc.) are now **builtins** — always available, no import needed.
+- **`module` keyword removed.** Modules are identified by their filesystem path. Using `module` now produces E2061.
+- **`#suppress` attribute removed.** Warning suppression moved to the CLI: `ez build -q W1001,W2003`.
+- **`#enum(type)` attribute removed.** Enum variants are always integer-valued.
+- **`nil` is no longer a type.** `nil` is a value only — use `Error`, pointer types, or optionals for nullability.
+- **`ez run` removed.** Compile and run files directly with `ez <file.ez>`.
+- **`temp` renamed to `mut`.** All mutable variable declarations now use `mut`.
+- **`import & use` syntax replaced** by `import and use`. The `&` shorthand no longer works.
+- **`new()` now returns a pointer.** `new(StructName)` returns `^Struct`, not a value.
+- **`bare func` type removed.** Function references require full signatures: `func(int, int) -> int`.
+- **`sleep_s`, `sleep_ms`, `sleep_ns` moved from time module to builtins.**
+- **Many more!**
+
+### New Features
+
+**Compiler & Type System**
+- Native compilation via C backend source to binary in one step
+- Scope-based automatic memory management — every scope gets its own arena allocator. Allocations are freed when the scope exits. Values that escape (via return, outer assignment, or container storage) are automatically copied to the parent scope. No garbage collector, no manual free for normal code.
+- Overflow-checked integer arithmetic at runtime
+- Division-by-zero runtime checks
+- Wildcard type `?` for generic-style functions monomorphised per call site
+- Implicit int-to-float coercion in assignments, arguments, and returns
+- `private` keyword for functions and constants
+- Named return values in function signatures
+- Default parameter values for functions
+- Struct functions — functions defined inside structs with instance dispatch (`point.distance()`)
+- `for_each i, item in arr` — index-value destructuring for arrays
+- `for_each k, v in myMap` — key-value destructuring for maps
+- `while` keyword as an alias for `as_long_as`
+- `#json` attribute for struct-based JSON serialization/deserialization
+- Wildcard struct fields
+- `or_return` for error propagation
+
+**Pointers**
+- `^Type` pointer syntax — e.g. `^int`, `^Point`
+- `new(StructName)` now returns a `^Struct` pointer to a heap-allocated struct
+- `addr(variable)` returns the memory address of a variable as a pointer
+- Dereference pointers with `p^`
+- Auto-deref for struct field access — `ptr.field` works without explicit deref
+- Pointer comparison limited to `==`/`!=` with `nil` only. No pointer arithmetic
+
+**Functions as First-Class Types**
+- `func` is a type — functions can be stored in variables, passed as arguments, and returned from functions
+- Full signature syntax: `func(int, int) -> int`
+- `()func` call syntax for invoking function references
+
+**Breaking: `temp` renamed to `mut`**
+- The `temp` keyword for mutable variables is now `mut`
+
+**New Builtins**
+- `sleep_s()`, `sleep_ms()`, `sleep_ns()` — sleep functions (formerly in the @time module, now builtins)
+- `addr()` — returns a pointer to a variable
+
+**Wide Integer Types**
+- `i256`, `u256` — new wide integer sizes
+- `i128`, `u128` — reimplemented as portable struct-based types (previously interpreter-only)
+
+**C Interop**
+- `import c"header.h"` to include C headers
+- Call C functions via `c.func()` syntax
+- `c_string()` builtin to convert C `char*` back to EZ strings
+- Access C constants via `c.CONSTANT`
+- Type mapping between EZ and C primitives
+
+**Module System**
+- Filesystem-based module identity (directory name = module name)
+- Directory imports merge all `.ez` files into one namespace
+- Import aliasing: `import m @math`
+- `import and use` combined syntax (replaces the former `import & use`)
+- Module-qualified struct literals: `lib.Point{x: 1}`
+- Module-qualified enum access
+- Extensionless file and directory imports
+- Transitive imports and import caching
+- Duplicate module name detection with E6001
+
+**Standard Library**
+
+All 27 stdlib modules now run on the compiled C backend. Modules that existed in the v2 interpreter (`@http`, `@server`, `@regex`, `@csv`, `@threads`, etc.) have been reimplemented in C.
+
+New modules:
+- `@net` — TCP sockets and DNS
+- `@atomic` — lock-free assembly-backed operations (x86_64 + ARM64)
+- `@mem` — manual arena-based memory management
+- `@fmt` — formatted output, padding, number formatting
+- `@sync` — mutexes (split from former `@threads`)
+- `@channels` — typed channels (split from former `@threads`)
+
+Notable changes to existing modules:
+- `@io` — added 23 filesystem and path manipulation functions
+- All fallible stdlib functions now have `_result` variants that return `(T, Error)` instead of panicking
+- `to_char()` and `char_count()` builtins for Unicode codepoint access
+
+**CLI Tooling**
+
+New commands:
+- `ez report` — system info for bug reports (OS, CPU, RAM, C compiler, install path)
+- `ez test` — unified test runner with aggregated counts
+- `ez install <version>` — pin to a specific version
+
+New flags:
+- `--pre` — install pre-release versions via `ez update --pre`
+- `-q` / `--quiet` — suppress warnings (global or per-code, e.g. `-q W1001,W2003`)
+- `--no-color` — plain output without ANSI colors
+- `--emit-c` — inspect the generated C source
+- `--time` — show compilation timing
+
+Other changes:
+- Single embedded binary — `ezc` compiler and runtime are embedded in the `ez` binary, no separate install needed
+- `ez version` now shows installed, latest stable, and latest pre-release
+
+**Error System**
+- Centralized error code registry (`error_codes.h`) with auto-generated `ERRORS.md`
+- Rust-inspired diagnostics: error code, message, source location, caret pointing, optional help hints
+- 100+ compile-time error checks across lexer, parser, typechecker
+- Warning system with per-code suppression
+- Runtime panics with file/line/column info for division-by-zero, nil deref, array OOB, stack overflow
+
+**Testing & CI**
+- 1,200+ tests: unit (C), end-to-end, integration (pass + fail + warning + stress + multi-file)
+- UBSan and ASan sanitizer builds in CI
+
+---
+
+## [2.0.0](https://github.com/SchoolyB/EZ/compare/v1.4.9...v2.0.0) (2026-02-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* The lowercase `error` type alias has been removed. Use `Error` (capitalized) for type annotations instead.
+
+### Features
+
+* add [@server](https://github.com/server) HTTP server stdlib module ([#439](https://github.com/SchoolyB/EZ/issues/439)) ([acd7f16](https://github.com/SchoolyB/EZ/commit/acd7f162813fb9b9fbf950f06f291dd810b39a4d))
+* add #doc attribute and ez doc command for documentation generation ([2d26a37](https://github.com/SchoolyB/EZ/commit/2d26a37f7dfc11c689b7b506cb5a77164f9a88b9)), closes [#764](https://github.com/SchoolyB/EZ/issues/764)
+* add `[@server](https://github.com/server)` HTTP server stdlib module ([bc6d815](https://github.com/SchoolyB/EZ/commit/bc6d815dae237dd0e7271a412ad9b7a15c315100))
+* add `ez pz` project scaffolding command ([a422c15](https://github.com/SchoolyB/EZ/commit/a422c15be13cc8b01c084fdd8beee685b219f44f))
+* add `ez pz` project scaffolding command ([a1adcc0](https://github.com/SchoolyB/EZ/commit/a1adcc0f4381a5d6e160ca7c329301aa46608738))
+* Add named return variables support ([#1131](https://github.com/SchoolyB/EZ/issues/1131)) ([6e4d70e](https://github.com/SchoolyB/EZ/commit/6e4d70ee910d6088fddd7d778e5157516a978d23))
+* add optional index variable to `for_each` loops ([#1139](https://github.com/SchoolyB/EZ/issues/1139)) ([7a8a5a2](https://github.com/SchoolyB/EZ/commit/7a8a5a26a41df5343e928bf41c1807a01149bbc6))
+* add optional index variable to for_each loops ([#1139](https://github.com/SchoolyB/EZ/issues/1139)) ([4b0378d](https://github.com/SchoolyB/EZ/commit/4b0378d859fc3c766f74fc235296316f4e2742ef))
+* add server and client templates to ez pz scaffolding ([9f873bf](https://github.com/SchoolyB/EZ/commit/9f873bf51577aceff8834defb5ac093076cf2332))
+* **cmd:** add `ez watch` command for live reloading ([741c279](https://github.com/SchoolyB/EZ/commit/741c2790c981d2619c929542a31433e663058e96))
+* **cmd:** add `ez watch` command for live reloading ([4910b73](https://github.com/SchoolyB/EZ/commit/4910b733e64128046af203ee8ac58b53db29df95)), closes [#871](https://github.com/SchoolyB/EZ/issues/871)
+* **errors:** add color formatting to parser, evaluator, and stdlib error messages ([#810](https://github.com/SchoolyB/EZ/issues/810)) ([cc9748f](https://github.com/SchoolyB/EZ/commit/cc9748f8f2370365b3c8a81ec69e4b9a13969f38))
+* **errors:** add color formatting to remaining stdlib module error messages ([#810](https://github.com/SchoolyB/EZ/issues/810)) ([9b666d1](https://github.com/SchoolyB/EZ/commit/9b666d124d972b12c185c18228e9e337908dd242))
+* **errors:** add color formatting to typechecker error messages ([837c258](https://github.com/SchoolyB/EZ/commit/837c258b4ef31e293b2a12cec549d284a228e7ec))
+* **errors:** add color formatting to typechecker error messages ([#810](https://github.com/SchoolyB/EZ/issues/810)) ([023914a](https://github.com/SchoolyB/EZ/commit/023914a6a4a25dd54ff88f49697ffb8583dcc879))
+* **loader:** add multi-file main module support ([fe0335e](https://github.com/SchoolyB/EZ/commit/fe0335e73e2fd183937876c366a3f8e8288ef0e1))
+* **parser:** add named return variables support ([#1131](https://github.com/SchoolyB/EZ/issues/1131)) ([a1eea1c](https://github.com/SchoolyB/EZ/commit/a1eea1cc81bfe2cd1e826db94c433b4ac6a66d8d))
+* **stdlib/csv:** add [@csv](https://github.com/csv) module for reading and writing CSV files ([4ec274b](https://github.com/SchoolyB/EZ/commit/4ec274b1e0650a2ca2fd2ea7e7f05bcf130000b6))
+* **stdlib/csv:** add [@csv](https://github.com/csv) module for reading and writing CSV files ([d6af096](https://github.com/SchoolyB/EZ/commit/d6af09690cc43a49acc380c8e0efab8a7d204f57)), closes [#965](https://github.com/SchoolyB/EZ/issues/965)
+* **stdlib/math:** add NaN/finite checks and float constants ([#1123](https://github.com/SchoolyB/EZ/issues/1123)) ([b22667b](https://github.com/SchoolyB/EZ/commit/b22667b77687f5045496daaa364e7ab589de307f)), closes [#1024](https://github.com/SchoolyB/EZ/issues/1024)
+* **stdlib/regex:** add [@regex](https://github.com/regex) module for regular expression operations ([de8063c](https://github.com/SchoolyB/EZ/commit/de8063c379cd3d0b873264196d21696714a55105))
+* **stdlib/regex:** add `[@regex](https://github.com/regex)` module for regular expression operations ([931bdcc](https://github.com/SchoolyB/EZ/commit/931bdccd0bcc475db594414762637b2f007e2338))
+* **stdlib/strings:** add 12 new string utility functions ([6cb2a2d](https://github.com/SchoolyB/EZ/commit/6cb2a2df0f166cd041df37f2af47122cbebb18ed))
+* **stdlib/strings:** add 12 new string utility functions ([a4ad38f](https://github.com/SchoolyB/EZ/commit/a4ad38f2bfb8009a0ee4a9ad4afbde0a3264b699)), closes [#1020](https://github.com/SchoolyB/EZ/issues/1020)
+* **typechecker:** add W1005 warning for typed blank identifiers ([b9a4c62](https://github.com/SchoolyB/EZ/commit/b9a4c623844bb089a0520c1f19343942c85e10c9))
+* **typechecker:** add W1005 warning for typed blank identifiers ([df1a334](https://github.com/SchoolyB/EZ/commit/df1a3346653255083b305933df394855587c0b29))
+
+
+### Bug Fixes
+
+* add encoding module to multi-return type inference ([#1138](https://github.com/SchoolyB/EZ/issues/1138)) ([23d806b](https://github.com/SchoolyB/EZ/commit/23d806b4fbb9f800eecb50afe1c19b1f5f508b54))
+* allow enum constants in `when/is` when value is explicitly typed ([#1143](https://github.com/SchoolyB/EZ/issues/1143)) ([03e99d3](https://github.com/SchoolyB/EZ/commit/03e99d3a8c278401430cadb426d6971d5533480a))
+* allow enum constants in when/is when value is explicitly typed ([#1143](https://github.com/SchoolyB/EZ/issues/1143)) ([1832e66](https://github.com/SchoolyB/EZ/commit/1832e66d5106bb109b05b05f3201bc225d6eef93))
+* arrays.join no longer wraps string elements in quotes ([#1144](https://github.com/SchoolyB/EZ/issues/1144)) ([5b9c1a3](https://github.com/SchoolyB/EZ/commit/5b9c1a35df238beafee9b45eb526b517a2e71ae6))
+* clarify misleading error messages in json.decode, db module, and typechecker ([028359b](https://github.com/SchoolyB/EZ/commit/028359bd9a03a82044c9ecb4d2a6d851f7580ae4))
+* complete tuple type inference for all stdlib modules ([#1138](https://github.com/SchoolyB/EZ/issues/1138)) ([2c30882](https://github.com/SchoolyB/EZ/commit/2c30882f4a0c141b4eba85ea44d21f398bb6406f))
+* eliminate race condition by removing global eval state ([#1122](https://github.com/SchoolyB/EZ/issues/1122)) ([e17f686](https://github.com/SchoolyB/EZ/commit/e17f68618a0ca39d8fd58c5ab54e6f24e9e6c26e)), closes [#949](https://github.com/SchoolyB/EZ/issues/949)
+* **interpreter:** use correct error code E5011 for unused return values ([116ba16](https://github.com/SchoolyB/EZ/commit/116ba1652aa9c9a2c68e286831c774fde553d987))
+* **language:** remove extra quotes from string enum casting ([70aeac2](https://github.com/SchoolyB/EZ/commit/70aeac26b2c3c4d5d5b323ba8c812985c4625f82))
+* nested array types in multi-return declarations ([#1137](https://github.com/SchoolyB/EZ/issues/1137)) ([3186097](https://github.com/SchoolyB/EZ/commit/31860970dfe9e314de50f0a1e15b4c9362b6ae0f))
+* **parser,typechecker:** fix #suppress attribute not working ([cb216a2](https://github.com/SchoolyB/EZ/commit/cb216a22dccbc64c4ad31b84798e118e4a33a6a2))
+* **parser:** use user-friendly descriptions in assignment error messages ([e9d8d41](https://github.com/SchoolyB/EZ/commit/e9d8d419faf05410c36076b28c988fae7b8077fd))
+* **parser:** validate #doc attribute placement ([e34198c](https://github.com/SchoolyB/EZ/commit/e34198c21111355d56a751f00c717b00be8eff1d))
+* **parser:** validate `#doc` attribute placement ([01f9ef5](https://github.com/SchoolyB/EZ/commit/01f9ef5a7877c6e9e6a171283c17e716079832b1))
+* **pz:** correct EZ syntax in project scaffolding templates ([ff51760](https://github.com/SchoolyB/EZ/commit/ff5176070553fe1c98f9a1f4cab435905ed6ea21))
+* remove lowercase `error` type alias, keep only `Error` ([cc2c36f](https://github.com/SchoolyB/EZ/commit/cc2c36f0fa57429248f63b5aab5173dd305cd360)), closes [#1039](https://github.com/SchoolyB/EZ/issues/1039)
+* respect explicit type annotations in multi-return declarations ([#1137](https://github.com/SchoolyB/EZ/issues/1137)) ([e3838fc](https://github.com/SchoolyB/EZ/commit/e3838fcde532faba9f18308de3c78b28f801c3e8))
+* **stdlib/arrays:** `arrays.join` no longer wraps string elements in quotes ([#1144](https://github.com/SchoolyB/EZ/issues/1144)) ([333f53e](https://github.com/SchoolyB/EZ/commit/333f53e5868d10bff33db4ebbb414c0c778ceddd))
+* **stdlib:** correct test expectations to match implementation ([58478b3](https://github.com/SchoolyB/EZ/commit/58478b33f45cde3501ef13ff66f85c4cbcca6830))
+* **typechecker:** disallow function calls in file-scope variable initializers ([1d78de8](https://github.com/SchoolyB/EZ/commit/1d78de8ab4f408f2df84d565708940bf720119e1))
+* **typechecker:** prevent W2010 false positive on nested struct initialization ([f7058b0](https://github.com/SchoolyB/EZ/commit/f7058b0d46ce439a8b2bf5855ccd01be42c135b0))
+* **typechecker:** prevent W2010 false positive on nested struct initialization ([7d25b8a](https://github.com/SchoolyB/EZ/commit/7d25b8af31715f7df9e3a9f2ca3ccaea06646d7d)), closes [#1107](https://github.com/SchoolyB/EZ/issues/1107)
+
+## [1.4.9](https://github.com/SchoolyB/EZ/compare/v1.4.8...v1.4.9) (2026-02-04)
+
+
+### Bug Fixes
+
+* multiple bug fixes for type inference and expressions ([f3853dd](https://github.com/SchoolyB/EZ/commit/f3853dde73565115af45f3487ec76a88fcad80ae))
+* multiple bug fixes for type inference and expressions ([0817610](https://github.com/SchoolyB/EZ/commit/081761062e0f02498b38692ac4d98caf717ae7f6))
+
+## [1.4.8](https://github.com/SchoolyB/EZ/compare/v1.4.7...v1.4.8) (2026-01-30)
+
+
+### Bug Fixes
+
+* `range()`, module imports, and error file tracking ([#1093](https://github.com/SchoolyB/EZ/issues/1093), [#1094](https://github.com/SchoolyB/EZ/issues/1094), [#1095](https://github.com/SchoolyB/EZ/issues/1095)) ([331b0b4](https://github.com/SchoolyB/EZ/commit/331b0b4eb0a0c4a1bde7771432c088e85f480953))
+* mark modules as used when referenced in type annotations ([#1093](https://github.com/SchoolyB/EZ/issues/1093)) ([#1096](https://github.com/SchoolyB/EZ/issues/1096)) ([6aa9a24](https://github.com/SchoolyB/EZ/commit/6aa9a2420938b399c7763b65b50ec37e5d94677b))
+* set correct file in runtime errors from builtin functions ([#1094](https://github.com/SchoolyB/EZ/issues/1094)) ([#1097](https://github.com/SchoolyB/EZ/issues/1097)) ([9f41400](https://github.com/SchoolyB/EZ/commit/9f414000683eaec7b106f1c42abdcc36d7437e5f))
+* support negative step in range() for backwards iteration ([#1095](https://github.com/SchoolyB/EZ/issues/1095)) ([#1098](https://github.com/SchoolyB/EZ/issues/1098)) ([b12e474](https://github.com/SchoolyB/EZ/commit/b12e474609feaa47c6751dda4411295db3b30312))
+
+## [1.4.7](https://github.com/SchoolyB/EZ/compare/v1.4.6...v1.4.7) (2026-01-30)
+
+
+### Bug Fixes
+
+* const ref now creates read-only view of referenced value ([#1089](https://github.com/SchoolyB/EZ/issues/1089)) ([4b04eed](https://github.com/SchoolyB/EZ/commit/4b04eedf59f422fa1b786c819c9d2920acd4395d))
+* mutability semantics fixes ([b88a35e](https://github.com/SchoolyB/EZ/commit/b88a35ea0be3720e177d8c06dfa173dd2f880014))
+* support const keyword with multi-return function assignment ([#1087](https://github.com/SchoolyB/EZ/issues/1087)) ([2375f3c](https://github.com/SchoolyB/EZ/commit/2375f3c6ada883e8426b9e02d3ff44722f9e8878))
+* sync temp/const mutability with value's Mutable field ([#1085](https://github.com/SchoolyB/EZ/issues/1085)) ([5f0ffb7](https://github.com/SchoolyB/EZ/commit/5f0ffb78b66d794d5da802f3c558e527d0c0c0a4))
+
+## [1.4.6](https://github.com/SchoolyB/EZ/compare/v1.4.5...v1.4.6) (2026-01-29)
+
+
+### Bug Fixes
+
+* arrays module bugs - remove() deleted, remove_at() now in-place ([#1083](https://github.com/SchoolyB/EZ/issues/1083)) ([92e224e](https://github.com/SchoolyB/EZ/commit/92e224ee1cec5a067f9c105d780c34690bb17b59))
+
+## [1.4.5](https://github.com/SchoolyB/EZ/compare/v1.4.4...v1.4.5) (2026-01-29)
+
+
+### Bug Fixes
+
+* allow empty arrays as elements when type is explicitly declared ([#1076](https://github.com/SchoolyB/EZ/issues/1076)) ([9c7be92](https://github.com/SchoolyB/EZ/commit/9c7be9274dada568d7125af088521f66db3a235b)), closes [#1064](https://github.com/SchoolyB/EZ/issues/1064)
+* bugfixes 1-29-2026 ([8c0980a](https://github.com/SchoolyB/EZ/commit/8c0980aae9ec5931d42c9c98775ff7dae375e98b))
+* expand 'did you mean?' suggestions across typechecker errors ([#1075](https://github.com/SchoolyB/EZ/issues/1075)) ([3dfcee3](https://github.com/SchoolyB/EZ/commit/3dfcee348716261d545cc403d09e036dc91dbc3a))
+* handle file close error explicitly in io.copy ([44ea553](https://github.com/SchoolyB/EZ/commit/44ea55382f4d4eba90562dd4133c84bc697d34fa))
+* suppress W2010 warning when nil-check is present ([#1077](https://github.com/SchoolyB/EZ/issues/1077)) ([82789fb](https://github.com/SchoolyB/EZ/commit/82789fb05c740832bd3029da0ea9b704cdc93683))
+
+## [1.4.4](https://github.com/SchoolyB/EZ/compare/v1.4.3...v1.4.4) (2026-01-28)
+
+
+### Bug Fixes
+
+* code quality improvements and performance optimizations ([99523bf](https://github.com/SchoolyB/EZ/commit/99523bf016efdf07b9c85d34e918729631547b87))
+
+
+### Performance Improvements
+
+* optimize hot paths and eliminate code duplication ([e88ad38](https://github.com/SchoolyB/EZ/commit/e88ad38ea3405ed24c8745c347e9d84557c3f79c))
+* optimize parser, tokenizer, errors, lineeditor, and db packages ([a52c4b6](https://github.com/SchoolyB/EZ/commit/a52c4b63a47c63fc9c8e4dc20690603ebf7374f8))
+
+## [1.4.3](https://github.com/SchoolyB/EZ/compare/v1.4.2...v1.4.3) (2026-01-25)
+
+
+### Bug Fixes
+
+* apply bug fixes from recent PRs ([979d5e3](https://github.com/SchoolyB/EZ/commit/979d5e32c7e3d70883ade6a054a4eee29686c8d5))
+
+## [1.4.2](https://github.com/SchoolyB/EZ/compare/v1.4.1...v1.4.2) (2026-01-24)
+
+
+### Bug Fixes
+
+* **typechecker:** resolve multi-return type inference for stdlib calls via 'using' ([#1062](https://github.com/SchoolyB/EZ/issues/1062)) ([0c21737](https://github.com/SchoolyB/EZ/commit/0c21737f4e3a6b0181aa5d87b330623c7675f0af)), closes [#977](https://github.com/SchoolyB/EZ/issues/977)
+
+## [1.4.1](https://github.com/SchoolyB/EZ/compare/v1.4.0...v1.4.1) (2026-01-23)
+
+
+### Bug Fixes
+
+* **typechecker:** add E3041 check for global fixed-size array overflow ([#1060](https://github.com/SchoolyB/EZ/issues/1060)) ([56de4f1](https://github.com/SchoolyB/EZ/commit/56de4f1657d2d7bd53187854a39584e08b2640f3)), closes [#1058](https://github.com/SchoolyB/EZ/issues/1058)
+
+## [1.4.0](https://github.com/SchoolyB/EZ/compare/v1.3.0...v1.4.0) (2026-01-22)
+
+
+### Features
+
+* **operators:** add map support for in/not_in operators ([#1053](https://github.com/SchoolyB/EZ/issues/1053)) ([4239d20](https://github.com/SchoolyB/EZ/commit/4239d2043a45ed65fede9d1c858aa2f98030687e)), closes [#1007](https://github.com/SchoolyB/EZ/issues/1007)
+
+
+### Bug Fixes
+
+* **parser:** allow nil as function return type ([#1054](https://github.com/SchoolyB/EZ/issues/1054)) ([473b26e](https://github.com/SchoolyB/EZ/commit/473b26eadffe4c2d5d287757b6832a83a8e79989)), closes [#1044](https://github.com/SchoolyB/EZ/issues/1044)
+* **stdlib/math:** preserve precision for add, sub, mul, mod ([45ab8c4](https://github.com/SchoolyB/EZ/commit/45ab8c45337df3554acdc5d91f3b7bf52cd15f9c))
+* **stdlib/math:** preserve precision for factorial, gcd, lcm ([d7dc223](https://github.com/SchoolyB/EZ/commit/d7dc2232997223e678a36b28e26dab85f3d2ceed))
+* **stdlib/math:** preserve precision for large integers ([88187fb](https://github.com/SchoolyB/EZ/commit/88187fb3c4662b83a8cd6944b977223e86e6ca51))
+* **stdlib/math:** preserve precision for min, max, clamp ([b9ba598](https://github.com/SchoolyB/EZ/commit/b9ba5989d851cb63a831e0f74284b352147c3dfe))
+* **stdlib/math:** preserve precision for pow, sum ([e6eada0](https://github.com/SchoolyB/EZ/commit/e6eada0a6f9fc6481dfccdc9126ea5a2cf1b8788))
+* **stdlib/math:** preserve precision for sign ([c7ba2f1](https://github.com/SchoolyB/EZ/commit/c7ba2f18b69049bdb438f5b30f7927662388f2ec))
+* **tests:** remove E17004_db_corrupted test ([#1052](https://github.com/SchoolyB/EZ/issues/1052)) ([275bdb3](https://github.com/SchoolyB/EZ/commit/275bdb352388c5b911cb15e310e6960985b44341)), closes [#1051](https://github.com/SchoolyB/EZ/issues/1051)
+
+## [1.3.0](https://github.com/SchoolyB/EZ/compare/v1.2.0...v1.3.0) (2026-01-19)
+
+
+### Features
+
+* **stdlib:** Add Unix timestamp functions and date utilities to time module ([#1023](https://github.com/SchoolyB/EZ/issues/1023)) ([#1043](https://github.com/SchoolyB/EZ/issues/1043)) ([bdb24e8](https://github.com/SchoolyB/EZ/commit/bdb24e8bd29ca113ed294330e9eae4c4ad1dc08e))
+
+## [1.2.0](https://github.com/SchoolyB/EZ/compare/v1.1.0...v1.2.0) (2026-01-19)
+
+
+### Features
+
+* **lexer:** add \x hex escape sequence support in strings and chars ([#1046](https://github.com/SchoolyB/EZ/issues/1046)) ([3d4eae7](https://github.com/SchoolyB/EZ/commit/3d4eae7764ab4f53c3488357aa70b55dae877674)), closes [#1045](https://github.com/SchoolyB/EZ/issues/1045)
+
+## [1.1.0](https://github.com/SchoolyB/EZ/compare/v1.0.2...v1.1.0) (2026-01-18)
+
+
+### Features
+
+* stdlib enhancements, bug fixes, and type system improvements ([2362596](https://github.com/SchoolyB/EZ/commit/2362596910747cccbe7ba80726aa038a22aff045))
+* **stdlib:** add `db.entries()` function ([#1035](https://github.com/SchoolyB/EZ/issues/1035)) ([093742f](https://github.com/SchoolyB/EZ/commit/093742fed2fe3b99a23ba78a02e20b39f08be6e4)), closes [#1025](https://github.com/SchoolyB/EZ/issues/1025)
+* **stdlib:** add arrays.equals() function ([#1033](https://github.com/SchoolyB/EZ/issues/1033)) ([67258bd](https://github.com/SchoolyB/EZ/commit/67258bd0ebf7352f711f94d4254fa72e2701fadf)), closes [#964](https://github.com/SchoolyB/EZ/issues/964)
+* **stdlib:** add db.values() function ([#1032](https://github.com/SchoolyB/EZ/issues/1032)) ([3dd7dd0](https://github.com/SchoolyB/EZ/commit/3dd7dd02a828fbafbe23412a6cdb9f5090d8450e)), closes [#943](https://github.com/SchoolyB/EZ/issues/943)
+* **stdlib:** add http.head, options, download, parse_url, build_url ([#1034](https://github.com/SchoolyB/EZ/issues/1034)) ([e89b899](https://github.com/SchoolyB/EZ/commit/e89b8998304898e4f5d5ff93e58d3b0f8f6aeb2a)), closes [#1022](https://github.com/SchoolyB/EZ/issues/1022)
+
+
+### Bug Fixes
+
+* context-aware return type inference for array literals ([#1008](https://github.com/SchoolyB/EZ/issues/1008)) ([31ed9fa](https://github.com/SchoolyB/EZ/commit/31ed9fa5a077345c569e581952479d98566d6f82))
+* **interpreter:** context-aware return type inference for array literals ([1353cc1](https://github.com/SchoolyB/EZ/commit/1353cc181743ac6a76b45b56fd682efa29277584)), closes [#1008](https://github.com/SchoolyB/EZ/issues/1008)
+* **interpreter:** infer element type for array literals ([45a18dc](https://github.com/SchoolyB/EZ/commit/45a18dc664aa554784f84a57d9015b4f146f1f01)), closes [#1008](https://github.com/SchoolyB/EZ/issues/1008)
+* **typechecker:** context-aware return type validation for array literals ([2920d77](https://github.com/SchoolyB/EZ/commit/2920d77425da7e56c59410bfb32a9a32bef99a48))
+* **typechecker:** recognize when/default as exhaustive return coverage ([9db5c52](https://github.com/SchoolyB/EZ/commit/9db5c521acb273b5f328032f72264eb1fe9d21b1))
+* **typechecker:** recognize when/default as exhaustive return coverage ([978a4d1](https://github.com/SchoolyB/EZ/commit/978a4d1fda24199f9e43775798ebf801b396e337)), closes [#918](https://github.com/SchoolyB/EZ/issues/918)
+
+## [1.0.2](https://github.com/SchoolyB/EZ/compare/v1.0.1...v1.0.2) (2026-01-17)
+
+
+### Bug Fixes
+
+* **typechecker:** error when fixed-size array has too many elements ([#1030](https://github.com/SchoolyB/EZ/issues/1030)) ([7d09424](https://github.com/SchoolyB/EZ/commit/7d09424f2bd6128e624a772b8ce2165b15b98c7e)), closes [#1029](https://github.com/SchoolyB/EZ/issues/1029)
+
+## [1.0.1](https://github.com/SchoolyB/EZ/compare/v1.0.0...v1.0.1) (2026-01-15)
+
+
+### Bug Fixes
+
+* **interpreter:** add error codes and location info to runtime errors ([#1009](https://github.com/SchoolyB/EZ/issues/1009)) ([#1013](https://github.com/SchoolyB/EZ/issues/1013)) ([d1bb289](https://github.com/SchoolyB/EZ/commit/d1bb2897768307a194bbe71b5df8574b976ba272))
+* **interpreter:** add range checking for integer type narrowing ([#962](https://github.com/SchoolyB/EZ/issues/962)) ([#1016](https://github.com/SchoolyB/EZ/issues/1016)) ([02f953b](https://github.com/SchoolyB/EZ/commit/02f953bb6e4efb2b42c47af5708ac5826abd5723))
+* **stdlib:** handle empty database files in db.open() ([#941](https://github.com/SchoolyB/EZ/issues/941)) ([#1012](https://github.com/SchoolyB/EZ/issues/1012)) ([eadc48d](https://github.com/SchoolyB/EZ/commit/eadc48d3edb7817aeddf8b405b01697d6015b3ff))
+* **stdlib:** improve error message when db file contains JSON array ([#942](https://github.com/SchoolyB/EZ/issues/942)) ([#1014](https://github.com/SchoolyB/EZ/issues/1014)) ([bea2f65](https://github.com/SchoolyB/EZ/commit/bea2f659dd141a09014e4a3d7fefd31796380050))
+* **typechecker:** use correct error code E5010 for continue outside loop ([#963](https://github.com/SchoolyB/EZ/issues/963)) ([#1011](https://github.com/SchoolyB/EZ/issues/1011)) ([9f55570](https://github.com/SchoolyB/EZ/commit/9f55570b34c66af16e7eb46cc630801361fe6e87))
+
+## [1.0.0](https://github.com/SchoolyB/EZ/compare/v0.40.5...v1.0.0) (2026-01-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Existing code using removed/renamed functions must be updated.
+
+### Features
+
+* **#996:** Rename stdlib functions for consistency ([#1001](https://github.com/SchoolyB/EZ/issues/1001)) ([0ad96f8](https://github.com/SchoolyB/EZ/commit/0ad96f881a24123d6fba7f414a48bdb0b819a22d))
+* stdlib function renaming for consistency ([09b658b](https://github.com/SchoolyB/EZ/commit/09b658b681593511294c6fe41d762d117c2aea4f))
+
+
+### Code Refactoring
+
+* remove duplicate stdlib aliases and rename db functions ([#1003](https://github.com/SchoolyB/EZ/issues/1003)) ([4e0dc08](https://github.com/SchoolyB/EZ/commit/4e0dc081711bd70b237bd71fde809972b0db7eca)), closes [#995](https://github.com/SchoolyB/EZ/issues/995) [#997](https://github.com/SchoolyB/EZ/issues/997)
+
+## [0.40.5](https://github.com/SchoolyB/EZ/compare/v0.40.4...v0.40.5) (2026-01-11)
+
+
+### Bug Fixes
+
+* Add `isMultiReturnCall` to typechecker ([#951](https://github.com/SchoolyB/EZ/issues/951)) ([981d068](https://github.com/SchoolyB/EZ/commit/981d068676520c1bd1a545c8f0b524ff614856eb))
+* **cli:** Allow command line arguments for programs ([#983](https://github.com/SchoolyB/EZ/issues/983)) ([9f4439d](https://github.com/SchoolyB/EZ/commit/9f4439d29be136c720d62d2c3bb0f971e60a414e))
+* Detect invalid string interpolation syntax at parse time ([#988](https://github.com/SchoolyB/EZ/issues/988)) ([7fcbcc1](https://github.com/SchoolyB/EZ/commit/7fcbcc152400e7b8e201eef2c92153a1d56c488d)), closes [#984](https://github.com/SchoolyB/EZ/issues/984)
+* Error on bare function/type names as statements ([#989](https://github.com/SchoolyB/EZ/issues/989)) ([a84ab6b](https://github.com/SchoolyB/EZ/commit/a84ab6b2c742b5411ce84da4b54ff0785549c24a)), closes [#985](https://github.com/SchoolyB/EZ/issues/985)
+* Prevent RETURN_VALUE type leak for multi-return functions ([#987](https://github.com/SchoolyB/EZ/issues/987)) ([750906f](https://github.com/SchoolyB/EZ/commit/750906fcbb445ecdf119c0a8f9204453674a2dcf)), closes [#986](https://github.com/SchoolyB/EZ/issues/986)
+
+## [0.40.4](https://github.com/SchoolyB/EZ/compare/v0.40.3...v0.40.4) (2026-01-10)
+
+
+### Bug Fixes
+
+* resolve integration test failures on Linux ([#981](https://github.com/SchoolyB/EZ/issues/981)) ([b20d676](https://github.com/SchoolyB/EZ/commit/b20d676e28d3dff80ab408a3f6ec698f43918b0f)), closes [#978](https://github.com/SchoolyB/EZ/issues/978)
+
+## [0.40.3](https://github.com/SchoolyB/EZ/compare/v0.40.2...v0.40.3) (2026-01-10)
+
+
+### Bug Fixes
+
+* Typechecker modification to resolve "using directive" bug ([#979](https://github.com/SchoolyB/EZ/issues/979)) ([42cf234](https://github.com/SchoolyB/EZ/commit/42cf23451c47dc40211e8d636f6abae56f4eb3a4))
+
+## [0.40.2](https://github.com/SchoolyB/EZ/compare/v0.40.1...v0.40.2) (2026-01-10)
+
+
+### Bug Fixes
+
+* **ci:** use EZ_DOCS_SYNC token for website repo access ([#974](https://github.com/SchoolyB/EZ/issues/974)) ([f47c649](https://github.com/SchoolyB/EZ/commit/f47c649a5f6bf012e315fc7a5f414fae0180641d))
+
+## [0.40.1](https://github.com/SchoolyB/EZ/compare/v0.40.0...v0.40.1) (2026-01-10)
+
+
+### Bug Fixes
+
+* **ci:** create wasm directory before copying files ([#972](https://github.com/SchoolyB/EZ/issues/972)) ([193ddcb](https://github.com/SchoolyB/EZ/commit/193ddcb8fd461eb8a599d8b84e4e3a2603401899))
+
+## [0.40.0](https://github.com/SchoolyB/EZ/compare/v0.39.3...v0.40.0) (2026-01-10)
+
+
+### Features
+
+* **wasm:** add WebAssembly build for browser playground ([#970](https://github.com/SchoolyB/EZ/issues/970)) ([89e860e](https://github.com/SchoolyB/EZ/commit/89e860e4c41865fe1e0a82e9a26ea64d8913b10e))
+
+## [0.39.3](https://github.com/SchoolyB/EZ/compare/v0.39.2...v0.39.3) (2026-01-09)
+
+
+### Bug Fixes
+
+* **interpreter,stdlib:** replace .Type() with helper functions in error messages ([#956](https://github.com/SchoolyB/EZ/issues/956)) ([61cc075](https://github.com/SchoolyB/EZ/commit/61cc07522f3d5870320a2fd9141fe504a74fe62a)), closes [#948](https://github.com/SchoolyB/EZ/issues/948)
+* **interpreter:** add Map case to objectTypeToEZ function ([#955](https://github.com/SchoolyB/EZ/issues/955)) ([8ac5396](https://github.com/SchoolyB/EZ/commit/8ac53962ac63ac22a666ccc77ab4f42be59a0f8a)), closes [#945](https://github.com/SchoolyB/EZ/issues/945)
+* **interpreter:** update type name functions with missing types ([#946](https://github.com/SchoolyB/EZ/issues/946)) ([#958](https://github.com/SchoolyB/EZ/issues/958)) ([0774dde](https://github.com/SchoolyB/EZ/commit/0774dde15d73cbbda2fb516915f47c648421f09f))
+* **lexer,parser:** add explicit 0o octal prefix, treat leading zeros as decimal ([#954](https://github.com/SchoolyB/EZ/issues/954)) ([b8e7f41](https://github.com/SchoolyB/EZ/commit/b8e7f418b4575480a95afb46501a68c5d1136fde)), closes [#915](https://github.com/SchoolyB/EZ/issues/915)
+* **repl:** prevent E4001 error when running REPL commands ([#953](https://github.com/SchoolyB/EZ/issues/953)) ([019a81b](https://github.com/SchoolyB/EZ/commit/019a81befa384bb086868b23f6f767a2eb83ca4b)), closes [#890](https://github.com/SchoolyB/EZ/issues/890)
+* **typechecker,stdlib,tests:** fix integration test failures ([#952](https://github.com/SchoolyB/EZ/issues/952)) ([#960](https://github.com/SchoolyB/EZ/issues/960)) ([f528389](https://github.com/SchoolyB/EZ/commit/f528389001fb1e291417c6439dc0ecda04b56a6c))
+* **typechecker:** require type argument for json.decode ([#947](https://github.com/SchoolyB/EZ/issues/947)) ([#957](https://github.com/SchoolyB/EZ/issues/957)) ([2cbb2c2](https://github.com/SchoolyB/EZ/commit/2cbb2c21375eba690b7a807685afb0f8a4dda9c8))
+
+## [0.39.2](https://github.com/SchoolyB/EZ/compare/v0.39.1...v0.39.2) (2026-01-07)
+
+
+### Bug Fixes
+
+* **interpreter:** allow arbitrary precision arithmetic for int/uint types ([#917](https://github.com/SchoolyB/EZ/issues/917)) ([#931](https://github.com/SchoolyB/EZ/issues/931)) ([728cd19](https://github.com/SchoolyB/EZ/commit/728cd195b90ddbf3cf373814e6765e2205f0b763))
+* **parser:** error on invalid operators in string interpolation ([#916](https://github.com/SchoolyB/EZ/issues/916)) ([#933](https://github.com/SchoolyB/EZ/issues/933)) ([54b03bc](https://github.com/SchoolyB/EZ/commit/54b03bcdfed35e0b54bd7dec2262f0f199cf8a04))
+* **typechecker:** show correct error for invalid sized types with using directive ([#914](https://github.com/SchoolyB/EZ/issues/914)) ([#932](https://github.com/SchoolyB/EZ/issues/932)) ([9ba4bc0](https://github.com/SchoolyB/EZ/commit/9ba4bc0217edabee4504bac0feca8a8f8b76e3e6))
+
+## [0.39.1](https://github.com/SchoolyB/EZ/compare/v0.39.0...v0.39.1) (2026-01-06)
+
+
+### Bug Fixes
+
+* **update:** exit original process after sudo completes ([#927](https://github.com/SchoolyB/EZ/issues/927)) ([266c5c3](https://github.com/SchoolyB/EZ/commit/266c5c3f759067db37e6043b62e5d60a8bfc5468))
+
+## [0.39.0](https://github.com/SchoolyB/EZ/compare/v0.38.0...v0.39.0) (2026-01-06)
+
+
+### Features
+
+* **time:** add weekday, month and duration constants (resolves [#902](https://github.com/SchoolyB/EZ/issues/902)) ([#923](https://github.com/SchoolyB/EZ/issues/923)) ([179fe62](https://github.com/SchoolyB/EZ/commit/179fe6290e8e95b35085387a2969f911bd87067b))
+
+## [0.38.0](https://github.com/SchoolyB/EZ/compare/v0.37.0...v0.38.0) (2026-01-06)
+
+
+### Features
+
+* **cli:** improve ez update changelog display ([#920](https://github.com/SchoolyB/EZ/issues/920)) ([7125b83](https://github.com/SchoolyB/EZ/commit/7125b83f4df95183c25795722fd95086f6f3ca3d)), closes [#919](https://github.com/SchoolyB/EZ/issues/919)
+
+## [0.37.0](https://github.com/SchoolyB/EZ/compare/v0.36.7...v0.37.0) (2026-01-05)
+
+
+### Features
+
+* **http:** add HTTP status code constants ([#907](https://github.com/SchoolyB/EZ/issues/907)) ([5ce155d](https://github.com/SchoolyB/EZ/commit/5ce155d7163d83a3f6bd68ba5e3be618de58b4ac))
+
+## [0.36.7](https://github.com/SchoolyB/EZ/compare/v0.36.6...v0.36.7) (2026-01-04)
+
+
+### Bug Fixes
+
+* **ci:** use file -b to avoid matching on filenames in sanity check ([f01ca70](https://github.com/SchoolyB/EZ/commit/f01ca70345368e389e7d9880e0ab4111be557e26))
+* Internal type representation leaks Go type names instead of EZ types ([26dd6c1](https://github.com/SchoolyB/EZ/commit/26dd6c12921edf797e93ecc68b08be9b7d2048cd))
+* **interpreter:** set Map KeyType/ValueType when maps are created ([04e164f](https://github.com/SchoolyB/EZ/commit/04e164fc6932f5929f3f877aa7a13245e0930c66))
+* **stdlib:** add DeclaredType to float decode functions in binary module ([2fd5582](https://github.com/SchoolyB/EZ/commit/2fd558242534d5185e2b84a5eba5e8f8958f978a))
+* **stdlib:** add ElementType to bytes.split outer array ([330cb1d](https://github.com/SchoolyB/EZ/commit/330cb1db88060fd7a358523ee5adb6cd77ec9aac))
+* **stdlib:** add ElementType to empty array in crypto.random_bytes ([02293e1](https://github.com/SchoolyB/EZ/commit/02293e197ac63c8af5a42740a8fe0090b725152d))
+* **stdlib:** preserve ElementType in arrays module functions ([bb0f8de](https://github.com/SchoolyB/EZ/commit/bb0f8dec4f1b084682e1334f1fad9dd6fc98c816)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** preserve type info in `[@maps](https://github.com/maps)` module and copyByDefault ([5a0259a](https://github.com/SchoolyB/EZ/commit/5a0259a430b2c5a0df65e926f78b6b2c938f42c0))
+* **stdlib:** preserve type info in builtins and `[@strings](https://github.com/strings)` modules ([0dc4d44](https://github.com/SchoolyB/EZ/commit/0dc4d44efb1fa9ea29a593fa6d5829e59f075aa3))
+* **stdlib:** set DeclaredType for floats in json module ([cb0d46f](https://github.com/SchoolyB/EZ/commit/cb0d46f6c1d5d1065955f66b965bd0644ecbbed8)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** set ElementType for arrays in db module ([6e5086a](https://github.com/SchoolyB/EZ/commit/6e5086a4b9e6c524267fde59ea40a150d0b6e6b5)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** set ElementType for arrays in io module ([637bbb7](https://github.com/SchoolyB/EZ/commit/637bbb7812b7eb1430824a12efb69ec8757fb7df)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** set proper types for headers map and arrays in http module ([450c5f3](https://github.com/SchoolyB/EZ/commit/450c5f3b7be43b4d3c3b84c1673d5b7942005371))
+* **stdlib:** set proper types in os module ([bba1458](https://github.com/SchoolyB/EZ/commit/bba1458f8bee9531162a3704e7c0a6b977456db2)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** set proper types in random module ([4739f16](https://github.com/SchoolyB/EZ/commit/4739f161aa6872b4f0485bd7bd72ac953cc45499)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **stdlib:** update getEZTypeName to return proper EZ type names ([d8ee463](https://github.com/SchoolyB/EZ/commit/d8ee463a969c1043062f53ee4a0322ad9ad29b72))
+* **typechecker:** reject typeof() on void function results ([ff9897d](https://github.com/SchoolyB/EZ/commit/ff9897d233e0b3f2ccefdd52412bd8b317552ff1))
+* **types:** add DeclaredType support for Float and sized type conversions ([979e9fd](https://github.com/SchoolyB/EZ/commit/979e9fdd28dcea79f43539b6a1eda35d959b71fe))
+* **types:** typeof() returns "Database" for database objects ([ad2ed95](https://github.com/SchoolyB/EZ/commit/ad2ed951b639438040c8a9f9711114403d3e0486)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **types:** typeof() returns "Range&lt;int&gt;" for range objects ([64cbb0a](https://github.com/SchoolyB/EZ/commit/64cbb0a762a032e370a41b7fb1cc6f5e952aa367)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **types:** typeof() returns Ref&lt;innerType&gt; for references ([8b06b9b](https://github.com/SchoolyB/EZ/commit/8b06b9b906d5c8f6589fbd95e47f2bb4bf75a991)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+* **types:** use "File" as user-facing type name for FileHandle ([c4d9a5a](https://github.com/SchoolyB/EZ/commit/c4d9a5abaac754c7c39d7a8117489cad0281f590)), closes [#900](https://github.com/SchoolyB/EZ/issues/900)
+
+## [0.36.6](https://github.com/SchoolyB/EZ/compare/v0.36.5...v0.36.6) (2026-01-04)
+
+
+### Bug Fixes
+
+* **errors:** update E3038 hint to be more accurate ([a34b1b5](https://github.com/SchoolyB/EZ/commit/a34b1b5a42edcfd453c5562c5c2c3df9936a9fa2))
+* **interpreter:** handle void return with ensure correctly ([5580b07](https://github.com/SchoolyB/EZ/commit/5580b0777818975cda78a27be53baee1ec72320f)), closes [#883](https://github.com/SchoolyB/EZ/issues/883)
+* **typechecker:** prevent assignment of void function results ([a574be5](https://github.com/SchoolyB/EZ/commit/a574be5a5888e1dcd6d46bd0b043a67438b3323d))
+* **typechecker:** reject void as explicit return type ([d307711](https://github.com/SchoolyB/EZ/commit/d307711471dcbd5872c6f5f2274ec337d859e89a))
+* **typechecker:** reject void in compound types ([b2182bf](https://github.com/SchoolyB/EZ/commit/b2182bfaac444ef37a47c643cdcf591102a7eb85))
+* void function fixes and comprehensive type rejection ([e504704](https://github.com/SchoolyB/EZ/commit/e504704238c91dd7ab4e8f65476412160aed4e10))
+
+## [0.36.5](https://github.com/SchoolyB/EZ/compare/v0.36.4...v0.36.5) (2026-01-04)
+
+
+### Bug Fixes
+
+* **repl:** add multi-line navigation support ([33381b0](https://github.com/SchoolyB/EZ/commit/33381b0de8b973edf8cad6424f1ae86771c6b0b2))
+* **repl:** add multi-line navigation support ([a4dcf3d](https://github.com/SchoolyB/EZ/commit/a4dcf3dacb11dc072574a9a7c0de3c368bdeb93c)), closes [#875](https://github.com/SchoolyB/EZ/issues/875)
+
+## [0.36.4](https://github.com/SchoolyB/EZ/compare/v0.36.3...v0.36.4) (2026-01-03)
+
+
+### Bug Fixes
+
+* **typechecker:** runtime string relational operator failure ([#888](https://github.com/SchoolyB/EZ/issues/888)) ([bc7aee4](https://github.com/SchoolyB/EZ/commit/bc7aee4cdb23dc89e05b7ee84156cf3ee8d92137))
+
+## [0.36.3](https://github.com/SchoolyB/EZ/compare/v0.36.2...v0.36.3) (2025-12-31)
+
+
+### Features
+
+* add`[@http](https://github.com/http)` module HTTP client for web requests ([#877](https://github.com/SchoolyB/EZ/issues/877)) ([34a874f](https://github.com/SchoolyB/EZ/commit/34a874f753f68ff8fbd52ea83a9ff179dad3b2fd))
+
+
+### Bug Fixes
+
+* Bug: Type inference fails for most stdlib module function calls ([#878](https://github.com/SchoolyB/EZ/issues/878)) ([4b6bfa7](https://github.com/SchoolyB/EZ/commit/4b6bfa79c95250241da3f127230ea33317e4f037))
+* resolve merge conflict and regenerate ERRORS.md ([53cc4da](https://github.com/SchoolyB/EZ/commit/53cc4da6f34cc3f644f19d022e5e06a6279a5cf8))
+* **typechecker:** infer json.decode return type from type argument ([908b026](https://github.com/SchoolyB/EZ/commit/908b0265b1df41b75c39cd75679ee13282ab7c14))
+
+## [0.36.2](https://github.com/SchoolyB/EZ/compare/v0.36.1...v0.36.2) (2025-12-28)
+
+
+### Bug Fixes
+
+* **ensure:** add missing validations and revert workflow change ([#866](https://github.com/SchoolyB/EZ/issues/866)) ([e502fbd](https://github.com/SchoolyB/EZ/commit/e502fbd2e41abf074ddff95ef71f6b1ab91373a0))
+
+## [0.36.1](https://github.com/SchoolyB/EZ/compare/v0.36.0...v0.36.1) (2025-12-28)
+
+
+### Features
+
+* `ensure` keyword for guaranteed cleanup on function exit [#804](https://github.com/SchoolyB/EZ/issues/804) ([#864](https://github.com/SchoolyB/EZ/issues/864)) ([cbef798](https://github.com/SchoolyB/EZ/commit/cbef7983e727a194b4453fc38e48e83ac2fb319a))
+
+## [0.36.0](https://github.com/SchoolyB/EZ/compare/v0.35.0...v0.36.0) (2025-12-28)
+
+
+### Features
+
+* stdlib additions and bug fixes ([88791f4](https://github.com/SchoolyB/EZ/commit/88791f4a39b32b68365b5f50e977f763839d9a96))
+* **stdlib:** add [@crypto](https://github.com/crypto) module for hashing and secure random ([9a38974](https://github.com/SchoolyB/EZ/commit/9a3897430d77b6561d6dee76c34e50fcdf5f317d)), closes [#458](https://github.com/SchoolyB/EZ/issues/458)
+* **stdlib:** add [@encoding](https://github.com/encoding) module with base64, hex, and URL functions ([58cf8b6](https://github.com/SchoolyB/EZ/commit/58cf8b6301769e58d323816bff6fe794ff6f55b6))
+* **stdlib:** add [@uuid](https://github.com/uuid) module for UUID generation ([e283602](https://github.com/SchoolyB/EZ/commit/e283602315cffdf0f46635b55baf1fcff8bdf38a)), closes [#759](https://github.com/SchoolyB/EZ/issues/759)
+
+
+### Bug Fixes
+
+* **evaluator:** allow modifying nested struct fields in array elements ([4d5de68](https://github.com/SchoolyB/EZ/commit/4d5de68500fb29a6d00d729ce141704377c22df2)), closes [#859](https://github.com/SchoolyB/EZ/issues/859)
+* **evaluator:** prevent stack overflow on self-referential structs ([6f68d98](https://github.com/SchoolyB/EZ/commit/6f68d981901738e4b6a6d880e61a9650cbe971a8)), closes [#860](https://github.com/SchoolyB/EZ/issues/860)
+* **parser:** allow blank identifier _ in for and for_each loops ([456e75d](https://github.com/SchoolyB/EZ/commit/456e75dcdc287b762fa505561bfe8790c1f03295)), closes [#858](https://github.com/SchoolyB/EZ/issues/858)
+* **typechecker:** allow int/float comparison with == and != operators ([0a5b97d](https://github.com/SchoolyB/EZ/commit/0a5b97d90dbc0b94544f03567190aa3d8c9ce39f)), closes [#857](https://github.com/SchoolyB/EZ/issues/857)
+
+## [0.35.0](https://github.com/SchoolyB/EZ/compare/v0.34.1...v0.35.0) (2025-12-27)
+
+
+### Features
+
+* ASCII art banner ([#855](https://github.com/SchoolyB/EZ/issues/855)) ([4ccaea8](https://github.com/SchoolyB/EZ/commit/4ccaea8989729e55beb068cc0ee0cd5aec8389f8))
+
+## [0.34.1](https://github.com/SchoolyB/EZ/compare/v0.34.0...v0.34.1) (2025-12-27)
+
+
+### Bug Fixes
+
+* **typechecker:** resolve struct parameter member access for imported types ([#851](https://github.com/SchoolyB/EZ/issues/851)) ([#853](https://github.com/SchoolyB/EZ/issues/853)) ([dada274](https://github.com/SchoolyB/EZ/commit/dada2740cca72f88d8ed56699d7596e38e368bfe))
+
+## [0.34.0](https://github.com/SchoolyB/EZ/compare/v0.33.4...v0.34.0) (2025-12-26)
+
+
+### Features
+
+* add warning for unused imports ([#639](https://github.com/SchoolyB/EZ/issues/639)) ([#844](https://github.com/SchoolyB/EZ/issues/844)) ([d299bcd](https://github.com/SchoolyB/EZ/commit/d299bcdcbc750037d68ceb591c94c951abcf1152))
+* **examples:** add price calculator example ([#848](https://github.com/SchoolyB/EZ/issues/848)) ([70d10b7](https://github.com/SchoolyB/EZ/commit/70d10b721970f2fb266c892128b974ad9d069f15))
+
+
+### Bug Fixes
+
+* **examples:** resolve W2009 warning in json.ez ([#357](https://github.com/SchoolyB/EZ/issues/357)) ([#847](https://github.com/SchoolyB/EZ/issues/847)) ([20815bb](https://github.com/SchoolyB/EZ/commit/20815bb81d24c2c4803d89e0c65daf162941f032))
+
+## [0.33.4](https://github.com/SchoolyB/EZ/compare/v0.33.3...v0.33.4) (2025-12-26)
+
+
+### Bug Fixes
+
+* UTF-8 characters corrupted in interpolated strings ([#839](https://github.com/SchoolyB/EZ/issues/839)) ([ebb34dc](https://github.com/SchoolyB/EZ/commit/ebb34dc145235f85d7fbb3dc748132fd10a0e4bf))
+
+## [0.33.3](https://github.com/SchoolyB/EZ/compare/v0.33.2...v0.33.3) (2025-12-25)
+
+
+### Bug Fixes
+
+* type inference for user module functions and void type validation ([#837](https://github.com/SchoolyB/EZ/issues/837)) ([c63c48f](https://github.com/SchoolyB/EZ/commit/c63c48f5d9e1cfad52c914e1f018e3e75e0621e6))
+
+## [0.33.2](https://github.com/SchoolyB/EZ/compare/v0.33.1...v0.33.2) (2025-12-25)
+
+
+### Bug Fixes
+
+* #suppress before function now correctly applies to function only ([#830](https://github.com/SchoolyB/EZ/issues/830), [#831](https://github.com/SchoolyB/EZ/issues/831)) ([#832](https://github.com/SchoolyB/EZ/issues/832)) ([6837668](https://github.com/SchoolyB/EZ/commit/68376685eab9e4aeec51b5b3454aac704a90b34c))
+* add cleanup for database test files ([#800](https://github.com/SchoolyB/EZ/issues/800)) ([#829](https://github.com/SchoolyB/EZ/issues/829)) ([35cfec8](https://github.com/SchoolyB/EZ/commit/35cfec8bcadb9bae1b7d1bc14f551a903473804f))
+* add overflow and division-by-zero checks for float arithmetic ([#798](https://github.com/SchoolyB/EZ/issues/798)) ([#826](https://github.com/SchoolyB/EZ/issues/826)) ([476c18d](https://github.com/SchoolyB/EZ/commit/476c18d284d5841972a248701c6f3e22236d9196))
+* add overflow/underflow checks for byte arithmetic ([#817](https://github.com/SchoolyB/EZ/issues/817)) ([#822](https://github.com/SchoolyB/EZ/issues/822)) ([5bd37ba](https://github.com/SchoolyB/EZ/commit/5bd37ba8ab7e2d538d27cf163e9f7822c2e38170))
+* disallow loop variable shadowing ([#114](https://github.com/SchoolyB/EZ/issues/114)) ([#835](https://github.com/SchoolyB/EZ/issues/835)) ([1cd45c2](https://github.com/SchoolyB/EZ/commit/1cd45c272113f1473b27e4d5c3557c1892817eee))
+* make arrays.remove_all() consistent with other remove functions ([#820](https://github.com/SchoolyB/EZ/issues/820)) ([#825](https://github.com/SchoolyB/EZ/issues/825)) ([725d34d](https://github.com/SchoolyB/EZ/commit/725d34dd10dc86c7d2f1bdac44af712e90c1b3fb))
+* os.exec now returns error on non-zero exit code ([#799](https://github.com/SchoolyB/EZ/issues/799)) ([#827](https://github.com/SchoolyB/EZ/issues/827)) ([06ee450](https://github.com/SchoolyB/EZ/commit/06ee450ed261fad68b87d0b8ee0d420eeb5b6220))
+* prevent json.encode() from overwriting EncodeAsString conversion ([#818](https://github.com/SchoolyB/EZ/issues/818)) ([#823](https://github.com/SchoolyB/EZ/issues/823)) ([85544e7](https://github.com/SchoolyB/EZ/commit/85544e7e70499baba4814579564d8690d1f89f94))
+* prevent panic on multi-return type mismatch with fewer names than types ([#816](https://github.com/SchoolyB/EZ/issues/816)) ([#821](https://github.com/SchoolyB/EZ/issues/821)) ([d983679](https://github.com/SchoolyB/EZ/commit/d98367975d9be03db6b95e5e8ab4171f164be36c))
+* properly extract first rune in strings.from_chars() ([#819](https://github.com/SchoolyB/EZ/issues/819)) ([#824](https://github.com/SchoolyB/EZ/issues/824)) ([060cfa6](https://github.com/SchoolyB/EZ/commit/060cfa67b746b3ff22944a584fde367c26ce4fc2))
+
+## [0.33.1](https://github.com/SchoolyB/EZ/compare/v0.33.0...v0.33.1) (2025-12-24)
+
+
+### Bug Fixes
+
+* mutable parameters now work with indexed/member expressions ([#813](https://github.com/SchoolyB/EZ/issues/813)) ([4b7bdf2](https://github.com/SchoolyB/EZ/commit/4b7bdf2cfd961e8623d025066d2875ddc472fcc9)), closes [#797](https://github.com/SchoolyB/EZ/issues/797)
+* prevent array mutation during for_each iteration ([#812](https://github.com/SchoolyB/EZ/issues/812)) ([00e0c83](https://github.com/SchoolyB/EZ/commit/00e0c8396b97c2753c5da05713cbaa627f25f7f5)), closes [#796](https://github.com/SchoolyB/EZ/issues/796)
+* type inference for user-defined module function return types ([#811](https://github.com/SchoolyB/EZ/issues/811)) ([be278e7](https://github.com/SchoolyB/EZ/commit/be278e72ac1c59bf6675e688f1c13c9324ad6b56)), closes [#807](https://github.com/SchoolyB/EZ/issues/807)
+
+## [0.33.0](https://github.com/SchoolyB/EZ/compare/v0.32.0...v0.33.0) (2025-12-23)
+
+
+### Features
+
+* add PowerShell install script for Windows ([e5ca88b](https://github.com/SchoolyB/EZ/commit/e5ca88bc7595be9beea852117c88d6c704cf3644))
+* add PowerShell install script for Windows ([2244edb](https://github.com/SchoolyB/EZ/commit/2244edbb6c0b74f32e697710273ca459c1fc0a00)), closes [#806](https://github.com/SchoolyB/EZ/issues/806)
+
+## [0.32.0](https://github.com/SchoolyB/EZ/compare/v0.31.0...v0.32.0) (2025-12-23)
+
+
+### Features
+
+* added workflow for checking PR validity based on filetype ([632d8bd](https://github.com/SchoolyB/EZ/commit/632d8bdf1b58fd9316ca5af5e2f13aed143168ff))
+
+
+### Bug Fixes
+
+* **ci:** add more file extension checks ([c6223fd](https://github.com/SchoolyB/EZ/commit/c6223fd8483db67bb6336dd6b84bf6391791d765))
+* **ci:** correct workflow issues in PR sanity check ([9adafdd](https://github.com/SchoolyB/EZ/commit/9adafdd322c0b194c9fc6b20928d91f6a4280676))
+
+## [0.31.0](https://github.com/SchoolyB/EZ/compare/v0.30.2...v0.31.0) (2025-12-22)
+
+
+### Features
+
+* **stdlib:** add db.exists() and db.update_key_name() ([f89aac1](https://github.com/SchoolyB/EZ/commit/f89aac142eb5344e7bc86a4500353a1d9cd2c74b))
+* **stdlib:** add db.sort() with sort order constants ([8a26dab](https://github.com/SchoolyB/EZ/commit/8a26dab2c040d2372b004c97d71b9e15363794ed)), closes [#782](https://github.com/SchoolyB/EZ/issues/782)
+
+
+### Bug Fixes
+
+* **cli:** always fetch fresh version info for `ez version` command ([ffe4979](https://github.com/SchoolyB/EZ/commit/ffe49794dae0b9e5abd6189d5392c3ef9a45a5ec))
+* **stdlib:** show overflow error instead of invalid format for large integers ([e4ff4bb](https://github.com/SchoolyB/EZ/commit/e4ff4bbbf01e9164aeb3199eb63dee919b78160a)), closes [#783](https://github.com/SchoolyB/EZ/issues/783)
+* **tests:** strengthen db.ez assertions to actually verify behavior ([5e2bd65](https://github.com/SchoolyB/EZ/commit/5e2bd652f620db758e20f1ec3c69193bb3b32480))
+
+## [0.30.2](https://github.com/SchoolyB/EZ/compare/v0.30.1...v0.30.2) (2025-12-22)
+
+
+### Bug Fixes
+
+* **typechecker:** require Database type for db module functions ([2d63dc6](https://github.com/SchoolyB/EZ/commit/2d63dc6b9b10582e26102023f9a31cd7497af976))
+* **typechecker:** require Database type for db module functions ([851a6c2](https://github.com/SchoolyB/EZ/commit/851a6c2da1c824ef48c90f4af6c4a790695a2c87)), closes [#781](https://github.com/SchoolyB/EZ/issues/781)
+
+## [0.30.1](https://github.com/SchoolyB/EZ/compare/v0.30.0...v0.30.1) (2025-12-22)
+
+
+### Bug Fixes
+
+* **stdlib:** write valid JSON when creating new database file ([ecb396a](https://github.com/SchoolyB/EZ/commit/ecb396a07e99e93519fcb3677e89b26fa66b9956))
+* **stdlib:** write valid JSON when creating new database file ([46e0da2](https://github.com/SchoolyB/EZ/commit/46e0da26f15f7978bb05324a60d7adc3346237b3)), closes [#780](https://github.com/SchoolyB/EZ/issues/780)
+
+## [0.30.0](https://github.com/SchoolyB/EZ/compare/v0.29.2...v0.30.0) (2025-12-21)
+
+
+### Features
+
+* **stdlib:** add [@db](https://github.com/db) module for simple key-value database ([342a4f9](https://github.com/SchoolyB/EZ/commit/342a4f922911cebf1a56eda176a83874b907cdf4))
+* **stdlib:** add [@db](https://github.com/db) module for simple key-value database ([23e112a](https://github.com/SchoolyB/EZ/commit/23e112a3d9086ce9baf9ce66f6e8b936ed6c3932)), closes [#460](https://github.com/SchoolyB/EZ/issues/460)
+
+## [0.29.2](https://github.com/SchoolyB/EZ/compare/v0.29.1...v0.29.2) (2025-12-21)
+
+
+### Bug Fixes
+
+* **cli:** consistent arg handling and remove stale `ez run` references ([8fcb687](https://github.com/SchoolyB/EZ/commit/8fcb687f7ef990aab376df653df3d14c29a0dc66))
+* **cli:** consistent arg handling and remove stale `ez run` references ([0b7ba8c](https://github.com/SchoolyB/EZ/commit/0b7ba8c2dbba5968c557c7bc46b3f1113be72e59)), closes [#765](https://github.com/SchoolyB/EZ/issues/765)
+* **language:** remove broken `private:module` and add typechecker validation ([3fcb311](https://github.com/SchoolyB/EZ/commit/3fcb31107049e1143186d3f468e7b9a75fa9f7b8))
+* use existing E12001 instead of undefined E9020 ([09734b0](https://github.com/SchoolyB/EZ/commit/09734b0960a5383d5bfd37d2d4c9bb9663ea951f))
+* use existing E12001 instead of undefined E9020 ([f959f49](https://github.com/SchoolyB/EZ/commit/f959f49b6f92fc65e21e7a87c87e02f9566f9af6)), closes [#769](https://github.com/SchoolyB/EZ/issues/769)
+* **visibility:** remove broken private:module and add typechecker validation ([bca6f4c](https://github.com/SchoolyB/EZ/commit/bca6f4cdb5058bf60729fc72a3bf375cf27e9149)), closes [#767](https://github.com/SchoolyB/EZ/issues/767)
+
+## [0.29.1](https://github.com/SchoolyB/EZ/compare/v0.29.0...v0.29.1) (2025-12-20)
+
+
+### Bug Fixes
+
+* **interpreter:** add bounds check for empty ReturnValue.Values ([69c1c39](https://github.com/SchoolyB/EZ/commit/69c1c39b14ad7ffc728fcb17e4f3979b8a7d043d))
+* **interpreter:** add bounds check for empty ReturnValue.Values ([66859ca](https://github.com/SchoolyB/EZ/commit/66859cad7eca7b3f58bcc76e28064c32956b9d75)), closes [#740](https://github.com/SchoolyB/EZ/issues/740)
+* **interpreter:** check Deref() error before compound assignment ([645af52](https://github.com/SchoolyB/EZ/commit/645af527f6e29700094504c890c38e2e0dd0d9a3))
+* **interpreter:** check Deref() error before compound assignment ([836b7f7](https://github.com/SchoolyB/EZ/commit/836b7f71bcde48738ea16f7f67528bbc197bb958)), closes [#741](https://github.com/SchoolyB/EZ/issues/741)
+* **parser:** prevent panic on comma-separated struct fields ([7886e20](https://github.com/SchoolyB/EZ/commit/7886e206e0b309821e4d3254b935d7aa123b9d66))
+* **parser:** prevent panic on comma-separated struct fields ([aa68024](https://github.com/SchoolyB/EZ/commit/aa680242c9eb6b0317acd29ddb663054c38bac21)), closes [#750](https://github.com/SchoolyB/EZ/issues/750)
+* **stdlib:** add bounds check for integer-to-byte conversion ([191ec8d](https://github.com/SchoolyB/EZ/commit/191ec8d7cc76739995ab150a937eee9f69e8d0e7))
+* **stdlib:** add bounds check for integer-to-byte conversion ([26e214f](https://github.com/SchoolyB/EZ/commit/26e214fd72504dbeca12c470b4f3a7c6a1729470)), closes [#748](https://github.com/SchoolyB/EZ/issues/748)
+* **stdlib:** make ignored file Close errors explicit in io.go ([c4048a9](https://github.com/SchoolyB/EZ/commit/c4048a9119e5e6fc51acd9a80b22bb5233cbbf0a))
+* **stdlib:** make ignored file Close errors explicit in io.go ([52dd245](https://github.com/SchoolyB/EZ/commit/52dd245abae18f20a569d8dbae7296034218816e)), closes [#742](https://github.com/SchoolyB/EZ/issues/742)
+* **stdlib:** remove redundant arrays.range() function ([f957fdd](https://github.com/SchoolyB/EZ/commit/f957fdd594212261739e1f9ce96dfb193f842c53))
+* **stdlib:** remove redundant arrays.range() function ([6a2a7ec](https://github.com/SchoolyB/EZ/commit/6a2a7ec428f136deec22e6bd088f5109a0cc13e4)), closes [#746](https://github.com/SchoolyB/EZ/issues/746)
+* **typechecker:** handle ignored error returns properly ([15d48a8](https://github.com/SchoolyB/EZ/commit/15d48a8528bd282fa4c896414d27c4b43dff3442))
+* **typechecker:** handle ignored error returns properly ([5f18740](https://github.com/SchoolyB/EZ/commit/5f18740fd6a1c658e0bd4692106869db12712590)), closes [#752](https://github.com/SchoolyB/EZ/issues/752)
+
+## [0.29.0](https://github.com/SchoolyB/EZ/compare/v0.28.3...v0.29.0) (2025-12-19)
+
+
+### Features
+
+* Struct field tags JSON customization ([ae64d0a](https://github.com/SchoolyB/EZ/commit/ae64d0aeb925d572b57c9a5898ed2753bcec0866))
+
+## [0.28.3](https://github.com/SchoolyB/EZ/compare/v0.28.2...v0.28.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* module symbol sharing and using statement resolution ([94eea8d](https://github.com/SchoolyB/EZ/commit/94eea8dac49e6c60a121d22a0d3f1316d7d231f0))
+* module symbol sharing and using statement resolution ([2b7a0d0](https://github.com/SchoolyB/EZ/commit/2b7a0d021271e4a71f027b7aac3d86279f5eab91))
+
+## [0.28.2](https://github.com/SchoolyB/EZ/compare/v0.28.1...v0.28.2) (2025-12-19)
+
+
+### Bug Fixes
+
+* show parser errors in imported modules instead of misleading undefined function errors ([e515f2c](https://github.com/SchoolyB/EZ/commit/e515f2c8bdc67bc84aef2a050500d83e3cb317d3))
+* show parser errors in imported modules instead of misleading undefined function errors ([2592b1f](https://github.com/SchoolyB/EZ/commit/2592b1f6a51464f5aada3498a57c56db2c540172)), closes [#726](https://github.com/SchoolyB/EZ/issues/726)
+
+## [0.28.1](https://github.com/SchoolyB/EZ/compare/v0.28.0...v0.28.1) (2025-12-19)
+
+
+### Bug Fixes
+
+* sort type checker errors by file and line number ([9ca37f6](https://github.com/SchoolyB/EZ/commit/9ca37f661b4d52121f42c27ddd6c14ac87b37f2a))
+* sort type checker errors by file and line number ([c8e7f6b](https://github.com/SchoolyB/EZ/commit/c8e7f6bc67e2b119beadd6f37f2b90dffa4fa456)), closes [#727](https://github.com/SchoolyB/EZ/issues/727)
+
+## [0.28.0](https://github.com/SchoolyB/EZ/compare/v0.27.0...v0.28.0) (2025-12-18)
+
+
+### Features
+
+* **lang:** add `cast()` keyword for type conversion ([0cc34f2](https://github.com/SchoolyB/EZ/commit/0cc34f24c469efaac6602765958c356eff36a4d7))
+* **lang:** add cast() keyword for type conversion ([ab814f8](https://github.com/SchoolyB/EZ/commit/ab814f8ca127598625d37c0a1092ed9ef4a1054f)), closes [#717](https://github.com/SchoolyB/EZ/issues/717)
+* **stdlib:** add [@binary](https://github.com/binary) module and sized type conversions ([496f874](https://github.com/SchoolyB/EZ/commit/496f87433c5f5f6a84f80af4b39f66194f309a6b))
+* **stdlib:** add [@binary](https://github.com/binary) module and sized type conversions ([9487a65](https://github.com/SchoolyB/EZ/commit/9487a65fd48c8e9bb6a8ebcf9440fae5e3d14625)), closes [#716](https://github.com/SchoolyB/EZ/issues/716)
+
+
+### Bug Fixes
+
+* **modules:** add type checking for multi-file modules ([#722](https://github.com/SchoolyB/EZ/issues/722)) ([19b5006](https://github.com/SchoolyB/EZ/commit/19b50061bcc9054d653d94bc41e63e2d0cacaeda))
+* **modules:** add type checking for multi-file modules ([#722](https://github.com/SchoolyB/EZ/issues/722)) ([d806280](https://github.com/SchoolyB/EZ/commit/d8062804910fe308d4a8886ac481b9bf45798009))
+* **modules:** report type errors in single-file modules at check time ([#720](https://github.com/SchoolyB/EZ/issues/720)) ([72ec320](https://github.com/SchoolyB/EZ/commit/72ec320f48bc5ec1cb9b13fd0ab88a8f08de0e15))
+* **modules:** report type errors in single-file modules at check time ([#720](https://github.com/SchoolyB/EZ/issues/720)) ([efcf797](https://github.com/SchoolyB/EZ/commit/efcf79757eb22c792cce539211c5a842751d756d))
+
+## [0.27.0](https://github.com/SchoolyB/EZ/compare/v0.26.0...v0.27.0) (2025-12-18)
+
+
+### Features
+
+* **typechecker:** add type checking for all stdlib modules ([8842961](https://github.com/SchoolyB/EZ/commit/88429612f75394597e66db37d99180ea9e90d76d))
+* **typechecker:** add type checking for all stdlib modules ([fc1f4e8](https://github.com/SchoolyB/EZ/commit/fc1f4e8364aeef6e43a2451629d010d542224dd6))
+
+
+### Bug Fixes
+
+* **typechecker:** comprehensive validation of imported types ([#709](https://github.com/SchoolyB/EZ/issues/709)) ([0aedff9](https://github.com/SchoolyB/EZ/commit/0aedff9e65b5d0919574f48bdb0dd5c650784f7e))
+* **typechecker:** comprehensive validation of imported types ([#709](https://github.com/SchoolyB/EZ/issues/709)) ([88c32a7](https://github.com/SchoolyB/EZ/commit/88c32a7254e89a52e0a891eb7683266efb30a683))
+* **typechecker:** for_each loop variables inherit mutability from collection ([fc7dd06](https://github.com/SchoolyB/EZ/commit/fc7dd0659c3cc63a864aa17c66a701157aa2520e))
+* **typechecker:** resolve unqualified imported types in member access ([#706](https://github.com/SchoolyB/EZ/issues/706)) ([72f8bfc](https://github.com/SchoolyB/EZ/commit/72f8bfcde68df0de3bcf796cff8202d7c7b54c10))
+* **typechecker:** resolve unqualified imported types in member access ([#706](https://github.com/SchoolyB/EZ/issues/706)) ([e6935f8](https://github.com/SchoolyB/EZ/commit/e6935f80b45949215101fa0300f2c367c940a87c))
+* **typechecker:** validate field names in imported struct literals ([#708](https://github.com/SchoolyB/EZ/issues/708)) ([9ecc16b](https://github.com/SchoolyB/EZ/commit/9ecc16bb1d104ca2b00a3f3ed82c2860bb07b545))
+* **typechecker:** validate field names in imported struct literals ([#708](https://github.com/SchoolyB/EZ/issues/708)) ([a14162b](https://github.com/SchoolyB/EZ/commit/a14162b9419700bace7d5c373fe47ad4faad01dd))
+
+## [0.26.0](https://github.com/SchoolyB/EZ/compare/v0.25.0...v0.26.0) (2025-12-18)
+
+
+### Features
+
+* **parser:** support tuple unpacking in assignment statements ([#699](https://github.com/SchoolyB/EZ/issues/699)) ([#704](https://github.com/SchoolyB/EZ/issues/704)) ([1c01533](https://github.com/SchoolyB/EZ/commit/1c015336253968ce0d1655580103116de6aff52c))
+
+## [0.25.0](https://github.com/SchoolyB/EZ/compare/v0.24.0...v0.25.0) (2025-12-18)
+
+
+### Features
+
+* multi-value handling improvements ([5b533d1](https://github.com/SchoolyB/EZ/commit/5b533d1a40ea3e3f3477f9a0805acd3a17113d39))
+
+
+### Bug Fixes
+
+* **interpreter:** display actual return type instead of RETURN_VALUE in E5012 errors ([e702d39](https://github.com/SchoolyB/EZ/commit/e702d396e2f17db6c6e9025fd5a473f4b7ba8729))
+* **interpreter:** display actual return type instead of RETURN_VALUE in E5012 errors ([#696](https://github.com/SchoolyB/EZ/issues/696)) ([c84928e](https://github.com/SchoolyB/EZ/commit/c84928e2a3b632833738fdf98cf257322de2c8d5))
+* **interpreter:** handle multi-value assignment errors correctly ([2f08c12](https://github.com/SchoolyB/EZ/commit/2f08c12ca9ca0c4852a249964fac49a917337b7e))
+* **interpreter:** handle multi-value assignment errors correctly ([#698](https://github.com/SchoolyB/EZ/issues/698)) ([6270ad2](https://github.com/SchoolyB/EZ/commit/6270ad2a1d7786d0522f58c0a4371dee2a501aee))
+
+## [0.24.0](https://github.com/SchoolyB/EZ/compare/v0.23.1...v0.24.0) (2025-12-17)
+
+
+### Features
+
+* add W2010 warning for chained member access on nullable structs ([#689](https://github.com/SchoolyB/EZ/issues/689)) ([cd57753](https://github.com/SchoolyB/EZ/commit/cd57753bd3858e2e8b33ca230661c9c23b416934))
+* add W2010 warning for chained member access on nullable structs ([#689](https://github.com/SchoolyB/EZ/issues/689)) ([3cd1ede](https://github.com/SchoolyB/EZ/commit/3cd1ede848574aa97f0b697905ffce283a7d713b))
+* implement ref() builtin and copy-by-default semantics ([#661](https://github.com/SchoolyB/EZ/issues/661)) ([743153c](https://github.com/SchoolyB/EZ/commit/743153cee33eb181622433e489dc0fa94d62a701))
+* implement ref() builtin and copy-by-default semantics ([#661](https://github.com/SchoolyB/EZ/issues/661)) ([d064e56](https://github.com/SchoolyB/EZ/commit/d064e56e894206ba2a2074a03f75bca15949de14))
+* **typechecker:** comprehensive typechecker overhaul with ref() builtin ([e05a459](https://github.com/SchoolyB/EZ/commit/e05a4591c8be5a5a0f99eb04fe833fd3542e7021))
+* **typechecker:** detect literal division/modulo by zero ([8ce1a11](https://github.com/SchoolyB/EZ/commit/8ce1a1124f8de946cd6f283b427eb242a0e97faf))
+* **typechecker:** detect literal division/modulo by zero ([#667](https://github.com/SchoolyB/EZ/issues/667)) ([76b4f1e](https://github.com/SchoolyB/EZ/commit/76b4f1e2da6d955787e394fb1fab07eb872b8e0a))
+* **typechecker:** detect undefined variables and functions at check time ([#663](https://github.com/SchoolyB/EZ/issues/663)) ([4ca2c68](https://github.com/SchoolyB/EZ/commit/4ca2c68a56b82fc2917f4121373ff862bf715fdd))
+* **typechecker:** detect undefined variables and functions at check time ([#663](https://github.com/SchoolyB/EZ/issues/663)) ([5334c4b](https://github.com/SchoolyB/EZ/commit/5334c4bb39363c1ec27994991d01ebc4792f6591))
+* **typechecker:** reject executable statements at file scope ([c2b372f](https://github.com/SchoolyB/EZ/commit/c2b372f0ec6ecbd0868a8a75b81d8fa2561abe1e))
+* **typechecker:** reject executable statements at file scope ([#662](https://github.com/SchoolyB/EZ/issues/662)) ([9ec3cd0](https://github.com/SchoolyB/EZ/commit/9ec3cd0c4155840dc1fa21f17a838c10fe470ce7))
+* **typechecker:** validate integer literal ranges for sized types ([c315995](https://github.com/SchoolyB/EZ/commit/c3159952bd246079c6671e0883b2c4ae8867b03b))
+* **typechecker:** validate integer literal ranges for sized types ([#666](https://github.com/SchoolyB/EZ/issues/666)) ([0d7cdfe](https://github.com/SchoolyB/EZ/commit/0d7cdfea655141e0a31359f17e66f95418072b91))
+
+
+### Bug Fixes
+
+* add type inference for stdlib module multi-return functions ([c2be2c1](https://github.com/SchoolyB/EZ/commit/c2be2c14d2cc8040e4368a7e94a912c16464782d))
+* add type inference for stdlib module multi-return functions ([f5120f8](https://github.com/SchoolyB/EZ/commit/f5120f8c5594e64fb0856dd4bd01bb3d1c4ed1cb))
+* detect missing return on all code paths at check time ([860be2a](https://github.com/SchoolyB/EZ/commit/860be2a8843fd5f6a1a7821f64241b41e43f4b64))
+* detect missing return on all code paths at check time ([81667b9](https://github.com/SchoolyB/EZ/commit/81667b9707f2cad25c5802da7be9a74cd15d26d1)), closes [#660](https://github.com/SchoolyB/EZ/issues/660)
+* properly type multi-return builtin functions like read_int() ([70519bc](https://github.com/SchoolyB/EZ/commit/70519bc5717aedd6cfc1135bc25790c0feb354b1))
+* properly type multi-return builtin functions like read_int() ([a88577e](https://github.com/SchoolyB/EZ/commit/a88577e2cac2e8233df18b25345b53fdc3f9a4b2))
+* support module constants via using directive ([#677](https://github.com/SchoolyB/EZ/issues/677)) ([a493e46](https://github.com/SchoolyB/EZ/commit/a493e461198baad719b48c9fe3109dfad183c23d))
+* support module constants via using directive ([#677](https://github.com/SchoolyB/EZ/issues/677)) ([70dbfc3](https://github.com/SchoolyB/EZ/commit/70dbfc362b9948cd10efc08fdcc567b59aa20819))
+* **typechecker:** add check-time array bounds checking ([#685](https://github.com/SchoolyB/EZ/issues/685)) ([9fb99de](https://github.com/SchoolyB/EZ/commit/9fb99ded85c0e18e6539deccd5cea722e603e3fb))
+* **typechecker:** add check-time array bounds checking ([#685](https://github.com/SchoolyB/EZ/issues/685)) ([c150246](https://github.com/SchoolyB/EZ/commit/c1502462ea431098d9c6afee0e52dfc5b8a51f26))
+* **typechecker:** add warning for member access on error type ([#687](https://github.com/SchoolyB/EZ/issues/687)) ([052ead9](https://github.com/SchoolyB/EZ/commit/052ead9c9159f73d485600ed4cb6e4368800e126))
+* **typechecker:** add warning for member access on error type ([#687](https://github.com/SchoolyB/EZ/issues/687)) ([189a14c](https://github.com/SchoolyB/EZ/commit/189a14c8fb669fb89bb4952ce83eb02e3b153779))
+* **typechecker:** detect undefined variables in assignment targets ([f467bcf](https://github.com/SchoolyB/EZ/commit/f467bcfcf834b3f0c89506decd42d3532b7aa9df))
+* **typechecker:** detect undefined variables in assignment targets ([#665](https://github.com/SchoolyB/EZ/issues/665)) ([24cf9b1](https://github.com/SchoolyB/EZ/commit/24cf9b11b46ede1acf6e8e3f090300da9e377546))
+* **typechecker:** extend overflow detection to all integer types ([#686](https://github.com/SchoolyB/EZ/issues/686)) ([c56aa3d](https://github.com/SchoolyB/EZ/commit/c56aa3d22302f93c5a3f8e60a17f382a94e20f36))
+* **typechecker:** extend overflow detection to all integer types ([#686](https://github.com/SchoolyB/EZ/issues/686)) ([6e0b31a](https://github.com/SchoolyB/EZ/commit/6e0b31a1f5d1bbf3a332e53324391a9da3e4f84c))
+* **typechecker:** infer types for module variables via using directive ([#677](https://github.com/SchoolyB/EZ/issues/677)) ([584d42e](https://github.com/SchoolyB/EZ/commit/584d42eedafcd97fefb2c731ee7108d2d3c3ea4b))
+* **typechecker:** resolve user module functions via 'using' directive ([b90830e](https://github.com/SchoolyB/EZ/commit/b90830e4bea45b86cabe3aef4d0d021bad617729))
+* **typechecker:** resolve user module functions via 'using' directive ([#671](https://github.com/SchoolyB/EZ/issues/671)) ([1285737](https://github.com/SchoolyB/EZ/commit/1285737733f4f2c9ae5bcfec0cee70fe0ec9a864))
+* **typechecker:** validate expressions in string interpolations ([#684](https://github.com/SchoolyB/EZ/issues/684)) ([a4d8990](https://github.com/SchoolyB/EZ/commit/a4d8990b53e5a689bc06f40815265f0230518a5d))
+* **typechecker:** validate expressions in string interpolations ([#684](https://github.com/SchoolyB/EZ/issues/684)) ([4da234d](https://github.com/SchoolyB/EZ/commit/4da234de0f6214635e766ae6da8dfd4a3e351d05))
+
+## [0.23.1](https://github.com/SchoolyB/EZ/compare/v0.23.0...v0.23.1) (2025-12-17)
+
+
+### Bug Fixes
+
+* allow nil return for error type in user-defined functions ([4d78d05](https://github.com/SchoolyB/EZ/commit/4d78d050ba9d314303f239c6f8f96e520bd55a51))
+* allow nil return for error type in user-defined functions ([f0fd24a](https://github.com/SchoolyB/EZ/commit/f0fd24a8bd821d782427ba30dfd42fc69ec129b3)), closes [#657](https://github.com/SchoolyB/EZ/issues/657)
+
+## [0.23.0](https://github.com/SchoolyB/EZ/compare/v0.22.6...v0.23.0) (2025-12-17)
+
+
+### Features
+
+* **stdlib:** add `strings.to_int()`, `strings.to_float()`, `strings.to_bool()` ([846f90a](https://github.com/SchoolyB/EZ/commit/846f90af5f781c96bc13e983d4e2e183e30d6dd4))
+* **stdlib:** add strings.to_int(), strings.to_float(), strings.to_bool() ([e496f23](https://github.com/SchoolyB/EZ/commit/e496f231bafb51979f7127a7c8a26516df365afb)), closes [#651](https://github.com/SchoolyB/EZ/issues/651)
+
+## [0.22.6](https://github.com/SchoolyB/EZ/compare/v0.22.5...v0.22.6) (2025-12-16)
+
+
+### Bug Fixes
+
+* **stdlib:** `arrays.set()` now modifies array in place ([411c17f](https://github.com/SchoolyB/EZ/commit/411c17f085cb3ffe342a62d46bd318e5c898680c))
+* **stdlib:** arrays.set() now modifies array in-place ([2cdb73a](https://github.com/SchoolyB/EZ/commit/2cdb73a58be0a24dd92f41b26f9ba655cdbbb8fd)), closes [#652](https://github.com/SchoolyB/EZ/issues/652)
+
+## [0.22.5](https://github.com/SchoolyB/EZ/compare/v0.22.4...v0.22.5) (2025-12-16)
+
+
+### Bug Fixes
+
+* cross-module nested struct initialization ([a22d7e3](https://github.com/SchoolyB/EZ/commit/a22d7e36822d957f741a578ee1f5df694480e503))
+* cross-module nested struct initialization ([13cf3e0](https://github.com/SchoolyB/EZ/commit/13cf3e0d46325920a59696df767a736cc473f5c5))
+
+## [0.22.4](https://github.com/SchoolyB/EZ/compare/v0.22.3...v0.22.4) (2025-12-16)
+
+
+### Bug Fixes
+
+* workflow rebase, add README badges, improve test coverage ([d356bce](https://github.com/SchoolyB/EZ/commit/d356bcef43c84c48ddabcf09e501dd50c82fffa8))
+
+## [0.22.3](https://github.com/SchoolyB/EZ/compare/v0.22.2...v0.22.3) (2025-12-16)
+
+
+### Bug Fixes
+
+* version update detection and error sync workflow ([fbdb7bd](https://github.com/SchoolyB/EZ/commit/fbdb7bd421d6419452fa901940d5c6a950cacf2e))
+* version update detection and error sync workflow ([f773ddb](https://github.com/SchoolyB/EZ/commit/f773ddb0af517295dadf3dc3f747ebe26970b53d))
+
+## [0.22.2](https://github.com/SchoolyB/EZ/compare/v0.22.1...v0.22.2) (2025-12-16)
+
+
+### Bug Fixes
+
+* [@strict](https://github.com/strict) when enforces enum exhaustiveness at check time ([#629](https://github.com/SchoolyB/EZ/issues/629)) ([f549a3b](https://github.com/SchoolyB/EZ/commit/f549a3bd63c013f13cdb3bb4987f061ff794a0d1))
+* [@strict](https://github.com/strict) when rejects non-enum expressions ([#628](https://github.com/SchoolyB/EZ/issues/628)) ([c734b18](https://github.com/SchoolyB/EZ/commit/c734b1845b109643f8aa1c5d7acb91fab7e3c232))
+* [@strict](https://github.com/strict) when rejects non-enum expressions in cases ([#628](https://github.com/SchoolyB/EZ/issues/628)) ([799b7a7](https://github.com/SchoolyB/EZ/commit/799b7a7fd3035eae677fb9388d25eef06d09fa1a))
+* `[@strict](https://github.com/strict)` when enforces enum exhaustiveness at check time ([#629](https://github.com/SchoolyB/EZ/issues/629)) ([be87d59](https://github.com/SchoolyB/EZ/commit/be87d591d8c4357f87f6700196b107976df19e91))
+* duplicate map keys in literal now produce check-time error ([#641](https://github.com/SchoolyB/EZ/issues/641)) ([06b3f91](https://github.com/SchoolyB/EZ/commit/06b3f91df8e8add8e7a020a50d9bd60cea691482))
+* duplicate map keys in literal now produce check-time error ([#641](https://github.com/SchoolyB/EZ/issues/641)) ([f011903](https://github.com/SchoolyB/EZ/commit/f0119037c23adb2d7ebd610b347bf10453d7bb88))
+* float display now shows actual precision for debugging ([#640](https://github.com/SchoolyB/EZ/issues/640)) ([d2051fb](https://github.com/SchoolyB/EZ/commit/d2051fbce7ab28af8e3016c527766ec0b75bc186))
+* float display now shows actual precision for debugging ([#640](https://github.com/SchoolyB/EZ/issues/640)) ([3ef9314](https://github.com/SchoolyB/EZ/commit/3ef93147f3104321000e65e39ebdaf7f55b7318d))
+* recursively initialize nested struct fields ([#621](https://github.com/SchoolyB/EZ/issues/621)) ([ad4f911](https://github.com/SchoolyB/EZ/commit/ad4f911fbd6308544fcf67970280839baad41089))
+* recursively initialize nested struct fields ([#621](https://github.com/SchoolyB/EZ/issues/621)) ([3b7c653](https://github.com/SchoolyB/EZ/commit/3b7c65385280bd48f58b505b42f6c0850e863cce))
+* validate type assignments for imported module struct fields ([#620](https://github.com/SchoolyB/EZ/issues/620)) ([194d74f](https://github.com/SchoolyB/EZ/commit/194d74fa917c8690bb0baf68392447d1b6cf8089))
+* validate type assignments for imported module struct fields ([#620](https://github.com/SchoolyB/EZ/issues/620)) ([a965fb3](https://github.com/SchoolyB/EZ/commit/a965fb3a239bf82385c1752494ba844fa33b5b80))
+
+## [0.22.1](https://github.com/SchoolyB/EZ/compare/v0.22.0...v0.22.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* detect variable shadowing of functions from used modules ([db505b4](https://github.com/SchoolyB/EZ/commit/db505b40bd022a64e31752f08f1b59ad02e9bfe2))
+* detect variable shadowing of functions from used modules ([#616](https://github.com/SchoolyB/EZ/issues/616)) ([cf40e75](https://github.com/SchoolyB/EZ/commit/cf40e75abffaee9d9a9553bc652014bda149f07e))
+
+## [0.22.0](https://github.com/SchoolyB/EZ/compare/v0.21.2...v0.22.0) (2025-12-15)
+
+
+### Features
+
+* add `@JSON` module, raw strings, and restrict `any` type ([8e566e5](https://github.com/SchoolyB/EZ/commit/8e566e5c73e9cd14c595f7b63dbed93104745f1f))
+* add JSON module, raw strings, and restrict 'any' type ([f66b734](https://github.com/SchoolyB/EZ/commit/f66b734823d38dc9c40312044e25905cda096374))
+
+## [0.21.2](https://github.com/SchoolyB/EZ/compare/v0.21.1...v0.21.2) (2025-12-15)
+
+
+### Bug Fixes
+
+* December 15, 2025 bug fixes ([#580](https://github.com/SchoolyB/EZ/issues/580)) ([dd6253c](https://github.com/SchoolyB/EZ/commit/dd6253c1a8ccdeed95386b5c2a2418d7b8be0aad))
+
+## [0.21.1](https://github.com/SchoolyB/EZ/compare/v0.21.0...v0.21.1) (2025-12-14)
+
+
+### Bug Fixes
+
+* December 14, 2025 bug fixes ([#544](https://github.com/SchoolyB/EZ/issues/544)) ([3169059](https://github.com/SchoolyB/EZ/commit/31690596cf470115b4c4269d1ac6d24519c15296))
+
+## [0.21.0](https://github.com/SchoolyB/EZ/compare/v0.20.1...v0.21.0) (2025-12-12)
+
+
+### Features
+
+* global builtins, [@std](https://github.com/std) expansion, and bug fixes ([#525](https://github.com/SchoolyB/EZ/issues/525), [#526](https://github.com/SchoolyB/EZ/issues/526), [#522](https://github.com/SchoolyB/EZ/issues/522), [#523](https://github.com/SchoolyB/EZ/issues/523), [#524](https://github.com/SchoolyB/EZ/issues/524), [#527](https://github.com/SchoolyB/EZ/issues/527)) ([#532](https://github.com/SchoolyB/EZ/issues/532)) ([accd080](https://github.com/SchoolyB/EZ/commit/accd0803e711b1327d2f4b0ee6c334f04c600846))
+
+## [0.20.1](https://github.com/SchoolyB/EZ/compare/v0.20.0...v0.20.1) (2025-12-12)
+
+
+### Bug Fixes
+
+* december 12 patch release ([#520](https://github.com/SchoolyB/EZ/issues/520)) ([9e75aa0](https://github.com/SchoolyB/EZ/commit/9e75aa07bb6687d01ce471efa5bbaafd11f9c5c3))
+
+## [0.20.0](https://github.com/SchoolyB/EZ/compare/v0.19.3...v0.20.0) (2025-12-11)
+
+
+### Features
+
+* allow range() in if/in expressions and when/is statements ([#501](https://github.com/SchoolyB/EZ/issues/501)) ([#505](https://github.com/SchoolyB/EZ/issues/505)) ([de2890f](https://github.com/SchoolyB/EZ/commit/de2890f16bcd738adca6de3803d93c8e1dabddef))
+
+## [0.19.3](https://github.com/SchoolyB/EZ/compare/v0.19.2...v0.19.3) (2025-12-11)
+
+
+### Bug Fixes
+
+* remove [@string](https://github.com/string) alias and add module suggestion hints ([#502](https://github.com/SchoolyB/EZ/issues/502)) ([#503](https://github.com/SchoolyB/EZ/issues/503)) ([53122a1](https://github.com/SchoolyB/EZ/commit/53122a1350104efae0bed292167851a34e04d4a6))
+
+## [0.19.2](https://github.com/SchoolyB/EZ/compare/v0.19.1...v0.19.2) (2025-12-11)
+
+
+### Bug Fixes
+
+* show update notification immediately on all commands ([#499](https://github.com/SchoolyB/EZ/issues/499)) ([c436b2f](https://github.com/SchoolyB/EZ/commit/c436b2fe91d723317f54c5021499f45f94934ac7)), closes [#498](https://github.com/SchoolyB/EZ/issues/498)
+
+## [0.19.1](https://github.com/SchoolyB/EZ/compare/v0.19.0...v0.19.1) (2025-12-11)
+
+
+### Bug Fixes
+
+* add path validation to archive extraction functions ([#487](https://github.com/SchoolyB/EZ/issues/487)) ([#495](https://github.com/SchoolyB/EZ/issues/495)) ([974250a](https://github.com/SchoolyB/EZ/commit/974250a0f45c8cbee29039c8b5e8ed002283f736))
+
+## [0.19.0](https://github.com/SchoolyB/EZ/compare/v0.18.1...v0.19.0) (2025-12-11)
+
+
+### Features
+
+* add when/is switch statements ([#179](https://github.com/SchoolyB/EZ/issues/179)) ([#491](https://github.com/SchoolyB/EZ/issues/491)) ([4f0c068](https://github.com/SchoolyB/EZ/commit/4f0c0689c8efcf3b2dbf8bd08764fb5b0fa510eb))
+
+## [0.18.1](https://github.com/SchoolyB/EZ/compare/v0.18.0...v0.18.1) (2025-12-11)
+
+
+### Bug Fixes
+
+* correct error codes for immutable variable/map errors ([#488](https://github.com/SchoolyB/EZ/issues/488)) ([727ce1b](https://github.com/SchoolyB/EZ/commit/727ce1bce576f0628aef67c1e7dd500a4c24e7d1))
+
+## [0.18.0](https://github.com/SchoolyB/EZ/compare/v0.17.2...v0.18.0) (2025-12-10)
+
+
+### Features
+
+* add default parameter values for functions ([#312](https://github.com/SchoolyB/EZ/issues/312)) ([#485](https://github.com/SchoolyB/EZ/issues/485)) ([933ca6f](https://github.com/SchoolyB/EZ/commit/933ca6fe278654cfea9a1172e4a3eb0419f05f58))
+
+## [0.17.2](https://github.com/SchoolyB/EZ/compare/v0.17.1...v0.17.2) (2025-12-10)
+
+
+### Bug Fixes
+
+* auto-elevate to sudo when update needs root permissions ([#483](https://github.com/SchoolyB/EZ/issues/483)) ([8cfa5c3](https://github.com/SchoolyB/EZ/commit/8cfa5c3d2814d8ec2fa7c2593ab405829e80bdb9))
+
+## [0.17.1](https://github.com/SchoolyB/EZ/compare/v0.17.0...v0.17.1) (2025-12-10)
+
+
+### Bug Fixes
+
+* handle .tar.gz/.zip archives in ez update ([#481](https://github.com/SchoolyB/EZ/issues/481)) ([b7d4314](https://github.com/SchoolyB/EZ/commit/b7d43143472a1436037fa79e63efb396e4e3126f))
+
+## [0.17.0](https://github.com/SchoolyB/EZ/compare/v0.16.15...v0.17.0) (2025-12-10)
+
+
+### Features
+
+* add update checker and `ez update` command ([#478](https://github.com/SchoolyB/EZ/issues/478)) ([#479](https://github.com/SchoolyB/EZ/issues/479)) ([a33c92b](https://github.com/SchoolyB/EZ/commit/a33c92be20dc111bf0d8a1529b7a06b7f3b7522b))
+
+## [0.16.15](https://github.com/SchoolyB/EZ/compare/v0.16.14...v0.16.15) (2025-12-10)
+
+
+### Bug Fixes
+
+* show correct file location for multi-file module errors ([#466](https://github.com/SchoolyB/EZ/issues/466)) ([#476](https://github.com/SchoolyB/EZ/issues/476)) ([b187e1a](https://github.com/SchoolyB/EZ/commit/b187e1a6b8e98347acc541775eb27d6d59c98869))
+
+## [0.16.14](https://github.com/SchoolyB/EZ/compare/v0.16.13...v0.16.14) (2025-12-10)
+
+
+### Bug Fixes
+
+* show file location in module not found error ([#461](https://github.com/SchoolyB/EZ/issues/461)) ([#474](https://github.com/SchoolyB/EZ/issues/474)) ([a6eec23](https://github.com/SchoolyB/EZ/commit/a6eec2353111ce07adfca2733e93d58afe352c3d))
+
+## [0.16.13](https://github.com/SchoolyB/EZ/compare/v0.16.12...v0.16.13) (2025-12-10)
+
+
+### Bug Fixes
+
+* suppress module name warning for files in matching directories ([#464](https://github.com/SchoolyB/EZ/issues/464)) ([#472](https://github.com/SchoolyB/EZ/issues/472)) ([6be1062](https://github.com/SchoolyB/EZ/commit/6be106280f0cd375a9a93dac8197b6ab4fe34c2e))
+
+## [0.16.12](https://github.com/SchoolyB/EZ/compare/v0.16.11...v0.16.12) (2025-12-10)
+
+
+### Bug Fixes
+
+* handle module-prefixed types in type compatibility checks ([#463](https://github.com/SchoolyB/EZ/issues/463)) ([#469](https://github.com/SchoolyB/EZ/issues/469)) ([3c597de](https://github.com/SchoolyB/EZ/commit/3c597dec48fafc0a2cdb9c2fadee796f04bb73ac))
+
+## [0.16.11](https://github.com/SchoolyB/EZ/compare/v0.16.10...v0.16.11) (2025-12-10)
+
+
+### Bug Fixes
+
+* resolve uppercase constants being parsed as struct literals ([#462](https://github.com/SchoolyB/EZ/issues/462)) ([a406de3](https://github.com/SchoolyB/EZ/commit/a406de3d496cf89c4f405182d5392b16405c6fc4))
+
+## [0.16.10](https://github.com/SchoolyB/EZ/compare/v0.16.9...v0.16.10) (2025-12-09)
+
+
+### Bug Fixes
+
+* bug fixes batch - parser, stdlib, interpreter, and enum map keys ([#454](https://github.com/SchoolyB/EZ/issues/454)) ([f90e10f](https://github.com/SchoolyB/EZ/commit/f90e10fd02b3946ac37341956b453db744198017)), closes [#452](https://github.com/SchoolyB/EZ/issues/452)
+
+## [0.16.9](https://github.com/SchoolyB/EZ/compare/v0.16.8...v0.16.9) (2025-12-08)
+
+
+### Bug Fixes
+
+* implement arbitrary precision integers for i128/u128 support ([#437](https://github.com/SchoolyB/EZ/issues/437)) ([#440](https://github.com/SchoolyB/EZ/issues/440)) ([af4cdbf](https://github.com/SchoolyB/EZ/commit/af4cdbfd42edcd87d5982032d06cc913cc01e75f))
+
+## [0.16.8](https://github.com/SchoolyB/EZ/compare/v0.16.7...v0.16.8) (2025-12-08)
+
+
+### Bug Fixes
+
+* integration test overhaul and bug fixes ([#435](https://github.com/SchoolyB/EZ/issues/435)) ([a4ad4e8](https://github.com/SchoolyB/EZ/commit/a4ad4e8549490a5cf03b8d54bd9b48511a3af264))
+
+## [0.16.7](https://github.com/SchoolyB/EZ/compare/v0.16.6...v0.16.7) (2025-12-08)
+
+
+### Bug Fixes
+
+* detect integer overflow in negation and division ([#424](https://github.com/SchoolyB/EZ/issues/424)) ([e83bdfe](https://github.com/SchoolyB/EZ/commit/e83bdfef81ab73cad1d2b5d9062b1a8be071f2d8))
+
+## [0.16.6](https://github.com/SchoolyB/EZ/compare/v0.16.5...v0.16.6) (2025-12-08)
+
+
+### Bug Fixes
+
+* stdlib functions preserve input type ([#422](https://github.com/SchoolyB/EZ/issues/422)) ([1e91801](https://github.com/SchoolyB/EZ/commit/1e91801ff35219dbdee45e87ae6a4af4be9453eb)), closes [#404](https://github.com/SchoolyB/EZ/issues/404)
+
+## [0.16.5](https://github.com/SchoolyB/EZ/compare/v0.16.4...v0.16.5) (2025-12-08)
+
+
+### Bug Fixes
+
+* float division by zero returns INF per IEEE 754 ([#420](https://github.com/SchoolyB/EZ/issues/420)) ([744cf75](https://github.com/SchoolyB/EZ/commit/744cf75b2f9188103cfd4e4734900b364c3a4781)), closes [#402](https://github.com/SchoolyB/EZ/issues/402)
+
+## [0.16.4](https://github.com/SchoolyB/EZ/compare/v0.16.3...v0.16.4) (2025-12-08)
+
+
+### Bug Fixes
+
+* allow byte to int conversion with int() ([#418](https://github.com/SchoolyB/EZ/issues/418)) ([33dd463](https://github.com/SchoolyB/EZ/commit/33dd463d19ed16fe36f03fa3b9aba641c56edffb)), closes [#403](https://github.com/SchoolyB/EZ/issues/403)
+
+## [0.16.3](https://github.com/SchoolyB/EZ/compare/v0.16.2...v0.16.3) (2025-12-08)
+
+
+### Bug Fixes
+
+* reject nil assignment to non-nullable types ([#416](https://github.com/SchoolyB/EZ/issues/416)) ([40e82e3](https://github.com/SchoolyB/EZ/commit/40e82e3f7addc2410ffa0a3ec062c4f5184a34f0)), closes [#407](https://github.com/SchoolyB/EZ/issues/407)
+
+## [0.16.2](https://github.com/SchoolyB/EZ/compare/v0.16.1...v0.16.2) (2025-12-08)
+
+
+### Bug Fixes
+
+* detect mixed-type enums at check time ([#414](https://github.com/SchoolyB/EZ/issues/414)) ([e1b8c63](https://github.com/SchoolyB/EZ/commit/e1b8c63fd7c841d8d3aea2ad48b0d2d31483e6ca)), closes [#410](https://github.com/SchoolyB/EZ/issues/410)
+
+## [0.16.1](https://github.com/SchoolyB/EZ/compare/v0.16.0...v0.16.1) (2025-12-08)
+
+
+### Bug Fixes
+
+* make array functions modify in-place and fix remove() API ([#412](https://github.com/SchoolyB/EZ/issues/412)) ([f6890b8](https://github.com/SchoolyB/EZ/commit/f6890b82553549702b3d52186843ca7c11e2860d))
+
+## [0.16.0](https://github.com/SchoolyB/EZ/compare/v0.15.2...v0.16.0) (2025-12-07)
+
+
+### Features
+
+* add line editor for REPL with arrow key navigation and history ([#400](https://github.com/SchoolyB/EZ/issues/400)) ([bce7343](https://github.com/SchoolyB/EZ/commit/bce7343118564ec2f8b7b2e79b2eec3cd0b49711))
+
+## [0.15.2](https://github.com/SchoolyB/EZ/compare/v0.15.1...v0.15.2) (2025-12-07)
+
+
+### Bug Fixes
+
+* resolve stdlib bugs for arrays, strings, and math modules ([#398](https://github.com/SchoolyB/EZ/issues/398)) ([b278ce6](https://github.com/SchoolyB/EZ/commit/b278ce6744cba9c3e8bf22237038f8cce398bda8))
+
+## [0.15.1](https://github.com/SchoolyB/EZ/compare/v0.15.0...v0.15.1) (2025-12-07)
+
+
+### Bug Fixes
+
+* resolve several interpreter bugs ([5c083d3](https://github.com/SchoolyB/EZ/commit/5c083d33e3d0f18cef30049f3f57e184ce131d78))
+
+## [0.15.0](https://github.com/SchoolyB/EZ/compare/v0.14.10...v0.15.0) (2025-12-07)
+
+
+### Features
+
+* replace [@ignore](https://github.com/ignore) with _ (underscore) blank identifier ([#376](https://github.com/SchoolyB/EZ/issues/376)) ([66111be](https://github.com/SchoolyB/EZ/commit/66111beaf80ca72dab092a9b0e62b1fa5e4da58a))
+
+## [0.14.10](https://github.com/SchoolyB/EZ/compare/v0.14.9...v0.14.10) (2025-12-07)
+
+
+### Bug Fixes
+
+* resolve multiple bugs in stdlib, lexer, and parser ([#374](https://github.com/SchoolyB/EZ/issues/374)) ([c4be966](https://github.com/SchoolyB/EZ/commit/c4be9660ed9ced0f6a812d5a98ef5eea9389a813))
+
+## [0.14.9](https://github.com/SchoolyB/EZ/compare/v0.14.8...v0.14.9) (2025-12-05)
+
+
+### Bug Fixes
+
+* **interpreter:** nested mutable parameter forwarding now works correctly ([#367](https://github.com/SchoolyB/EZ/issues/367)) ([5762939](https://github.com/SchoolyB/EZ/commit/57629390fb7bd4a9c53b55d9a259f853841de901)), closes [#338](https://github.com/SchoolyB/EZ/issues/338)
+
+## [0.14.8](https://github.com/SchoolyB/EZ/compare/v0.14.7...v0.14.8) (2025-12-05)
+
+
+### Bug Fixes
+
+* **typechecker:** type errors now report correct source location ([#362](https://github.com/SchoolyB/EZ/issues/362)) ([13cdb4e](https://github.com/SchoolyB/EZ/commit/13cdb4ecd40f282c01749bf0f0ff65a22b6ea011))
+
+## [0.14.7](https://github.com/SchoolyB/EZ/compare/v0.14.6...v0.14.7) (2025-12-05)
+
+
+### Bug Fixes
+
+* **parser:** handle minimum int64 literal (-9223372036854775808) ([#360](https://github.com/SchoolyB/EZ/issues/360)) ([8c75b43](https://github.com/SchoolyB/EZ/commit/8c75b434ff40f3e11066edbeb13a563e03a43b76))
+
+## [0.14.6](https://github.com/SchoolyB/EZ/compare/v0.14.5...v0.14.6) (2025-12-05)
+
+
+### Bug Fixes
+
+* **parser:** enum member access in if condition no longer causes parser error ([#358](https://github.com/SchoolyB/EZ/issues/358)) ([6e0c5de](https://github.com/SchoolyB/EZ/commit/6e0c5de28bc3ba4e287bd1bbbb92ac5abd126fc8))
+
+## [0.14.5](https://github.com/SchoolyB/EZ/compare/v0.14.4...v0.14.5) (2025-12-05)
+
+
+### Bug Fixes
+
+* **evaluator:** isTruthy now checks Boolean.Value instead of pointer identity ([#354](https://github.com/SchoolyB/EZ/issues/354)) ([18edd78](https://github.com/SchoolyB/EZ/commit/18edd78036eb4c57637303283729496f2d3c03b1))
+
+## [0.14.4](https://github.com/SchoolyB/EZ/compare/v0.14.3...v0.14.4) (2025-12-05)
+
+
+### Bug Fixes
+
+* **ci:** auto-merge release PRs even when a release is created in same run ([eabee09](https://github.com/SchoolyB/EZ/commit/eabee09ea4800cc6618924636b5ed1511b2f25e8))
+* **stdlib:** arrays.insert() and arrays.remove() now modify array in-place ([3ad569a](https://github.com/SchoolyB/EZ/commit/3ad569a9a0e3b3b39664335551d7d0e2cfbf89e2))
+* **stdlib:** arrays.insert() and arrays.remove() now modify array in-place ([f26797d](https://github.com/SchoolyB/EZ/commit/f26797ddcd2a2be3ba23f06384b3b1e3ceb4330a))
+
+## [0.14.3](https://github.com/SchoolyB/EZ/compare/v0.14.2...v0.14.3) (2025-12-05)
+
+
+### Bug Fixes
+
+* **evaluator:** implement short-circuit evaluation for && and || ([a9e4fe1](https://github.com/SchoolyB/EZ/commit/a9e4fe13877775af1a2f7859cc218484a31909b2))
+* **evaluator:** implement short-circuit evaluation for && and || ([2f6f0a6](https://github.com/SchoolyB/EZ/commit/2f6f0a6bdc10484e58ade9b54c2a45ca4acd3a25))
+
+## [0.14.2](https://github.com/SchoolyB/EZ/compare/v0.14.1...v0.14.2) (2025-12-05)
+
+
+### Bug Fixes
+
+* **typechecker:** handle array and map types in struct fields ([0455540](https://github.com/SchoolyB/EZ/commit/04555409b90e3bcc90825f2915348eecc84e6b40))
+* **typechecker:** handle array and map types in struct fields ([0d1cd53](https://github.com/SchoolyB/EZ/commit/0d1cd53cd6d738c969c4beccfad56ba49f18ddd1))
+
+## [0.14.1](https://github.com/SchoolyB/EZ/compare/v0.14.0...v0.14.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* **interpreter:** add recursion depth limit to prevent stack overflow ([ccda7b7](https://github.com/SchoolyB/EZ/commit/ccda7b779bc8534b00f3e6a5f8396b4a7c574231)), closes [#327](https://github.com/SchoolyB/EZ/issues/327)
+* **lexer:** preserve line numbers in string interpolation expressions ([5a236b7](https://github.com/SchoolyB/EZ/commit/5a236b72949fb37a54a4acdcb65cbe8069978f07)), closes [#323](https://github.com/SchoolyB/EZ/issues/323)
+* **parser:** block reserved names as function parameter names ([1a52eb0](https://github.com/SchoolyB/EZ/commit/1a52eb00148ccf97b2e80684183d541335a12985))
+* **parser:** disallow import statements inside blocks and after declarations ([19118f6](https://github.com/SchoolyB/EZ/commit/19118f6eddcecd4632c9f1d893fe78ab90251d51)), closes [#324](https://github.com/SchoolyB/EZ/issues/324)
+* **parser:** prevent nil pointer crash when using 'const' as identifier ([e2177b3](https://github.com/SchoolyB/EZ/commit/e2177b389aed3acd022e8214387146609d1b6e17)), closes [#317](https://github.com/SchoolyB/EZ/issues/317)
+* **parser:** use helpful error when keywords used as identifiers ([614d2bd](https://github.com/SchoolyB/EZ/commit/614d2bda79524de9348734bbaa42c9be2ca86f0b))
+* **parser:** use helpful error when keywords used as identifiers ([5ffb6e3](https://github.com/SchoolyB/EZ/commit/5ffb6e393445ae14bf806bbaa1f3baa39174746a)), closes [#326](https://github.com/SchoolyB/EZ/issues/326)
+* **parser:** use specific error codes for struct/enum reserved names ([c86b903](https://github.com/SchoolyB/EZ/commit/c86b9038ca1e85e46e77b93d90a8a1d56236ec4a))
+* **parser:** validate enum value names against reserved keywords ([1a3f9b1](https://github.com/SchoolyB/EZ/commit/1a3f9b18df2107bd2806fdd9b525461ffd3f2c10)), closes [#322](https://github.com/SchoolyB/EZ/issues/322)
+* **parser:** validate struct field names against reserved keywords ([a077535](https://github.com/SchoolyB/EZ/commit/a077535e905202e19dc34fd696f02e4bc51f59d9)), closes [#321](https://github.com/SchoolyB/EZ/issues/321)
+* **typechecker:** block user-defined types/functions as parameter names ([2bea2dc](https://github.com/SchoolyB/EZ/commit/2bea2dc6377f246adb34601f1b0e0ab058b4868a))
+* **typechecker:** enforce static typing for type-inferred variables ([e1a4437](https://github.com/SchoolyB/EZ/commit/e1a443768b3f0afce1aab733f868fa5ff83fedb7)), closes [#329](https://github.com/SchoolyB/EZ/issues/329)
+* **typechecker:** make missing return statement an error instead of warning ([1338860](https://github.com/SchoolyB/EZ/commit/1338860d0ebabe392f05f3b311dc2d6981960a69)), closes [#318](https://github.com/SchoolyB/EZ/issues/318)
+* **typechecker:** use correct error code for missing main function ([92b3463](https://github.com/SchoolyB/EZ/commit/92b3463ad86ecb87b809a23ae6ee3cefe66495c3)), closes [#328](https://github.com/SchoolyB/EZ/issues/328)
+* **typechecker:** validate member access on non-struct types ([df0daee](https://github.com/SchoolyB/EZ/commit/df0daee12fe43410abce26e41b0811adaeac3936)), closes [#313](https://github.com/SchoolyB/EZ/issues/313)
+
+## [0.14.0](https://github.com/SchoolyB/EZ/compare/v0.13.0...v0.14.0) (2025-12-04)
+
+
+### Features
+
+* **stdlib:** add [@random](https://github.com/random) module with comprehensive random functions ([0f2f981](https://github.com/SchoolyB/EZ/commit/0f2f981b0ef78b90e653190100d521f7b91d6a3f)), closes [#309](https://github.com/SchoolyB/EZ/issues/309)
+* **stdlib:** add command execution functions to [@os](https://github.com/os) ([b8b2e04](https://github.com/SchoolyB/EZ/commit/b8b2e04475d8a2c31b751fa8a2cbe673d574deb2))
+* **stdlib:** add filesystem utilities to [@io](https://github.com/io) ([bf0e035](https://github.com/SchoolyB/EZ/commit/bf0e0359f1c01236e73f706e497329e5506284c5)), closes [#287](https://github.com/SchoolyB/EZ/issues/287)
+* **stdlib:** add math.log_base() for arbitrary base logarithms ([7b304f6](https://github.com/SchoolyB/EZ/commit/7b304f6fed3fd54247daaa74288a4f7eb22ef404))
+* **stdlib:** add new string utility functions to [@strings](https://github.com/strings) ([7cce6fd](https://github.com/SchoolyB/EZ/commit/7cce6fd96551c8ebdc91c055a607ed439e35e7cf)), closes [#285](https://github.com/SchoolyB/EZ/issues/285)
+* **stdlib:** expand standard library with new modules and functions ([401203e](https://github.com/SchoolyB/EZ/commit/401203eb730037dfc3579b810b18097d77617fc7))
+
+## [0.13.0](https://github.com/SchoolyB/EZ/compare/v0.12.0...v0.13.0) (2025-12-04)
+
+
+### Features
+
+* add error() constructor for user-defined errors ([95a85fe](https://github.com/SchoolyB/EZ/commit/95a85fed06360177d671cb18dedd1bf55e465be2))
+* add error() constructor for user-defined errors ([#292](https://github.com/SchoolyB/EZ/issues/292)) ([4f2bc5e](https://github.com/SchoolyB/EZ/commit/4f2bc5eed24b63d31d9b3bc76c44035260a74434))
+
+## [0.12.0](https://github.com/SchoolyB/EZ/compare/v0.11.3...v0.12.0) (2025-12-04)
+
+
+### Features
+
+* allow type inference for const declarations ([279afc8](https://github.com/SchoolyB/EZ/commit/279afc80d91d072a3b35aa85372bd3ea9ae6c893))
+* allow type inference for const declarations ([#302](https://github.com/SchoolyB/EZ/issues/302)) ([ff94be9](https://github.com/SchoolyB/EZ/commit/ff94be94f855368dc08f67efe0cee3d398a0b8df))
+
+## [0.11.3](https://github.com/SchoolyB/EZ/compare/v0.11.2...v0.11.3) (2025-12-04)
+
+
+### Bug Fixes
+
+* struct mutability now respects temp/const declaration ([e91d7d9](https://github.com/SchoolyB/EZ/commit/e91d7d998ced22e2faaea8d4fcdd56d27d73d75c))
+* struct mutability now respects temp/const declaration ([#298](https://github.com/SchoolyB/EZ/issues/298)) ([66be5c0](https://github.com/SchoolyB/EZ/commit/66be5c04da3c65a11abcf9bf62ddffbd2cd22cc8))
+
+## [0.11.2](https://github.com/SchoolyB/EZ/compare/v0.11.1...v0.11.2) (2025-12-04)
+
+
+### Bug Fixes
+
+* CI REPL test failing on macOS ([42cb93c](https://github.com/SchoolyB/EZ/commit/42cb93cccd995d927606e05a26fdf02e145afba2))
+* CI REPL test failing on macOS ([#299](https://github.com/SchoolyB/EZ/issues/299)) ([8b14f75](https://github.com/SchoolyB/EZ/commit/8b14f754baf770a2bca091fa9748fa342d8b7de7))
+
+## [0.11.1](https://github.com/SchoolyB/EZ/compare/v0.11.0...v0.11.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* allow optional parentheses in for loops ([#293](https://github.com/SchoolyB/EZ/issues/293)) ([d86b71c](https://github.com/SchoolyB/EZ/commit/d86b71cb48281f221f19bf0aa40e98e3f67ac9c2))
+* allow optional parentheses in for loops ([#293](https://github.com/SchoolyB/EZ/issues/293)) ([16c968d](https://github.com/SchoolyB/EZ/commit/16c968d5b03fc08de82a4589207f8852b0ad8841))
+
+## [0.11.0](https://github.com/SchoolyB/EZ/compare/v0.10.0...v0.11.0) (2025-12-03)
+
+
+### Features
+
+* implement char() type conversion function ([d7362bf](https://github.com/SchoolyB/EZ/commit/d7362bf42bb6539a9592e95dcf8710b3965d9aad))
+* implement char() type conversion function ([#100](https://github.com/SchoolyB/EZ/issues/100)) ([e23c6d3](https://github.com/SchoolyB/EZ/commit/e23c6d35a67488fc42c4355f98136b9223e32e61))
+
+## [0.10.0](https://github.com/SchoolyB/EZ/compare/v0.9.0...v0.10.0) (2025-12-03)
+
+
+### Features
+
+* remove arrays.copy() and maps.copy() in favor of copy() builtin ([#269](https://github.com/SchoolyB/EZ/issues/269)) ([aa2de1d](https://github.com/SchoolyB/EZ/commit/aa2de1dbe8304eaea2950aa60c2dd8d02e537acd))
+
+## [0.9.0](https://github.com/SchoolyB/EZ/compare/v0.8.3...v0.9.0) (2025-12-03)
+
+
+### Features
+
+* add `copy()` builtin for explicit value semantics ([051a752](https://github.com/SchoolyB/EZ/commit/051a7529922b92768cb26ecf5bfc08cb4b04b3bd))
+* add copy() builtin for explicit value semantics ([#265](https://github.com/SchoolyB/EZ/issues/265)) ([4681cdd](https://github.com/SchoolyB/EZ/commit/4681cddcd4009f7157fddfe53df9be013bcde503))
+
+## [0.8.3](https://github.com/SchoolyB/EZ/compare/v0.8.2...v0.8.3) (2025-12-03)
+
+
+### Bug Fixes
+
+* fixed-size array indexing returns correct element type ([4c7211f](https://github.com/SchoolyB/EZ/commit/4c7211fe3edfb4ef4f3188cb9c5b65a12bb7a368))
+* fixed-size array indexing returns correct element type ([#267](https://github.com/SchoolyB/EZ/issues/267)) ([92eeb28](https://github.com/SchoolyB/EZ/commit/92eeb2809e33d9a39eed3ad6f00cd6e43fa72634))
+* Handle comma in array type when extracting element type in inferIndexType. ([92eeb28](https://github.com/SchoolyB/EZ/commit/92eeb2809e33d9a39eed3ad6f00cd6e43fa72634))
+
+## [0.8.2](https://github.com/SchoolyB/EZ/compare/v0.8.1...v0.8.2) (2025-12-03)
+
+
+### Bug Fixes
+
+* prevent modification of const struct fields ([20074af](https://github.com/SchoolyB/EZ/commit/20074af830d6828088817465a6e5b1410e39cca2))
+* prevent modification of const struct fields ([#266](https://github.com/SchoolyB/EZ/issues/266)) ([17b033a](https://github.com/SchoolyB/EZ/commit/17b033a466f6591c211b64bc86be051c96201fd5))
+
+## [0.8.1](https://github.com/SchoolyB/EZ/compare/v0.8.0...v0.8.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* remove deprecated lowercase math constants ([9b7b238](https://github.com/SchoolyB/EZ/commit/9b7b2384fe189c6b4f1d1dd941ac8b5d2f7ed155))
+* remove deprecated lowercase math constants ([#260](https://github.com/SchoolyB/EZ/issues/260)) ([7e182fd](https://github.com/SchoolyB/EZ/commit/7e182fda260c9bd49a274939ac1656b1d3cafc41))
+
+## [0.8.0](https://github.com/SchoolyB/EZ/compare/v0.7.1...v0.8.0) (2025-12-03)
+
+
+### Features
+
+* add mutable parameters with & syntax ([7fdeb24](https://github.com/SchoolyB/EZ/commit/7fdeb24241a643a050beaeceb8cd1b9f600be9ca))
+* add mutable parameters with & syntax ([#268](https://github.com/SchoolyB/EZ/issues/268)) ([5075f6f](https://github.com/SchoolyB/EZ/commit/5075f6fbdc888dbf3cf3dbded0dda7928f884b32))
+
+## [0.7.1](https://github.com/SchoolyB/EZ/compare/v0.7.0...v0.7.1) (2025-12-02)
+
+
+### Bug Fixes
+
+* **ci:** sync release-please manifest to v0.7.0 ([d908c55](https://github.com/SchoolyB/EZ/commit/d908c55a0aee63d8e9644bd03fbb73aeed901fb4))
+* **ci:** sync release-please manifest to v0.7.0 ([dd05c6e](https://github.com/SchoolyB/EZ/commit/dd05c6e13a6cb68479b800e972a40e87fa460229))
+
+## [0.7.0](https://github.com/SchoolyB/EZ/compare/v0.6.1...v0.7.0) (2025-12-02)
+
+
+### Features
+
+* **io:** add byte I/O and atomic writes ([ab37220](https://github.com/SchoolyB/EZ/commit/ab37220ea5343df91b40856fe565858fa73149cf))
+* **io:** add file handles, constants, and convenience functions ([870df20](https://github.com/SchoolyB/EZ/commit/870df203ac6cac574a25b49b6bac71168abcf2d4))
+* **io:** byte operations, file handles & enhancements ([7832642](https://github.com/SchoolyB/EZ/commit/783264228085fe2467954fdb8f0b140578777c16))
+
+
+### Bug Fixes
+
+* **io:** handle close errors on writable file handles ([aebdd96](https://github.com/SchoolyB/EZ/commit/aebdd9679296b87152c229aae5a0cc05ede728ef))
+
+## [0.6.1](https://github.com/SchoolyB/EZ/compare/v0.6.0...v0.6.1) (2025-12-02)
+
+
+### Bug Fixes
+
+* **io:** add path security validation ([3f82018](https://github.com/SchoolyB/EZ/commit/3f82018747ce98752772faa1304e117009185c48))
+* **io:** add path security validation ([a520f30](https://github.com/SchoolyB/EZ/commit/a520f30c9f4f49d9bb3cd07b3953272dd22277d6)), closes [#254](https://github.com/SchoolyB/EZ/issues/254)
+
+## [0.6.0](https://github.com/SchoolyB/EZ/compare/v0.5.0...v0.6.0) (2025-12-02)
+
+
+### Features
+
+* **lang:** add hex/binary literals and byte warnings ([172028a](https://github.com/SchoolyB/EZ/commit/172028a98ff60b27111b9c87548e599e797e1b35))
+* **lang:** implement byte and [byte] data types ([d1f98be](https://github.com/SchoolyB/EZ/commit/d1f98be06acefca64562411f67366232235b40c5))
+* **lang:** implement byte and [byte] data types ([4499882](https://github.com/SchoolyB/EZ/commit/4499882917a030a02e842df37ab05c9f563878a8)), closes [#248](https://github.com/SchoolyB/EZ/issues/248)
+* **stdlib:** implement [@bytes](https://github.com/bytes) module for binary data operations ([48a05b6](https://github.com/SchoolyB/EZ/commit/48a05b6d3d63e416694abeac198e0008566893a5))
+* **stdlib:** implement [@io](https://github.com/io) module for file system operations ([99115a1](https://github.com/SchoolyB/EZ/commit/99115a15f661f200450c7a34a90dc08ffe1d4acd)), closes [#243](https://github.com/SchoolyB/EZ/issues/243)
+* **stdlib:** implement [@os](https://github.com/os) module ([f2feac2](https://github.com/SchoolyB/EZ/commit/f2feac2761e028bd1d2178b795e75c7b996231ba))
+* **stdlib:** implement [@os](https://github.com/os) module for operating system operations ([7595236](https://github.com/SchoolyB/EZ/commit/75952363d82098c2faad05058985227a7254f348))
+* **stdlib:** implement `[@bytes](https://github.com/bytes)` module for binary data operations ([5533a97](https://github.com/SchoolyB/EZ/commit/5533a972a16ad14168cd5187e653d95914324867))
+* **stdlib:** implement `[@io](https://github.com/io)` module for file system operations ([4b195d4](https://github.com/SchoolyB/EZ/commit/4b195d45596dea2e2431c4b5c481484cedf27646))
+
+
+### Bug Fixes
+
+* **stdlib:** resolve CodeQL warnings ([0a7b971](https://github.com/SchoolyB/EZ/commit/0a7b9714fbbb46ebfc23d5b0ae1cc0ce1cba265b))
+
+## [0.5.0](https://github.com/SchoolyB/EZ/compare/v0.4.0...v0.5.0) (2025-12-02)
+
+
+### Features
+
+* rename std.print to std.printf and fix escape sequences ([d5a03a0](https://github.com/SchoolyB/EZ/commit/d5a03a0f819a566c0d47a2616a11c19e2660838b))
+* rename std.print to std.printf and fix escape sequences ([2a17192](https://github.com/SchoolyB/EZ/commit/2a171922b963ff2a37bbc92b0c3cdf50c5c9d6fc)), closes [#237](https://github.com/SchoolyB/EZ/issues/237)
+
+
+### Bug Fixes
+
+* correct CodeQL workflow order and permissions ([d93affa](https://github.com/SchoolyB/EZ/commit/d93affa9ba06d493044359f7eb48295bcab1d84d))
+* correct CodeQL workflow order and permissions ([#221](https://github.com/SchoolyB/EZ/issues/221)) ([29a4c21](https://github.com/SchoolyB/EZ/commit/29a4c21c67055de62938b22bd815b89ba68c4ec3))
+
+## [0.4.0](https://github.com/SchoolyB/EZ/compare/v0.3.0...v0.4.0) (2025-12-01)
+
+
+### Features
+
+* **stdlib:** add arrays.chunk function ([7bb900b](https://github.com/SchoolyB/EZ/commit/7bb900b4ed0bfe00eebc6e48e138748eaba6b406))
+* **stdlib:** add arrays.chunk function ([3964f73](https://github.com/SchoolyB/EZ/commit/3964f7369daa2cb7c344ad1d948be07cb3722256)), closes [#228](https://github.com/SchoolyB/EZ/issues/228)
+* **stdlib:** add math constants and infinity check ([b9c4a59](https://github.com/SchoolyB/EZ/commit/b9c4a59dc6b008d4d70bf18f7aa2b094bddc0f3c))
+* **stdlib:** add math constants and infinity check ([bdf7c2a](https://github.com/SchoolyB/EZ/commit/bdf7c2a09c3874faef2a389e3a491703710c8585))
+* **stdlib:** expand strings module with 12 new functions ([9add23b](https://github.com/SchoolyB/EZ/commit/9add23b10c8bb1dd8e2eca02bee242d412e88c22))
+* **stdlib:** expand strings module with 12 new functions ([be16cfe](https://github.com/SchoolyB/EZ/commit/be16cfe857056ea423a723c49dc341002f15ad7e)), closes [#228](https://github.com/SchoolyB/EZ/issues/228)
+* **stdlib:** expand time module with arithmetic and utilities ([c7f2be1](https://github.com/SchoolyB/EZ/commit/c7f2be1dc1e8c43fb20d4d4a404cb50f5e2f7cc8))
+* **stdlib:** expand time module with arithmetic and utilities ([f7edf78](https://github.com/SchoolyB/EZ/commit/f7edf78f21e7e4a98516d72dc5f46f225a79de73))
+
+
+### Bug Fixes
+
+* **errors:** standardize error codes across codebase ([fdf91d2](https://github.com/SchoolyB/EZ/commit/fdf91d27a4ace86d15f6037b31c47de159886331))
+* **errors:** standardize error codes across codebase ([8cf3bfd](https://github.com/SchoolyB/EZ/commit/8cf3bfd752b016468130c09cb8dd1f98cff23eeb)), closes [#233](https://github.com/SchoolyB/EZ/issues/233)
+
+## [0.3.0](https://github.com/SchoolyB/EZ/compare/v0.2.2...v0.3.0) (2025-12-01)
+
+
+### Features
+
+* **stdlib:** add strings.repeat() function ([e13972a](https://github.com/SchoolyB/EZ/commit/e13972ad8cc2ec02bba52e88bf0be781dd914c55))
+* **stdlib:** add strings.repeat() function ([c50253e](https://github.com/SchoolyB/EZ/commit/c50253e0a56af1c7da6e0349ba8f8d084327934b)), closes [#198](https://github.com/SchoolyB/EZ/issues/198)
+
+
+### Bug Fixes
+
+* **interpreter:** add helpful suggestions for common function mistakes ([3c56d14](https://github.com/SchoolyB/EZ/commit/3c56d142c59c052d87968740145c468223d1c8b3))
+* **interpreter:** add helpful suggestions for common function mistakes ([7a64a64](https://github.com/SchoolyB/EZ/commit/7a64a64aa7f3a207c0c1f9004fc5f03e1fa0eaf4)), closes [#199](https://github.com/SchoolyB/EZ/issues/199)
+* **interpreter:** allow empty {} literal for map types ([6f22b9f](https://github.com/SchoolyB/EZ/commit/6f22b9f27ba50e24fc679fa2314651880c7494eb))
+* **interpreter:** allow empty {} literal for map types ([f59819e](https://github.com/SchoolyB/EZ/commit/f59819e4ecb35e5640739c5e0394d5cb3449453e)), closes [#194](https://github.com/SchoolyB/EZ/issues/194)
+* **interpreter:** auto-detect descending range when start &gt; end ([e21d282](https://github.com/SchoolyB/EZ/commit/e21d2820cac91164fc2095102f3feee18a2de31b))
+* **interpreter:** auto-detect descending range when start &gt; end ([057df6d](https://github.com/SchoolyB/EZ/commit/057df6dd4f6ce083dfb617e0804f17e588ab3267)), closes [#197](https://github.com/SchoolyB/EZ/issues/197)
+* **lexer:** handle nested quotes in string interpolation ([8506973](https://github.com/SchoolyB/EZ/commit/8506973bb7c7e2ee14cd8b72ebb8071bf311f90a))
+* **lexer:** handle nested quotes in string interpolation ([adebd2c](https://github.com/SchoolyB/EZ/commit/adebd2cd25dd2868e88fcc458e5ee0b6d8c2a115)), closes [#193](https://github.com/SchoolyB/EZ/issues/193)
+* **loader:** properly format parse errors from imported modules ([30c13fd](https://github.com/SchoolyB/EZ/commit/30c13fd83890a89002a65b7b31f009ea6f239774))
+* **loader:** properly format parse errors from imported modules ([bd39c18](https://github.com/SchoolyB/EZ/commit/bd39c18f48c5536a653ed79ed20d407a743f3fcf)), closes [#203](https://github.com/SchoolyB/EZ/issues/203)
+* **stdlib:** add arrays.index() function ([868223e](https://github.com/SchoolyB/EZ/commit/868223e676d41b4bb1f884e4cd491a89172e7a35))
+* **stdlib:** add arrays.index() function ([da25e94](https://github.com/SchoolyB/EZ/commit/da25e9455e561bb848b149b6be757dcfeb480c52)), closes [#200](https://github.com/SchoolyB/EZ/issues/200)
+* **stdlib:** add strings.slice() function ([faeecaa](https://github.com/SchoolyB/EZ/commit/faeecaac9f9ae43bdacba65974dea3e2bb2689b8))
+* **stdlib:** add strings.slice() function ([5fd5d9e](https://github.com/SchoolyB/EZ/commit/5fd5d9ee0af2c4fa5339d7f698cb00cee3069225)), closes [#201](https://github.com/SchoolyB/EZ/issues/201)
+* **stdlib:** fix time.format() argument order and format conversion ([470c0c7](https://github.com/SchoolyB/EZ/commit/470c0c7cd900631d726a8e8685b8cd69c6ef89e8))
+* **stdlib:** fix time.format() argument order and format conversion ([a62b2cb](https://github.com/SchoolyB/EZ/commit/a62b2cb7f5bb03364f18e5d82b232d83e2af1875)), closes [#195](https://github.com/SchoolyB/EZ/issues/195)
+
+## [0.2.2](https://github.com/SchoolyB/EZ/compare/v0.2.1...v0.2.2) (2025-12-01)
+
+
+### Bug Fixes
+
+* **stdlib:** add uppercase math constants, deprecate lowercase ([f81bfcf](https://github.com/SchoolyB/EZ/commit/f81bfcfc34787337808dbc8e0553658cc2c9c5d0))
+* **stdlib:** add uppercase math constants, deprecate lowercase ([4fab99d](https://github.com/SchoolyB/EZ/commit/4fab99dde3e2c2254fea11411f76e08fdb2a6a1f)), closes [#196](https://github.com/SchoolyB/EZ/issues/196)
+
+## [0.2.1](https://github.com/SchoolyB/EZ/compare/v0.2.0...v0.2.1) (2025-12-01)
+
+
+### Bug Fixes
+
+* **stdlib:** strings.join no longer includes quotes around elements ([1e8c55a](https://github.com/SchoolyB/EZ/commit/1e8c55a99d1fbbd61bbaf7b4d2b851f6dc538220))
+* **stdlib:** strings.join no longer includes quotes around elements ([1a4b531](https://github.com/SchoolyB/EZ/commit/1a4b531fb689e04a9767efaba6e6f034010d086f)), closes [#205](https://github.com/SchoolyB/EZ/issues/205)
+
+## [0.2.0](https://github.com/SchoolyB/EZ/compare/v0.1.0...v0.2.0) (2025-12-01)
+
+
+### Features
+
+* add error tests and simplify README ([8fe0851](https://github.com/SchoolyB/EZ/commit/8fe0851f05f5ee967e3b925554312bd6aa9f093b))
+* restructure EZ tests with pass/fail counting ([665588a](https://github.com/SchoolyB/EZ/commit/665588a786cf301de40f13caa95d7988f5968045))
+* restructure EZ tests with pass/fail counting ([34893a0](https://github.com/SchoolyB/EZ/commit/34893a0da8e2b4a21bb6efb6a659e7f418446138))
+
+## 0.1.0 (2025-12-01)
+
+
+### Features
+
+* add [@suppress](https://github.com/suppress)() attribute functionality ([6386409](https://github.com/SchoolyB/EZ/commit/6386409d9d9e009f64218406ce8b2a05a5da368b))
+* add automatic versioning with release-please ([ebc27d7](https://github.com/SchoolyB/EZ/commit/ebc27d78562ac54506885557e309a6e31e96937c))
+* add basic warning system ([990ffe9](https://github.com/SchoolyB/EZ/commit/990ffe9f37035e0dd8fdbf7337205f044093bb61))
+* add installation and distribution system ([230ab5f](https://github.com/SchoolyB/EZ/commit/230ab5f3731524be839c60a4ed41cee8e492fb4c))
+* add installation and distribution system ([9839456](https://github.com/SchoolyB/EZ/commit/983945650c2ec8c7d194d7d2795b860a132bc268))
+* add project-wide build support to ez build ([ccf189e](https://github.com/SchoolyB/EZ/commit/ccf189e9a3ac82c067fb576844ac85d8beffeb98))
+* add support for multi return values/update Parser, AST, Evaluator ([6801f89](https://github.com/SchoolyB/EZ/commit/6801f89a33c34f2ed3f36ece5e0d8de6deaa5d5f))
+* add support for multiple inline imports ([3a040e6](https://github.com/SchoolyB/EZ/commit/3a040e6ee45d8263c265584d0e4ba99aed5e31ab))
+* add support for multiple inline imports ([eb7d411](https://github.com/SchoolyB/EZ/commit/eb7d411c6c048b68df64fd78baea3d61f061ecb7)), closes [#72](https://github.com/SchoolyB/EZ/issues/72)
+* Complete module system implementation ([a9734bb](https://github.com/SchoolyB/EZ/commit/a9734bb7d314e9dfeeb65487b31d7da94de94449))
+* enhance CI with comprehensive tests and REPL validation ([222ff12](https://github.com/SchoolyB/EZ/commit/222ff1259bc6145c473e2eb69cb52585429af5da))
+* enhance CI with comprehensive tests and REPL validation ([bfaf414](https://github.com/SchoolyB/EZ/commit/bfaf414162a5a3aae6814228feeb65bf0bdba772))
+* implement full enum support with attributes ([98c90ce](https://github.com/SchoolyB/EZ/commit/98c90cefff3a80c3499091d8db322b45d1966f38))
+* implement full enum support with attributes ([a8f6e06](https://github.com/SchoolyB/EZ/commit/a8f6e065d9a3d65a2a43042b718bc9f1c57bbd9a)), closes [#9](https://github.com/SchoolyB/EZ/issues/9)
+* implement interactive REPL mode ([fcca9f8](https://github.com/SchoolyB/EZ/commit/fcca9f8a049db91f91dcb2b161979a43ab2f2438))
+* implement interactive REPL mode ([fae00d9](https://github.com/SchoolyB/EZ/commit/fae00d9dcef0f4abb3298eac206d9024593d427e)), closes [#45](https://github.com/SchoolyB/EZ/issues/45)
+* implement type sharing for function parameters ([1991480](https://github.com/SchoolyB/EZ/commit/19914808a5a3dbcba799063b1cdb6b08dd25dd91))
+* implement type sharing for function parameters ([5fc89e5](https://github.com/SchoolyB/EZ/commit/5fc89e5a73b339ee8afdf48325a30a03b4a29e0f)), closes [#10](https://github.com/SchoolyB/EZ/issues/10)
+* improve release artifacts with archives and checksums ([5d217c5](https://github.com/SchoolyB/EZ/commit/5d217c5e388176ff5a167470727c68bdb231acaf))
+* improve release artifacts with archives and checksums ([f51725d](https://github.com/SchoolyB/EZ/commit/f51725dde475760259c284c27d2f16bf9e26c36f))
+* intergrate new error handling system into parser, evaluator, & lexer ([6613db9](https://github.com/SchoolyB/EZ/commit/6613db9cee3d0072565115bc5adf4f4a718522fa))
+
+
+### Bug Fixes
+
+* add error E3007 for missing main() function ([b5f6a90](https://github.com/SchoolyB/EZ/commit/b5f6a90d9f5975db1449d83c331ce11604314a50))
+* add error E3007 for missing main() function ([fb995eb](https://github.com/SchoolyB/EZ/commit/fb995eba05f15261547ea9a8a492f247293ba496))
+* add support for array and string index assignment ([e46004b](https://github.com/SchoolyB/EZ/commit/e46004b624f0fd1bf007add4cb90f8a00cf3ee15))
+* add support for array and string index assignment (issue [#4](https://github.com/SchoolyB/EZ/issues/4), [#12](https://github.com/SchoolyB/EZ/issues/12)) ([f92d63e](https://github.com/SchoolyB/EZ/commit/f92d63e965efd74a033226c16e999b37ee774852))
+* add warning W2003 for missing return statement ([09f73d0](https://github.com/SchoolyB/EZ/commit/09f73d0df3fa0ed0faf4d36c5b15dd6ac8e9472d))
+* add warning W2003 for missing return statement ([0ca1056](https://github.com/SchoolyB/EZ/commit/0ca105620ef8c81a9294509b6829b0a5d83ceca3))
+* allow otherwise/or keywords after return/break/continue in if blocks ([2523722](https://github.com/SchoolyB/EZ/commit/25237225c58040544fff511b208fdc46440cfed0))
+* allow otherwise/or keywords after return/break/continue in if blocks ([0719e54](https://github.com/SchoolyB/EZ/commit/0719e5442ec762ee252192aeb816ef33d5362bc7)), closes [#14](https://github.com/SchoolyB/EZ/issues/14)
+* allow variable shadowing in nested blocks (parser only) ([27babab](https://github.com/SchoolyB/EZ/commit/27babab6c5062eb1c535c9299117d997a5b983ee))
+* allow variable shadowing in nested blocks (parser) ([7f8b40d](https://github.com/SchoolyB/EZ/commit/7f8b40d1627c56df94c747eae06baf0b7f5d39d2))
+* Boolean negation and comparison for stdlib returns ([1f274ff](https://github.com/SchoolyB/EZ/commit/1f274ffb14d40ee92e4b8d4f64dd5a384f8bda32)), closes [#146](https://github.com/SchoolyB/EZ/issues/146)
+* const declarations now support qualified type names (module.Type) ([250c944](https://github.com/SchoolyB/EZ/commit/250c94431ce1fc310d565e6b20cbe67b3ef75340)), closes [#157](https://github.com/SchoolyB/EZ/issues/157)
+* const variable reassignment bug ([44f41d0](https://github.com/SchoolyB/EZ/commit/44f41d046fee129cc2fd353e1955ab020d7f8a66))
+* deduplicate modules in using scope to prevent ambiguity ([34fc8c7](https://github.com/SchoolyB/EZ/commit/34fc8c7aff1ef8dd3ee787b5e2698d357ca78df1))
+* deduplicate modules in using scope to prevent ambiguity ([b48200e](https://github.com/SchoolyB/EZ/commit/b48200ed0b8e52320b09fd0d5791d4526dcb2ef3))
+* directory modules now properly share namespace across files ([ec0d84b](https://github.com/SchoolyB/EZ/commit/ec0d84b2897694490cf9c9f4d21f49c50868f0c6))
+* Display strings with quotes to distinguish from numbers (issue [#99](https://github.com/SchoolyB/EZ/issues/99)) ([6fa2f77](https://github.com/SchoolyB/EZ/commit/6fa2f7704ed98b5d990565c1fb86e943f2ef41d4))
+* duplicate struct member names/add: loop depth tracking ([fbcbb90](https://github.com/SchoolyB/EZ/commit/fbcbb908afa5ff0cc1fdf70fbf75e7f763b55826))
+* enable logical operators (&&, ||, !) in if conditions ([907f2c1](https://github.com/SchoolyB/EZ/commit/907f2c1c3324acc3bce5e346bdb6b603373a40db))
+* enable logical operators (&&, ||, !) in if conditions (issue [#8](https://github.com/SchoolyB/EZ/issues/8), [#17](https://github.com/SchoolyB/EZ/issues/17)) ([ebf46da](https://github.com/SchoolyB/EZ/commit/ebf46da46ca4f1edf6c4077e9ec3a883f70337c6))
+* error bug, module importing error bugs ([e11c8de](https://github.com/SchoolyB/EZ/commit/e11c8deb4bf896f5e116f7025c234c7249329249))
+* extend for_each loop to support string iteration ([89cd5f1](https://github.com/SchoolyB/EZ/commit/89cd5f1015deb8eb12cbfde5b2cfe5fbcb9cc0a7))
+* extend for_each loop to support string iteration ([f8e1ae7](https://github.com/SchoolyB/EZ/commit/f8e1ae76d49afb71194552622a50cdcee3bac732)), closes [#7](https://github.com/SchoolyB/EZ/issues/7)
+* Float values ending in .0 now display decimal point ([5eaa329](https://github.com/SchoolyB/EZ/commit/5eaa329043951382f656087cbac854ea3dd75754))
+* function parameter parsing bug ([dc49ff8](https://github.com/SchoolyB/EZ/commit/dc49ff808264e9e41d31e183c8edc17b4438c49c))
+* implement char comparison operators ([50f1420](https://github.com/SchoolyB/EZ/commit/50f1420b38f6256d1030828d20d692abed601143))
+* implement char comparison operators ([2d68f4e](https://github.com/SchoolyB/EZ/commit/2d68f4e860e31cfffe557c8830850756737217e5))
+* initialize dynamic arrays to empty array instead of NIL ([87a5f3d](https://github.com/SchoolyB/EZ/commit/87a5f3d0c95de0f32b507606e7ee53831fe5fbbb))
+* initialize dynamic arrays to empty array instead of NIL ([68e767f](https://github.com/SchoolyB/EZ/commit/68e767f4f2747a1b35d206c571e07a51e585783b))
+* int() builtin now supports enum value conversion ([857e9dc](https://github.com/SchoolyB/EZ/commit/857e9dc7d0da94251c19792679e5ed8c8d6e4a85)), closes [#154](https://github.com/SchoolyB/EZ/issues/154)
+* invalid import statments not throwing errors ([3f8ea40](https://github.com/SchoolyB/EZ/commit/3f8ea40a04309dd3143e970f40f4c70730eb61d5))
+* len() builtin now supports maps ([8550f56](https://github.com/SchoolyB/EZ/commit/8550f56655a7f8fc88f5219a7ed7ce0a902c3301)), closes [#147](https://github.com/SchoolyB/EZ/issues/147)
+* lexer bug when handling @ in imports and attributes ([75786d6](https://github.com/SchoolyB/EZ/commit/75786d6f6557280d2f20789fb1187a1815bffef2))
+* logic that allowed nested function declarations ([e2a60e9](https://github.com/SchoolyB/EZ/commit/e2a60e9e89b2c3d00a30d2899367efe9c578f60e))
+* make arrays.push() and arrays.pop() modify arrays in-place (issu… ([34f2b35](https://github.com/SchoolyB/EZ/commit/34f2b35f461ac2d55dbbcd351d4f044205329e2a))
+* make arrays.push() and arrays.pop() modify arrays in-place (issue [#1](https://github.com/SchoolyB/EZ/issues/1), [#18](https://github.com/SchoolyB/EZ/issues/18)) ([c751492](https://github.com/SchoolyB/EZ/commit/c7514928a12534e92b290e1343917f2c5a6d76c0))
+* Make range() end value exclusive (issue [#112](https://github.com/SchoolyB/EZ/issues/112)) ([430abd5](https://github.com/SchoolyB/EZ/commit/430abd532cda2bd20da7c452366e367e292138bf))
+* modulo by zero bug/ arg count mismatch bug ([630a716](https://github.com/SchoolyB/EZ/commit/630a7164a736b979d6f8b6254ac2a1d30bc8d962))
+* parser no longer misidentifies uppercase enum members as struct literals ([1a08edf](https://github.com/SchoolyB/EZ/commit/1a08edf284e5abd5d40864043b46a6e6f388912d))
+* parser no longer misidentifies uppercase enum members as struct literals ([fe481c6](https://github.com/SchoolyB/EZ/commit/fe481c6ca9a5ade43b61e53cbc999e8b8d44501a)), closes [#162](https://github.com/SchoolyB/EZ/issues/162)
+* preserve array mutability when passed to functions ([4a71667](https://github.com/SchoolyB/EZ/commit/4a716678a855b8b23a67cc94cde664825af549f3))
+* preserve array mutability when passed to functions ([1ef204f](https://github.com/SchoolyB/EZ/commit/1ef204f5f7d7ce6a6a40a9a73a620cc17f137a3d)), closes [#155](https://github.com/SchoolyB/EZ/issues/155)
+* preserve enum type information with EnumValue wrapper ([a5c9e5f](https://github.com/SchoolyB/EZ/commit/a5c9e5fb97505a5312745afae42ce14b62735cfe))
+* preserve enum type information with EnumValue wrapper ([5b4890b](https://github.com/SchoolyB/EZ/commit/5b4890b996426c9f84bf0ff2f8eda5194a2a658b))
+* Prevent const variable mutation through arrays and index assignment (issue [#98](https://github.com/SchoolyB/EZ/issues/98)) ([9fac9b6](https://github.com/SchoolyB/EZ/commit/9fac9b669fbf59e01d66490ba332ae3a10fb6b35))
+* Prevent using reserved keywords/types as identifiers ([fb88466](https://github.com/SchoolyB/EZ/commit/fb88466ff9ac89e260978eba195f1df57e10652e))
+* provide default values for uninitialized primitive types ([0584478](https://github.com/SchoolyB/EZ/commit/058447852b16b1e1852f139bed36a72f75372380))
+* provide default values for uninitialized primitive types ([550a331](https://github.com/SchoolyB/EZ/commit/550a331e18521171f203035c189a87e7f3e15e43))
+* range() now supports 1, 2, or 3 arguments ([cb27fef](https://github.com/SchoolyB/EZ/commit/cb27fef976ffc3ad88a6025d7bc7dcd7cb7b407d))
+* resolve golangci-lint errors ([8316faf](https://github.com/SchoolyB/EZ/commit/8316faf23a41c7c7d43b8dbeb98f6f64c2c4a9b2))
+* resolve module system bugs for type resolution, arrays, enums, and using directive ([045bfca](https://github.com/SchoolyB/EZ/commit/045bfcadb9ac09876b7d2199811b52428bf48b82))
+* resolve types from modules via using directive ([26801df](https://github.com/SchoolyB/EZ/commit/26801df8cd5d60f027da797708be097820eb178a))
+* resolve types from modules via using directive ([69c433d](https://github.com/SchoolyB/EZ/commit/69c433d43524f75eadcafddf7a9c51cc43c18975)), closes [#153](https://github.com/SchoolyB/EZ/issues/153)
+* Return statements now correctly parse struct/array/map literals ([f91bf8c](https://github.com/SchoolyB/EZ/commit/f91bf8c35336d67904b168ddb060f5b320b43c02)), closes [#142](https://github.com/SchoolyB/EZ/issues/142)
+* struct evaluation bug & updatec core struct logic ([7660298](https://github.com/SchoolyB/EZ/commit/76602980c97ddd1a99d7dd7867714bc01f8df8bc))
+* support array types in function return declarations ([5ef0207](https://github.com/SchoolyB/EZ/commit/5ef0207d327f0a69c9ee71f0c76e0d7db2910ee9))
+* support array types in function return declarations ([3c42e1c](https://github.com/SchoolyB/EZ/commit/3c42e1c71778c0615fc7a8a58638823ae3dadd64))
+* support enum type annotation syntax and prevent nil pointer crash ([66ef481](https://github.com/SchoolyB/EZ/commit/66ef481c7ac325cd2da737b4888edebfe426ad52))
+* support enum type annotation syntax and prevent nil pointer crash ([464ed95](https://github.com/SchoolyB/EZ/commit/464ed956ede4c4cf91ee4d5f7d608fd430548ce4)), closes [#149](https://github.com/SchoolyB/EZ/issues/149)
+* support file-level using directive in type resolution ([843f912](https://github.com/SchoolyB/EZ/commit/843f9127eb9aa067b702acf2aaa8149354981bde))
+* support fixed-size array declarations ([8313847](https://github.com/SchoolyB/EZ/commit/83138475dd85c9e97c1ab2dd7a0f2441128f5d52))
+* support fixed-size array declarations ([92edd88](https://github.com/SchoolyB/EZ/commit/92edd882e7acc66f8ff788217148c6693cb5254e))
+* Support underscore syntax in int() and float() conversions (issue [#103](https://github.com/SchoolyB/EZ/issues/103)) ([58352ce](https://github.com/SchoolyB/EZ/commit/58352cebb38e6053926a5938ce704eddc0909fc5))
+* track imports by alias to support aliased using statements ([421d0d5](https://github.com/SchoolyB/EZ/commit/421d0d515acf0044c35320e4765d1a8974ac0a15))
+* track imports by alias to support aliased using statements ([7396473](https://github.com/SchoolyB/EZ/commit/7396473a98432bfde408c61bd5217c9496ea6cf4))
+* Typed tuple unpacking now parses correctly ([8a5e599](https://github.com/SchoolyB/EZ/commit/8a5e5993e171cdbe1647d8e92c4d4922a58e3724)), closes [#145](https://github.com/SchoolyB/EZ/issues/145)
+* uncaptured return value bug ([4cbc30b](https://github.com/SchoolyB/EZ/commit/4cbc30b9093cad96a34f942c925b7c30d08baa9c))
+* unwrap enum values before comparison operations ([51338dd](https://github.com/SchoolyB/EZ/commit/51338dde2344ef8f19f555557153b3a0b7d077f6))
+* unwrap enum values before comparison operations ([fca6931](https://github.com/SchoolyB/EZ/commit/fca6931c15ae9c066de268f4d1b2d034cdeed9ed)), closes [#163](https://github.com/SchoolyB/EZ/issues/163)
+* use global stdin reader to fix input() buffering issues ([a18aa23](https://github.com/SchoolyB/EZ/commit/a18aa23fff18fda4c00b65d8d16ffd16e3f896cc))
+* use global stdin reader to fix input() buffering issues ([cf20c81](https://github.com/SchoolyB/EZ/commit/cf20c81b02579c6cdc8a654b4487c3adcb78aad8))
+* Validate enum type attributes to only allow primitives (issue [#119](https://github.com/SchoolyB/EZ/issues/119)) ([135058d](https://github.com/SchoolyB/EZ/commit/135058dfcfc1b01a59ff8bf5caef23c0f6254f7a))
+* Validate module import before using statement ([5aabb28](https://github.com/SchoolyB/EZ/commit/5aabb2869270a325632dbadb41ba7b50941277d6))
+* Validate unknown attributes and prevent parser hang ([3a41c6b](https://github.com/SchoolyB/EZ/commit/3a41c6b8e8ced0c802432e372e6b217084803603)), closes [#165](https://github.com/SchoolyB/EZ/issues/165)
+
+
+### Miscellaneous Chores
+
+* prepare initial release ([fefa831](https://github.com/SchoolyB/EZ/commit/fefa831dacb27e7931d6e25b0d38169a9eec861a))

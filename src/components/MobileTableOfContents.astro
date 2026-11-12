@@ -1,0 +1,9 @@
+---
+import Default from '@astrojs/starlight/components/MobileTableOfContents.astro';
+
+// Starlight always lists the page's own title ("Overview") first; without a real heading beneath it
+// the list has nothing to jump to.
+const hasHeadings = Astro.locals.starlightRoute.toc?.items.some((item) => item.slug !== '_top') ?? false;
+---
+
+{hasHeadings && <Default />}
