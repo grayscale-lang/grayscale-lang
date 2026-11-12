@@ -4,7 +4,7 @@ import DownloadCard from '../components/DownloadCard.astro';
 ---
 
 <StarlightPage frontmatter={{ title: 'Downloads', next: { link: '/grayscale-lang/overview/', label: 'Overview' } }} headings={[]}>
-  <p>Download the latest Grayscale compiler for your platform. For now, releases are experimental builds named <code>experimental-YYYYMMDD-build#</code>: the UTC date of the merge into <code>main</code>, then a build number that counts up from 1 within that date.</p>
+  <p>Download the latest Grayscale compiler for your platform.</p>
 
   <h2>macOS</h2>
   <div class="download-grid">
@@ -50,6 +50,12 @@ import DownloadCard from '../components/DownloadCard.astro';
   </div>
 
   <div class="release-info" id="release-info"></div>
+  <p class="release-links">
+    <a href="https://github.com/grayscale-lang/grayscale/releases/latest">See latest release</a>
+  </p>
+  <p class="release-links">
+    <a href="https://github.com/grayscale-lang/grayscale/tags">Download A Different release</a>
+  </p>
 </StarlightPage>
 
 <script>
@@ -80,6 +86,12 @@ import DownloadCard from '../components/DownloadCard.astro';
 
   .release-meta {
     margin-top: 2rem;
+    color: var(--sl-color-gray-3);
+    font-size: 0.9rem;
+  }
+
+  .release-links {
+    margin-top: 0.5rem;
     color: var(--sl-color-gray-3);
     font-size: 0.9rem;
   }

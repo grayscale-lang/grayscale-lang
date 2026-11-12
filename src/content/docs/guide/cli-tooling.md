@@ -137,4 +137,4 @@ gray verify             # compile and run a built-in self-test (not available on
 gray report             # system details to paste into a bug report
 ```
 
-Releases are experimental builds named `experimental-YYYYMMDD-build#`: the UTC date of the merge into `main`, then a build number that counts up from 1 within that date. If you are on 0.14.1 or earlier, `gray update` cannot see experimental builds. Download one from the Releases page and replace your `gray` binary once. After that, `gray update` installs every newer release.
+If you are on 0.14.1 or earlier, `gray update` cannot see experimental builds. Download one from the Releases page and replace your `gray` binary once. After that, `gray update` installs every newer release.
