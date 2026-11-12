@@ -16,6 +16,10 @@ const User struct {
     do can(self User, flag Permissions) -> bool {
         return (self.perms bit_and flag) != 0
     }
+
+    do rename(&self User, name string) {
+        self.name = name
+    }
 }
 
 do main() {
@@ -23,6 +27,8 @@ do main() {
         name: "admin",
         perms: Permissions.READ bit_or Permissions.WRITE
     }
+
+    admin.rename("root")
 
     if admin.can(Permissions.WRITE) {
         println("\${admin.name} has write access")

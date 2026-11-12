@@ -1,11 +1,10 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import DownloadCard from '../components/DownloadCard.astro';
-import CodeBlock from '../components/CodeBlock.astro';
 ---
 
 <StarlightPage frontmatter={{ title: 'Downloads', next: { link: '/grayscale-lang/overview/', label: 'Overview' } }} headings={[]}>
-  <p>Download the latest Grayscale compiler for your platform.</p>
+  <p>Download the latest Grayscale compiler for your platform. For now, releases are experimental builds named <code>experimental-YYYYMMDD-build#</code>: the UTC date of the merge into <code>main</code>, then a build number that counts up from 1 within that date.</p>
 
   <h2>macOS</h2>
   <div class="download-grid">
@@ -46,11 +45,9 @@ import CodeBlock from '../components/CodeBlock.astro';
       arch="x86-64"
       asset="gray-windows-amd64.zip"
       icon="windows"
+      disabled
     />
   </div>
-
-  <h2>Install via Script</h2>
-  <CodeBlock code="curl -fsSL https://raw.githubusercontent.com/grayscale-lang/grayscale/main/install.sh | bash" />
 
   <div class="release-info" id="release-info"></div>
 </StarlightPage>

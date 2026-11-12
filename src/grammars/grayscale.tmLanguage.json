@@ -100,11 +100,11 @@
       "patterns": [
         {
           "name": "keyword.control.gray",
-          "match": "\\b(if|or|otherwise|else|for|for_each|while|as_long_as|loop|when|is|default|break|continue|return|or_return|ensure|in|not_in)\\b"
+          "match": "\\b(if|or|otherwise|else|for|for_each|while|as_long_as|loop|when|is|default|break|continue|return|or_return|or_panic|or_default|ensure|defer|elif|switch|case|in|not_in)\\b"
         },
         {
           "name": "keyword.declaration.gray",
-          "match": "\\b(do|const|mut|struct|enum|import|using|new|private)\\b"
+          "match": "\\b(do|fn|const|mut|struct|enum|alias|distinct|generic|import|use|using|extern|unsafe|new|private)\\b"
         },
         {
           "name": "keyword.operator.bitwise.gray",

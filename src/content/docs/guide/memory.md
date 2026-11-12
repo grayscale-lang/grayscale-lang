@@ -135,7 +135,7 @@ do main() {
 
 ## The unsafe marker
 
-The explicit opt-outs are marked in the source. `raw()`, every function of the `mem` and `threads` modules, and every `extern.` call is a compile error unless it sits inside an `unsafe { ... }` block or an unsafe function.
+The explicit opt-outs are marked in the source. `raw()`, the wrapping arithmetic functions `wrap_add`, `wrap_sub`, `wrap_mult` and `wrap_div`, every function of the `mem` and `threads` modules, and every `extern.` call is a compile error unless it sits inside an `unsafe { ... }` block or an unsafe function.
 
 ```gray
 import @mem

@@ -16,7 +16,7 @@ gray new tool -t cli
 gray new api -t server -s minimal
 ```
 
-`-s minimal` or `-s normal` applies to the `server` and `client` templates. With no arguments, `gray new` asks for the name and template interactively.
+`-s minimal` or `-s normal` applies to the `server` and `client` templates. `-c` adds helpful syntax comments to the generated files, and `-f` overwrites an existing directory. With no arguments, `gray new` asks for the name and template interactively.
 
 ## Run, build, check
 
@@ -26,10 +26,11 @@ gray main.gray -- --port 8080  # arguments after -- go to your program
 gray build main.gray -o myapp  # native binary
 gray build main.gray --emit-c  # write main.c and stop
 gray check main.gray           # type check only
+gray check ./...               # type check every directory under here
 gray watch main.gray           # re-run whenever a file changes
 ```
 
-`gray watch` also watches the files your program imports.
+`gray watch` also watches the files your program imports. It accepts a directory too, which must hold exactly one file with a `main` function. `gray check` accepts a file, a directory, or `dir/...` for every directory under it, each checked as its own module.
 
 These flags work on `gray <file>`, `build`, `check` and `watch`:
 
@@ -38,15 +39,18 @@ These flags work on `gray <file>`, `build`, `check` and `watch`:
 | `-q, --quiet <codes>` | Hide warnings: `all`, or a list like `W1001,W1003` |
 | `--no-color` | Plain diagnostics |
 | `--arena-limit=<size>` | Cap arena memory, for example `256MB`. The default is `1GB` |
+| `-define:NAME=VALUE` | Override a `#define` constant at build time |
+| `--cc <compiler>` | C compiler to use, a name on `PATH` or a path. Overrides `GRAY_CC` and `CC` |
 
 `gray build --time` prints how long compilation took.
 
 ## Choosing the C compiler
 
-Grayscale generates C and hands it to the first of `$GRAY_CC`, `$CC`, `cc`, `gcc` or `clang` it finds. TinyCC (`tcc`) compiles faster, which suits a tight edit-run loop.
+Grayscale generates C and hands it to the first of these it finds: `--cc`, then `$GRAY_CC`, then `$CC`, then `cc`, `gcc` or `clang` on `PATH`. TinyCC (`tcc`) compiles faster, which suits a tight edit-run loop.
 
 ```bash
 GRAY_CC=tcc gray main.gray
+gray main.gray --cc clang
 ```
 
 ## Tests
@@ -73,8 +77,11 @@ do main() {
 ```bash
 gray test                # every #test under the current directory
 gray test math.gray      # one file
+gray test ./src          # the files directly inside a directory
 gray test ./src/...      # a directory, recursively
 ```
+
+A failed `assert` or any panic inside a test is reported as a failure and the runner continues with the remaining tests. `gray test` exits non-zero if any test fails or any file fails to compile.
 
 ## Formatting
 
@@ -125,7 +132,9 @@ Supported targets are `linux-amd64`, `linux-arm64`, `windows-amd64`, `mac-arm64`
 gray version            # installed version and whether an update exists
 gray update             # upgrade to the latest release
 gray update --pre       # latest pre-release instead
-gray install 3.0.0      # install an exact version
-gray verify             # compile and run a built-in self-test
+gray install v0.11.5    # install an exact version
+gray verify             # compile and run a built-in self-test (not available on Windows)
 gray report             # system details to paste into a bug report
 ```
+
+Releases are experimental builds named `experimental-YYYYMMDD-build#`: the UTC date of the merge into `main`, then a build number that counts up from 1 within that date. If you are on 0.14.1 or earlier, `gray update` cannot see experimental builds. Download one from the Releases page and replace your `gray` binary once. After that, `gray update` installs every newer release.

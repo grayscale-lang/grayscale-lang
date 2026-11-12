@@ -26,7 +26,7 @@ Relative paths resolve from the directory of the importing file, not from the en
 
 ## Importing a directory
 
-Importing a directory merges every `.gray` file directly inside it into one module named after the directory. Subdirectories are separate modules.
+Importing a directory merges every `.gray` file directly inside it into one module named after the directory. Subdirectories are separate modules. Two files in the directory that declare the same name are a collision error, and importing a file that a directory import already includes warns `W2015`.
 
 ```gray title="main.gray"
 import "./models"
@@ -51,7 +51,7 @@ do describe(user User) -> string {
 
 ## Several imports and aliases
 
-Separate imports with commas. Only local imports can be aliased, which is how you resolve a name collision or import a file whose name is not a valid identifier.
+Separate imports with commas. Only local imports can be aliased, which is how you resolve a name collision or import a file whose name is not a valid identifier. The name an import binds belongs to the file that writes it, so two files can use the same name for different modules. Two imports in one file that resolve to the same module name, including a local `strings` next to `@strings`, are an error until you alias one.
 
 ```gray title="main.gray"
 import @math, greeter "./my-greeter"

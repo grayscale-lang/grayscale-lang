@@ -89,7 +89,7 @@ do main() {
 
 ## Matching values with `when`
 
-`when` compares one value against several `is` branches. `default` catches the rest.
+`when` compares one value against several `is` branches. `default` catches the rest. A value matched by more than one branch, including through overlapping `range(...)` patterns, is error E2043.
 
 ```gray
 do describe(n i64) -> string {

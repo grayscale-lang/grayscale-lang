@@ -127,7 +127,7 @@ do main() {
 
 ## Cleaning up with `ensure`
 
-`ensure` runs a call when the function exits, on every path. `defer` is another spelling of the same keyword; use one or the other within a file.
+`ensure` runs a call when the function exits, on every path. `defer` is another spelling of the same keyword; use one or the other within a file. A runtime panic, including a failed `assert`, does not run pending `defer`/`ensure` calls. A test that fails by `assert` or panic is abandoned at that point, and its pending `defer`/`ensure` calls do not run.
 
 ```gray
 do cleanup() {

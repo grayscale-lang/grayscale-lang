@@ -25,7 +25,7 @@ do main() {
 
 | Attribute | Applies to | Effect |
 |-----------|------------|--------|
-| `#doc("...")` | functions, structs, enums | Documentation for `gray doc` |
+| `#doc("...")` | functions, structs, enums, file-scope variables | Documentation for `gray doc` |
 | `#json` | structs | Enables JSON encoding and decoding |
 | `#flags` | enums | Each variant is one bit |
 | `#error_code` | enums | Adds variants to `ErrorCode` |
@@ -33,6 +33,7 @@ do main() {
 | `#discard` | functions | Callers may ignore the return value |
 | `#deprecated("...")` | functions, structs, enums | Warns at every use |
 | `#test` | functions | Run by `gray test` |
+| `#define` | top-level `const` of a primitive type | Lets `-define:NAME=VALUE` override the value at build time |
 
 `#discard` marks a function whose result is safe to ignore.
 
